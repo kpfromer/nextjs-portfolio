@@ -1,3 +1,9 @@
+const googleAnalyticsOptions = !!process.env.GOOGLE_ANALYTICS
+  ? {
+      trackingId: process.env.GOOGLE_ANALYTICS
+    }
+  : {};
+
 module.exports = {
   siteMetadata: {
     firstName: 'Kyle',
@@ -30,6 +36,10 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: googleAnalyticsOptions
     }
   ]
 };
