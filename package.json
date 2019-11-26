@@ -11,20 +11,25 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "precommit": "lint-staged",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "gatsby": "^2.18.3",
+    "gatsby-background-image": "^0.9.7",
+    "gatsby-image": "^2.2.33",
     "gatsby-plugin-emotion": "^4.1.15",
+    "gatsby-plugin-sharp": "^2.3.3",
     "gatsby-plugin-typography": "^2.3.17",
     "gatsby-source-filesystem": "^2.1.38",
     "gatsby-transformer-remark": "^2.6.37",
+    "gatsby-transformer-sharp": "^2.3.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
-    "typography-theme-kirkham": "^0.16.19"
+    "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
     "eslint": "^6.7.1",
