@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
 import { rhythm } from '../utils/typography';
@@ -42,7 +42,7 @@ export default () => {
       }
     `
   );
-  console.log(data);
+
   return (
     <BackgroundImage
       css={css`
