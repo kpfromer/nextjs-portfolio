@@ -1,18 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
 import About from '../components/About';
 import Landing from '../components/Landing';
 import Skills from '../components/Skills';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 export default ({ data }) => (
   <div>
-    <Helmet>
-      <html lang="en" />
-      <meta charSet="utf-8" />
-      <title>Kyle Pfromer</title>
-    </Helmet>
+    <SEO />
     <div>
       <Landing />
       <About />
