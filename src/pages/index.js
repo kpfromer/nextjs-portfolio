@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import About from '../components/About';
 import Landing from '../components/Landing';
 import Skills from '../components/Skills';
@@ -7,7 +8,11 @@ import Footer from '../components/Footer';
 
 export default ({ data }) => (
   <div>
-    {/* <Sidenav /> */}
+    <Helmet>
+      <html lang="en" />
+      <meta charSet="utf-8" />
+      <title>Kyle Pfromer</title>
+    </Helmet>
     <div>
       <Landing />
       <About />
