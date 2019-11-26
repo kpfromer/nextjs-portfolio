@@ -5,6 +5,7 @@ install:
   - npm ci
 script:
   - npm run build
+  - mv public/index.html public/200.html
 deploy:
   provider: surge
   skip_cleanup: true
