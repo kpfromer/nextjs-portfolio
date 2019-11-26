@@ -4,6 +4,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
 import { rhythm } from '../utils/typography';
+import { IconContext } from 'react-icons';
+import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
 
 const noSpacing = css`
   margin: 0;
@@ -121,6 +123,41 @@ export default () => {
           >
             Software Engineer
           </span>
+          <IconContext.Provider value={{ color: '#fff', size: rhythm(1.75) }}>
+            <div
+              css={css`
+                display: flex;
+              `}
+            >
+              <div
+                css={css`
+                  margin: 0 auto;
+                `}
+              >
+                <a
+                  href="https://github.com/kpfromer"
+                  target="_blank"
+                  css={css`
+                    margin-right: 15px;
+                  `}
+                >
+                  <FaGithub />
+                </a>
+                <a href="https://www.linkedin.com/in/kyle-pfromer/" target="_blank">
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://stackoverflow.com/users/3448490/kyle-pfromer"
+                  target="_blank"
+                  css={css`
+                    margin-left: 15px;
+                  `}
+                >
+                  <FaStackOverflow />
+                </a>
+              </div>
+            </div>
+          </IconContext.Provider>
         </p>
       </div>
       {/* TODO: extract line */}

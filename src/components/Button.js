@@ -17,6 +17,7 @@ export default ({ to, children }) => {
   return (
     <a
       href={to}
+      target="_blank"
       css={css`
         background-color: ${data.site.siteMetadata.theme.primary};
         color: #fff;
