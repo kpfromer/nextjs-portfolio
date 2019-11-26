@@ -26,7 +26,7 @@ export default () => {
           }
         }
 
-        fileName: file(relativePath: { eq: "images/main.jpg" }) {
+        fileName: file(relativePath: { eq: "main.jpg" }) {
           childImageSharp {
             fixed(width: 200, height: 200) {
               ...GatsbyImageSharpFixed
@@ -34,7 +34,7 @@ export default () => {
           }
         }
 
-        background: file(relativePath: { eq: "images/2019-07-27-Collegiate-West.jpeg" }) {
+        background: file(relativePath: { eq: "2019-07-27-Collegiate-West.jpeg" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp

@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export default ({ to, children }) => {
   const data = useStaticQuery(graphql`

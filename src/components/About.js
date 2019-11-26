@@ -48,7 +48,7 @@ export default () => {
           }
         }
 
-        fileName: file(relativePath: { eq: "images/kyle-pfromer.jpg" }) {
+        fileName: file(relativePath: { eq: "kyle-pfromer.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 500) {
               ...GatsbyImageSharpFluid

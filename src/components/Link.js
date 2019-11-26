@@ -19,16 +19,16 @@ export default ({ css: userCss, to, outside = false, children, ...rest }) => {
   const options = {
     ...rest,
     css: css`
-    ${userCss}
-    color: ${data.site.siteMetadata.theme.primary};
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-    &:visited {
-      color: inital;
-    }
-  `
+      color: ${data.site.siteMetadata.theme.primary};
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:visited {
+        color: inital;
+      }
+      ${userCss}
+    `
   };
   if (outside) {
     return (
