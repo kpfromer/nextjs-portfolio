@@ -56,14 +56,16 @@ export default ({ title, subtitle }) => {
         >
           {title}
         </h3>
-        <span
-          css={css`
-            font-size: 16px;
-            padding-left: 25px;
-          `}
-        >
-          {subtitle}
-        </span>
+        {!!subtitle && (
+          <span
+            css={css`
+              font-size: 16px;
+              padding-left: 25px;
+            `}
+          >
+            {subtitle}
+          </span>
+        )}
       </div>
     </div>
   );
