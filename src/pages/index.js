@@ -5,6 +5,7 @@ import Landing from '../components/Landing';
 import Skills from '../components/Skills';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import Contact from '../components/Contact';
 
 export default ({ data }) => (
   <div>
@@ -13,6 +14,7 @@ export default ({ data }) => (
       <Landing />
       <About />
       <Skills />
+      <Contact />
     </div>
     <Footer />
   </div>
