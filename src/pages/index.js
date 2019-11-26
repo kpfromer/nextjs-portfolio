@@ -1,6 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/core';
-import Sidenav from '../components/Sidenav';
 import About from '../components/About';
 import Landing from '../components/Landing';
 import Skills from '../components/Skills';
