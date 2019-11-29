@@ -19,6 +19,7 @@ module.exports = {
     // }
   },
   plugins: [
+    // Source
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -33,6 +34,7 @@ module.exports = {
         name: `assets`
       }
     },
+    // Images/Blog
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -55,20 +57,35 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-sharp`,
     `gatsby-remark-reading-time`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    // Misc
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`
       }
     },
+
+    // SEO
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: googleAnalyticsOptions
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/admin`, `/tags/links`]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
     }
   ]
 };
