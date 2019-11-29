@@ -1,9 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import Title from '../components/Title';
-import Section from '../components/Section';
-import { rhythm } from '../utils/typography';
-import breakpoints from '../utils/breakpoints';
+import Title from '../Title';
+import Section from '../Section';
+import { rhythm } from '../../utils/typography';
+import breakpoints from '../../utils/breakpoints';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const labelStyle = css`

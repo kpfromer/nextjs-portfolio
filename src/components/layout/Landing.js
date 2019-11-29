@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
-import { rhythm } from '../utils/typography';
+import { rhythm } from '../../utils/typography';
 import { IconContext } from 'react-icons';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
 

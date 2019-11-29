@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import Link from '../components/Link';
-import Title from './Title';
-import Section from './Section';
+import Link from '../Link';
+import Title from '../Title';
+import Section from '../Section';
 
 export default () => (
   <Section

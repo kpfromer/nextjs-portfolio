@@ -1,11 +1,11 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
-import Title from './Title';
-import { rhythm } from '../utils/typography';
-import breakpoints from '../utils/breakpoints';
-import Button from './Button';
-import Section from './Section';
+import Title from '../Title';
+import { rhythm } from '../../utils/typography';
+import breakpoints from '../../utils/breakpoints';
+import Button from '../Button';
+import Section from '../Section';
 import Img from 'gatsby-image';
 
 const item = css`

@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import About from '../components/About';
-import Landing from '../components/Landing';
-import Skills from '../components/Skills';
+import About from '../components/layout/About';
+import Landing from '../components/layout/Landing';
+import Skills from '../components/layout/Skills';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import Contact from '../components/Contact';
+import Contact from '../components/layout/Contact';
 
 export default ({ data }) => (
   <div>
