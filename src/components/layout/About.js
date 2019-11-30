@@ -42,6 +42,10 @@ export default () => {
       query {
         site {
           siteMetadata {
+            author {
+              firstName
+              lastName
+            }
             theme {
               primary
             }
@@ -58,6 +62,8 @@ export default () => {
       }
     `
   );
+
+  const { theme, author } = data.site.siteMetadata;
 
   const details = {
     birthday: '11.29.2000',
@@ -94,7 +100,9 @@ export default () => {
           />
         </div>
         <div css={right}>
-          <h3>I'm Kyle Pfromer and I'm a Creative Thinker</h3>
+          <h3>
+            I'm {author.firstName} {author.lastName} and I'm a Creative Thinker
+          </h3>
           <p>
             Hi! My name is{' '}
             <span
@@ -102,7 +110,7 @@ export default () => {
                 color: ${data.site.siteMetadata.theme.primary};
               `}
             >
-              Kyle Pfromer
+              {author.firstName} {author.lastName}
             </span>
             . I am a Web Developer, and I'm very passionate and dedicated to my work. I started programming in middle
             school and have been trying to learn as much as about software development as I can. I have gained loads of

@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import About from '../components/layout/About';
 import Landing from '../components/layout/Landing';
 import Skills from '../components/layout/Skills';
@@ -7,9 +6,9 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import Contact from '../components/layout/Contact';
 
-export default ({ data }) => (
+export default () => (
   <div>
-    <SEO />
+    <SEO title="Main" />
     <div>
       <Landing />
       <About />
@@ -19,14 +18,3 @@ export default ({ data }) => (
     <Footer />
   </div>
 );
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        firstName
-        lastName
-      }
-    }
-  }
-`;

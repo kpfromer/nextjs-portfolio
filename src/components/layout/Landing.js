@@ -18,8 +18,15 @@ export default () => {
       query {
         site {
           siteMetadata {
-            firstName
-            lastName
+            author {
+              firstName
+              lastName
+            }
+            socialLinks {
+              linkedin
+              stackOverflow
+              github
+            }
             theme {
               primary
             }
@@ -44,6 +51,8 @@ export default () => {
       }
     `
   );
+
+  const { author, theme, socialLinks } = data.site.siteMetadata;
 
   return (
     <BackgroundImage
@@ -98,14 +107,14 @@ export default () => {
             color: #fff;
           `}
         >
-          {data.site.siteMetadata.firstName}{' '}
+          {author.firstName}{' '}
           <span
             css={css`
               font-weight: 500;
-              color: ${data.site.siteMetadata.theme.primary};
+              color: ${theme.primary};
             `}
           >
-            {data.site.siteMetadata.lastName}
+            {author.lastName}
           </span>
         </h3>
         <p
@@ -135,7 +144,7 @@ export default () => {
                 `}
               >
                 <a
-                  href="https://github.com/kpfromer"
+                  href={socialLinks.github}
                   target="_blank"
                   css={css`
                     margin-right: 15px;
@@ -143,11 +152,11 @@ export default () => {
                 >
                   <FaGithub />
                 </a>
-                <a href="https://www.linkedin.com/in/kyle-pfromer/" target="_blank">
+                <a href={socialLinks.linkedin} target="_blank">
                   <FaLinkedin />
                 </a>
                 <a
-                  href="https://stackoverflow.com/users/3448490/kyle-pfromer"
+                  href={socialLinks.stackOverflow}
                   target="_blank"
                   css={css`
                     margin-left: 15px;
@@ -160,7 +169,6 @@ export default () => {
           </IconContext.Provider>
         </p>
       </div>
-      {/* TODO: extract line */}
     </BackgroundImage>
   );
 };
