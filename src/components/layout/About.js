@@ -69,8 +69,8 @@ export default () => {
     birthday: '11.29.2000',
     city: 'Boulder, CO, USA',
     study: 'University of Colorado, Boulder',
-    mail: 'kyle@kylepfromer.com',
-    age: '18',
+    mail: 'kyle@kylepfromer.com', // TODO: malito
+    age: '19',
     interests: 'Hiking, Biking, Snowboarding',
     degree: 'Bachelor',
     website: 'kylepfromer.com'
@@ -107,7 +107,7 @@ export default () => {
             Hi! My name is{' '}
             <span
               css={css`
-                color: ${data.site.siteMetadata.theme.primary};
+                color: ${theme.primary};
               `}
             >
               {author.firstName} {author.lastName}
@@ -132,8 +132,15 @@ export default () => {
                   width: 50%;
                 `}
               >
-                <span css={css``}>
-                  <label css={css``}>{capitalizeFirstLetter(key)}:</label> {value}
+                <span>
+                  <label
+                    css={css`
+                      font-weight: 700;
+                    `}
+                  >
+                    {capitalizeFirstLetter(key)}:
+                  </label>{' '}
+                  {value}
                 </span>
               </li>
             ))}
