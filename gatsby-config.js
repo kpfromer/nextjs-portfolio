@@ -6,17 +6,25 @@ const googleAnalyticsOptions = !!process.env.GOOGLE_ANALYTICS
 
 module.exports = {
   siteMetadata: {
-    firstName: 'Kyle',
-    lastName: 'Pfromer',
+    author: {
+      // TODO: cleanup?
+      fullName: 'Kyle Pfromer',
+      firstName: 'Kyle',
+      lastName: 'Pfromer'
+    },
+    description: "Kyle Pfromer's Portfolio and Blog.",
+    title: 'Kyle Pfromer',
+    siteUrl: 'http://kylepfromer.com',
+    socialLinks: {
+      stackOverflow: 'https://stackoverflow.com/users/3448490/kyle-pfromer',
+      linkedin: 'https://www.linkedin.com/in/kyle-pfromer/',
+      github: 'https://github.com/kpfromer',
+      email: 'kpfromer2@gmail.com'
+    },
     theme: {
       primary: '#e3872d',
       secondary: '#041230'
     }
-    // social: { TODO:
-    //   linkedin
-    //   github
-    //   stackoverflow
-    // }
   },
   plugins: [
     // Source
