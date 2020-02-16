@@ -2,9 +2,9 @@ language: node_js
 node_js:
   - 'stable'
 install:
-  - npm ci
+  - yarn install
 script:
-  - npm run build
+  - yarn build
   - mv public/index.html public/200.html
 deploy:
   provider: surge
