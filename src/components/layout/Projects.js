@@ -62,10 +62,10 @@ export default () => {
           github="https://github.com/kpfromer/nestjs-typegoose"
         />
         <Project
-          title="csv-tasks"
+          title="csvtasks"
           description="A tool that syncs spreedsheet data with google tasks."
           src={data.csvTasks.childImageSharp.fluid}
-          github="https://github.com/kpfromer/csv-tasks"
+          github="https://github.com/kpfromer/csvtasks"
         />
         <Project
           title="Silent Auction"
