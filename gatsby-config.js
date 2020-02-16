@@ -69,6 +69,7 @@ module.exports = {
     `gatsby-remark-reading-time`,
     `gatsby-transformer-sharp`,
     // Misc
+    `gatsby-plugin-preact`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
