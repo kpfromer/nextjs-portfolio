@@ -5,6 +5,8 @@ import Layout from '../components/BlogLayout';
 import Link from '../components/Link';
 import { scale, rhythm } from '../utils/typography';
 
+import 'katex/dist/katex.min.css';
+
 export default ({ data, location, pageContext }) => {
   const post = data.markdownRemark;
   console.log(pageContext);
