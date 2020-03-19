@@ -12,7 +12,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "precommit": "lint-staged",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "commit": "git cz"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
@@ -48,6 +49,10 @@
     "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.7.1",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
@@ -61,9 +66,15 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit"
+      "pre-commit": "npm run precommit",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
