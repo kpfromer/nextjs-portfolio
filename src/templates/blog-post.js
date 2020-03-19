@@ -47,6 +47,11 @@ export default ({ data, location, pageContext }) => {
                 color: inital;
               }
             }
+            blockquote {
+              background-color: #ebedf0;
+              border-radius: 0.4rem;
+              padding: 1rem;
+            }
           `}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
