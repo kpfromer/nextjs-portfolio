@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { css } from '@emotion/core';
 import SEO from '../components/SEO';
 import Layout from '../components/BlogLayout';
 import Link from '../components/Link';
@@ -34,7 +35,21 @@ export default ({ data, location, pageContext }) => {
             {post.frontmatter.date} • {post.fields.readingTime.text}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section
+          css={css`
+            a {
+              color: ${data.site.siteMetadata.theme.primary};
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+              &:visited {
+                color: inital;
+              }
+            }
+          `}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <nav>
           <ul
             style={{
@@ -68,11 +83,13 @@ export default ({ data, location, pageContext }) => {
 
 export const query = graphql`
   query BlogPostBySlug($slug: String!) {
-    # site {
-    #   siteMetadata {
-    #     title
-    #   }
-    # }
+    site {
+      siteMetadata {
+        theme {
+          primary
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
