@@ -3,6 +3,7 @@ import Link from './Link';
 import { css } from '@emotion/core';
 import { rhythm, scale } from '../utils/typography';
 import breakpoints from '../utils/breakpoints';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const menuPadding = css`
   text-align: center;
@@ -35,9 +36,19 @@ const socialLink = css`
 `;
 
 export default ({ location, title = "Kyle Pfromer's Blog", children }) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          theme {
+            primary
+          }
+        }
+      }
+    }
+  `);
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
-
   if (location.pathname === rootPath) {
     header = (
       <h1
@@ -90,6 +101,18 @@ export default ({ location, title = "Kyle Pfromer's Blog", children }) => {
         maxWidth: rhythm(24),
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`
       }}
+      css={css`
+        a {
+          color: ${data.site.siteMetadata.theme.primary};
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+          &:visited {
+            color: inital;
+          }
+        }
+      `}
     >
       <header
         css={css`

@@ -35,7 +35,6 @@ export default ({ data, location, pageContext }) => {
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-
         <nav>
           <ul
             style={{
