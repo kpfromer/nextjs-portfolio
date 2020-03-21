@@ -4,7 +4,7 @@ import { rhythm } from '../utils/typography';
 import { useStaticQuery, graphql } from 'gatsby';
 import breakpoints from '../utils/breakpoints';
 
-export default ({ title, subtitle }) => {
+export default ({ title, subtitle, slug }) => {
   const data = useStaticQuery(
     graphql`
       {
@@ -18,6 +18,7 @@ export default ({ title, subtitle }) => {
       }
     `
   );
+  const hook = !!slug ? { id: slug } : {};
   return (
     <div
       css={css`
@@ -53,6 +54,7 @@ export default ({ title, subtitle }) => {
             line-height: 1;
             margin: 0;
           `}
+          {...hook}
         >
           {title}
         </h3>
