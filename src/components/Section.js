@@ -15,10 +15,10 @@ export default ({ children, css: userCss, ...rest }) => (
       css={css`
         margin: auto;
         ${breakpoints.large} {
-          width: 95%;
+          width: 80%;
         }
         ${breakpoints.reallylarge} {
-          width: 60%;
+          max-width: 1000px;
         }
       `}
     >
