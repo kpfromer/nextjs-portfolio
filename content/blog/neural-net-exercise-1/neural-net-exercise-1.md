@@ -1,6 +1,9 @@
 ---
 title: 'Neural Net Problems - Exercise 1'
 date: '2020-03-19'
+thumbnail: './sigmoid-neuron.png'
+category: 'tech'
+tags: ['neural-net', 'machine-learning']
 ---
 
 I just recently have started reading [Michael Nielson's "Neural Networks and Deep Learning"](http://neuralnetworksanddeeplearning.com/). I have heard really good things about the website and Nielson's teaching style. Here are my solutions to [exercise 1](http://neuralnetworksanddeeplearning.com/chap1.html#exercises_191892).

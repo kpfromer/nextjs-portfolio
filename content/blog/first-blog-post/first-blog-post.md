@@ -1,6 +1,8 @@
 ---
 title: 'First Blog Post'
 date: '2019-11-26'
+thumbnail: './laptop-code.jpg'
+category: 'general'
 ---
 
 This is my first blog post. I am excited to see where this road leads. I will be jotting down my thoughts about tech, hiking, biking, and college.
