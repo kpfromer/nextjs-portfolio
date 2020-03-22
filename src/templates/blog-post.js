@@ -4,6 +4,7 @@ import Link from '../components/Link';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
+import SEO from '../components/SEO';
 import Section from '../components/Section';
 
 import 'katex/dist/katex.min.css';
@@ -140,49 +141,51 @@ export default ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const { previous, next } = pageContext;
   return (
-    <Section>
-      <Container>
-        <Link
-          to="/#blog-posts"
-          rel="back"
-          css={css`
-            display: block;
-            margin-bottom: 20px;
-          `}
-        >
-          ← Go Back
-        </Link>
+    <>
+      <SEO title={post.frontmatter.title} />
+      <Section>
+        <Container>
+          <Link
+            to="/#blog-posts"
+            rel="back"
+            css={css`
+              display: block;
+              margin-bottom: 20px;
+            `}
+          >
+            ← Go Back
+          </Link>
 
-        <Img
-          //todo: ratio maintain
-          css={css`
-            object-fit: cover;
-            max-height: 50vh;
-            margin-bottom: 42px; // todo: rythm
-            min-width: 100%;
-          `}
-          fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
-        />
-        <div>
-          <Details>
-            <p>
-              {/* TODO: add category page */}
-              {post.frontmatter.date} • {post.fields.readingTime.text} • IN {post.frontmatter.category}
-            </p>
-          </Details>
-          <Title>{post.frontmatter.title}</Title>
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
-        <Body
-          css={css`
-            a {
-              color: ${data.site.siteMetadata.theme.primary};
-            }
-          `}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        {/* TODO: add tag page */}
-        {/* {!!post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+          <Img
+            //todo: ratio maintain
+            css={css`
+              object-fit: cover;
+              max-height: 50vh;
+              margin-bottom: 42px; // todo: rythm
+              min-width: 100%;
+            `}
+            fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+          />
+          <div>
+            <Details>
+              <p>
+                {/* TODO: add category page */}
+                {post.frontmatter.date} • {post.fields.readingTime.text} • IN {post.frontmatter.category}
+              </p>
+            </Details>
+            <Title>{post.frontmatter.title}</Title>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
+          <Body
+            css={css`
+              a {
+                color: ${data.site.siteMetadata.theme.primary};
+              }
+            `}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          {/* TODO: add tag page */}
+          {/* {!!post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
           <Tags>
             <span>Tags:</span>
             <ul>
@@ -213,34 +216,35 @@ export default ({ data, pageContext }) => {
             </ul>
           </Tags>
         )} */}
-      </Container>
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </Section>
+        </Container>
+        <nav>
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </Section>
+    </>
   );
 };
 
