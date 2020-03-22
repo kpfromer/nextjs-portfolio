@@ -4,7 +4,7 @@ import { rhythm } from '../utils/typography';
 import { useStaticQuery, graphql } from 'gatsby';
 import breakpoints from '../utils/breakpoints';
 
-export default ({ title, subtitle, slug }) => {
+export default ({ children, subtitle, slug }) => {
   const data = useStaticQuery(
     graphql`
       {
@@ -38,8 +38,10 @@ export default ({ title, subtitle, slug }) => {
           &:before {
             position: absolute;
             content: '';
-            width: 6px;
-            height: 100%;
+            width: 120px;
+            height: 6px;
+            left: 0px;
+            bottom: -20px;
             background-color: ${data.site.siteMetadata.theme.primary};
           }
         `}
@@ -50,19 +52,17 @@ export default ({ title, subtitle, slug }) => {
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: -0.5px;
-            padding-left: 25px;
             line-height: 1;
             margin: 0;
           `}
           {...hook}
         >
-          {title}
+          {children}
         </h3>
         {!!subtitle && (
           <span
             css={css`
               font-size: 16px;
-              padding-left: 25px;
             `}
           >
             {subtitle}

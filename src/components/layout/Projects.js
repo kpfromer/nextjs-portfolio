@@ -41,7 +41,7 @@ export default () => {
   `);
   return (
     <Section>
-      <Title title="Projects" />
+      <Title>Projects</Title>
 
       <div
         css={css`

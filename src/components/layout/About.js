@@ -78,7 +78,7 @@ export default () => {
 
   return (
     <Section>
-      <Title title="About" subtitle="Main Info About Me" />
+      <Title>About</Title>
       <div
         css={css`
           display: flex;

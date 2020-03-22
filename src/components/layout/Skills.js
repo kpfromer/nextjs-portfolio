@@ -10,7 +10,7 @@ export default () => (
       background-color: #f6f7fd;
     `}
   >
-    <Title title="Skills" subtitle="Some About my Abilities" />
+    <Title>Skills</Title>
     <p>
       I spend most of my time with React, Mongodb, Angular, Nodejs, and Java and have over three years of experience
       with JavaScript. Over the past summer (2019) I have learned C++ to build an{' '}

@@ -38,7 +38,7 @@ export default () => {
   `);
   return (
     <Section>
-      <Title title="Contact" />
+      <Title>Contact</Title>
       <form action="https://formspree.io/mdokobow" method="POST">
         <label css={labelStyle}>Your email:</label>
         <input

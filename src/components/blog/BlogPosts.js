@@ -69,7 +69,7 @@ export default () => {
         background-color: #f6f7fd;
       `}
     >
-      <Title title="Blog Posts" slug="blog-posts" />
+      <Title slug="blog-posts">Blog Posts</Title>
       <Posts>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Post>
