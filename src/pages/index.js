@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import Contact from '../components/layout/Contact';
 import Projects from '../components/layout/Projects';
+import BlogPosts from '../components/blog/BlogPosts';
 
 export default () => (
   <div>
@@ -15,6 +16,7 @@ export default () => (
       <About />
       <Skills />
       <Projects />
+      <BlogPosts />
       <Contact />
     </div>
     <Footer />

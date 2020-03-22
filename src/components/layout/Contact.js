@@ -37,18 +37,13 @@ export default () => {
     }
   `);
   return (
-    <Section
-      css={css`
-        background-color: #f6f7fd;
-      `}
-    >
+    <Section>
       <Title title="Contact" />
       <form action="https://formspree.io/mdokobow" method="POST">
         <label css={labelStyle}>Your email:</label>
         <input
           css={css`
             ${inputStyle}
-            background-color: #fff;
           `}
           type="email"
           name="_replyto"
@@ -60,7 +55,6 @@ export default () => {
           css={css`
             ${inputStyle}
             height: 150px;
-            background-color: #fff;
           `}
           name="message"
           required
