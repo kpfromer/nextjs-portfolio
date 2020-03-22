@@ -79,7 +79,7 @@ $$
 
 Assume that $x$ is a fixed unknown value where $w \cdot x + b \ne 0$.
 
-The resulting network TODO where $c > 0$
+Then the resulting network will remain unchanged (assuming $c > 0$) as $c \to \infty$.
 
 > By the way $\exp(x) \equiv e^x$
 
