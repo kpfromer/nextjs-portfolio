@@ -14,7 +14,7 @@ module.exports = {
     },
     description: "Kyle Pfromer's Portfolio and Blog.",
     title: 'Kyle Pfromer',
-    siteUrl: 'http://kylepfromer.com',
+    siteUrl: 'https://kylepfromer.com',
     socialLinks: {
       stackOverflow: 'https://stackoverflow.com/users/3448490/kyle-pfromer',
       linkedin: 'https://www.linkedin.com/in/kyle-pfromer/',
