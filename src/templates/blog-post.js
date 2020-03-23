@@ -49,7 +49,6 @@ const Body = styled.div`
       height: 100%;
       left: 0px;
       top: 0px;
-      background-color: #ff5e5f;
     }
   }
 
