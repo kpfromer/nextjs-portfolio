@@ -183,6 +183,11 @@ export default ({ data, pageContext }) => {
               a {
                 color: ${data.site.siteMetadata.theme.primary};
               }
+              blockquote {
+                &:before {
+                  background-color: ${data.site.siteMetadata.theme.primary};
+                }
+              }
             `}
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
