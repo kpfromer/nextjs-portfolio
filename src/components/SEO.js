@@ -21,6 +21,7 @@ function SEO({ description, lang, meta, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const metaImage = !!image ? { name: 'twitter:image', content: image } : {};
 
   return (
     <Helmet
@@ -61,7 +62,8 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription
-        }
+        },
+        metaImage
       ].concat(meta)}
     />
   );

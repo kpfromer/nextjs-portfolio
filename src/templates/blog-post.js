@@ -141,7 +141,10 @@ export default ({ data, pageContext }) => {
   const { previous, next } = pageContext;
   return (
     <>
-      <SEO title={post.frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        image={`${data.site.siteMetadata.siteUrl}${post.frontmatter.thumbnail.childImageSharp.fluid.src}`}
+      />
       <Section>
         <Container>
           <Link
@@ -251,6 +254,7 @@ export const query = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
+        siteUrl
         theme {
           primary
         }
@@ -269,6 +273,7 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
+              src
             }
           }
         }
