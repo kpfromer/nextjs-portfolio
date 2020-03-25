@@ -54,10 +54,10 @@ An extreme version of gradient descent is to use a mini-batch size of just $1$. 
 
 ##### Advantage of Online Learning
 
-The advantage online learning has over stochastic gradient descent is that it will much better at tuning the biases and weights to reduce the cost function for each given training input. It will not be using the estimated gradient, but will be calculating the actual gradient and thus will produce better results. But one must do the cost benefit analysis to see whether online learning, which is much slower but accurate, produces better results faster than stochastic gradient descent, which is fast but less accurate.
+The advantage of online learning has over stochastic gradient descent is that it will be much better at tuning the biases and weights to reduce the cost function for each given training input. It will not be using the estimated gradient but will be calculating the actual gradient and thus will produce better results. But one must do the cost-benefit analysis to see whether online learning, which is much slower but accurate, produces better results faster than stochastic gradient descent, which is fast but less accurate.
 
 ##### Disadvantage of Online Learning
 
-The major disadvantage of online learning is that it is much slower than stochastic gradient descent since you have to train the network over very single training input $x$. So if you have a large dataset, like the MNIST data set with 60,000 images, then online learning will have to calculate the partial derivative for each weight and biases for each image ($\frac{\partial C_x}{\partial w_k}$ and $\frac{\partial C_x}{\partial b_l}$ for a given $x$).
+The major disadvantage of online learning is that it is much slower than stochastic gradient descent since you have to train the network over every single training input $x$. So if you have a large dataset, like the MNIST data set with 60,000 images, then online learning will have to calculate the partial derivative for each weight and biases for each image ($\frac{\partial C_x}{\partial w_k}$ and $\frac{\partial C_x}{\partial b_l}$ for a given $x$).
 
-Stochastic gradient descent will only need to calculate the partial derivatives for a fraction of the data set (in this case $20$ images) and then adjust the weights and biases simultaneously based on that mini batch. This a heck of a lot faster than doing it one by one for 60,000 images!
+Stochastic gradient descent will only need to calculate the partial derivatives for a fraction of the data set (in this case, $20$ images) and then adjust the weights and biases simultaneously based on that mini-batch. This a heck of a lot faster than doing it one by one for 60,000 images!
