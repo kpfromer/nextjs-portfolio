@@ -1,15 +1,14 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { rhythm } from '../utils/typography';
-import breakpoints from '../utils/breakpoints';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
 import Link from './Link';
-import Image from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
+import { ListItem, HeaderImage, Body, Dates, Title, Description } from './layout/list/List';
 
 // TODO: tech used tags
-export default ({ title, description, src, github, reference = false }) => {
+export default ({ title, dates, description, image, github }) => {
   const {
     site: {
       siteMetadata: { theme }
@@ -27,72 +26,32 @@ export default ({ title, description, src, github, reference = false }) => {
     }
   `);
   return (
-    <div
-      css={css`
-        border-radius: 10px;
-        box-shadow: 0.1rem 0.1rem 0.4rem 0.05rem rgba(22, 47, 63, 0.3);
-        overflow: hidden;
-        margin-bottom: 10px;
-
-        ${breakpoints.regular} {
-          margin-bottom: 0;
-          margin: ${rhythm(0.75)};
-          min-width: 200px;
-          max-width: 350px;
-          flex-grow: 1;
-        }
-      `}
-    >
-      {reference ? (
-        <img
-          src={src}
-          css={css`
-            z-index: -1;
-            flex: 1;
-            width: 100%;
-            margin-bottom: 0;
-          `}
-        />
-      ) : (
-        <Image
-          fluid={src}
-          css={css`
-            z-index: -1;
-            flex: 1;
-            width: 100%;
-            margin-bottom: 0;
-          `}
-        />
-      )}
-      <div
+    <ListItem>
+      {!!image && <HeaderImage fluid={image.childImageSharp.fluid} />}
+      <Body
         css={css`
-          padding: ${rhythm(0.5)};
+          padding: 0.75rem;
         `}
       >
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <div
-          css={css`
-            text-align: right;
-          `}
-        >
-          <IconContext.Provider value={{ size: rhythm(1) }}>
-            <Link outside to={github}>
-              <div
-                css={css`
-                  color: black;
-                  transition: color 0.2s ease-in;
-                  &: hover {
-                    color: ${theme.primary};
-                  }
-                `}
-              >
-                <FaGithub />
-              </div>
-            </Link>
-          </IconContext.Provider>
-        </div>
-      </div>
-    </div>
+        <Dates>{dates}</Dates>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <IconContext.Provider value={{ size: rhythm(1) }}>
+          <Link outside to={github}>
+            <div
+              css={css`
+                color: black;
+                transition: color 0.2s ease-in;
+                &: hover {
+                  color: ${theme.primary};
+                }
+              `}
+            >
+              <FaGithub />
+            </div>
+          </Link>
+        </IconContext.Provider>
+      </Body>
+    </ListItem>
   );
 };

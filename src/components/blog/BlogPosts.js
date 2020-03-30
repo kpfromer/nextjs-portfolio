@@ -7,6 +7,7 @@ import Section from '../Section';
 import BlogSummary from './BlogSummary';
 import breakpoints from '../../utils/breakpoints';
 import { rhythm } from '../../utils/typography';
+import { List } from '../layout/list/List';
 
 const Posts = styled.ul`
   margin: 0;
@@ -70,18 +71,16 @@ export default () => {
       `}
     >
       <Title slug="blog-posts">Blog Posts</Title>
-      <Posts>
+      <List>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Post>
-            <BlogSummary
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
-              to={node.fields.slug}
-              image={node.frontmatter.thumbnail}
-            />
-          </Post>
+          <BlogSummary
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            to={node.fields.slug}
+            image={node.frontmatter.thumbnail}
+          />
         ))}
-      </Posts>
+      </List>
     </Section>
   );
 };
