@@ -1,0 +1,76 @@
+---
+title: 'Neural Net Problems - Exercise 4'
+date: '2020-03-26'
+thumbnail: './khan-academy-matrix-product.png'
+category: 'tech'
+tags: ['neural-net', 'machine-learning']
+---
+
+Here are my solutions to [exercise 4](http://neuralnetworksanddeeplearning.com/chap1.html#exercise_717502).
+
+## Implementing Our Network to Classify Digits
+
+### Part 1
+
+#### Question
+
+Write out $a'=\sigma(wa+b)$ in component form, and verify that it gives the same result as the rule, $\frac{1}{1+\exp(- \sum_j w_j x_j - b)}$, for computing the output of a sigmoid neuron.
+
+#### Solution
+
+Let it be stated that I have not yet taken linear algebra at college, so I have very limited experience with it.
+
+Let us say that layer 2 has $2$ nodes and layer 1 has $3$ nodes.
+
+The weights from layer 1 to layer 2 can be expressed as the following ($w_{ji}$, where $j$ is the neuron in the second layer and $i$ is the neuron in the first layer):
+
+$$
+w = \begin{bmatrix}
+    w_{11} & w_{12} & w_{13}\\
+    w_{21} & w_{22} & w_{23}
+\end{bmatrix}
+
+a = \begin{bmatrix}
+    a_1\\
+    a_2\\
+    a_3
+\end{bmatrix}
+
+b = \begin{bmatrix}
+    b_1\\
+    b_2
+\end{bmatrix}
+$$
+
+$$
+wa = \begin{bmatrix}
+    w_{11} a_1 + w_{12} a_2 + w_{13} a_3\\
+    w_{21} a_1 + w_{22} a_2 + w_{23} a_3
+\end{bmatrix}
+$$
+
+$$
+wa + b = \begin{bmatrix}
+    (w_{11} a_1 + w_{12} a_2 + w_{13} a_3) + b_1\\
+    (w_{21} a_1 + w_{22} a_2 + w_{23} a_3) + b_2
+\end{bmatrix}
+$$
+
+$$
+a' = \sigma(wa + b) = \begin{bmatrix}
+    \sigma((w_{11} a_1 + w_{12} a_2 + w_{13} a_3) + b_1)\\
+    \sigma((w_{21} a_1 + w_{22} a_2 + w_{23} a_3) + b_2)
+\end{bmatrix}
+$$
+
+This is exactly the same as $\frac{1}{1+\exp(- \sum_j w_j x_j - b)}$ but computed for both neurons at once with matrices!
+
+Say we wanted to compute the output of the first sigmoid neuron in layer 2.
+
+$$
+a_1' = \sigma(\sum_j w_j a_j + b) = \sigma((w_1 a_1 + w_2 a_2 + w_3 a_3) + b)
+$$
+
+Also, I wanted to note that I found this website called the [ml cheatsheet](https://ml-cheatsheet.readthedocs.io/en/latest/linear_algebra.html) and it has been really useful in describing the mathematic concepts.
+
+The header image was taken from [Khan Academy](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:properties-of-matrix-multiplication/a/properties-of-matrix-multiplication).
