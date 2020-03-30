@@ -49,8 +49,7 @@
     "react-icons": "3.9.0",
     "react-typography": "0.16.19",
     "surge": "0.21.3",
-    "typography": "0.16.19",
-    "typography-theme-fairy-gates": "0.16.19"
+    "typography": "0.16.19"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
