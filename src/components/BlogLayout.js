@@ -22,8 +22,8 @@ export default ({ location, title = "Kyle Pfromer's Blog", children }) => {
     );
   } else {
     header = (
-      <h3
-        css={titleStyle}
+      <Text
+        as="h3"
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0
@@ -39,7 +39,7 @@ export default ({ location, title = "Kyle Pfromer's Blog", children }) => {
         >
           {title}
         </Link>
-      </h3>
+      </Text>
     );
   }
   return (
