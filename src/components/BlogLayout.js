@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from './Link';
-import { Heading, Box, Flex } from 'rebass';
+import { Heading, Box, Flex, Text } from 'rebass';
 
 export default ({ location, title = "Kyle Pfromer's Blog", children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
