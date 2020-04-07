@@ -3,46 +3,18 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import { rhythm } from '../../../utils/typography';
-import breakpoints from '../../../utils/breakpoints';
 import Img from 'gatsby-image';
+import { Box, Flex, Text } from 'rebass';
 
-export const List = styled.ul`
-  margin: 0;
-  list-style-type: none;
-
-  display: flex;
-  flex-direction: column;
-  ${breakpoints.regular} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`;
-
-export const ListItemContainer = styled.li`
-  margin: 0px 0px 50px 0px;
-  margin-bottom: 10px;
-  flex-basis: 100%;
-
-  ${breakpoints.regular} {
-    margin-bottom: 0;
-    margin: ${rhythm(0.75)};
-    width: 33.3333%;
-    flex-grow: 1;
-    max-width: 333px;
-  }
-`;
-
-const Container = styled.div`
-  position: relative;
-  background-color: #fff;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-  }
-`;
+export const List = (props) => (
+  <Flex
+    {...props}
+    justifyContent="center"
+    flexWrap="wrap"
+    flexDirection={['column', 'row']}
+    sx={{ listStyleType: 'none' }}
+  />
+);
 
 export const HeaderImage = ({ to, ...imageProps }) => {
   const image = (
@@ -61,10 +33,17 @@ export const HeaderImage = ({ to, ...imageProps }) => {
   return image;
 };
 
-export const Body = styled.div`
-  text-align: center;
-  padding: 30px 50px 50px 50px;
-`;
+export const Body = (props) => (
+  <Flex
+    {...props}
+    flexDirection="column"
+    p={3}
+    sx={{
+      textAlign: 'center',
+      flexGrow: 1
+    }}
+  />
+);
 
 export const Dates = styled.div`
   position: relative;
@@ -82,33 +61,17 @@ export const Dates = styled.div`
   }
 `;
 
-export const Title = ({ to, children }) => {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          theme {
-            primary
-          }
-        }
-      }
-    }
-  `);
-
+export const Title = ({ to, children, ...props }) => {
   return (
-    <h3
-      css={css`
-        font-size: ${rhythm(0.75)};
-      `}
-    >
+    <Text as="h3" {...props}>
       {!!to ? (
         <Link
-          css={css`
+          css={(theme) => css`
             color: #000;
             text-decoration: none;
             transition: all 0.3s ease;
             &:hover {
-              color: ${data.site.siteMetadata.theme.primary};
+              color: ${theme.colors.primary};
             }
           `}
           to={to}
@@ -118,18 +81,24 @@ export const Title = ({ to, children }) => {
       ) : (
         children
       )}
-    </h3>
+    </Text>
   );
 };
 
-export const Description = styled.p`
-  font-size: ${rhythm(0.6)};
-`;
+export const Description = (props) => <Text {...props} mt={3} />;
 
 export const ListItem = ({ children }) => {
   return (
-    <ListItemContainer>
-      <Container>{children}</Container>
-    </ListItemContainer>
+    <Flex
+      flexDirection="column"
+      mt={[0, 3, 4]}
+      mx={[0, 3, 4]}
+      mb={[3, 0]}
+      width={[1, 1 / 3]}
+      bg="white"
+      sx={{ boxShadow: 'list' }}
+    >
+      {children}
+    </Flex>
   );
 };

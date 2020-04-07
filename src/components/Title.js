@@ -1,39 +1,13 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { rhythm } from '../utils/typography';
-import { useStaticQuery, graphql } from 'gatsby';
-import breakpoints from '../utils/breakpoints';
+import { Box, Heading } from 'rebass';
 
-export default ({ children, subtitle, slug }) => {
-  const data = useStaticQuery(
-    graphql`
-      {
-        site {
-          siteMetadata {
-            theme {
-              primary
-            }
-          }
-        }
-      }
-    `
-  );
+export default ({ children, slug }) => {
   const hook = !!slug ? { id: slug } : {};
   return (
-    <div
-      css={css`
-        width: 100%;
-        padding-bottom: ${rhythm(1)};
-
-        ${breakpoints.regular} {
-          padding-top: ${rhythm(2)};
-          padding-bottom: ${rhythm(2)};
-        }
-      `}
-    >
-      {/* TODO: change fontsize to be dynamic */}
-      <div
-        css={css`
+    <Box pt={[0, 4]} pb={[3, 4]}>
+      <Box
+        css={(theme) => css`
           position: relative;
           &:before {
             position: absolute;
@@ -42,33 +16,21 @@ export default ({ children, subtitle, slug }) => {
             height: 6px;
             left: 0px;
             bottom: -20px;
-            background-color: ${data.site.siteMetadata.theme.primary};
+            background-color: ${theme.colors.primary};
           }
         `}
+        mb={3}
       >
-        <h3
-          css={css`
-            font-size: 50px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            line-height: 1;
-            margin: 0;
-          `}
+        <Heading
+          as="h3"
+          fontSize={6}
+          fontWeight={600}
+          sx={{ textTransform: 'uppercase', letterSpacing: '-.5px' }}
           {...hook}
         >
           {children}
-        </h3>
-        {!!subtitle && (
-          <span
-            css={css`
-              font-size: 16px;
-            `}
-          >
-            {subtitle}
-          </span>
-        )}
-      </div>
-    </div>
+        </Heading>
+      </Box>
+    </Box>
   );
 };

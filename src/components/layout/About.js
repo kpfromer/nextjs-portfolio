@@ -1,36 +1,8 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import Title from '../Title';
-import { rhythm } from '../../utils/typography';
-import breakpoints from '../../utils/breakpoints';
-import Button from '../Button';
 import Section from '../Section';
-import Img from 'gatsby-image';
-
-const item = css`
-  ${breakpoints.regular} {
-    flex-grow: 1;
-    flex-basis: 0;
-  }
-`;
-
-const left = css`
-  ${item}
-  display: flex;
-  ${breakpoints.regular} {
-    padding-right: ${rhythm(0.5)};
-  }
-`;
-
-const right = css`
-  ${item}
-  padding-top: ${rhythm(1)};
-  ${breakpoints.regular} {
-    padding-top: 0;
-    padding-left: ${rhythm(0.5)};
-  }
-`;
+import { Box, Text, Flex, Button } from 'rebass';
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -46,30 +18,19 @@ export default () => {
               firstName
               lastName
             }
-            theme {
-              primary
-            }
-          }
-        }
-
-        fileName: file(relativePath: { eq: "kyle-pfromer.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 500) {
-              ...GatsbyImageSharpFluid
-            }
           }
         }
       }
     `
   );
 
-  const { theme, author } = data.site.siteMetadata;
+  const { author } = data.site.siteMetadata;
 
   const details = {
     birthday: '11.29.2000',
     city: 'Boulder, CO, USA',
     study: 'University of Colorado, Boulder',
-    mail: 'kyle@kylepfromer.com', // TODO: malito
+    mail: 'kpfromer2@gmail.com', // TODO: malito
     age: '19',
     interests: 'Hiking, Biking, Snowboarding',
     degree: 'Bachelor',
@@ -79,78 +40,40 @@ export default () => {
   return (
     <Section>
       <Title>About</Title>
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          ${breakpoints.regular} {
-            flex-direction: row;
-          }
-        `}
-      >
-        <div css={left}>
-          <Img
-            css={css`
-              width: 100%;
-              vertical-align: middle;
-              max-width: 500px;
-              margin: auto;
-            `}
-            fluid={data.fileName.childImageSharp.fluid}
-          />
-        </div>
-        <div css={right}>
-          <h3>
-            I'm {author.firstName} {author.lastName} and I'm a Creative Thinker
-          </h3>
-          <p>
-            Hi! My name is{' '}
-            <span
-              css={css`
-                color: ${theme.primary};
-              `}
-            >
-              {author.firstName} {author.lastName}
-            </span>
-            . I am a Web Developer, and I'm very passionate and dedicated to my work. I started programming in middle
-            school and have been trying to learn as much as about software development as I can. I have gained loads of
-            knowledge and have the skills to make your project a success. I enjoy breaking down projects that seem to be
-            difficult into bit sized chunks. I find I feel the most accomplished when I finish a product that does
-            everything is was created to do.
-          </p>
+      <Box>
+        <Text mb={3}>
+          Hi! My name is{' '}
+          <Text as="span" color="primary">
+            {author.firstName} {author.lastName}
+          </Text>
+          . I am a Web Developer, and I'm very passionate and dedicated to my work. I started programming in middle
+          school and have been trying to learn as much as about software development as I can. I have gained loads of
+          knowledge and have the skills to make your project a success. I enjoy breaking down projects that seem to be
+          difficult into bit sized chunks. I find I feel the most accomplished when I finish a product that does
+          everything is was created to do.
+        </Text>
 
-          <ul
-            css={css`
-              display: flex;
-              flex-wrap: wrap;
-              list-style-type: none;
-            `}
+        <Flex as="ul" flexWrap="wrap" sx={{ listStyleType: 'none' }}>
+          {Object.entries(details).map(([key, value]) => (
+            <Box as="li" width={1 / 2} py={1}>
+              <Text as="span" fontWeight={700}>
+                {capitalizeFirstLetter(key)}:
+              </Text>{' '}
+              {value}
+            </Box>
+          ))}
+
+          <Button
+            mt={3}
+            fontSize={3}
+            as="a"
+            href="https://drive.google.com/file/d/1KUxBSQwj87LBoHmsuRAyPgfN6F6oo5kR/view?usp=sharing"
+            target="_blank"
           >
-            {Object.entries(details).map(([key, value]) => (
-              <li
-                css={css`
-                  width: 50%;
-                `}
-              >
-                <span>
-                  <label
-                    css={css`
-                      font-weight: 700;
-                    `}
-                  >
-                    {capitalizeFirstLetter(key)}:
-                  </label>{' '}
-                  {value}
-                </span>
-              </li>
-            ))}
-
-            <Button to="https://drive.google.com/file/d/1KUxBSQwj87LBoHmsuRAyPgfN6F6oo5kR/view?usp=sharing">
-              Download Resume
-            </Button>
-          </ul>
-        </div>
-      </div>
+            Download Resume
+          </Button>
+        </Flex>
+      </Box>
     </Section>
   );
 };

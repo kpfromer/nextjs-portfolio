@@ -6,11 +6,7 @@ import BackgroundImage from 'gatsby-background-image';
 import { rhythm } from '../../utils/typography';
 import { IconContext } from 'react-icons';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
-
-const noSpacing = css`
-  margin: 0;
-  padding: 0;
-`;
+import { Box, Heading, Text, Flex, Link } from 'rebass';
 
 export default () => {
   const data = useStaticQuery(
@@ -27,15 +23,12 @@ export default () => {
               stackOverflow
               github
             }
-            theme {
-              primary
-            }
           }
         }
 
-        fileName: file(relativePath: { eq: "main.jpg" }) {
+        me: file(relativePath: { eq: "kyle-pfromer.jpg" }) {
           childImageSharp {
-            fixed(width: 200, height: 200) {
+            fixed(width: 300, height: 300) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -52,7 +45,7 @@ export default () => {
     `
   );
 
-  const { author, theme, socialLinks } = data.site.siteMetadata;
+  const { author, socialLinks } = data.site.siteMetadata;
 
   return (
     <BackgroundImage
@@ -78,97 +71,48 @@ export default () => {
           z-index: -20;
         `}
       />
-      <div
-        css={css`
-          margin: auto;
-          text-align: center;
-        `}
-      >
+      <Box m="auto" sx={{ textAlign: 'center' }}>
         <Img
           css={css`
             border-radius: 100%;
             border: 8px solid hsla(0, 0%, 100%, 0.5);
             vertical-align: middle;
             max-width: 100%;
-            height: 200px;
-            width: 200px;
+            height: 300px;
+            width: 300px;
             margin-bottom: 38px;
-
             font-weight: 500;
           `}
-          fixed={data.fileName.childImageSharp.fixed}
+          fixed={data.me.childImageSharp.fixed}
         />
-        <h3
-          css={css`
-            ${noSpacing}
-            font-size: ${rhythm(2)};
-            text-transform: uppercase;
-            font-weight: 300;
-            color: #fff;
-          `}
-        >
+        <Heading as="h1" fontSize={7} sx={{ textTransform: 'uppercase' }} color="white" fontWeight={300}>
           {author.firstName}{' '}
-          <span
-            css={css`
-              font-weight: 500;
-              color: ${theme.primary};
-            `}
-          >
+          <Text as="span" color="primary" fontWeight={500}>
             {author.lastName}
-          </span>
-        </h3>
-        <p
-          css={css`
-            ${noSpacing}
-            color: #fff;
-            font-size: ${rhythm(1)};
-          `}
-        >
+          </Text>
+        </Heading>
+        <Text fontSize={5} color="white">
           I'm a{' '}
-          <span
-            css={css`
-              font-weight: 600;
-            `}
-          >
+          <Text as="span" fontWeight={600}>
             Software Engineer
-          </span>
-          <IconContext.Provider value={{ color: '#fff', size: rhythm(1.75) }}>
-            <div
-              css={css`
-                display: flex;
-              `}
-            >
-              <div
-                css={css`
-                  margin: 0 auto;
-                `}
-              >
-                <a
-                  href={socialLinks.github}
-                  target="_blank"
-                  css={css`
-                    margin-right: 15px;
-                  `}
-                >
+          </Text>
+          <IconContext.Provider value={{ color: '#fff', size: '48px' }}>
+            <Flex>
+              <Box mx="auto">
+                <Link href={socialLinks.github} target="_blank" mr={3}>
                   <FaGithub />
-                </a>
-                <a href={socialLinks.linkedin} target="_blank">
+                </Link>
+                <Link href={socialLinks.linkedin} target="_blank">
                   <FaLinkedin />
-                </a>
-                <a
-                  href={socialLinks.stackOverflow}
-                  target="_blank"
-                  css={css`
-                    margin-left: 15px;
-                  `}
-                >
+                </Link>
+                <Link href={socialLinks.stackOverflow} target="_blank" ml={3}>
                   <FaStackOverflow />
-                </a>
-              </div>
-            </div>
+                </Link>
+              </Box>
+            </Flex>
           </IconContext.Provider>
-        </p>
-      </div>
+        </Text>
+      </Box>
     </BackgroundImage>
   );
 };

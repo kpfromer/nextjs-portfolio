@@ -18,6 +18,8 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
+    "@rebass/forms": "^4.0.6",
+    "@rebass/preset": "^4.0.5",
     "emotion-theming": "10.0.27",
     "gatsby": "2.20.12",
     "gatsby-background-image": "0.10.2",
@@ -48,6 +50,7 @@
     "react-helmet": "5.2.1",
     "react-icons": "3.9.0",
     "react-typography": "0.16.19",
+    "rebass": "^4.0.7",
     "surge": "0.21.3",
     "typography": "0.16.19"
   },

@@ -1,7 +1,6 @@
 import React from 'react';
-import { css } from '@emotion/core';
-import { rhythm } from '../utils/typography';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Box, Text } from 'rebass';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -19,22 +18,10 @@ export default () => {
   const { author } = data.site.siteMetadata;
 
   return (
-    <div
-      css={css`
-        display: flex;
-        background-color: #041230;
-        padding: 50px 0;
-      `}
-    >
-      <p
-        css={css`
-          margin: auto 0;
-          color: #fff;
-          padding-left: ${rhythm(1)};
-        `}
-      >
-        © Copyright 2019 {author.firstName} {author.lastName}. All Rights are Reserved.
-      </p>
-    </div>
+    <Box p={4} bg="secondary">
+      <Text color="white">
+        © Copyright {new Date().getFullYear()} {author.firstName} {author.lastName}. All Rights are Reserved.
+      </Text>
+    </Box>
   );
 };

@@ -4,51 +4,32 @@ import { rhythm } from '../utils/typography';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
 import Link from './Link';
-import { useStaticQuery, graphql } from 'gatsby';
 import { ListItem, HeaderImage, Body, Dates, Title, Description } from './layout/list/List';
+import { Box } from 'rebass';
 
 // TODO: tech used tags
 export default ({ title, dates, description, image, github }) => {
-  const {
-    site: {
-      siteMetadata: { theme }
-    }
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          theme {
-            primary
-            secondary
-          }
-        }
-      }
-    }
-  `);
   return (
     <ListItem>
       {!!image && <HeaderImage fluid={image.childImageSharp.fluid} />}
-      <Body
-        css={css`
-          padding: 0.75rem;
-        `}
-      >
+      <Body>
         <Dates>{dates}</Dates>
         <Title>{title}</Title>
         <Description>{description}</Description>
+        <Box sx={{ flexGrow: 1 }} />
         <IconContext.Provider value={{ size: rhythm(1) }}>
           <Link outside to={github}>
-            <div
-              css={css`
-                color: black;
+            <Box
+              color="black"
+              css={(theme) => css`
                 transition: color 0.2s ease-in;
                 &: hover {
-                  color: ${theme.primary};
+                  color: ${theme.colors.primary};
                 }
               `}
             >
               <FaGithub />
-            </div>
+            </Box>
           </Link>
         </IconContext.Provider>
       </Body>

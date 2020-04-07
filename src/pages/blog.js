@@ -3,7 +3,6 @@ import { css } from '@emotion/core';
 import { Link, graphql } from 'gatsby';
 import { rhythm } from '../utils/typography';
 import BlogLayout from '../components/BlogLayout';
-import Header from '../components/Header';
 
 export default ({ data, location }) => {
   return (

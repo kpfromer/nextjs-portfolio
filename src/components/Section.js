@@ -1,28 +1,10 @@
 import React from 'react';
-import { css } from '@emotion/core';
-import { rhythm } from '../utils/typography';
-import breakpoints from '../utils/breakpoints';
+import { Box } from 'rebass';
 
-export default ({ children, css: userCss, ...rest }) => (
-  <div
-    css={css`
-      ${userCss}
-      padding: ${rhythm(0.5)};
-    `}
-    {...rest}
-  >
-    <div
-      css={css`
-        margin: auto;
-        ${breakpoints.large} {
-          width: 80%;
-        }
-        ${breakpoints.reallylarge} {
-          max-width: 1000px;
-        }
-      `}
-    >
+export default ({ children, ...props }) => (
+  <Box {...props} p={2}>
+    <Box mx="auto" pb={4} w={8 / 10} maxWidth={1000}>
       {children}
-    </div>
-  </div>
+    </Box>
+  </Box>
 );
