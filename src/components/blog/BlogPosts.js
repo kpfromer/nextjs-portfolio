@@ -25,6 +25,7 @@ export default () => {
               }
             }
             fields {
+              slug
               blogPath
             }
             excerpt
@@ -41,10 +42,10 @@ export default () => {
           ({
             node: {
               frontmatter: { title, date, thumbnail },
-              fields: { slug, blogPath }
+              fields: { blogPath }
             }
           }) => (
-            <ListItem key={slug}>
+            <ListItem key={blogPath}>
               {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
               <Body>
                 <Dates>{date}</Dates>
