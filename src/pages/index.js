@@ -7,18 +7,19 @@ import SEO from '../components/SEO';
 import Contact from '../components/layout/Contact';
 import Projects from '../components/layout/Projects';
 import BlogPosts from '../components/blog/BlogPosts';
+import { Box } from 'rebass';
 
 export default () => (
   <div>
     <SEO title="Main" />
-    <div>
+    <Box>
       <Landing />
       <About />
       <Skills />
       <Projects />
       <BlogPosts />
-      <Contact />
-    </div>
+      {/* <Contact /> */}
+    </Box>
     <Footer />
   </div>
 );
