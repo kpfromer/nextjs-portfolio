@@ -25,7 +25,7 @@ export default () => {
               }
             }
             fields {
-              slug
+              blogPath
             }
             excerpt
           }
@@ -37,17 +37,24 @@ export default () => {
     <Section bg="background">
       <Title slug="blog-posts">Blog Posts</Title>
       <List>
-        {data.allMarkdownRemark.edges.map(({ node: { frontmatter: { title, date, thumbnail }, fields: { slug } } }) => (
-          <ListItem key={slug}>
-            {!!thumbnail && <HeaderImage to={slug} fluid={thumbnail.childImageSharp.fluid} />}
-            <Body>
-              <Dates>{date}</Dates>
-              <ListTitle to={slug} fontSize={3}>
-                {title}
-              </ListTitle>
-            </Body>
-          </ListItem>
-        ))}
+        {data.allMarkdownRemark.edges.map(
+          ({
+            node: {
+              frontmatter: { title, date, thumbnail },
+              fields: { slug, blogPath }
+            }
+          }) => (
+            <ListItem key={slug}>
+              {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
+              <Body>
+                <Dates>{date}</Dates>
+                <ListTitle to={blogPath} fontSize={3}>
+                  {title}
+                </ListTitle>
+              </Body>
+            </ListItem>
+          )
+        )}
       </List>
     </Section>
   );

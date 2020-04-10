@@ -12,6 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               fields {
+                blogPath
                 slug
               }
               frontmatter {
@@ -35,13 +36,14 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
-    // const slugPath = path.join('blog', post.node.fields.slug);
+    const { slug, blogPath } = post.node.fields;
 
     createPage({
-      path: post.node.fields.slug,
+      path: blogPath,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug,
+        blogPath,
         previous,
         next
       }
@@ -58,6 +60,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value
+    });
+    createNodeField({
+      name: `blogPath`,
+      node,
+      value: `/blog${value}`
     });
   }
 };
