@@ -1,6 +1,7 @@
 import React from 'react';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'theme-ui';
 import presetTheme from '@rebass/preset';
+import mdx from './mdx';
 
 const theme = {
   ...presetTheme,
@@ -8,7 +9,8 @@ const theme = {
     ...presetTheme.colors,
     primary: '#e3872d',
     secondary: '#041230',
-    background: '#f6f7fd'
+    background: '#fff',
+    backgroundAlt: '#f6f7fd'
   },
   fonts: {
     ...presetTheme.fonts,
@@ -21,4 +23,8 @@ const theme = {
   }
 };
 
-export const wrapRootElement = ({ element }) => <ThemeProvider theme={theme}>{element}</ThemeProvider>;
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={theme} components={mdx}>
+    {element}
+  </ThemeProvider>
+);
