@@ -34,7 +34,9 @@ export default () => {
           }
         }
 
-        background: file(relativePath: { eq: "2019-07-27-Collegiate-West.jpeg" }) {
+        background: file(
+          relativePath: { eq: "2019-07-27-Collegiate-West.jpeg" }
+        ) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
@@ -85,7 +87,13 @@ export default () => {
           `}
           fixed={data.me.childImageSharp.fixed}
         />
-        <Heading as="h1" fontSize={7} sx={{ textTransform: 'uppercase' }} color="white" fontWeight={300}>
+        <Heading
+          as="h1"
+          fontSize={7}
+          sx={{ textTransform: 'uppercase' }}
+          color="white"
+          fontWeight={300}
+        >
           {author.firstName}{' '}
           <Text as="span" color="primary" fontWeight={500}>
             {author.lastName}
@@ -99,13 +107,18 @@ export default () => {
           <IconContext.Provider value={{ color: '#fff', size: '48px' }}>
             <Flex>
               <Box mx="auto">
-                <Link href={socialLinks.github} target="_blank" mr={3}>
+                <Link outside to={socialLinks.github} target="_blank" mr={3}>
                   <FaGithub />
                 </Link>
-                <Link href={socialLinks.linkedin} target="_blank">
+                <Link outside to={socialLinks.linkedin} target="_blank">
                   <FaLinkedin />
                 </Link>
-                <Link href={socialLinks.stackOverflow} target="_blank" ml={3}>
+                <Link
+                  outside
+                  to={socialLinks.stackOverflow}
+                  target="_blank"
+                  ml={3}
+                >
                   <FaStackOverflow />
                 </Link>
               </Box>
