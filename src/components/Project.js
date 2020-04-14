@@ -1,9 +1,8 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import { rhythm } from '../utils/typography';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
-import Link from './Link';
+import { Link } from './Link';
 import { ListItem, HeaderImage, Body, Dates, Title, Description } from './layout/list/List';
 import { Box } from 'rebass';
 
@@ -21,12 +20,12 @@ export default ({ title, dates, description, image, github }) => {
           <Link outside to={github}>
             <Box
               color="black"
-              css={(theme) => css`
-                transition: color 0.2s ease-in;
-                &: hover {
-                  color: ${theme.colors.primary};
+              sx={{
+                transition: 'color 0.2s ease-in',
+                '&:hover': {
+                  color: 'primary'
                 }
-              `}
+              }}
             >
               <FaGithub />
             </Box>

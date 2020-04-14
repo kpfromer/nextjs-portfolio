@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import { Box, Heading } from 'rebass';
 
 export default ({ children, slug }) => {
@@ -7,18 +6,18 @@ export default ({ children, slug }) => {
   return (
     <Box pt={[0, 4]} pb={[3, 4]}>
       <Box
-        css={(theme) => css`
-          position: relative;
-          &:before {
-            position: absolute;
-            content: '';
-            width: 120px;
-            height: 6px;
-            left: 0px;
-            bottom: -20px;
-            background-color: ${theme.colors.primary};
+        sx={{
+          position: 'relative',
+          '&:before': {
+            position: 'absolute',
+            content: "''",
+            width: '120px',
+            height: '6px',
+            left: '0px',
+            bottom: '-20px',
+            backgroundColor: 'primary'
           }
-        `}
+        }}
         mb={3}
       >
         <Heading

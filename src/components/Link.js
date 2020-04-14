@@ -1,45 +1,27 @@
 import React from 'react';
-import { css } from '@emotion/core';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { Link as ReactLink } from 'gatsby';
+import { Link as RebassLink } from 'rebass';
 
-export default ({ css: userCss, to, outside = false, children, ...rest }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            theme {
-              primary
-            }
-          }
-        }
-      }
-    `
-  );
-  const options = {
-    ...rest,
-    css: css`
-      color: ${data.site.siteMetadata.theme.primary};
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-      &:visited {
-        color: inital;
-      }
-      ${userCss}
-    `
+export const Link = ({ sx: customSx, to, outside = false, children, ...props }) => {
+  const sx = {
+    transition: 'all 0.3s ease',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+      ...(customSx && customSx['&:hover'] ? customSx['&:hover'] : {})
+    },
+    ...(customSx ? customSx : {})
   };
   if (outside) {
     return (
-      <a {...options} target="_blank" href={to}>
+      <RebassLink sx={sx} {...props} rel="noopener" target="_blank" href={to}>
         {children}
-      </a>
+      </RebassLink>
     );
   }
   return (
-    <Link {...options} to={to}>
+    <RebassLink sx={sx} {...props} as={ReactLink} to={to}>
       {children}
-    </Link>
+    </RebassLink>
   );
 };

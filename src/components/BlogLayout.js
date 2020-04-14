@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from './Link';
+import { Link } from './Link';
 import { Heading, Box, Flex, Text } from 'rebass';
 
 export default ({ location, title = "Kyle Pfromer's Blog", children }) => {

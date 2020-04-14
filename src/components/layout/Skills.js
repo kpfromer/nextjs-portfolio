@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from '../Link';
+import { Link } from '../Link';
 import Title from '../Title';
 import Section from '../Section';
 import { Text } from 'rebass';
 
 export default () => (
-  <Section bg="background">
+  <Section bg="backgroundAlt">
     <Title>Skills</Title>
     <Text>
       I spend most of my time with React, Mongodb, Angular, Nodejs, and Java and have over three years of experience
