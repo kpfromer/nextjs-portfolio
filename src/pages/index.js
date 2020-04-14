@@ -18,7 +18,7 @@ export default () => (
       <Skills />
       <Projects />
       <BlogPosts />
-      {/* <Contact /> */}
+      <Contact />
     </Box>
     <Footer />
   </div>

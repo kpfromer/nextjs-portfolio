@@ -8,7 +8,7 @@ import { ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../layou
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
         totalCount
         edges {
           node {
@@ -35,27 +35,20 @@ export default () => {
     }
   `);
   return (
-    <Section bg="background">
+    <Section bg="backgroundAlt">
       <Title slug="blog-posts">Blog Posts</Title>
       <List>
-        {data.allMarkdownRemark.edges.map(
-          ({
-            node: {
-              frontmatter: { title, date, thumbnail },
-              fields: { blogPath }
-            }
-          }) => (
-            <ListItem key={blogPath}>
-              {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
-              <Body>
-                <Dates>{date}</Dates>
-                <ListTitle to={blogPath} fontSize={3}>
-                  {title}
-                </ListTitle>
-              </Body>
-            </ListItem>
-          )
-        )}
+        {data.allMdx.edges.map(({ node: { frontmatter: { title, date, thumbnail }, fields: { blogPath } } }) => (
+          <ListItem key={blogPath}>
+            {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
+            <Body>
+              <Dates>{date}</Dates>
+              <ListTitle to={blogPath} fontSize={3}>
+                {title}
+              </ListTitle>
+            </Body>
+          </ListItem>
+        ))}
       </List>
     </Section>
   );

@@ -1,16 +1,8 @@
-import { Link } from 'rebass';
+import { Link } from '../components/Link';
 
 export default {
   a: ({ href, children }) => (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener"
-      sx={{
-        textDecoration: 'none',
-        '&:hover': { textDecoration: 'underline' }
-      }}
-    >
+    <Link outside={true} to={href}>
       {children}
     </Link>
   )
