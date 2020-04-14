@@ -34,9 +34,7 @@ export default () => {
           }
         }
 
-        background: file(
-          relativePath: { eq: "2019-07-27-Collegiate-West.jpeg" }
-        ) {
+        background: file(relativePath: { eq: "2019-07-27-Collegiate-West.jpeg" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
@@ -87,13 +85,7 @@ export default () => {
           `}
           fixed={data.me.childImageSharp.fixed}
         />
-        <Heading
-          as="h1"
-          fontSize={7}
-          sx={{ textTransform: 'uppercase' }}
-          color="white"
-          fontWeight={300}
-        >
+        <Heading as="h1" fontSize={7} sx={{ textTransform: 'uppercase' }} color="white" fontWeight={300}>
           {author.firstName}{' '}
           <Text as="span" color="primary" fontWeight={500}>
             {author.lastName}
@@ -113,12 +105,7 @@ export default () => {
                 <Link outside to={socialLinks.linkedin} target="_blank">
                   <FaLinkedin />
                 </Link>
-                <Link
-                  outside
-                  to={socialLinks.stackOverflow}
-                  target="_blank"
-                  ml={3}
-                >
+                <Link outside to={socialLinks.stackOverflow} target="_blank" ml={3}>
                   <FaStackOverflow />
                 </Link>
               </Box>

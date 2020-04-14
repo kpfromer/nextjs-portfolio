@@ -31,5 +31,16 @@ export default {
     <Link outside={true} to={href}>
       {children}
     </Link>
+  ),
+  blockquote: ({ children, ...props }) => (
+    <Box
+      {...props}
+      as="blockquote"
+      sx={{ borderLeftColor: 'primary', borderLeftWidth: '3px', borderLeftStyle: 'solid' }}
+      pl={[3, 3, 4]}
+      py={1}
+    >
+      {children}
+    </Box>
   )
 };
