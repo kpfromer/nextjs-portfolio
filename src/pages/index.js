@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import Contact from '../components/layout/Contact';
 import Projects from '../components/layout/Projects';
-import BlogPosts from '../components/blog/BlogPosts';
+import BlogPosts from '../components/layout/BlogPosts';
 import { Box } from 'rebass';
 
 export default () => (
