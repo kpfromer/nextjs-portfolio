@@ -1,7 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { Link, graphql } from 'gatsby';
-import { rhythm } from '../utils/typography';
 import BlogLayout from '../components/BlogLayout';
 
 export default ({ data, location }) => {

@@ -64,13 +64,6 @@ module.exports = {
     // Misc
     `gatsby-plugin-preact`,
     `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`
-      }
-    },
-
     // SEO
     `gatsby-plugin-react-helmet`,
     {

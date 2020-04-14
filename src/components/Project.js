@@ -1,5 +1,4 @@
 import React from 'react';
-import { rhythm } from '../utils/typography';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from './Link';
@@ -16,7 +15,7 @@ export default ({ title, dates, description, image, github }) => {
         <Title>{title}</Title>
         <Description>{description}</Description>
         <Box sx={{ flexGrow: 1 }} />
-        <IconContext.Provider value={{ size: rhythm(1) }}>
+        <IconContext.Provider value={{ size: '32px' }}>
           <Link outside to={github}>
             <Box
               color="black"
