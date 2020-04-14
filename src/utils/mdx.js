@@ -1,5 +1,5 @@
 import { Link } from '../components/Link';
-import { Heading } from 'rebass';
+import { Box, Heading, Text } from 'rebass';
 
 const Header = ({ children, as, ...props }) => {
   let fontSize = 2;

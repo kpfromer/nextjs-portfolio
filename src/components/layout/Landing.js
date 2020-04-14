@@ -85,7 +85,13 @@ export default () => {
           `}
           fixed={data.me.childImageSharp.fixed}
         />
-        <Heading as="h1" fontSize={7} sx={{ textTransform: 'uppercase' }} color="white" fontWeight={300}>
+        <Heading
+          as="h1"
+          fontSize={7}
+          sx={{ textTransform: 'uppercase' }}
+          color="white"
+          fontWeight={300}
+        >
           {author.firstName}{' '}
           <Text as="span" color="primary" fontWeight={500}>
             {author.lastName}

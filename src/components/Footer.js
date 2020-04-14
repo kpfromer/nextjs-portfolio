@@ -20,7 +20,8 @@ export default () => {
   return (
     <Box p={4} bg="secondary">
       <Text color="white">
-        © Copyright {new Date().getFullYear()} {author.firstName} {author.lastName}. All Rights are Reserved.
+        © Copyright {new Date().getFullYear()} {author.firstName} {author.lastName}. All Rights are
+        Reserved.
       </Text>
     </Box>
   );

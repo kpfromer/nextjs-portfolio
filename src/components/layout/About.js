@@ -46,11 +46,12 @@ export default () => {
           <Text as="span" color="primary">
             {author.firstName} {author.lastName}
           </Text>
-          . I am a Web Developer, and I'm very passionate and dedicated to my work. I started programming in middle
-          school and have been trying to learn as much as about software development as I can. I have gained loads of
-          knowledge and have the skills to make your project a success. I enjoy breaking down projects that seem to be
-          difficult into bit sized chunks. I find I feel the most accomplished when I finish a product that does
-          everything is was created to do.
+          . I am a Web Developer, and I'm very passionate and dedicated to my work. I started
+          programming in middle school and have been trying to learn as much as about software
+          development as I can. I have gained loads of knowledge and have the skills to make your
+          project a success. I enjoy breaking down projects that seem to be difficult into bit sized
+          chunks. I find I feel the most accomplished when I finish a product that does everything
+          is was created to do.
         </Text>
 
         <Flex as="ul" flexWrap="wrap" sx={{ listStyleType: 'none' }}>
