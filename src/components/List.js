@@ -1,11 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { graphql } from 'gatsby';
-import { rhythm } from '../../../utils/typography';
+import { rhythm } from '..//utils/typography';
 import Img from 'gatsby-image';
 import { Box, Flex, Text } from 'rebass';
-import { Link } from '../../Link';
+import { Link } from './Link';
 
 export const List = (props) => (
   <Flex

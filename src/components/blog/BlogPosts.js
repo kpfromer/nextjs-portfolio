@@ -2,8 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Title from '../Title';
 import Section from '../Section';
-import { List } from '../layout/list/List';
-import { ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../layout/list/List';
+import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 
 export default () => {
   const data = useStaticQuery(graphql`
