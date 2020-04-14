@@ -1,10 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import { rhythm } from '../../../utils/typography';
 import Img from 'gatsby-image';
-import { Box, Flex, Text } from 'rebass';
+import { Flex, Text } from 'rebass';
+import { Link } from './Link';
 
 export const List = (props) => (
   <Flex
@@ -45,37 +43,32 @@ export const Body = (props) => (
   />
 );
 
-export const Dates = styled.div`
-  position: relative;
-  margin-bottom: 20px;
-  font-size: ${rhythm(0.6)};
-
-  &:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 1px;
-    left: 0px;
-    bottom: -5px;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-`;
+export const Dates = ({ children, ...props }) => (
+  <Text
+    {...props}
+    sx={{
+      position: 'relative',
+      '&:before': {
+        position: 'absolute',
+        content: "''",
+        width: '100%',
+        height: '1px',
+        left: 0,
+        bottom: '-5px',
+        backgroundColor: 'rgba(0, 0, 0, 0.2)'
+      }
+    }}
+    mb={3}
+  >
+    {children}
+  </Text>
+);
 
 export const Title = ({ to, children, ...props }) => {
   return (
     <Text as="h3" {...props}>
       {!!to ? (
-        <Link
-          css={(theme) => css`
-            color: #000;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            &:hover {
-              color: ${theme.colors.primary};
-            }
-          `}
-          to={to}
-        >
+        <Link color="text" sx={{ '&:hover': { color: 'primary', textDecoration: 'none' } }} to={to}>
           {children}
         </Link>
       ) : (

@@ -3,10 +3,10 @@ import { css } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
-import { rhythm } from '../../utils/typography';
 import { IconContext } from 'react-icons';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
-import { Box, Heading, Text, Flex, Link } from 'rebass';
+import { Box, Heading, Text, Flex } from 'rebass';
+import { Link } from '../Link';
 
 export default () => {
   const data = useStaticQuery(
@@ -99,13 +99,13 @@ export default () => {
           <IconContext.Provider value={{ color: '#fff', size: '48px' }}>
             <Flex>
               <Box mx="auto">
-                <Link href={socialLinks.github} target="_blank" mr={3}>
+                <Link outside to={socialLinks.github} target="_blank" mr={3}>
                   <FaGithub />
                 </Link>
-                <Link href={socialLinks.linkedin} target="_blank">
+                <Link outside to={socialLinks.linkedin} target="_blank">
                   <FaLinkedin />
                 </Link>
-                <Link href={socialLinks.stackOverflow} target="_blank" ml={3}>
+                <Link outside to={socialLinks.stackOverflow} target="_blank" ml={3}>
                   <FaStackOverflow />
                 </Link>
               </Box>

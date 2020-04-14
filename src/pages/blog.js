@@ -1,13 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { Link, graphql } from 'gatsby';
-import { rhythm } from '../utils/typography';
 import BlogLayout from '../components/BlogLayout';
 
 export default ({ data, location }) => {
   return (
     <BlogLayout location={location}>
-      <div>
+      {/* <div>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
@@ -36,28 +35,28 @@ export default ({ data, location }) => {
             </Link>
           </div>
         ))}
-      </div>
+      </div> */}
     </BlogLayout>
   );
 };
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-          }
-          fields {
-            slug
-          }
-          excerpt
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+//       totalCount
+//       edges {
+//         node {
+//           id
+//           frontmatter {
+//             title
+//             date(formatString: "DD MMMM, YYYY")
+//           }
+//           fields {
+//             slug
+//           }
+//           excerpt
+//         }
+//       }
+//     }
+//   }
+// `;

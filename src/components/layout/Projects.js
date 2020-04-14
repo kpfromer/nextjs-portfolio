@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '../Title';
 import Section from '../Section';
 import { useStaticQuery, graphql } from 'gatsby';
-import { List } from './list/List';
+import { List } from '../List';
 import Project from '../Project';
 
 export default () => {

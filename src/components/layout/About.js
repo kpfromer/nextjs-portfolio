@@ -55,7 +55,7 @@ export default () => {
 
         <Flex as="ul" flexWrap="wrap" sx={{ listStyleType: 'none' }}>
           {Object.entries(details).map(([key, value]) => (
-            <Box as="li" width={1 / 2} py={1}>
+            <Box key={key} width={1 / 2} py={1}>
               <Text as="span" fontWeight={700}>
                 {capitalizeFirstLetter(key)}:
               </Text>{' '}
