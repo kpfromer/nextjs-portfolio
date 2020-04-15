@@ -91,7 +91,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    mdx(id: { eq: $id }) {
+    mdx(id: { eq: $id }, frontmatter: { hidden: { eq: false } }) {
       id
       body
       frontmatter {

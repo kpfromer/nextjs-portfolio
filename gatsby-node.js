@@ -18,6 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                hidden
               }
             }
           }
@@ -33,24 +34,26 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMdx.edges;
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  posts
+    .filter((post) => !post.node.frontmatter.hidden)
+    .forEach((post, index) => {
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+      const next = index === 0 ? null : posts[index - 1].node;
 
-    const { slug, blogPath } = post.node.fields;
+      const { slug, blogPath } = post.node.fields;
 
-    createPage({
-      path: blogPath,
-      component: blogPost,
-      context: {
-        id: post.node.id,
-        slug,
-        blogPath,
-        previous,
-        next
-      }
+      createPage({
+        path: blogPath,
+        component: blogPost,
+        context: {
+          id: post.node.id,
+          slug,
+          blogPath,
+          previous,
+          next
+        }
+      });
     });
-  });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -69,4 +72,33 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: `/blog${value}`
     });
   }
+};
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    'type Mdx implements Node { frontmatter: MdxFrontmatter }',
+    schema.buildObjectType({
+      name: 'MdxFrontmatter',
+      fields: {
+        tags: {
+          type: '[String!]',
+          resolve(source, args, context, info) {
+            const { tags } = source;
+            if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
+              return ['uncategorized'];
+            }
+            return tags;
+          }
+        },
+        hidden: {
+          type: 'Boolean!',
+          resolve(source) {
+            return !!source.hidden;
+          }
+        }
+      }
+    })
+  ];
+  createTypes(typeDefs);
 };

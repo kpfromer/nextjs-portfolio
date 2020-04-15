@@ -7,7 +7,10 @@ import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '..
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { hidden: { eq: false } } }
+      ) {
         totalCount
         edges {
           node {
