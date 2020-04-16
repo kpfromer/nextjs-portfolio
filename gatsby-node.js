@@ -8,7 +8,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+        allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+          filter: { frontmatter: { hidden: { eq: false } } }
+        ) {
           edges {
             node {
               id
@@ -34,26 +38,24 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMdx.edges;
 
-  posts
-    .filter((post) => !post.node.frontmatter.hidden)
-    .forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-      const next = index === 0 ? null : posts[index - 1].node;
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
 
-      const { slug, blogPath } = post.node.fields;
+    const { slug, blogPath } = post.node.fields;
 
-      createPage({
-        path: blogPath,
-        component: blogPost,
-        context: {
-          id: post.node.id,
-          slug,
-          blogPath,
-          previous,
-          next
-        }
-      });
+    createPage({
+      path: blogPath,
+      component: blogPost,
+      context: {
+        id: post.node.id,
+        slug,
+        blogPath,
+        previous,
+        next
+      }
     });
+  });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
