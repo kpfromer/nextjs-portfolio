@@ -51,7 +51,7 @@ $\Delta v = -\eta \triangledown C$. $\eta = \frac{\epsilon}{\lVert \triangledown
 defined as such because we want the vector to be a fraction of the $\triangledown C$ that way we do
 not overshoot the minimum.
 
-[![overshooting the minimum](overshooting-min.png)](https://towardsdatascience.com/a-look-at-gradient-descent-and-rmsprop-optimizers-f77d483ef08b)
+![overshooting the minimum](overshooting-min.svg)
 
 ### Part 2
 
@@ -63,8 +63,6 @@ geometric interpretation of what gradient descent is doing in the one-dimensiona
 
 #### Solution
 
-![1 dimensional cost graph](negative-slope.jpg)
-
 > Please note the particular values for the graph **do not matter**; it is the **shape of the curve
 > that matters**.
 
@@ -74,7 +72,7 @@ function. So, looking at the image above, at point $v=-4$ the tangent line seems
 slope and thus $\triangledown C = C'(v) < 0$, therefore when we move in the direction
 $- \eta \triangledown C$ we increase $v$ and move down the slope toward the right.
 
-![closer to minimum graph](close-to-minimum-graph.jpg)
+![movement down the slope](movement-down-slope.svg)
 
 ### Part 3
 
