@@ -5,3 +5,29 @@
 ### `git unadd`
 
 `git config --global alias.unadd "reset HEAD"`
+
+## Linux
+
+### Creating a Service
+
+Creating a [systemd service](https://www.freedesktop.org/wiki/Software/systemd/) is super useful!
+And makes it simple to create scripts that run on reboot and rely on certain system services, like
+the network, to be started before your script.
+
+Create `/etc/systemd/system/my-service.service`
+
+```
+[Unit]
+Description=My Script
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=your-username
+ExecStart=/usr/bin/env python /home/your-username/cool.py
+
+[Install]
+WantedBy=multi-user.target
+```
