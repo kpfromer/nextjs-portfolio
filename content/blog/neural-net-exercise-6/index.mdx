@@ -4,7 +4,6 @@ date: '2020-04-14'
 thumbnail: './equations-of-backpropagation.png'
 category: 'tech'
 tags: ['neural-net', 'machine-learning']
-hidden: true
 ---
 
 Here are my solutions to
@@ -49,14 +48,7 @@ From
 
 #### Solution
 
-TODO:
-
 Since $\sigma(z) = z$ then $\sigma'(z) = 1$, so it follows that
 $\delta^L = \nabla_a C \circ \sigma'(z^L) = \nabla_a C$. Also,
 $\delta^l = ((w^{l+1})^T \delta^{l+1}) \circ \sigma'(z^l) = (w^{l+1})^T
 \delta^{l+1}$.
-
-It follows that $\frac{\partial C}{\partial w_{jk}^l} =
-a_k^{l-1} \delta_j^l = 0$
-
-Having an error vector full of $0$'s is quite useless
