@@ -70,5 +70,4 @@ export default {
       </Box>
     );
   }
-  // <Table {...props} />
 };

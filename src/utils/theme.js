@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'theme-ui';
 import presetTheme from '@rebass/preset';
+import { MDXProvider } from '@mdx-js/react';
 import mdx from './mdx';
 
 const theme = {
@@ -24,7 +25,7 @@ const theme = {
 };
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme} components={mdx}>
-    {element}
+  <ThemeProvider theme={theme}>
+    <MDXProvider components={mdx}>{element}</MDXProvider>
   </ThemeProvider>
 );
