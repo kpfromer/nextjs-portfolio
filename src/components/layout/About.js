@@ -3,10 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Title from '../Title';
 import Section from '../Section';
 import { Box, Text, Flex, Button } from 'rebass';
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { Link } from '../Link';
 
 export default () => {
   const data = useStaticQuery(
@@ -26,17 +23,6 @@ export default () => {
 
   const { author } = data.site.siteMetadata;
 
-  const details = {
-    birthday: '11.29.2000',
-    city: 'Boulder, CO, USA',
-    study: 'University of Colorado, Boulder',
-    mail: 'kpfromer2@gmail.com', // TODO: malito
-    age: '19',
-    interests: 'Hiking, Biking, Snowboarding',
-    degree: 'Bachelor',
-    website: 'kylepfromer.com'
-  };
-
   return (
     <Section>
       <Title>About</Title>
@@ -46,23 +32,40 @@ export default () => {
           <Text as="span" color="primary">
             {author.firstName} {author.lastName}
           </Text>
-          . I am a Web Developer, and I'm very passionate and dedicated to my work. I started
-          programming in middle school and have been trying to learn as much as about software
-          development as I can. I have gained loads of knowledge and have the skills to make your
-          project a success. I enjoy breaking down projects that seem to be difficult into bit sized
-          chunks. I find I feel the most accomplished when I finish a product that does everything
-          is was created to do.
+          . I am a Full-Stack Web Developer. I started programming in middle school and have been
+          writing code since then.
         </Text>
 
         <Flex as="ul" flexWrap="wrap" sx={{ listStyleType: 'none' }}>
-          {Object.entries(details).map(([key, value]) => (
-            <Box key={key} width={1 / 2} py={1}>
-              <Text as="span" fontWeight={700}>
-                {capitalizeFirstLetter(key)}:
-              </Text>{' '}
-              {value}
-            </Box>
-          ))}
+          <Box width={1 / 2} py={1}>
+            <Text as="span" fontWeight={700}>
+              Study:
+            </Text>{' '}
+            University of Colorado, Boulder
+          </Box>
+
+          <Box width={1 / 2} py={1}>
+            <Text as="span" fontWeight={700}>
+              Email:
+            </Text>{' '}
+            <Link outside to="mailto:kpfromer2@gmail.com">
+              kpfromer2@gmail.com
+            </Link>
+          </Box>
+
+          <Box width={1 / 2} py={1}>
+            <Text as="span" fontWeight={700}>
+              Degree:
+            </Text>{' '}
+            Bachelor of Science
+          </Box>
+
+          <Box width={1 / 2} py={1}>
+            <Text as="span" fontWeight={700}>
+              Interests:
+            </Text>{' '}
+            Hiking, Biking, Snowboarding
+          </Box>
 
           <Button
             mt={3}
