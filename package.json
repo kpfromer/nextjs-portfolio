@@ -18,8 +18,8 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "@mdx-js/mdx": "1.6.5",
-    "@mdx-js/react": "1.6.5",
+    "@mdx-js/mdx": "1.6.6",
+    "@mdx-js/react": "1.6.6",
     "@rebass/forms": "4.0.6",
     "@rebass/preset": "4.0.5",
     "gatsby": "2.23.4",
