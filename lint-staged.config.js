@@ -1,4 +1,4 @@
 module.exports = {
   './src/**/*.(js|md|mdx)': ['prettier --write'],
-  './src/**/*.(js)': ['eslint --fix']
+  './src/**/*.(js|jsx|ts|tsx)': ['yarn typecheck', 'eslint --fix']
 };
