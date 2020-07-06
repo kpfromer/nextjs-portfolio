@@ -5,8 +5,16 @@ import { Link } from './Link';
 import { ListItem, HeaderImage, Body, Dates, Title, Description } from './List';
 import { Box } from 'rebass';
 
+interface Props {
+  title: string;
+  dates: string;
+  description: string;
+  image: any;
+  github: string;
+}
+
 // TODO: tech used tags
-export default ({ title, dates, description, image, github }) => {
+export const Project: React.FC<Props> = ({ title, dates, description, image, github }) => {
   return (
     <ListItem>
       {!!image && <HeaderImage fluid={image.childImageSharp.fluid} />}

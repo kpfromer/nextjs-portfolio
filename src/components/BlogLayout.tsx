@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from './Link';
 import { Heading, Box, Flex, Text } from 'rebass';
+import { PageProps } from 'gatsby';
 
-export default ({ location, title = "Kyle Pfromer's Blog", children }) => {
+interface Props {
+  title?: string;
+}
+
+export const BlogLayout: React.FC<Props & PageProps> = ({
+  location,
+  title = "Kyle Pfromer's Blog",
+  children
+}) => {
+  // TODO: change
+  // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
   if (location.pathname === rootPath) {

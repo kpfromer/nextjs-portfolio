@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from '../Title';
-import Section from '../Section';
+import { Title } from '../Title';
+import { Section } from '../Section';
 import { Box, Button } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
 
