@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Box, Text } from 'rebass';
 
-export default () => {
+export const Footer: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
       site {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '../Link';
-import Title from '../Title';
-import Section from '../Section';
+import { Title } from '../Title';
+import { Section } from '../Section';
 import { Text } from 'rebass';
 
 export default () => (

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Title from '../Title';
-import Section from '../Section';
+import { Title } from '../Title';
+import { Section } from '../Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 
 export default () => {
-  const data = useStaticQuery(graphql`
+  const data: any = useStaticQuery(graphql`
     {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
@@ -46,7 +46,7 @@ export default () => {
               frontmatter: { title, date, thumbnail },
               fields: { blogPath }
             }
-          }) => (
+          }: any) => (
             <ListItem key={blogPath}>
               {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
               <Body>

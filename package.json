@@ -77,7 +77,8 @@
     "eslint-plugin-react": "^7.20.3",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
   },
   "repository": {
     "type": "git",
@@ -93,7 +94,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn precommit",
+      "pre-commit": "yarn typecheck && yarn precommit",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }

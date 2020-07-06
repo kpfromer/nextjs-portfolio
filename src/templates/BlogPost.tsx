@@ -1,14 +1,25 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { Link } from '../components/Link';
 import Img from 'gatsby-image';
-import SEO from '../components/SEO';
-import Section from '../components/Section';
+import { SEO } from '../components/SEO';
+import { Section } from '../components/Section';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import 'katex/dist/katex.min.css';
 import { Box, Flex, Heading, Text } from 'rebass';
 
-export default ({ data, pageContext }) => {
+interface PageContext {
+  previous: {
+    frontmatter: { title: string };
+    fields: { blogPath: string };
+  };
+  next: {
+    frontmatter: { title: string };
+    fields: { blogPath: string };
+  };
+}
+
+const BlogPost: React.FC<PageProps<object, PageContext>> = ({ data, pageContext }) => {
   const {
     site: {
       siteMetadata: { siteUrl }
@@ -20,7 +31,7 @@ export default ({ data, pageContext }) => {
         readingTime: { text: readingTime }
       }
     }
-  } = data;
+  }: any = data;
   const { previous, next } = pageContext;
   return (
     <>
@@ -116,3 +127,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default BlogPost;

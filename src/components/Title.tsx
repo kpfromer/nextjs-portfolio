@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
 
-export default ({ children, slug }) => {
+interface Props {
+  slug?: string;
+}
+
+export const Title: React.FC<Props> = ({ children, slug }) => {
   const hook = !!slug ? { id: slug } : {};
   return (
     <Box pt={[0, 4]} pb={[3, 4]}>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import Img from 'gatsby-image';
-import { Flex, Text } from 'rebass';
+import Img, { GatsbyImageProps } from 'gatsby-image';
+import { Flex, Text, FlexProps, TextProps } from 'rebass';
 import { Link } from './Link';
 
-export const List = (props) => (
+export const List: React.FC<FlexProps> = (props) => (
   <Flex
     {...props}
     justifyContent="center"
@@ -14,7 +14,14 @@ export const List = (props) => (
   />
 );
 
-export const HeaderImage = ({ to, ...imageProps }) => {
+interface HeaderImageProps {
+  to?: string;
+}
+
+export const HeaderImage: React.FC<HeaderImageProps & GatsbyImageProps> = ({
+  to,
+  ...imageProps
+}) => {
   const image = (
     <Img
       css={css`
@@ -31,7 +38,7 @@ export const HeaderImage = ({ to, ...imageProps }) => {
   return image;
 };
 
-export const Body = (props) => (
+export const Body: React.FC<FlexProps> = (props) => (
   <Flex
     {...props}
     flexDirection="column"
@@ -43,7 +50,7 @@ export const Body = (props) => (
   />
 );
 
-export const Dates = ({ children, ...props }) => (
+export const Dates: React.FC<TextProps> = ({ children, ...props }) => (
   <Text
     {...props}
     sx={{
@@ -64,7 +71,11 @@ export const Dates = ({ children, ...props }) => (
   </Text>
 );
 
-export const Title = ({ to, children, ...props }) => {
+interface TitleProps {
+  to?: string;
+}
+
+export const Title: React.FC<TitleProps & TextProps> = ({ to, children, ...props }) => {
   return (
     <Text as="h3" {...props}>
       {!!to ? (
@@ -78,9 +89,9 @@ export const Title = ({ to, children, ...props }) => {
   );
 };
 
-export const Description = (props) => <Text {...props} mt={3} />;
+export const Description: React.FC<TextProps> = (props) => <Text {...props} mt={3} />;
 
-export const ListItem = ({ children }) => {
+export const ListItem: React.FC<FlexProps> = ({ children }) => {
   return (
     <Flex
       flexDirection="column"
