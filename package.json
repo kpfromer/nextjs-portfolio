@@ -54,7 +54,7 @@
     "rebass": "4.0.7",
     "remark-html-katex": "2.0.1",
     "remark-math": "2.0.1",
-    "surge": "0.21.3",
+    "surge": "0.21.5",
     "theme-ui": "0.3.1"
   },
   "devDependencies": {
