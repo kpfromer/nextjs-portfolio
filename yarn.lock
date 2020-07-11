@@ -14783,10 +14783,10 @@ surge-ignore@0.2.0:
   resolved "https://registry.yarnpkg.com/surge-ignore/-/surge-ignore-0.2.0.tgz#5a7f8a20a71188cf9e75a2cfe8eb182de90daf3b"
   integrity sha1-Wn+KIKcRiM+edaLP6OsYLekNrzs=
 
-surge@0.21.5:
-  version "0.21.5"
-  resolved "https://registry.yarnpkg.com/surge/-/surge-0.21.5.tgz#5963b040c59e35806642be3715bc16f1a7126d9d"
-  integrity sha512-ii2OW3X0K0OP6jj39RE7QT599BI+QCDeBSxxvxAdz/TjjZRwGRbXM+aE40lpLTXjjwiPdp/kQiCCuw1lUhCJJA==
+surge@0.21.6:
+  version "0.21.6"
+  resolved "https://registry.yarnpkg.com/surge/-/surge-0.21.6.tgz#8eca1bf8dfe7d657af89dfce639a8d1bd6e31e20"
+  integrity sha512-FejQvGH9G1Xt9nWGaQnwX5anKReDJkFUrAh3/UCroJTf/M91hId8JOt1N6Glgh9T2Sz8G4DFaFFHJsoPaI5DBw==
   dependencies:
     cli-table3 "^0.5.1"
     inquirer "^6.2.2"
