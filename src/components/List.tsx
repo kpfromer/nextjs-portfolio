@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import { Flex, Text, FlexProps, TextProps } from 'rebass';
 import { Link } from './Link';
@@ -24,11 +23,11 @@ export const HeaderImage: React.FC<HeaderImageProps & GatsbyImageProps> = ({
 }) => {
   const image = (
     <Img
-      css={css`
-        object-fit: contain;
-        width: 100%;
-        height: 200px;
-      `}
+      style={{
+        objectFit: 'contain',
+        width: '100%',
+        height: '200px'
+      }}
       {...imageProps}
     />
   );

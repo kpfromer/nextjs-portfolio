@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
@@ -49,42 +48,36 @@ export default () => {
 
   return (
     <BackgroundImage
-      css={css`
-        height: 100vh;
-        display: flex;
-        position: relative;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50%;
-        background-position: 80% 0%;
-      `}
+      style={{
+        height: '100vh',
+        display: 'flex',
+        position: 'relative',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: '80% 0%'
+      }}
       fluid={data.background.childImageSharp.fluid}
     >
-      <div
-        css={css`
-          background-color: rgba(7, 23, 55, 0.8);
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: -20;
-        `}
+      <Box
+        bg="rgba(7, 23, 55, 0.8)"
+        sx={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, zIndex: -20 }}
       />
       <Box m="auto" sx={{ textAlign: 'center' }}>
-        <Img
-          css={css`
-            border-radius: 100%;
-            border: 8px solid hsla(0, 0%, 100%, 0.5);
-            vertical-align: middle;
-            max-width: 100%;
-            height: 300px;
-            width: 300px;
-            margin-bottom: 38px;
-            font-weight: 500;
-          `}
-          fixed={data.me.childImageSharp.fixed}
-        />
+        <Box mb={3}>
+          <Img
+            style={{
+              textAlign: 'center',
+              borderRadius: '100%',
+              border: '8px solid hsla(0, 0%, 100%, 0.5)',
+              verticalAlign: 'middle',
+              maxWidth: '100%',
+              width: '300px',
+              height: '300px',
+              fontWeight: '500'
+            }}
+            fixed={data.me.childImageSharp.fixed}
+          />
+        </Box>
         <Heading
           as="h1"
           fontSize={7}
@@ -98,20 +91,20 @@ export default () => {
           </Text>
         </Heading>
         <Text fontSize={5} color="white">
-          I'm a{' '}
+          I&apos;m a{' '}
           <Text as="span" fontWeight={600}>
             Software Engineer
           </Text>
           <IconContext.Provider value={{ color: '#fff', size: '48px' }}>
             <Flex>
               <Box mx="auto">
-                <Link outside to={socialLinks.github} target="_blank" mr={3}>
+                <Link outside to={socialLinks.github} mr={3}>
                   <FaGithub />
                 </Link>
-                <Link outside to={socialLinks.linkedin} target="_blank">
+                <Link outside to={socialLinks.linkedin}>
                   <FaLinkedin />
                 </Link>
-                <Link outside to={socialLinks.stackOverflow} target="_blank" ml={3}>
+                <Link outside to={socialLinks.stackOverflow} ml={3}>
                   <FaStackOverflow />
                 </Link>
               </Box>

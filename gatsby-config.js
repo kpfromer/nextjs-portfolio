@@ -64,7 +64,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     // Misc
     `gatsby-plugin-preact`,
-    `gatsby-plugin-emotion`,
     // SEO
     `gatsby-plugin-react-helmet`,
     {
