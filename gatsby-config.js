@@ -1,3 +1,5 @@
+const path = require('path');
+
 const googleAnalyticsOptions = !!process.env.GOOGLE_ANALYTICS
   ? {
       trackingId: process.env.GOOGLE_ANALYTICS
@@ -62,6 +64,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-remark-reading-time`,
     `gatsby-transformer-sharp`,
+    // Projects
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'data',
+        path: path.join(__dirname, 'content', 'data')
+      }
+    },
+    `gatsby-transformer-json`,
     // Misc
     `gatsby-plugin-preact`,
     // SEO
