@@ -15,8 +15,8 @@ const theme = {
   },
   fonts: {
     ...presetTheme.fonts,
-    heading: "'Work Sans', sans-serif",
-    body: "'Quattrocento Sans', sans-serif"
+    heading: 'Poppins, sans-serif',
+    body: "'Open Sans', sans-serif"
   },
   shadows: {
     ...presetTheme.shadows,

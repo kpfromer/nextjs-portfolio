@@ -2,6 +2,7 @@ import React from 'react';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import { Flex, Text, FlexProps, TextProps } from 'rebass';
 import { Link } from './Link';
+import { MoveIn } from './MoveIn';
 
 export const List: React.FC<FlexProps> = (props) => (
   <Flex
@@ -90,7 +91,7 @@ export const Title: React.FC<TitleProps & TextProps> = ({ to, children, ...props
 
 export const Description: React.FC<TextProps> = (props) => <Text {...props} mt={3} />;
 
-export const ListItem: React.FC<FlexProps> = ({ children }) => {
+export const ListItem: React.FC<FlexProps> = ({ children, ...props }) => {
   return (
     <Flex
       flexDirection="column"
@@ -98,10 +99,11 @@ export const ListItem: React.FC<FlexProps> = ({ children }) => {
       mx={[0, 3, 4]}
       mb={[3, 0]}
       width={[1, 1 / 3]}
-      bg="white"
-      sx={{ boxShadow: 'list' }}
+      {...props}
     >
-      {children}
+      <MoveIn triggerOnce bg="white" sx={{ boxShadow: 'list', flexGrow: 1 }}>
+        {children}
+      </MoveIn>
     </Flex>
   );
 };
