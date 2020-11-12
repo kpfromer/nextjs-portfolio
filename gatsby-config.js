@@ -92,6 +92,20 @@ module.exports = {
       options: {
         policy: [{ userAgent: '*', allow: '/' }]
       }
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Kyle Pfromer',
+        short_name: 'Pfromer',
+        description: "Kyle's blog.",
+        lang: 'en',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#e3872d',
+        display: 'standalone',
+        icon: 'content/assets/favicon.png'
+      }
     }
   ]
 };
