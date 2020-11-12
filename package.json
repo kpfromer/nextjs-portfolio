@@ -93,9 +93,17 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "lint-staged": {
+    "./src/**/*.(js|md|mdx)": [
+      "prettier --write"
+    ],
+    "./src/**/*.(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn typecheck && yarn precommit",
+      "pre-commit": "yarn precommit",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
