@@ -36,9 +36,9 @@ export default () => {
           }
         }
 
-        background: file(relativePath: { eq: "2019-07-27-Collegiate-West.jpeg" }) {
+        background: file(relativePath: { eq: "crested-butte-2016-07-14.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
+            fluid(maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
