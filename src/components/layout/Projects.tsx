@@ -4,6 +4,7 @@ import { Section } from '../Section';
 import { useStaticQuery, graphql } from 'gatsby';
 import { List } from '../List';
 import { Project } from '../Project';
+import { BoxProps } from 'rebass';
 
 interface Project {
   title: string;
@@ -13,7 +14,7 @@ interface Project {
   github: string;
 }
 
-export default () => {
+const Projects: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   const {
     allProjectsJson: { nodes: projects }
   } = useStaticQuery(graphql`
@@ -36,7 +37,7 @@ export default () => {
     }
   `);
   return (
-    <Section>
+    <Section {...props}>
       <Title>Projects</Title>
       <List>
         {projects.map((project: Project) => (
@@ -46,3 +47,5 @@ export default () => {
     </Section>
   );
 };
+
+export default Projects;

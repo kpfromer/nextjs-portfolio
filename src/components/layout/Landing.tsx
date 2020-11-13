@@ -6,8 +6,11 @@ import { IconContext } from 'react-icons';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
 import { Box, Heading, Text, Flex } from 'rebass';
 import { Link } from '../Link';
+import { Theme, useThemeUI } from 'theme-ui';
+import { alpha } from '@theme-ui/color';
 
 export default () => {
+  const { theme } = useThemeUI();
   const data = useStaticQuery(
     graphql`
       query {
@@ -59,7 +62,7 @@ export default () => {
       fluid={data.background.childImageSharp.fluid}
     >
       <Box
-        bg="rgba(7, 23, 55, 0.8)"
+        bg={alpha('secondary', 0.8)(theme as any)}
         sx={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, zIndex: -20 }}
       />
       <Box m="auto" sx={{ textAlign: 'center' }}>
