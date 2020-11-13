@@ -10,7 +10,8 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
     {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        filter: { frontmatter: { hidden: { eq: false } } }
+        # TODO: better solution for filtering for blog items (and not about.tsx in data/)
+        filter: { frontmatter: { hidden: { eq: false }, type: { ne: "home" } } }
       ) {
         totalCount
         edges {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '../components/Link';
-import { Box, Heading } from 'rebass';
+import { Box, Heading, Text } from 'rebass';
 
 const Header = ({ children, as, ...props }) => {
   let fontSize = 2;
@@ -63,5 +63,10 @@ export default {
     <Box as="td" p={2} textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
       {children}
     </Box>
+  ),
+  strong: ({ children }) => (
+    <Text as="span" fontWeight="bold" color="primary">
+      {children}
+    </Text>
   )
 };
