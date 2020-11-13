@@ -47,24 +47,20 @@ b = \begin{bmatrix}
 $$
 
 $$
-wa = \begin{bmatrix}
-    w_{11} a_1 + w_{12} a_2 + w_{13} a_3\\
-    w_{21} a_1 + w_{22} a_2 + w_{23} a_3
-\end{bmatrix}
-$$
-
-$$
-wa + b = \begin{bmatrix}
-    (w_{11} a_1 + w_{12} a_2 + w_{13} a_3) + b_1\\
-    (w_{21} a_1 + w_{22} a_2 + w_{23} a_3) + b_2
-\end{bmatrix}
-$$
-
-$$
-a' = \sigma(wa + b) = \begin{bmatrix}
-    \sigma((w_{11} a_1 + w_{12} a_2 + w_{13} a_3) + b_1)\\
-    \sigma((w_{21} a_1 + w_{22} a_2 + w_{23} a_3) + b_2)
-\end{bmatrix}
+\begin{gathered}
+    wa = \begin{bmatrix}
+        w_{11} a_1 + w_{12} a_2 + w_{13} a_3\\
+        w_{21} a_1 + w_{22} a_2 + w_{23} a_3
+    \end{bmatrix}\\
+    wa + b = \begin{bmatrix}
+        (w_{11} a_1 + w_{12} a_2 + w_{13} a_3) + b_1\\
+        (w_{21} a_1 + w_{22} a_2 + w_{23} a_3) + b_2
+    \end{bmatrix}\\
+    a' = \sigma(wa + b) = \begin{bmatrix}
+        \sigma((w_{11} a_1 + w_{12} a_2 + w_{13} a_3) + b_1)\\
+        \sigma((w_{21} a_1 + w_{22} a_2 + w_{23} a_3) + b_2)
+    \end{bmatrix}
+\end{gathered}
 $$
 
 This is exactly the same as $\frac{1}{1+\exp(- \sum_j w_j x_j - b)}$ but computed for both neurons

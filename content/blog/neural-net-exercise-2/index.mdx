@@ -29,16 +29,18 @@ This is converting a base-ten value to base-two value.
 I first listed out all the possible numbers.
 
 $$
-(9)_{10} = (1001)_2\\
-(8)_{10} = (1000)_2\\
-(7)_{10} = (0111)_2\\
-(6)_{10} = (0110)_2\\
-(5)_{10} = (0101)_2\\
-(4)_{10} = (0100)_2\\
-(3)_{10} = (0011)_2\\
-(2)_{10} = (0010)_2\\
-(1)_{10} = (0001)_2\\
-(0)_{10} = (0000)_2
+\begin{aligned}
+  (9)_{10} &= (1001)_2\\
+  (8)_{10} &= (1000)_2\\
+  (7)_{10} &= (0111)_2\\
+  (6)_{10} &= (0110)_2\\
+  (5)_{10} &= (0101)_2\\
+  (4)_{10} &= (0100)_2\\
+  (3)_{10} &= (0011)_2\\
+  (2)_{10} &= (0010)_2\\
+  (1)_{10} &= (0001)_2\\
+  (0)_{10} &= (0000)_2
+\end{aligned}
 $$
 
 #### Node One
@@ -50,16 +52,18 @@ the dot product will produce either $1$ or $0$. The weights for the first node a
 > I am going to denote the weight due to number in the old output layer, $j$, $w_j$
 
 $$
-w_{9} = 1\\
-w_{8} = 0\\
-w_{7} = 1\\
-w_{6} = 0\\
-w_{5} = 1\\
-w_{4} = 0\\
-w_{3} = 1\\
-w_{2} = 0\\
-w_{1} = 1\\
-w_{0} = 0
+\begin{aligned}
+  w_{9} &= 1\\
+  w_{8} &= 0\\
+  w_{7} &= 1\\
+  w_{6} &= 0\\
+  w_{5} &= 1\\
+  w_{4} &= 0\\
+  w_{3} &= 1\\
+  w_{2} &= 0\\
+  w_{1} &= 1\\
+  w_{0} &= 0
+\end{aligned}
 $$
 
 So if the value is odd the $w \cdot x = 1$ and if even $w \cdot x = 0$.
@@ -69,16 +73,18 @@ So if the value is odd the $w \cdot x = 1$ and if even $w \cdot x = 0$.
 For node two it should only be activated if the numbers are $\{ 2,3,6,7 \}$
 
 $$
-w_{9} = 0\\
-w_{8} = 0\\
-w_{7} = 1\\
-w_{6} = 1\\
-w_{5} = 0\\
-w_{4} = 0\\
-w_{3} = 1\\
-w_{2} = 1\\
-w_{1} = 0\\
-w_{0} = 0
+\begin{aligned}
+  w_{9} &= 0\\
+  w_{8} &= 0\\
+  w_{7} &= 1\\
+  w_{6} &= 1\\
+  w_{5} &= 0\\
+  w_{4} &= 0\\
+  w_{3} &= 1\\
+  w_{2} &= 1\\
+  w_{1} &= 0\\
+  w_{0} &= 0
+\end{aligned}
 $$
 
 #### Node Three
@@ -86,16 +92,18 @@ $$
 For node three it should only be activated if the numbers are $\{ 4,5,6,7 \}$
 
 $$
-w_{9} = 0\\
-w_{8} = 0\\
-w_{7} = 1\\
-w_{6} = 1\\
-w_{5} = 1\\
-w_{4} = 1\\
-w_{3} = 0\\
-w_{2} = 0\\
-w_{1} = 0\\
-w_{0} = 0
+\begin{aligned}
+  w_{9} &= 0\\
+  w_{8} &= 0\\
+  w_{7} &= 1\\
+  w_{6} &= 1\\
+  w_{5} &= 1\\
+  w_{4} &= 1\\
+  w_{3} &= 0\\
+  w_{2} &= 0\\
+  w_{1} &= 0\\
+  w_{0} &= 0
+\end{aligned}
 $$
 
 #### Node Four
@@ -103,16 +111,18 @@ $$
 For node four it should only be activated if the numbers are $\{ 8,9 \}$
 
 $$
-w_{9} = 1\\
-w_{8} = 1\\
-w_{7} = 0\\
-w_{6} = 0\\
-w_{5} = 0\\
-w_{4} = 0\\
-w_{3} = 0\\
-w_{2} = 0\\
-w_{1} = 0\\
-w_{0} = 0
+\begin{aligned}
+  w_{9} &= 1\\
+  w_{8} &= 1\\
+  w_{7} &= 0\\
+  w_{6} &= 0\\
+  w_{5} &= 0\\
+  w_{4} &= 0\\
+  w_{3} &= 0\\
+  w_{2} &= 0\\
+  w_{1} &= 0\\
+  w_{0} &= 0
+\end{aligned}
 $$
 
 Again, there are **no biases** for any of the nodes.

@@ -37,47 +37,46 @@ Here is an example image of a subset of nodes in the network:
 Given a mini batch with $m$ number of images:
 
 $$
-w =
-\begin{bmatrix}
-    w_{\textcolor{#a61e4d}{1}\textcolor{#5f3dc4}{1}} & w_{\textcolor{#a61e4d}{1}\textcolor{#2b8a3e}{2}} & w_{\textcolor{#a61e4d}{1}\textcolor{#e67700}{3}} \\
-    w_{\textcolor{#1864ab}{2}\textcolor{#5f3dc4}{1}} & w_{\textcolor{#1864ab}{2}\textcolor{#2b8a3e}{2}} & w_{\textcolor{#1864ab}{2}\textcolor{#e67700}{3}}
-\end{bmatrix}
-\\
-a =
-\begin{bmatrix}
-    \text{Image One} & \text{Image Two} & \dots & \text{Image
-    $m$} \\
-    a_{\textcolor{#5f3dc4}{1}1} & a_{\textcolor{#5f3dc4}{1}2} && a_{\textcolor{#5f3dc4}{1}m}\\
-    a_{\textcolor{#2b8a3e}{2}1} & a_{\textcolor{#2b8a3e}{2}2} && a_{\textcolor{#2b8a3e}{2}m}\\
-    a_{\textcolor{#e67700}{3}1} & a_{\textcolor{#e67700}{3}2} && a_{\textcolor{#e67700}{3}m}\\
-\end{bmatrix}
-\\
-b =
-\begin{bmatrix}
-    \textcolor{#a61e4d}{b_1} & \textcolor{#a61e4d}{b_1} & \underset{m}{\dots} &
-    \textcolor{#a61e4d}{b_1}\\
-    \textcolor{#1864ab}{b_2} & \textcolor{#1864ab}{b_2} && \textcolor{#1864ab}{b_2}
-\end{bmatrix}
-\\
-z_\text{current layer} = w \cdot a + b =\\
-\begin{bmatrix}
-    w_{\textcolor{#a61e4d}{1}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}1} +
-    w_{\textcolor{#a61e4d}{1}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}1} +
-    w_{\textcolor{#a61e4d}{1}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}1} +
-    \textcolor{#a61e4d}{b_1} & \underset{m}{\dots} &
-    w_{\textcolor{#a61e4d}{1}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}m} +
-    w_{\textcolor{#a61e4d}{1}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}m} +
-    w_{\textcolor{#a61e4d}{1}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}m} +
-    \textcolor{#a61e4d}{b_1}\\
-    w_{\textcolor{#1864ab}{2}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}1} +
-    w_{\textcolor{#1864ab}{2}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}1} +
-    w_{\textcolor{#1864ab}{2}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}1} +
-    \textcolor{#1864ab}{b_2} &&
-    w_{\textcolor{#1864ab}{2}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}m} +
-    w_{\textcolor{#1864ab}{2}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}m} +
-    w_{\textcolor{#1864ab}{2}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}m} +
-    \textcolor{#1864ab}{b_2}\\
-\end{bmatrix}
+\begin{gathered}
+    w =
+    \begin{bmatrix}
+        w_{\textcolor{#a61e4d}{1}\textcolor{#5f3dc4}{1}} & w_{\textcolor{#a61e4d}{1}\textcolor{#2b8a3e}{2}} & w_{\textcolor{#a61e4d}{1}\textcolor{#e67700}{3}} \\
+        w_{\textcolor{#1864ab}{2}\textcolor{#5f3dc4}{1}} & w_{\textcolor{#1864ab}{2}\textcolor{#2b8a3e}{2}} & w_{\textcolor{#1864ab}{2}\textcolor{#e67700}{3}}
+    \end{bmatrix}\\
+    a =
+    \begin{bmatrix}
+        \text{Image One} & \text{Image Two} & \dots & \text{Image
+        $m$} \\
+        a_{\textcolor{#5f3dc4}{1}1} & a_{\textcolor{#5f3dc4}{1}2} && a_{\textcolor{#5f3dc4}{1}m}\\
+        a_{\textcolor{#2b8a3e}{2}1} & a_{\textcolor{#2b8a3e}{2}2} && a_{\textcolor{#2b8a3e}{2}m}\\
+        a_{\textcolor{#e67700}{3}1} & a_{\textcolor{#e67700}{3}2} && a_{\textcolor{#e67700}{3}m}\\
+    \end{bmatrix}\\
+    b =
+    \begin{bmatrix}
+        \textcolor{#a61e4d}{b_1} & \textcolor{#a61e4d}{b_1} & \underset{m}{\dots} &
+        \textcolor{#a61e4d}{b_1}\\
+        \textcolor{#1864ab}{b_2} & \textcolor{#1864ab}{b_2} && \textcolor{#1864ab}{b_2}
+    \end{bmatrix}\\
+    z_\text{current layer} = w \cdot a + b =\\
+    \begin{bmatrix}
+        w_{\textcolor{#a61e4d}{1}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}1} +
+        w_{\textcolor{#a61e4d}{1}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}1} +
+        w_{\textcolor{#a61e4d}{1}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}1} +
+        \textcolor{#a61e4d}{b_1} & \underset{m}{\dots} &
+        w_{\textcolor{#a61e4d}{1}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}m} +
+        w_{\textcolor{#a61e4d}{1}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}m} +
+        w_{\textcolor{#a61e4d}{1}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}m} +
+        \textcolor{#a61e4d}{b_1}\\
+        w_{\textcolor{#1864ab}{2}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}1} +
+        w_{\textcolor{#1864ab}{2}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}1} +
+        w_{\textcolor{#1864ab}{2}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}1} +
+        \textcolor{#1864ab}{b_2} &&
+        w_{\textcolor{#1864ab}{2}\textcolor{#5f3dc4}{1}}a_{\textcolor{#5f3dc4}{1}m} +
+        w_{\textcolor{#1864ab}{2}\textcolor{#2b8a3e}{2}}a_{\textcolor{#2b8a3e}{2}m} +
+        w_{\textcolor{#1864ab}{2}\textcolor{#e67700}{3}}a_{\textcolor{#e67700}{3}m} +
+        \textcolor{#1864ab}{b_2}\\
+    \end{bmatrix}
+\end{gathered}
 $$
 
 By organizing your matrices in the pattern above you can simultionously compute all the $z$'s for
