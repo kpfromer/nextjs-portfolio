@@ -2,10 +2,10 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Title } from '../Title';
 import { Section } from '../Section';
-import { Box, Text, Flex, Button } from 'rebass';
+import { Box, Text, Flex, Button, BoxProps } from 'rebass';
 import { Link } from '../Link';
 
-export default () => {
+const About: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -24,7 +24,7 @@ export default () => {
   const { author } = data.site.siteMetadata;
 
   return (
-    <Section>
+    <Section {...props}>
       <Title>About</Title>
       <Box>
         <Text mb={3}>
@@ -32,52 +32,15 @@ export default () => {
           <Text as="span" color="primary">
             {author.firstName} {author.lastName}
           </Text>
-          . I am a Full-Stack Web Developer. I started programming in middle school and have been
-          writing code since then.
+          . I am a full stack developer that works a lot with TypeScript and JavaScript (though I
+          have experience in C++ and Java). I am currently a computer science student at{' '}
+          <Link outside to="https://www.colorado.edu/">
+            CU Boulder
+          </Link>
+          . When not programming I am snowboarding, hiking and biking.
         </Text>
-
-        <Flex as="ul" flexWrap="wrap" sx={{ listStyleType: 'none' }}>
-          <Box width={1 / 2} py={1}>
-            <Text as="span" fontWeight={700}>
-              Study:
-            </Text>{' '}
-            University of Colorado, Boulder
-          </Box>
-
-          <Box width={1 / 2} py={1}>
-            <Text as="span" fontWeight={700}>
-              Email:
-            </Text>{' '}
-            <Link outside to="mailto:kpfromer2@gmail.com">
-              kpfromer2@gmail.com
-            </Link>
-          </Box>
-
-          <Box width={1 / 2} py={1}>
-            <Text as="span" fontWeight={700}>
-              Degree:
-            </Text>{' '}
-            Bachelor of Science
-          </Box>
-
-          <Box width={1 / 2} py={1}>
-            <Text as="span" fontWeight={700}>
-              Interests:
-            </Text>{' '}
-            Hiking, Biking, Snowboarding
-          </Box>
-
-          <Button
-            mt={3}
-            fontSize={3}
-            as="a"
-            href="https://drive.google.com/file/d/1KUxBSQwj87LBoHmsuRAyPgfN6F6oo5kR/view?usp=sharing"
-            target="_blank"
-          >
-            Download Resume
-          </Button>
-        </Flex>
       </Box>
     </Section>
   );
 };
+export default About;

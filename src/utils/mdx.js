@@ -49,26 +49,19 @@ export default {
       {children}
     </Box>
   ),
-  tr: (props) => {
-    console.log(props);
-    return (
-      <Box as="tr" sx={{ border: '1px solid #c6cbd1' }}>
-        {props.children}
-      </Box>
-    );
-  },
-  th: ({ align, children }) => {
-    return (
-      <Box as="th" p={2} fontWeight="bold" textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
-        {children}
-      </Box>
-    );
-  },
-  td: ({ align, children }) => {
-    return (
-      <Box as="td" p={2} textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
-        {children}
-      </Box>
-    );
-  }
+  tr: (props) => (
+    <Box as="tr" sx={{ border: '1px solid #c6cbd1' }}>
+      {props.children}
+    </Box>
+  ),
+  th: ({ align, children }) => (
+    <Box as="th" p={2} fontWeight="bold" textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
+      {children}
+    </Box>
+  ),
+  td: ({ align, children }) => (
+    <Box as="td" p={2} textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
+      {children}
+    </Box>
+  )
 };

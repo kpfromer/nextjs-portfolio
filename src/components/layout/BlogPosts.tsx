@@ -3,8 +3,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Title } from '../Title';
 import { Section } from '../Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
+import { BoxProps } from 'rebass';
 
-export default () => {
+const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   const data: any = useStaticQuery(graphql`
     {
       allMdx(
@@ -37,7 +38,7 @@ export default () => {
     }
   `);
   return (
-    <Section bg="backgroundAlt">
+    <Section {...props}>
       <Title slug="blog-posts">Blog Posts</Title>
       <List>
         {data.allMdx.edges.map(
@@ -62,3 +63,5 @@ export default () => {
     </Section>
   );
 };
+
+export default BlogPosts;

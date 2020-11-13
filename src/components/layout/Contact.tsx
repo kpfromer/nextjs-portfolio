@@ -1,12 +1,12 @@
 import React from 'react';
 import { Title } from '../Title';
 import { Section } from '../Section';
-import { Box, Button } from 'rebass';
+import { Box, BoxProps, Button } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
 
-export default () => {
+const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   return (
-    <Section>
+    <Section {...props}>
       <Title>Contact</Title>
       <Box as="form" action="https://formspree.io/mdokobow" method="POST">
         <Label htmlFor="email">Your email:</Label>
@@ -26,3 +26,5 @@ export default () => {
     </Section>
   );
 };
+
+export default BlogPosts;
