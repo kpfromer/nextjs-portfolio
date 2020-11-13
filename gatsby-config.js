@@ -64,6 +64,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-remark-reading-time`,
     `gatsby-transformer-sharp`,
+
     // Projects
     {
       resolve: `gatsby-source-filesystem`,
@@ -73,6 +74,17 @@ module.exports = {
       }
     },
     `gatsby-transformer-json`,
+    // Experience,
+    {
+      resolve: `gatsby-transformer-yaml-full`,
+      options: {
+        plugins: [
+          `mdx-yaml-full`,
+          `gatsby-yaml-full-markdown` // Enable !markdown tags
+        ]
+      }
+    },
+
     // Misc
     `gatsby-plugin-preact`,
     // SEO
