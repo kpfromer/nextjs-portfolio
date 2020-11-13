@@ -19,7 +19,7 @@ interface PageContext {
   };
 }
 
-const BlogPost: React.FC<PageProps<object, PageContext>> = ({ data, pageContext }) => {
+const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) => {
   const {
     site: {
       siteMetadata: { siteUrl }
