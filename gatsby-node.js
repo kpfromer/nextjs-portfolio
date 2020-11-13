@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
-          filter: { frontmatter: { hidden: { eq: false } } }
+          filter: { frontmatter: { hidden: { eq: false }, type: { ne: "home" } } }
         ) {
           edges {
             node {
