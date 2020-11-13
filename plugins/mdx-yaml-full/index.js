@@ -35,8 +35,6 @@ module.exports = ({ node }, pluginOptions) => ({
         .code.replace(/export\s*default\s*function\s*MDXContent\s*/, `return function MDXContent`)
         .replace(/export\s*{\s*MDXContent\s+as\s+default\s*};?/, `return MDXContent;`);
 
-      console.log(transformed);
-
       return transformed;
     }
   }
