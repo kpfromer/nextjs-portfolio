@@ -11,6 +11,7 @@
   content: !mdx |
     - Worked on integrating Google Cloud AI's Platform Optimizer Product with JupyterLab.
     - Enabled users to easily tune their machine learning model hyperparameters within the JupyterLab environment.
+    - Created a hierarchical data input system for conditional parameter trees.
 # Startup
 - companyName: Shivoo
   title: Fullstack Engineer
