@@ -2076,7 +2076,7 @@
     "@theme-ui/css" "^0.3.3"
     deepmerge "^4.2.2"
 
-"@theme-ui/color@^0.3.3":
+"@theme-ui/color@0.3.3":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.3.3.tgz#2c8e909bf9b4cba7bed09cc35d703ce02bb0d316"
   integrity sha512-LjPSfJxgyd7S80AnQCgbB+2mpxncqXUjtg229pzY2U/d77d/mCT1Y2BXeInPLE0RZXmG7dF9APKmCz946a/SkA==
@@ -7393,7 +7393,7 @@ gatsby-plugin-google-analytics@2.4.0:
     "@babel/runtime" "^7.11.2"
     minimatch "3.0.4"
 
-gatsby-plugin-manifest@^2.5.2:
+gatsby-plugin-manifest@2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.5.2.tgz#38642e205e17086b3eca74b22f2eae07d10efbf8"
   integrity sha512-ULLpUbKMXu0wh6XV+GEqE3w7ggGrEKH3fubwiiE00oUNJGoyFfvS9xGSwPtpE6yO1Xg3m1AH5vajZxfL9dWQ+A==
@@ -7776,7 +7776,7 @@ gatsby-transformer-sharp@2.5.21:
     semver "^7.3.2"
     sharp "^0.25.4"
 
-gatsby-transformer-yaml-full@^0.3.4:
+gatsby-transformer-yaml-full@0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml-full/-/gatsby-transformer-yaml-full-0.3.4.tgz#c332807dfb47f0d12521faf9c6c573c33e0b9fe3"
   integrity sha512-7nLRg1+EMCw1irOpg/XN4REN81qQNgezmqJc0o4hYV46Knly+qWkrT84bl9gQ+a2h6XT8Zlm1Eky2nzk4caTaA==
@@ -7784,7 +7784,7 @@ gatsby-transformer-yaml-full@^0.3.4:
     is-plain-object "^3.0.1"
     js-yaml "^3.14.0"
 
-gatsby-yaml-full-markdown@^0.3.4:
+gatsby-yaml-full-markdown@0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/gatsby-yaml-full-markdown/-/gatsby-yaml-full-markdown-0.3.4.tgz#fb657acf9aa59e79c1741ed4cf47b4a5b98df9ab"
   integrity sha512-JIIBL+3t1pbc6YQAr0Bawy7ARECPr9dIqcqq556ltnbXpP1K6461P/y7Bg1+f5jU4M4fXJ8VX/2avQzgAN66OA==
