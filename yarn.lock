@@ -10885,6 +10885,11 @@ mdurl@^1.0.0, mdurl@^1.0.1:
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
+mdx-yaml-full@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/mdx-yaml-full/-/mdx-yaml-full-1.0.4.tgz#ff326485e10dafa48b0fdaf655ba7c1e1c44d115"
+  integrity sha512-NQIbva/kms5z0pbMmFjOCKSCUm5loCQ3APduSmSAjM10SugXgIQDtkniprCb1gYg67LlpigmaateeF0oHG43WQ==
+
 meant@^1.0.1, meant@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/meant/-/meant-1.0.3.tgz#67769af9de1d158773e928ae82c456114903554c"

@@ -47,6 +47,7 @@
     "gatsby-transformer-yaml-full": "^0.3.4",
     "gatsby-yaml-full-markdown": "^0.3.4",
     "katex": "0.12.0",
+    "mdx-yaml-full": "^1.0.4",
     "preact": "10.4.6",
     "prismjs": "1.21.0",
     "react": "^17.0.0",
