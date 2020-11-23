@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../components/Link';
+import { Link } from '../components/common/Link';
 import { Box, Heading, Text } from 'rebass';
 
 const Header = ({ children, as, ...props }) => {
@@ -68,5 +68,5 @@ export default {
     <Text as="span" fontWeight="bold" color="primary">
       {children}
     </Text>
-  )
+  ),
 };
