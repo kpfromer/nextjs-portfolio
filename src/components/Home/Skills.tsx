@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from '../Link';
-import { Title } from '../Title';
+import { Link } from '../common/Link';
+import { Title } from '../common/Title';
 import { Section } from '../Section';
 import { BoxProps, Button, Text } from 'rebass';
 

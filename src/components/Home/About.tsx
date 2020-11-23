@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Title } from '../Title';
+import { Title } from '../common/Title';
 import { Section } from '../Section';
 import { BoxProps } from 'rebass';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -19,7 +19,7 @@ const About: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           }
         }
       }
-    `
+    `,
   );
 
   const { content } = data;

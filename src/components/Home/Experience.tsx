@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from '../Link';
-import { Title } from '../Title';
+import { Link } from '../common/Link';
+import { Title } from '../common/Title';
 import { Section } from '../Section';
 import { Box, BoxProps, Button, Text } from 'rebass';
 import { Separator, WorkExperience } from '../WorkExperience';
@@ -38,8 +38,9 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           }
         }
       }
-    `
+    `,
   );
+  console.log(data);
   return (
     <Section {...props}>
       <Title>Experience</Title>

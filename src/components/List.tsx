@@ -1,7 +1,7 @@
 import React from 'react';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import { Flex, Text, FlexProps, TextProps } from 'rebass';
-import { Link } from './Link';
+import { Link } from './common/Link';
 import { MoveIn } from './MoveIn';
 
 export const List: React.FC<FlexProps> = (props) => (
@@ -27,7 +27,7 @@ export const HeaderImage: React.FC<HeaderImageProps & GatsbyImageProps> = ({
       style={{
         objectFit: 'contain',
         width: '100%',
-        height: '200px'
+        height: '200px',
       }}
       {...imageProps}
     />
@@ -45,7 +45,7 @@ export const Body: React.FC<FlexProps> = (props) => (
     p={3}
     sx={{
       textAlign: 'center',
-      flexGrow: 1
+      flexGrow: 1,
     }}
   />
 );
@@ -62,8 +62,8 @@ export const Dates: React.FC<TextProps> = ({ children, ...props }) => (
         height: '1px',
         left: 0,
         bottom: '-5px',
-        backgroundColor: 'rgba(0, 0, 0, 0.2)'
-      }
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      },
     }}
     mb={3}
   >

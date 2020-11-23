@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '../Title';
+import { Title } from '../common/Title';
 import { Section } from '../Section';
 import { useStaticQuery, graphql } from 'gatsby';
 import { List } from '../List';
@@ -16,7 +16,7 @@ interface Project {
 
 const Projects: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   const {
-    allProjectsJson: { nodes: projects }
+    allProjectsJson: { nodes: projects },
   } = useStaticQuery(graphql`
     {
       allProjectsJson {

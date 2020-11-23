@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Title } from '../Title';
+import { Title } from '../common/Title';
 import { Section } from '../Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 import { BoxProps } from 'rebass';
@@ -46,8 +46,8 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           ({
             node: {
               frontmatter: { title, date, thumbnail },
-              fields: { blogPath }
-            }
+              fields: { blogPath },
+            },
           }: any) => (
             <ListItem key={blogPath}>
               {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
@@ -58,7 +58,7 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
                 </ListTitle>
               </Body>
             </ListItem>
-          )
+          ),
         )}
       </List>
     </Section>

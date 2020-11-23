@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from './Link';
+import { Link } from './common/Link';
 import { Heading, Box, Flex, Text } from 'rebass';
 import { PageProps } from 'gatsby';
 
@@ -10,9 +10,10 @@ interface Props {
 export const BlogLayout: React.FC<Props & PageProps> = ({
   location,
   title = "Kyle Pfromer's Blog",
-  children
+  children,
 }) => {
   // TODO: change
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
@@ -23,7 +24,7 @@ export const BlogLayout: React.FC<Props & PageProps> = ({
           style={{
             boxShadow: `none`,
             textDecoration: `none`,
-            color: `inherit`
+            color: `inherit`,
           }}
           to="/blog"
         >
@@ -37,14 +38,14 @@ export const BlogLayout: React.FC<Props & PageProps> = ({
         as="h3"
         style={{
           fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0
+          marginTop: 0,
         }}
       >
         <Link
           style={{
             boxShadow: `none`,
             textDecoration: `none`,
-            color: `inherit`
+            color: `inherit`,
           }}
           to="/blog"
         >

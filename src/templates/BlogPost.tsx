@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
-import { Link } from '../components/Link';
+import { Link } from '../components/common/Link';
 import Img from 'gatsby-image';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/common/SEO';
 import { Section } from '../components/Section';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import 'katex/dist/katex.min.css';
@@ -22,15 +22,15 @@ interface PageContext {
 const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) => {
   const {
     site: {
-      siteMetadata: { siteUrl }
+      siteMetadata: { siteUrl },
     },
     mdx: {
       body,
       frontmatter: { title, thumbnail, date, category },
       fields: {
-        readingTime: { text: readingTime }
-      }
-    }
+        readingTime: { text: readingTime },
+      },
+    },
   }: any = data;
   const { previous, next } = pageContext;
   return (
@@ -47,7 +47,7 @@ const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) 
               style={{
                 objectFit: 'cover',
                 maxHeight: '50vh',
-                minWidth: '100%'
+                minWidth: '100%',
               }}
               fluid={thumbnail.childImageSharp.fluid}
             />
@@ -61,7 +61,7 @@ const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) 
             <Heading
               fontSize={6}
               sx={{
-                borderBottom: '1px solid #eaecef'
+                borderBottom: '1px solid #eaecef',
               }}
               mt={2}
               mb={3}

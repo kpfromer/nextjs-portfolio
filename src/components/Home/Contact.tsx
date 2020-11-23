@@ -1,10 +1,10 @@
 import React from 'react';
-import { Title } from '../Title';
+import { Title } from '../common/Title';
 import { Section } from '../Section';
 import { Box, BoxProps, Button } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
 
-const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
+export const Contact: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   return (
     <Section {...props}>
       <Title>Contact</Title>
@@ -26,5 +26,3 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
     </Section>
   );
 };
-
-export default BlogPosts;

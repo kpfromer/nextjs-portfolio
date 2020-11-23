@@ -11,7 +11,17 @@ interface Props {
 }
 
 export const SEO: React.FC<Props> = ({ description, lang = 'en', meta = [], title, image }) => {
-  const { site }: any = useStaticQuery(
+  const { site } = useStaticQuery<{
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        author: {
+          fullName: string;
+        };
+      };
+    };
+  }>(
     graphql`
       query {
         site {
@@ -24,7 +34,7 @@ export const SEO: React.FC<Props> = ({ description, lang = 'en', meta = [], titl
           }
         }
       }
-    `
+    `,
   );
 
   const metaDescription = description || site.siteMetadata.description;
@@ -33,44 +43,44 @@ export const SEO: React.FC<Props> = ({ description, lang = 'en', meta = [], titl
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: `og:title`,
-          content: title
+          content: title,
         },
         {
           property: `og:description`,
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: `og:type`,
-          content: `website`
+          content: `website`,
         },
         {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author.fullName
+          content: site.siteMetadata.author.fullName,
         },
         {
           name: `twitter:title`,
-          content: title
+          content: title,
         },
         {
           name: `twitter:description`,
-          content: metaDescription
+          content: metaDescription,
         },
-        metaImage
+        metaImage,
       ].concat(meta)}
     />
   );
