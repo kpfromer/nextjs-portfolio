@@ -1,8 +1,8 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
-import { Link } from './common/Link';
-import { ListItem, HeaderImage, Body, Dates, Title, Description } from './List';
+import { Link } from '../common/Link';
+import { ListItem, HeaderImage, Body, Dates, Title, Description } from '../List';
 import { Box } from 'rebass';
 import { FlexProps } from 'theme-ui';
 

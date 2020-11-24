@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from '../common/Link';
 import { Title } from '../common/Title';
-import { Section } from '../Section';
+import { Section } from '../common/Section';
 import { Box, BoxProps, Button, Text } from 'rebass';
-import { Separator, WorkExperience } from '../WorkExperience';
+import { Separator, WorkExperience } from './WorkExperience';
 import { useStaticQuery, graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
@@ -16,7 +16,9 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
             companyName
             title
             location
-            content
+            content {
+              body
+            }
           }
         }
 
@@ -25,7 +27,9 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
             companyName
             title
             location
-            content
+            content {
+              body
+            }
           }
         }
 
@@ -34,7 +38,9 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
             companyName
             title
             location
-            content
+            content {
+              body
+            }
           }
         }
       }
@@ -63,7 +69,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           title={node.title}
           location={node.location}
         >
-          {node.content !== null && <MDXRenderer>{node.content}</MDXRenderer>}
+          {node.content !== null && <MDXRenderer>{node.content.body}</MDXRenderer>}
         </WorkExperience>
       ))}
       {/* TODO: add once ready */}
@@ -75,7 +81,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           title={node.title}
           location={node.location}
         >
-          {node.content !== null && <MDXRenderer>{node.content}</MDXRenderer>}
+          {node.content !== null && <MDXRenderer>{node.content.body}</MDXRenderer>}
         </WorkExperience>
       ))} */}
       <Separator my={4}>Clubs</Separator>
@@ -86,7 +92,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           title={node.title}
           location={node.location}
         >
-          {node.content !== null && <MDXRenderer>{node.content}</MDXRenderer>}
+          {node.content !== null && <MDXRenderer>{node.content.body}</MDXRenderer>}
         </WorkExperience>
       ))}
     </Section>

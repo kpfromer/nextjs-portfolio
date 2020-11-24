@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Title } from '../common/Title';
-import { Section } from '../Section';
+import { Section } from '../common/Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 import { BoxProps } from 'rebass';
 

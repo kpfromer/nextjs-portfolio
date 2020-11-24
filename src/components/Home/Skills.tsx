@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '../common/Link';
 import { Title } from '../common/Title';
-import { Section } from '../Section';
+import { Section } from '../common/Section';
 import { BoxProps, Button, Text } from 'rebass';
 
 const Skills: React.FC<Omit<BoxProps, 'css'>> = (props) => {

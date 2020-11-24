@@ -18,7 +18,7 @@ export const Separator: React.FC<
         sx={{
           flexGrow: 1,
           height: '2px',
-          backgroundColor: '#0000001a'
+          backgroundColor: '#0000001a',
         }}
       />
     </Flex>
@@ -60,7 +60,7 @@ export const WorkExperience: React.FC<Props> = ({ companyName, title, location, 
   const items = [
     <Heading key={-1} fontSize={3}>
       {title}
-    </Heading>
+    </Heading>,
   ];
   if (location) items.push(<Heading fontSize={3}>{location}</Heading>);
 
@@ -81,9 +81,9 @@ export const WorkExperience: React.FC<Props> = ({ companyName, title, location, 
                     <Heading fontSize={3} key={index} ml={2} mr={2}>
                       ·
                     </Heading>,
-                    value
+                    value,
                   ],
-            [] as JSX.Element[]
+            [] as JSX.Element[],
           )}
         </Flex>
 

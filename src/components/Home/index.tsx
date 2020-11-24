@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
   const sections = [
     // TODO: work on about text content
     <About key={0} />,
-    // <Experience key={1} />,
+    <Experience key={1} />,
     // TODO: work on skills
     // <Skills key={2} />,
     <Projects key={3} />,

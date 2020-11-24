@@ -1,9 +1,9 @@
 import React from 'react';
 import { Title } from '../common/Title';
-import { Section } from '../Section';
+import { Section } from '../common/Section';
 import { useStaticQuery, graphql } from 'gatsby';
 import { List } from '../List';
-import { Project } from '../Project';
+import { Project } from './Project';
 import { BoxProps } from 'rebass';
 
 interface Project {
