@@ -1,6 +1,9 @@
 import type { GatsbyConfig } from 'gatsby';
 import path from 'path';
 
+const fullName = 'Kyle Pfromer';
+const [firstName, lastName] = fullName.split(' ');
+
 const googleAnalyticsOptions = !!process.env.GOOGLE_ANALYTICS
   ? {
       trackingId: process.env.GOOGLE_ANALYTICS,
@@ -10,10 +13,9 @@ const googleAnalyticsOptions = !!process.env.GOOGLE_ANALYTICS
 const config: GatsbyConfig = {
   siteMetadata: {
     author: {
-      // TODO: cleanup?
-      fullName: 'Kyle Pfromer',
-      firstName: 'Kyle',
-      lastName: 'Pfromer',
+      fullName,
+      firstName,
+      lastName,
     },
     description: "Kyle Pfromer's Portfolio and Blog.",
     title: 'Kyle Pfromer',
