@@ -1,27 +1,15 @@
 import React from 'react';
-import { Link } from '../common/Link';
 import { Title } from '../common/Title';
 import { Section } from '../common/Section';
-import { Box, BoxProps, Button, Text } from 'rebass';
+import { BoxProps, Button } from 'rebass';
 import { Separator, WorkExperience } from './WorkExperience';
 import { useStaticQuery, graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-interface ExperienceData {
-  companyName: string;
-  title: string;
-  location: string;
-  content: { body: string };
-}
-
 const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data = useStaticQuery<{
-    work: { nodes: ExperienceData[] };
-    startup: { nodes: ExperienceData[] };
-    club: { nodes: ExperienceData[] };
-  }>(
+  const data = useStaticQuery<GatsbyTypes.ExperienceQuery>(
     graphql`
-      query {
+      query Experience {
         work: allExperienceYaml(filter: { type: { eq: "work" } }) {
           nodes {
             companyName
@@ -57,7 +45,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
       }
     `,
   );
-  console.log(data);
+
   return (
     <Section {...props}>
       <Title>Experience</Title>

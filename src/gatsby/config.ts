@@ -122,6 +122,7 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-typegen`,
   ],
 };
 

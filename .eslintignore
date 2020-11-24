@@ -1,4 +1,5 @@
 node_modules/
 dist/
 src/serviceWorker.ts
-gulpfile.js
+.cache/
+public/

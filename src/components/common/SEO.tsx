@@ -11,19 +11,9 @@ interface Props {
 }
 
 export const SEO: React.FC<Props> = ({ description, lang = 'en', meta = [], title, image }) => {
-  const { site } = useStaticQuery<{
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-        author: {
-          fullName: string;
-        };
-      };
-    };
-  }>(
+  const { site } = useStaticQuery<GatsbyTypes.SEOMetadataQuery>(
     graphql`
-      query {
+      query SEOMetadata {
         site {
           siteMetadata {
             title

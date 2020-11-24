@@ -5,12 +5,15 @@ import { Link } from '../common/Link';
 import { ListItem, HeaderImage, Body, Dates, Title, Description } from '../List';
 import { Box } from 'rebass';
 import { FlexProps } from 'theme-ui';
+import { FluidObject } from 'gatsby-image';
 
 interface Props {
   title: string;
   dates: string;
   description: string;
-  image: any;
+  image: {
+    childImageSharp: { fluid: FluidObject };
+  };
   github: string;
 }
 

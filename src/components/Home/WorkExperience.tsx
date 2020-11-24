@@ -5,7 +5,6 @@ interface Props {
   companyName: ReactNode;
   title: ReactNode;
   location?: string;
-  image?: any;
 }
 
 export const Separator: React.FC<
@@ -92,31 +91,3 @@ export const WorkExperience: React.FC<Props> = ({ companyName, title, location, 
     </Flex>
   );
 };
-
-// export const WorkExperienceGroup: React.FC<{
-//   items: {
-//     title: string;
-//     body: ReactNode;
-//   }[];
-// }> = ({ items }) => {
-//   const [index, setIndex] = useState(0);
-//   if (items.length === 0) return null;
-//   console.log(items);
-//   return (
-//     <Flex flexDirection={['column-reverse', 'row']}>
-//       <Box width={[1, '75%']}>{items[index].body}</Box>
-//       <Flex width={[1, '25%']} py={2} flexDirection="column">
-//         {items.map((item, i) => (
-//           <Box
-//             key={i}
-//             ml={[0, 3]}
-//             onClick={() => setIndex(i)}
-//             sx={{ color: index === i ? 'primary' : 'text', fontWeight: 'bold', cursor: 'pointer' }}
-//           >
-//             {items[i].title}
-//           </Box>
-//         ))}
-//       </Flex>
-//     </Flex>
-//   );
-// };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '../components/common/Link';
 import { Box, Heading, Text } from 'rebass';
+import { MDXProviderComponents } from '@mdx-js/react';
 
 const Header = ({ children, as, ...props }) => {
   let fontSize = 2;
@@ -21,7 +22,7 @@ const Header = ({ children, as, ...props }) => {
   );
 };
 
-export default {
+const components: MDXProviderComponents = {
   h1: (props) => <Header as="h1" {...props} />,
   h2: (props) => <Header as="h2" {...props} />,
   h3: (props) => <Header as="h3" {...props} />,
@@ -55,12 +56,12 @@ export default {
     </Box>
   ),
   th: ({ align, children }) => (
-    <Box as="th" p={2} fontWeight="bold" textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
+    <Box as="th" p={2} sx={{ fontWeight: 'bold', textAlign: align, border: '1px solid #c6cbd1' }}>
       {children}
     </Box>
   ),
   td: ({ align, children }) => (
-    <Box as="td" p={2} textAlign={align} sx={{ border: '1px solid #c6cbd1' }}>
+    <Box as="td" p={2} sx={{ textAlign: align, border: '1px solid #c6cbd1' }}>
       {children}
     </Box>
   ),
@@ -70,3 +71,5 @@ export default {
     </Text>
   ),
 };
+
+export default components;

@@ -3,17 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Box, Text } from 'rebass';
 
 export const Footer: React.FC = () => {
-  const data = useStaticQuery<{
-    site: {
-      siteMetadata: {
-        author: {
-          firstName: string;
-          lastName: string;
-        };
-      };
-    };
-  }>(graphql`
-    query {
+  const data = useStaticQuery<GatsbyTypes.FooterMetadataQuery>(graphql`
+    query FooterMetadata {
       site {
         siteMetadata {
           author {

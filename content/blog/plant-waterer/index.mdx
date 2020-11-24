@@ -245,7 +245,7 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 680 });
   mainWindow.loadURL(
-    isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`
+    isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`,
   );
   if (isDev) {
     // Open the DevTools.
@@ -350,10 +350,10 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 900,
     height: 680,
-    webPreferences: { nodeIntegration: true }
+    webPreferences: { nodeIntegration: true },
   });
   mainWindow.loadURL(
-    isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`
+    isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`,
   );
   if (isDev) {
     // Open the DevTools.
@@ -425,11 +425,11 @@ function App() {
             ...temp,
             {
               time: temp.length > 0 ? temp[temp.length - 1].time + 1 : 1,
-              temperature: toPrecision((data.temperature * 212) / 100 + 32, 2)
-            }
-          ].slice(Math.max(0, temp.length - 10))
+              temperature: toPrecision((data.temperature * 212) / 100 + 32, 2),
+            },
+          ].slice(Math.max(0, temp.length - 10)),
         );
-      }
+      },
     );
     return removeListener;
   }, []);
@@ -481,7 +481,7 @@ ReactDOM.render(
       <App />
     </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 serviceWorker.unregister();

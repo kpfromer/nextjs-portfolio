@@ -11,19 +11,19 @@ export const MoveIn: React.FC<Props & BoxProps> = ({ triggerOnce = false, childr
   const [ref, inView] = useInView({
     triggerOnce,
     rootMargin: '-100px 0px',
-    threshold: 0
+    threshold: 0,
   });
 
   const props = useSpring({
     to: inView
       ? {
           opacity: 1,
-          transform: 'translate3d(0px, 0px, 0px)'
+          transform: 'translate3d(0px, 0px, 0px)',
         }
       : {
           opacity: 0,
-          transform: 'translate3d(0px, 100px, 0px)'
-        }
+          transform: 'translate3d(0px, 100px, 0px)',
+        },
   });
   return (
     <Box
@@ -31,7 +31,7 @@ export const MoveIn: React.FC<Props & BoxProps> = ({ triggerOnce = false, childr
       {...rest}
       style={{
         willChange: 'opacity, transform',
-        ...props
+        ...props,
       }}
     >
       <Flex ref={ref} flexDirection="column" sx={{ height: '100%' }}>

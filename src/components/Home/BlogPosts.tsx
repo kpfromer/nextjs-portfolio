@@ -4,33 +4,10 @@ import { Title } from '../common/Title';
 import { Section } from '../common/Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 import { BoxProps } from 'rebass';
-import { FluidObject } from 'gatsby-image';
 
 const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data = useStaticQuery<{
-    allMdx: {
-      totalCount: number;
-      edges: {
-        node: {
-          id: string;
-          frontmatter: {
-            title: string;
-            date: string;
-            thumbnail: {
-              childImageSharp: {
-                fluid: FluidObject;
-              };
-            };
-          };
-          fields: {
-            slug: string;
-            blogPath: string;
-          };
-        };
-      }[];
-    };
-  }>(graphql`
-    {
+  const data = useStaticQuery<GatsbyTypes.BlogPostsQuery>(graphql`
+    query BlogPosts {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         # TODO: better solution for filtering for blog items (and not about.tsx in data/)

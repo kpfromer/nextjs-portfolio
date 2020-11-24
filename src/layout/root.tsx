@@ -1,6 +1,4 @@
-import React from 'react';
 import type { GatsbyBrowser } from 'gatsby';
-import { Box } from 'rebass';
 
 import '../fonts.css';
 import 'prismjs/themes/prism-okaidia.css';

@@ -12,7 +12,7 @@ const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async
       fields: {
         tags: {
           type: '[String!]',
-          resolve(source, args, context, info) {
+          resolve(source) {
             const { tags } = source;
             if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
               return ['uncategorized'];

@@ -1,12 +1,13 @@
 import React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { GatsbyPage, graphql } from 'gatsby';
 import { Link } from '../common/Link';
 import Img from 'gatsby-image';
 import { SEO } from '../common/SEO';
 import { Section } from '../common/Section';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import 'katex/dist/katex.min.css';
 import { Box, Flex, Heading, Text } from 'rebass';
+
+import 'katex/dist/katex.min.css';
 
 interface PageContext {
   previous: {
@@ -19,7 +20,10 @@ interface PageContext {
   };
 }
 
-const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) => {
+const BlogPost: GatsbyPage<GatsbyTypes.BlogPostByIdQuery, PageContext> = ({
+  data,
+  pageContext,
+}) => {
   const {
     site: {
       siteMetadata: { siteUrl },
@@ -31,7 +35,7 @@ const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) 
         readingTime: { text: readingTime },
       },
     },
-  }: any = data;
+  } = data;
   const { previous, next } = pageContext;
   return (
     <>
