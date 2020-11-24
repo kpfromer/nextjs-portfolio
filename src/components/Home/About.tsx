@@ -6,15 +6,17 @@ import { BoxProps } from 'rebass';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const About: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data = useStaticQuery(
+  const data = useStaticQuery<{
+    content: {
+      childMdx: {
+        body: string;
+      };
+    };
+  }>(
     graphql`
       query {
         content: file(relativePath: { eq: "about.mdx" }) {
           childMdx {
-            children {
-              id
-            }
-            rawBody
             body
           }
         }

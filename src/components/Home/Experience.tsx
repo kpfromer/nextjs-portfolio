@@ -7,8 +7,19 @@ import { Separator, WorkExperience } from './WorkExperience';
 import { useStaticQuery, graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
+interface ExperienceData {
+  companyName: string;
+  title: string;
+  location: string;
+  content: { body: string };
+}
+
 const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data = useStaticQuery(
+  const data = useStaticQuery<{
+    work: { nodes: ExperienceData[] };
+    startup: { nodes: ExperienceData[] };
+    club: { nodes: ExperienceData[] };
+  }>(
     graphql`
       query {
         work: allExperienceYaml(filter: { type: { eq: "work" } }) {
@@ -62,7 +73,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
       </Button>
 
       <Separator my={4}>Work Experience</Separator>
-      {data.work.nodes.map((node: any, index: number) => (
+      {data.work.nodes.map((node, index: number) => (
         <WorkExperience
           key={index}
           companyName={node.companyName}
@@ -74,7 +85,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
       ))}
       {/* TODO: add once ready */}
       {/* <Separator my={4}>Startup Experience</Separator>
-      {data.startup.nodes.map((node: any, index: number) => (
+      {data.startup.nodes.map((node, index: number) => (
         <WorkExperience
           key={index}
           companyName={node.companyName}
@@ -85,7 +96,7 @@ const Experience: React.FC<Omit<BoxProps, 'css'>> = (props) => {
         </WorkExperience>
       ))} */}
       <Separator my={4}>Clubs</Separator>
-      {data.club.nodes.map((node: any, index: number) => (
+      {data.club.nodes.map((node, index: number) => (
         <WorkExperience
           key={index}
           companyName={node.companyName}

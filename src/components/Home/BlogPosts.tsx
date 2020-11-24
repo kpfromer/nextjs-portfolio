@@ -4,9 +4,32 @@ import { Title } from '../common/Title';
 import { Section } from '../common/Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 import { BoxProps } from 'rebass';
+import { FluidObject } from 'gatsby-image';
 
 const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data: any = useStaticQuery(graphql`
+  const data = useStaticQuery<{
+    allMdx: {
+      totalCount: number;
+      edges: {
+        node: {
+          id: string;
+          frontmatter: {
+            title: string;
+            date: string;
+            thumbnail: {
+              childImageSharp: {
+                fluid: FluidObject;
+              };
+            };
+          };
+          fields: {
+            slug: string;
+            blogPath: string;
+          };
+        };
+      }[];
+    };
+  }>(graphql`
     {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
@@ -32,7 +55,6 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
               slug
               blogPath
             }
-            excerpt
           }
         }
       }
@@ -48,7 +70,7 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
               frontmatter: { title, date, thumbnail },
               fields: { blogPath },
             },
-          }: any) => (
+          }) => (
             <ListItem key={blogPath}>
               {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
               <Body>

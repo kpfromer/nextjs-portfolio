@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
-import { Link } from '../components/common/Link';
+import { Link } from '../common/Link';
 import Img from 'gatsby-image';
-import { SEO } from '../components/common/SEO';
-import { Section } from '../components/common/Section';
+import { SEO } from '../common/SEO';
+import { Section } from '../common/Section';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import 'katex/dist/katex.min.css';
 import { Box, Flex, Heading, Text } from 'rebass';

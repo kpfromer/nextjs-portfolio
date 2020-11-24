@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { List } from '../List';
 import { Project } from './Project';
 import { BoxProps } from 'rebass';
+import { FluidObject } from 'gatsby-image';
 
 interface Project {
   title: string;
@@ -17,7 +18,21 @@ interface Project {
 const Projects: React.FC<Omit<BoxProps, 'css'>> = (props) => {
   const {
     allProjectsJson: { nodes: projects },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<{
+    allProjectsJson: {
+      nodes: {
+        description: string;
+        github: string;
+        title: string;
+        dates: string;
+        image: {
+          childImageSharp: {
+            fluid: FluidObject;
+          };
+        };
+      }[];
+    };
+  }>(graphql`
     {
       allProjectsJson {
         nodes {

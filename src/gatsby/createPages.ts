@@ -6,7 +6,7 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
 
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/BlogPost.tsx`);
+  const blogPost = path.resolve(`./src/components/templates/BlogPost.tsx`);
   const result = await graphql<{
     allMdx: {
       edges: {
