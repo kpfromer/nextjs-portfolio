@@ -1,8 +1,8 @@
 import React from 'react';
 import { Heading, Text, Flex, Button, Box } from 'rebass';
-import { Link as ReactLink } from 'gatsby';
+import { GatsbyPage, Link as ReactLink } from 'gatsby';
 
-export default () => {
+const NotFoundPage: GatsbyPage = () => {
   return (
     <Flex height="100vh">
       <Box m="auto" sx={{ textAlign: 'center' }}>
@@ -17,3 +17,5 @@ export default () => {
     </Flex>
   );
 };
+
+export default NotFoundPage;

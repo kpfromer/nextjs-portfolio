@@ -5,15 +5,15 @@ import BackgroundImage from 'gatsby-background-image';
 import { IconContext } from 'react-icons';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
 import { Box, Heading, Text, Flex } from 'rebass';
-import { Link } from '../Link';
-import { Theme, useThemeUI } from 'theme-ui';
+import { Link } from '../common/Link';
+import { useThemeUI } from 'theme-ui';
 import { alpha } from '@theme-ui/color';
 
-export default () => {
+const Landing: React.FC = () => {
   const { theme } = useThemeUI();
-  const data = useStaticQuery(
+  const data = useStaticQuery<GatsbyTypes.LandingDataQuery>(
     graphql`
-      query {
+      query LandingData {
         site {
           siteMetadata {
             author {
@@ -44,7 +44,7 @@ export default () => {
           }
         }
       }
-    `
+    `,
   );
 
   const { author, socialLinks } = data.site.siteMetadata;
@@ -57,12 +57,12 @@ export default () => {
         position: 'relative',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundPosition: '80% 0%'
+        backgroundPosition: '80% 0%',
       }}
       fluid={data.background.childImageSharp.fluid}
     >
       <Box
-        bg={alpha('secondary', 0.8)(theme as any)}
+        bg={alpha('secondary', 0.8)(theme as unknown)}
         sx={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, zIndex: -20 }}
       />
       <Box m="auto" sx={{ textAlign: 'center' }}>
@@ -76,7 +76,7 @@ export default () => {
               maxWidth: '100%',
               width: '300px',
               height: '300px',
-              fontWeight: '500'
+              fontWeight: '500',
             }}
             fixed={data.me.childImageSharp.fixed}
           />
@@ -118,3 +118,5 @@ export default () => {
     </BackgroundImage>
   );
 };
+
+export default Landing;

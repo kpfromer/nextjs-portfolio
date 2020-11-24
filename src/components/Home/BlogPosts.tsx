@@ -1,13 +1,13 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Title } from '../Title';
-import { Section } from '../Section';
+import { Title } from '../common/Title';
+import { Section } from '../common/Section';
 import { List, ListItem, HeaderImage, Body, Dates, Title as ListTitle } from '../List';
 import { BoxProps } from 'rebass';
 
 const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data: any = useStaticQuery(graphql`
-    {
+  const data = useStaticQuery<GatsbyTypes.BlogPostsQuery>(graphql`
+    query BlogPosts {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         # TODO: better solution for filtering for blog items (and not about.tsx in data/)
@@ -32,7 +32,6 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
               slug
               blogPath
             }
-            excerpt
           }
         }
       }
@@ -46,9 +45,9 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
           ({
             node: {
               frontmatter: { title, date, thumbnail },
-              fields: { blogPath }
-            }
-          }: any) => (
+              fields: { blogPath },
+            },
+          }) => (
             <ListItem key={blogPath}>
               {!!thumbnail && <HeaderImage to={blogPath} fluid={thumbnail.childImageSharp.fluid} />}
               <Body>
@@ -58,7 +57,7 @@ const BlogPosts: React.FC<Omit<BoxProps, 'css'>> = (props) => {
                 </ListTitle>
               </Body>
             </ListItem>
-          )
+          ),
         )}
       </List>
     </Section>

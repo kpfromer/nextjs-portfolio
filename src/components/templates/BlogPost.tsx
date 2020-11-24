@@ -1,12 +1,13 @@
 import React from 'react';
-import { graphql, PageProps } from 'gatsby';
-import { Link } from '../components/Link';
+import { GatsbyPage, graphql } from 'gatsby';
+import { Link } from '../common/Link';
 import Img from 'gatsby-image';
-import { SEO } from '../components/SEO';
-import { Section } from '../components/Section';
+import { SEO } from '../common/SEO';
+import { Section } from '../common/Section';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import 'katex/dist/katex.min.css';
 import { Box, Flex, Heading, Text } from 'rebass';
+
+import 'katex/dist/katex.min.css';
 
 interface PageContext {
   previous: {
@@ -19,19 +20,22 @@ interface PageContext {
   };
 }
 
-const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) => {
+const BlogPost: GatsbyPage<GatsbyTypes.BlogPostByIdQuery, PageContext> = ({
+  data,
+  pageContext,
+}) => {
   const {
     site: {
-      siteMetadata: { siteUrl }
+      siteMetadata: { siteUrl },
     },
     mdx: {
       body,
       frontmatter: { title, thumbnail, date, category },
       fields: {
-        readingTime: { text: readingTime }
-      }
-    }
-  }: any = data;
+        readingTime: { text: readingTime },
+      },
+    },
+  } = data;
   const { previous, next } = pageContext;
   return (
     <>
@@ -47,7 +51,7 @@ const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) 
               style={{
                 objectFit: 'cover',
                 maxHeight: '50vh',
-                minWidth: '100%'
+                minWidth: '100%',
               }}
               fluid={thumbnail.childImageSharp.fluid}
             />
@@ -61,7 +65,7 @@ const BlogPost: React.FC<PageProps<any, PageContext>> = ({ data, pageContext }) 
             <Heading
               fontSize={6}
               sx={{
-                borderBottom: '1px solid #eaecef'
+                borderBottom: '1px solid #eaecef',
               }}
               mt={2}
               mb={3}

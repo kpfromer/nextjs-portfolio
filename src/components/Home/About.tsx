@@ -1,25 +1,21 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Title } from '../Title';
-import { Section } from '../Section';
+import { Title } from '../common/Title';
+import { Section } from '../common/Section';
 import { BoxProps } from 'rebass';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const About: React.FC<Omit<BoxProps, 'css'>> = (props) => {
-  const data = useStaticQuery(
+  const data = useStaticQuery<GatsbyTypes.AboutContentQuery>(
     graphql`
-      query {
+      query AboutContent {
         content: file(relativePath: { eq: "about.mdx" }) {
           childMdx {
-            children {
-              id
-            }
-            rawBody
             body
           }
         }
       }
-    `
+    `,
   );
 
   const { content } = data;

@@ -1,16 +1,19 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
-import { Link } from './Link';
-import { ListItem, HeaderImage, Body, Dates, Title, Description } from './List';
+import { Link } from '../common/Link';
+import { ListItem, HeaderImage, Body, Dates, Title, Description } from '../List';
 import { Box } from 'rebass';
 import { FlexProps } from 'theme-ui';
+import { FluidObject } from 'gatsby-image';
 
 interface Props {
   title: string;
   dates: string;
   description: string;
-  image: any;
+  image: {
+    childImageSharp: { fluid: FluidObject };
+  };
   github: string;
 }
 
@@ -38,8 +41,8 @@ export const Project: React.FC<Props & FlexProps> = ({
               sx={{
                 transition: 'color 0.2s ease-in',
                 '&:hover': {
-                  color: 'primary'
-                }
+                  color: 'primary',
+                },
               }}
             >
               <FaGithub />

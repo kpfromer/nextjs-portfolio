@@ -19,13 +19,13 @@ export const Link: React.FC<Props & LinkProps> = ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
-      // @ts-ignore
-      ...(customSx && customSx['&:hover'] ? customSx['&:hover'] : {})
+      ...(customSx && customSx['&:hover'] ? customSx['&:hover'] : {}),
     },
-    ...(customSx ? customSx : {})
+    ...(customSx ? customSx : {}),
   };
   if (outside) {
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <RebassLink sx={sx} {...props} rel="noopener" target="_blank" href={to}>
         {children}
@@ -33,7 +33,6 @@ export const Link: React.FC<Props & LinkProps> = ({
     );
   }
   return (
-    // @ts-ignore
     <RebassLink as={ReactLink} sx={sx} {...props} to={to}>
       {children}
     </RebassLink>

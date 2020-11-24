@@ -5,7 +5,6 @@ interface Props {
   companyName: ReactNode;
   title: ReactNode;
   location?: string;
-  image?: any;
 }
 
 export const Separator: React.FC<
@@ -18,7 +17,7 @@ export const Separator: React.FC<
         sx={{
           flexGrow: 1,
           height: '2px',
-          backgroundColor: '#0000001a'
+          backgroundColor: '#0000001a',
         }}
       />
     </Flex>
@@ -60,7 +59,7 @@ export const WorkExperience: React.FC<Props> = ({ companyName, title, location, 
   const items = [
     <Heading key={-1} fontSize={3}>
       {title}
-    </Heading>
+    </Heading>,
   ];
   if (location) items.push(<Heading fontSize={3}>{location}</Heading>);
 
@@ -81,9 +80,9 @@ export const WorkExperience: React.FC<Props> = ({ companyName, title, location, 
                     <Heading fontSize={3} key={index} ml={2} mr={2}>
                       ·
                     </Heading>,
-                    value
+                    value,
                   ],
-            [] as JSX.Element[]
+            [] as JSX.Element[],
           )}
         </Flex>
 
@@ -92,31 +91,3 @@ export const WorkExperience: React.FC<Props> = ({ companyName, title, location, 
     </Flex>
   );
 };
-
-// export const WorkExperienceGroup: React.FC<{
-//   items: {
-//     title: string;
-//     body: ReactNode;
-//   }[];
-// }> = ({ items }) => {
-//   const [index, setIndex] = useState(0);
-//   if (items.length === 0) return null;
-//   console.log(items);
-//   return (
-//     <Flex flexDirection={['column-reverse', 'row']}>
-//       <Box width={[1, '75%']}>{items[index].body}</Box>
-//       <Flex width={[1, '25%']} py={2} flexDirection="column">
-//         {items.map((item, i) => (
-//           <Box
-//             key={i}
-//             ml={[0, 3]}
-//             onClick={() => setIndex(i)}
-//             sx={{ color: index === i ? 'primary' : 'text', fontWeight: 'bold', cursor: 'pointer' }}
-//           >
-//             {items[i].title}
-//           </Box>
-//         ))}
-//       </Flex>
-//     </Flex>
-//   );
-// };

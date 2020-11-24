@@ -1,6 +1,9 @@
-// for syntax highlighting in markdown
-import './src/fonts.css';
-import 'prismjs/themes/prism-okaidia.css';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/browser-apis/
+ */
 
-export { wrapRootElement } from './src/utils/theme';
+exports.onClientEntry = require('./src/gatsby/onClientEntry').default;
+exports.wrapRootElement = require('./src/layout/root').default;
+exports.wrapPageElement = require('./src/layout/page').default;

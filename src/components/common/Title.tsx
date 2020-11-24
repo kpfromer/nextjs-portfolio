@@ -19,8 +19,8 @@ export const Title: React.FC<Props> = ({ children, slug }) => {
             height: '6px',
             left: '0px',
             bottom: '-20px',
-            backgroundColor: 'primary'
-          }
+            backgroundColor: 'primary',
+          },
         }}
         mb={3}
       >
