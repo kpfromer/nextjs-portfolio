@@ -63,8 +63,7 @@ jobs:
       - name: Cypress E2E
         uses: cypress-io/github-action@v1
         with:
-          build: yarn build
-          start: npx serve ./public
+          start: npx serve ./public -p 8000
           wait-on: http://localhost:8000
 
       - name: Deploy
