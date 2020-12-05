@@ -2611,10 +2611,10 @@ declare namespace GatsbyTypes {
     readonly allImageSharp: ImageSharpConnection;
     readonly mdx: Maybe<Mdx>;
     readonly allMdx: MdxConnection;
-    readonly projectsJson: Maybe<ProjectsJson>;
-    readonly allProjectsJson: ProjectsJsonConnection;
     readonly experienceYaml: Maybe<ExperienceYaml>;
     readonly allExperienceYaml: ExperienceYamlConnection;
+    readonly projectsJson: Maybe<ProjectsJson>;
+    readonly allProjectsJson: ProjectsJsonConnection;
     readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
     readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
     readonly sitePlugin: Maybe<SitePlugin>;
@@ -2812,25 +2812,6 @@ declare namespace GatsbyTypes {
     limit: Maybe<Scalars['Int']>;
   };
 
-  type Query_projectsJsonArgs = {
-    id: Maybe<StringQueryOperatorInput>;
-    parent: Maybe<NodeFilterInput>;
-    children: Maybe<NodeFilterListInput>;
-    internal: Maybe<InternalFilterInput>;
-    title: Maybe<StringQueryOperatorInput>;
-    dates: Maybe<StringQueryOperatorInput>;
-    description: Maybe<StringQueryOperatorInput>;
-    image: Maybe<FileFilterInput>;
-    github: Maybe<StringQueryOperatorInput>;
-  };
-
-  type Query_allProjectsJsonArgs = {
-    filter: Maybe<ProjectsJsonFilterInput>;
-    sort: Maybe<ProjectsJsonSortInput>;
-    skip: Maybe<Scalars['Int']>;
-    limit: Maybe<Scalars['Int']>;
-  };
-
   type Query_experienceYamlArgs = {
     id: Maybe<StringQueryOperatorInput>;
     parent: Maybe<NodeFilterInput>;
@@ -2846,6 +2827,25 @@ declare namespace GatsbyTypes {
   type Query_allExperienceYamlArgs = {
     filter: Maybe<ExperienceYamlFilterInput>;
     sort: Maybe<ExperienceYamlSortInput>;
+    skip: Maybe<Scalars['Int']>;
+    limit: Maybe<Scalars['Int']>;
+  };
+
+  type Query_projectsJsonArgs = {
+    id: Maybe<StringQueryOperatorInput>;
+    parent: Maybe<NodeFilterInput>;
+    children: Maybe<NodeFilterListInput>;
+    internal: Maybe<InternalFilterInput>;
+    title: Maybe<StringQueryOperatorInput>;
+    dates: Maybe<StringQueryOperatorInput>;
+    description: Maybe<StringQueryOperatorInput>;
+    image: Maybe<FileFilterInput>;
+    github: Maybe<StringQueryOperatorInput>;
+  };
+
+  type Query_allProjectsJsonArgs = {
+    filter: Maybe<ProjectsJsonFilterInput>;
+    sort: Maybe<ProjectsJsonSortInput>;
     skip: Maybe<Scalars['Int']>;
     limit: Maybe<Scalars['Int']>;
   };

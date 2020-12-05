@@ -59,5 +59,13 @@ jobs:
           NODE_ENV: production
           CI: true
 
+      # From: https://www.cypress.io/blog/2019/11/20/drastically-simplify-your-testing-with-cypress-github-action/
+      - name: Cypress E2E
+        uses: cypress-io/github-action@v1
+        with:
+          build: yarn build
+          start: npx serve ./public
+          wait-on: http://localhost:8000
+
       - name: Deploy
         run: npx surge ./public --token ${{ secrets.SURGE_TOKEN }}

@@ -22,6 +22,24 @@ describe('home', () => {
       );
   });
 
-  it('shows projects and links to github');
-  it('shows blog posts');
+  it('shows projects', () => {
+    cy.visit('/');
+    cy.get('h3')
+      .contains(/nestjs-typegoose/i)
+      .should('exist');
+    cy.get('h3')
+      .contains(/nestjs-typegoose/i)
+      .parent()
+      .find('a')
+      .should('have.attr', 'href')
+      .and('equal', 'https://github.com/kpfromer/nestjs-typegoose');
+  });
+
+  it('shows blog posts', () => {
+    cy.visit('/');
+    cy.findByText(/First Blog Post/i).click();
+    cy.findByText(
+      /This is my first blog post. I am excited to see where this road leads. I will be jotting down my thoughts about tech, hiking, biking, and college./i,
+    ).should('exist');
+  });
 });
