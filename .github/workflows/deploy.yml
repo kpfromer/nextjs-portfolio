@@ -57,7 +57,6 @@ jobs:
         env:
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
           NODE_ENV: production
-          CI: true
 
       # From: https://www.cypress.io/blog/2019/11/20/drastically-simplify-your-testing-with-cypress-github-action/
       - name: Cypress E2E
