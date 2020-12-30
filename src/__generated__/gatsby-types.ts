@@ -2611,10 +2611,10 @@ declare namespace GatsbyTypes {
     readonly allImageSharp: ImageSharpConnection;
     readonly mdx: Maybe<Mdx>;
     readonly allMdx: MdxConnection;
-    readonly experienceYaml: Maybe<ExperienceYaml>;
-    readonly allExperienceYaml: ExperienceYamlConnection;
     readonly projectsJson: Maybe<ProjectsJson>;
     readonly allProjectsJson: ProjectsJsonConnection;
+    readonly experienceYaml: Maybe<ExperienceYaml>;
+    readonly allExperienceYaml: ExperienceYamlConnection;
     readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
     readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
     readonly sitePlugin: Maybe<SitePlugin>;
@@ -2812,25 +2812,6 @@ declare namespace GatsbyTypes {
     limit: Maybe<Scalars['Int']>;
   };
 
-  type Query_experienceYamlArgs = {
-    id: Maybe<StringQueryOperatorInput>;
-    parent: Maybe<NodeFilterInput>;
-    children: Maybe<NodeFilterListInput>;
-    internal: Maybe<InternalFilterInput>;
-    companyName: Maybe<StringQueryOperatorInput>;
-    title: Maybe<StringQueryOperatorInput>;
-    location: Maybe<StringQueryOperatorInput>;
-    type: Maybe<StringQueryOperatorInput>;
-    content: Maybe<ExperienceYamlContentFilterInput>;
-  };
-
-  type Query_allExperienceYamlArgs = {
-    filter: Maybe<ExperienceYamlFilterInput>;
-    sort: Maybe<ExperienceYamlSortInput>;
-    skip: Maybe<Scalars['Int']>;
-    limit: Maybe<Scalars['Int']>;
-  };
-
   type Query_projectsJsonArgs = {
     id: Maybe<StringQueryOperatorInput>;
     parent: Maybe<NodeFilterInput>;
@@ -2846,6 +2827,25 @@ declare namespace GatsbyTypes {
   type Query_allProjectsJsonArgs = {
     filter: Maybe<ProjectsJsonFilterInput>;
     sort: Maybe<ProjectsJsonSortInput>;
+    skip: Maybe<Scalars['Int']>;
+    limit: Maybe<Scalars['Int']>;
+  };
+
+  type Query_experienceYamlArgs = {
+    id: Maybe<StringQueryOperatorInput>;
+    parent: Maybe<NodeFilterInput>;
+    children: Maybe<NodeFilterListInput>;
+    internal: Maybe<InternalFilterInput>;
+    companyName: Maybe<StringQueryOperatorInput>;
+    title: Maybe<StringQueryOperatorInput>;
+    location: Maybe<StringQueryOperatorInput>;
+    type: Maybe<StringQueryOperatorInput>;
+    content: Maybe<ExperienceYamlContentFilterInput>;
+  };
+
+  type Query_allExperienceYamlArgs = {
+    filter: Maybe<ExperienceYamlFilterInput>;
+    sort: Maybe<ExperienceYamlSortInput>;
     skip: Maybe<Scalars['Int']>;
     limit: Maybe<Scalars['Int']>;
   };
@@ -3509,6 +3509,18 @@ declare namespace GatsbyTypes {
     pluginCreator___pluginOptions___stripMetadata = 'pluginCreator.pluginOptions.stripMetadata',
     pluginCreator___pluginOptions___defaultQuality = 'pluginCreator.pluginOptions.defaultQuality',
     pluginCreator___pluginOptions___failOnError = 'pluginCreator.pluginOptions.failOnError',
+    pluginCreator___pluginOptions___titleTemplate = 'pluginCreator.pluginOptions.titleTemplate',
+    pluginCreator___pluginOptions___language = 'pluginCreator.pluginOptions.language',
+    pluginCreator___pluginOptions___openGraph___type = 'pluginCreator.pluginOptions.openGraph.type',
+    pluginCreator___pluginOptions___openGraph___locale = 'pluginCreator.pluginOptions.openGraph.locale',
+    pluginCreator___pluginOptions___openGraph___url = 'pluginCreator.pluginOptions.openGraph.url',
+    pluginCreator___pluginOptions___openGraph___site_name = 'pluginCreator.pluginOptions.openGraph.site_name',
+    pluginCreator___pluginOptions___openGraph___title = 'pluginCreator.pluginOptions.openGraph.title',
+    pluginCreator___pluginOptions___openGraph___description = 'pluginCreator.pluginOptions.openGraph.description',
+    pluginCreator___pluginOptions___openGraph___images = 'pluginCreator.pluginOptions.openGraph.images',
+    pluginCreator___pluginOptions___twitter___handle = 'pluginCreator.pluginOptions.twitter.handle',
+    pluginCreator___pluginOptions___twitter___site = 'pluginCreator.pluginOptions.twitter.site',
+    pluginCreator___pluginOptions___twitter___cardType = 'pluginCreator.pluginOptions.twitter.cardType',
     pluginCreator___pluginOptions___head = 'pluginCreator.pluginOptions.head',
     pluginCreator___pluginOptions___anonymize = 'pluginCreator.pluginOptions.anonymize',
     pluginCreator___pluginOptions___respectDNT = 'pluginCreator.pluginOptions.respectDNT',
@@ -3763,6 +3775,22 @@ declare namespace GatsbyTypes {
     pluginOptions___stripMetadata = 'pluginOptions.stripMetadata',
     pluginOptions___defaultQuality = 'pluginOptions.defaultQuality',
     pluginOptions___failOnError = 'pluginOptions.failOnError',
+    pluginOptions___titleTemplate = 'pluginOptions.titleTemplate',
+    pluginOptions___language = 'pluginOptions.language',
+    pluginOptions___openGraph___type = 'pluginOptions.openGraph.type',
+    pluginOptions___openGraph___locale = 'pluginOptions.openGraph.locale',
+    pluginOptions___openGraph___url = 'pluginOptions.openGraph.url',
+    pluginOptions___openGraph___site_name = 'pluginOptions.openGraph.site_name',
+    pluginOptions___openGraph___title = 'pluginOptions.openGraph.title',
+    pluginOptions___openGraph___description = 'pluginOptions.openGraph.description',
+    pluginOptions___openGraph___images = 'pluginOptions.openGraph.images',
+    pluginOptions___openGraph___images___url = 'pluginOptions.openGraph.images.url',
+    pluginOptions___openGraph___images___width = 'pluginOptions.openGraph.images.width',
+    pluginOptions___openGraph___images___height = 'pluginOptions.openGraph.images.height',
+    pluginOptions___openGraph___images___alt = 'pluginOptions.openGraph.images.alt',
+    pluginOptions___twitter___handle = 'pluginOptions.twitter.handle',
+    pluginOptions___twitter___site = 'pluginOptions.twitter.site',
+    pluginOptions___twitter___cardType = 'pluginOptions.twitter.cardType',
     pluginOptions___head = 'pluginOptions.head',
     pluginOptions___anonymize = 'pluginOptions.anonymize',
     pluginOptions___respectDNT = 'pluginOptions.respectDNT',
@@ -3926,6 +3954,10 @@ declare namespace GatsbyTypes {
     readonly stripMetadata: Maybe<Scalars['Boolean']>;
     readonly defaultQuality: Maybe<Scalars['Int']>;
     readonly failOnError: Maybe<Scalars['Boolean']>;
+    readonly titleTemplate: Maybe<Scalars['String']>;
+    readonly language: Maybe<Scalars['String']>;
+    readonly openGraph: Maybe<SitePluginPluginOptionsOpenGraph>;
+    readonly twitter: Maybe<SitePluginPluginOptionsTwitter>;
     readonly head: Maybe<Scalars['Boolean']>;
     readonly anonymize: Maybe<Scalars['Boolean']>;
     readonly respectDNT: Maybe<Scalars['Boolean']>;
@@ -3977,6 +4009,10 @@ declare namespace GatsbyTypes {
     readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
     readonly defaultQuality: Maybe<IntQueryOperatorInput>;
     readonly failOnError: Maybe<BooleanQueryOperatorInput>;
+    readonly titleTemplate: Maybe<StringQueryOperatorInput>;
+    readonly language: Maybe<StringQueryOperatorInput>;
+    readonly openGraph: Maybe<SitePluginPluginOptionsOpenGraphFilterInput>;
+    readonly twitter: Maybe<SitePluginPluginOptionsTwitterFilterInput>;
     readonly head: Maybe<BooleanQueryOperatorInput>;
     readonly anonymize: Maybe<BooleanQueryOperatorInput>;
     readonly respectDNT: Maybe<BooleanQueryOperatorInput>;
@@ -4003,6 +4039,44 @@ declare namespace GatsbyTypes {
     readonly jsxPragma: Maybe<StringQueryOperatorInput>;
     readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
     readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
+  };
+
+  type SitePluginPluginOptionsOpenGraph = {
+    readonly type: Maybe<Scalars['String']>;
+    readonly locale: Maybe<Scalars['String']>;
+    readonly url: Maybe<Scalars['String']>;
+    readonly site_name: Maybe<Scalars['String']>;
+    readonly title: Maybe<Scalars['String']>;
+    readonly description: Maybe<Scalars['String']>;
+    readonly images: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsOpenGraphImages>>>;
+  };
+
+  type SitePluginPluginOptionsOpenGraphFilterInput = {
+    readonly type: Maybe<StringQueryOperatorInput>;
+    readonly locale: Maybe<StringQueryOperatorInput>;
+    readonly url: Maybe<StringQueryOperatorInput>;
+    readonly site_name: Maybe<StringQueryOperatorInput>;
+    readonly title: Maybe<StringQueryOperatorInput>;
+    readonly description: Maybe<StringQueryOperatorInput>;
+    readonly images: Maybe<SitePluginPluginOptionsOpenGraphImagesFilterListInput>;
+  };
+
+  type SitePluginPluginOptionsOpenGraphImages = {
+    readonly url: Maybe<Scalars['String']>;
+    readonly width: Maybe<Scalars['Int']>;
+    readonly height: Maybe<Scalars['Int']>;
+    readonly alt: Maybe<Scalars['String']>;
+  };
+
+  type SitePluginPluginOptionsOpenGraphImagesFilterInput = {
+    readonly url: Maybe<StringQueryOperatorInput>;
+    readonly width: Maybe<IntQueryOperatorInput>;
+    readonly height: Maybe<IntQueryOperatorInput>;
+    readonly alt: Maybe<StringQueryOperatorInput>;
+  };
+
+  type SitePluginPluginOptionsOpenGraphImagesFilterListInput = {
+    readonly elemMatch: Maybe<SitePluginPluginOptionsOpenGraphImagesFilterInput>;
   };
 
   type SitePluginPluginOptionsPlugins = {
@@ -4073,6 +4147,18 @@ declare namespace GatsbyTypes {
 
   type SitePluginPluginOptionsPolicyFilterListInput = {
     readonly elemMatch: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
+  };
+
+  type SitePluginPluginOptionsTwitter = {
+    readonly handle: Maybe<Scalars['String']>;
+    readonly site: Maybe<Scalars['String']>;
+    readonly cardType: Maybe<Scalars['String']>;
+  };
+
+  type SitePluginPluginOptionsTwitterFilterInput = {
+    readonly handle: Maybe<StringQueryOperatorInput>;
+    readonly site: Maybe<StringQueryOperatorInput>;
+    readonly cardType: Maybe<StringQueryOperatorInput>;
   };
 
   type SitePluginSortInput = {
@@ -4159,6 +4245,7 @@ declare namespace GatsbyTypes {
             readonly thumbnail: Maybe<{
               readonly childImageSharp: Maybe<{
                 readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'> & GatsbyImageSharpFluidFragment>;
+                readonly openGraph: Maybe<Pick<ImageSharpFixed, 'src' | 'height' | 'width'>>;
               }>;
             }>;
           }

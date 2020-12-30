@@ -1,13 +1,13 @@
-import React from 'react';
-import { Footer } from '../components/common/layout/Footer';
-import { SEO } from '../components/common/SEO';
-import { Home } from 'src/components/Home';
 import { GatsbyPage } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
+import React from 'react';
+import { Home } from 'src/components/Home';
+import { Footer } from '../components/common/layout/Footer';
 
 const HomePage: GatsbyPage = () => {
   return (
     <>
-      <SEO title="Home" />
+      <GatsbySeo title="Home" />
       <Home />
       <Footer />
     </>

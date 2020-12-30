@@ -92,7 +92,34 @@ const config: GatsbyConfig = {
 
     // Misc
     // SEO
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-next-seo',
+      options: {
+        titleTemplate: '%s | Kyle Pfromer',
+        language: 'en',
+        openGraph: {
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://www.kylepfromer.com/',
+          site_name: 'Kyle Pfromer',
+          title: 'Kyle Pfromer',
+          description: "Kyle Pfromer's Portfolio and Blog.",
+          images: [
+            {
+              url: 'https://hackcu.org/images/default-seo-image.jpg', // Relative to static folder
+              width: 800,
+              height: 533,
+              alt: 'Crested Butte Mountains',
+            },
+          ],
+        },
+        twitter: {
+          handle: '@kpfromer',
+          site: '@kpfromer',
+          cardType: 'summary_large_image',
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: googleAnalyticsOptions,

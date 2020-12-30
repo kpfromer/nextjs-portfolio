@@ -1,13 +1,12 @@
-import React from 'react';
 import { GatsbyPage, graphql } from 'gatsby';
-import { Link } from '../common/Link';
 import Img from 'gatsby-image';
-import { SEO } from '../common/SEO';
-import { Section } from '../common/Section';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Box, Flex, Heading, Text } from 'rebass';
-
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import 'katex/dist/katex.min.css';
+import React from 'react';
+import { Box, Flex, Heading, Text } from 'rebass';
+import { Link } from '../common/Link';
+import { Section } from '../common/Section';
 
 interface PageContext {
   previous: {
@@ -39,7 +38,20 @@ const BlogPost: GatsbyPage<GatsbyTypes.BlogPostByIdQuery, PageContext> = ({
   const { previous, next } = pageContext;
   return (
     <>
-      <SEO title={title} image={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`} />
+      <GatsbySeo
+        title={title}
+        description="A blog post."
+        openGraph={{
+          images: [
+            {
+              url: `${siteUrl}${thumbnail.childImageSharp.openGraph.src}`,
+              width: thumbnail.childImageSharp.openGraph.width,
+              height: thumbnail.childImageSharp.openGraph.height,
+              alt: title,
+            },
+          ],
+        }}
+      />
       <Section>
         <Box mt={3}>
           <Link to="/#blog-posts" rel="back" sx={{ display: 'block' }} mb={3}>
@@ -119,6 +131,11 @@ export const query = graphql`
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
               src
+            }
+            openGraph: fixed(width: 800, quality: 80) {
+              src
+              height
+              width
             }
           }
         }
