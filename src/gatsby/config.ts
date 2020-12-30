@@ -106,7 +106,7 @@ const config: GatsbyConfig = {
           description: "Kyle Pfromer's Portfolio and Blog.",
           images: [
             {
-              url: 'https://kylepfromer.org/images/default-seo-image.jpg', // Relative to static folder
+              url: 'https://kylepfromer.com/images/default-seo-image.jpg', // Relative to static folder
               width: 800,
               height: 533,
               alt: 'Crested Butte Mountains',
