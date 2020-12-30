@@ -29,7 +29,7 @@ const BlogPost: GatsbyPage<GatsbyTypes.BlogPostByIdQuery, PageContext> = ({
     },
     mdx: {
       body,
-      frontmatter: { title, thumbnail, date, category },
+      frontmatter: { title, thumbnail, date, category, isoDate },
       fields: {
         readingTime: { text: readingTime },
       },
@@ -42,6 +42,11 @@ const BlogPost: GatsbyPage<GatsbyTypes.BlogPostByIdQuery, PageContext> = ({
         title={title}
         description="A blog post."
         openGraph={{
+          type: 'article',
+          article: {
+            publishedTime: isoDate,
+            tags: [category],
+          },
           images: [
             {
               url: `${siteUrl}${thumbnail.childImageSharp.openGraph.src}`,
@@ -124,6 +129,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        isoDate: date
         # tags
         category
         thumbnail {

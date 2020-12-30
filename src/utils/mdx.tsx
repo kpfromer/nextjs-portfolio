@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from '../components/common/Link';
-import { Box, Heading, Text } from 'rebass';
+import { Link } from '@components/common/Link';
 import { MDXProviderComponents } from '@mdx-js/react';
+import React from 'react';
+import { Box, Heading, Text } from 'rebass';
 
 const Header = ({ children, as, ...props }) => {
   let fontSize = 2;

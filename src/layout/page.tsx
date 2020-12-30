@@ -1,9 +1,9 @@
-import React from 'react';
-import type { GatsbyBrowser } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
+import mdx from '@utils/mdx';
+import { theme } from '@utils/theme';
+import type { GatsbyBrowser } from 'gatsby';
+import React from 'react';
 import { ThemeProvider } from 'theme-ui';
-import mdx from '../utils/mdx';
-import { theme } from '../utils/theme';
 
 const Page: GatsbyBrowser['wrapPageElement'] = ({ element }) => {
   // This wrapper is mounted once but re-rendered on page change

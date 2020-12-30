@@ -840,6 +840,7 @@ declare namespace GatsbyTypes {
     childMdx___frontmatter___tags = 'childMdx.frontmatter.tags',
     childMdx___frontmatter___hidden = 'childMdx.frontmatter.hidden',
     childMdx___frontmatter___date = 'childMdx.frontmatter.date',
+    childMdx___frontmatter___category = 'childMdx.frontmatter.category',
     childMdx___frontmatter___thumbnail___sourceInstanceName = 'childMdx.frontmatter.thumbnail.sourceInstanceName',
     childMdx___frontmatter___thumbnail___absolutePath = 'childMdx.frontmatter.thumbnail.absolutePath',
     childMdx___frontmatter___thumbnail___relativePath = 'childMdx.frontmatter.thumbnail.relativePath',
@@ -878,7 +879,6 @@ declare namespace GatsbyTypes {
     childMdx___frontmatter___thumbnail___children = 'childMdx.frontmatter.thumbnail.children',
     childMdx___frontmatter___thumbnail___childrenExperienceYaml = 'childMdx.frontmatter.thumbnail.childrenExperienceYaml',
     childMdx___frontmatter___thumbnail___childrenProjectsJson = 'childMdx.frontmatter.thumbnail.childrenProjectsJson',
-    childMdx___frontmatter___category = 'childMdx.frontmatter.category',
     childMdx___frontmatter___type = 'childMdx.frontmatter.type',
     childMdx___slug = 'childMdx.slug',
     childMdx___body = 'childMdx.body',
@@ -1842,6 +1842,7 @@ declare namespace GatsbyTypes {
     frontmatter___tags = 'frontmatter.tags',
     frontmatter___hidden = 'frontmatter.hidden',
     frontmatter___date = 'frontmatter.date',
+    frontmatter___category = 'frontmatter.category',
     frontmatter___thumbnail___sourceInstanceName = 'frontmatter.thumbnail.sourceInstanceName',
     frontmatter___thumbnail___absolutePath = 'frontmatter.thumbnail.absolutePath',
     frontmatter___thumbnail___relativePath = 'frontmatter.thumbnail.relativePath',
@@ -1918,7 +1919,6 @@ declare namespace GatsbyTypes {
     frontmatter___thumbnail___childrenProjectsJson___dates = 'frontmatter.thumbnail.childrenProjectsJson.dates',
     frontmatter___thumbnail___childrenProjectsJson___description = 'frontmatter.thumbnail.childrenProjectsJson.description',
     frontmatter___thumbnail___childrenProjectsJson___github = 'frontmatter.thumbnail.childrenProjectsJson.github',
-    frontmatter___category = 'frontmatter.category',
     frontmatter___type = 'frontmatter.type',
     slug = 'slug',
     body = 'body',
@@ -2072,8 +2072,8 @@ declare namespace GatsbyTypes {
     readonly tags: Maybe<ReadonlyArray<Scalars['String']>>;
     readonly hidden: Scalars['Boolean'];
     readonly date: Maybe<Scalars['Date']>;
-    readonly thumbnail: Maybe<File>;
     readonly category: Maybe<Scalars['String']>;
+    readonly thumbnail: Maybe<File>;
     readonly type: Maybe<Scalars['String']>;
   };
 
@@ -2089,8 +2089,8 @@ declare namespace GatsbyTypes {
     readonly tags: Maybe<StringQueryOperatorInput>;
     readonly hidden: Maybe<BooleanQueryOperatorInput>;
     readonly date: Maybe<DateQueryOperatorInput>;
-    readonly thumbnail: Maybe<FileFilterInput>;
     readonly category: Maybe<StringQueryOperatorInput>;
+    readonly thumbnail: Maybe<FileFilterInput>;
     readonly type: Maybe<StringQueryOperatorInput>;
   };
 
@@ -2611,10 +2611,10 @@ declare namespace GatsbyTypes {
     readonly allImageSharp: ImageSharpConnection;
     readonly mdx: Maybe<Mdx>;
     readonly allMdx: MdxConnection;
-    readonly projectsJson: Maybe<ProjectsJson>;
-    readonly allProjectsJson: ProjectsJsonConnection;
     readonly experienceYaml: Maybe<ExperienceYaml>;
     readonly allExperienceYaml: ExperienceYamlConnection;
+    readonly projectsJson: Maybe<ProjectsJson>;
+    readonly allProjectsJson: ProjectsJsonConnection;
     readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
     readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
     readonly sitePlugin: Maybe<SitePlugin>;
@@ -2812,25 +2812,6 @@ declare namespace GatsbyTypes {
     limit: Maybe<Scalars['Int']>;
   };
 
-  type Query_projectsJsonArgs = {
-    id: Maybe<StringQueryOperatorInput>;
-    parent: Maybe<NodeFilterInput>;
-    children: Maybe<NodeFilterListInput>;
-    internal: Maybe<InternalFilterInput>;
-    title: Maybe<StringQueryOperatorInput>;
-    dates: Maybe<StringQueryOperatorInput>;
-    description: Maybe<StringQueryOperatorInput>;
-    image: Maybe<FileFilterInput>;
-    github: Maybe<StringQueryOperatorInput>;
-  };
-
-  type Query_allProjectsJsonArgs = {
-    filter: Maybe<ProjectsJsonFilterInput>;
-    sort: Maybe<ProjectsJsonSortInput>;
-    skip: Maybe<Scalars['Int']>;
-    limit: Maybe<Scalars['Int']>;
-  };
-
   type Query_experienceYamlArgs = {
     id: Maybe<StringQueryOperatorInput>;
     parent: Maybe<NodeFilterInput>;
@@ -2846,6 +2827,25 @@ declare namespace GatsbyTypes {
   type Query_allExperienceYamlArgs = {
     filter: Maybe<ExperienceYamlFilterInput>;
     sort: Maybe<ExperienceYamlSortInput>;
+    skip: Maybe<Scalars['Int']>;
+    limit: Maybe<Scalars['Int']>;
+  };
+
+  type Query_projectsJsonArgs = {
+    id: Maybe<StringQueryOperatorInput>;
+    parent: Maybe<NodeFilterInput>;
+    children: Maybe<NodeFilterListInput>;
+    internal: Maybe<InternalFilterInput>;
+    title: Maybe<StringQueryOperatorInput>;
+    dates: Maybe<StringQueryOperatorInput>;
+    description: Maybe<StringQueryOperatorInput>;
+    image: Maybe<FileFilterInput>;
+    github: Maybe<StringQueryOperatorInput>;
+  };
+
+  type Query_allProjectsJsonArgs = {
+    filter: Maybe<ProjectsJsonFilterInput>;
+    sort: Maybe<ProjectsJsonSortInput>;
     skip: Maybe<Scalars['Int']>;
     limit: Maybe<Scalars['Int']>;
   };
@@ -4242,6 +4242,8 @@ declare namespace GatsbyTypes {
       Pick<Mdx, 'id' | 'body'> & {
         readonly frontmatter: Maybe<
           Pick<MdxFrontmatter, 'title' | 'date' | 'category'> & {
+            isoDate: MdxFrontmatter['date'];
+          } & {
             readonly thumbnail: Maybe<{
               readonly childImageSharp: Maybe<{
                 readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'> & GatsbyImageSharpFluidFragment>;
@@ -4336,6 +4338,22 @@ declare namespace GatsbyTypes {
     };
   };
 
+  type ProjectsQueryVariables = Exact<{ [key: string]: never }>;
+
+  type ProjectsQuery = {
+    readonly allProjectsJson: {
+      readonly nodes: ReadonlyArray<
+        Pick<ProjectsJson, 'description' | 'github' | 'title' | 'dates'> & {
+          readonly image: Maybe<{
+            readonly childImageSharp: Maybe<{
+              readonly fluid: Maybe<GatsbyImageSharpFluidFragment>;
+            }>;
+          }>;
+        }
+      >;
+    };
+  };
+
   type GatsbyImageSharpFixedFragment = Pick<
     ImageSharpFixed,
     'base64' | 'width' | 'height' | 'src' | 'srcSet'
@@ -4365,21 +4383,5 @@ declare namespace GatsbyTypes {
         readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>;
       }>;
     }>;
-  };
-
-  type ProjectsQueryVariables = Exact<{ [key: string]: never }>;
-
-  type ProjectsQuery = {
-    readonly allProjectsJson: {
-      readonly nodes: ReadonlyArray<
-        Pick<ProjectsJson, 'description' | 'github' | 'title' | 'dates'> & {
-          readonly image: Maybe<{
-            readonly childImageSharp: Maybe<{
-              readonly fluid: Maybe<GatsbyImageSharpFluidFragment>;
-            }>;
-          }>;
-        }
-      >;
-    };
   };
 }
