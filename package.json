@@ -14,11 +14,15 @@
     "clean": "gatsby clean",
     "precommit": "lint-staged",
     "typecheck": "tsc --pretty",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "npm-run-all test:*",
+    "test:e2e": "start-test dev 8000 cy:run",
+    "e2e:watch": "start-test dev 8000 cy:open",
+    "cy:run": "cypress run",
     "cy:open": "cypress open",
     "commit": "git cz"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
     "@rebass/forms": "4.0.6",
@@ -51,6 +55,7 @@
     "gatsby-yaml-full-markdown": "^0.3.4",
     "katex": "0.12.0",
     "mdx-yaml-full": "^2.0.0",
+    "npm-run-all": "^4.1.5",
     "prismjs": "1.21.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -62,6 +67,7 @@
     "rebass": "4.0.7",
     "remark-html-katex": "2.0.1",
     "remark-math": "2.0.1",
+    "start-server-and-test": "^1.11.7",
     "surge": "0.21.6",
     "theme-ui": "0.3.1",
     "ts-node": "^9.0.0"

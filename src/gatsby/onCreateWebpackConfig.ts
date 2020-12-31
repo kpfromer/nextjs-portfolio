@@ -7,6 +7,7 @@ const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions })
     // to avoid relative imports (must match `paths` in `tsconfig.json`):
     '@components': path.resolve(__dirname, '../components'),
     '@utils': path.resolve(__dirname, '../utils'),
+    '@hooks': path.resolve(__dirname, '../hooks'),
   };
   actions.setWebpackConfig({
     resolve: {

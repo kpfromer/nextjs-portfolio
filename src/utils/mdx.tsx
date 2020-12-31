@@ -1,4 +1,5 @@
 import { Link } from '@components/common/Link';
+import { Sparkles } from '@components/Sparkles';
 import { MDXProviderComponents } from '@mdx-js/react';
 import React from 'react';
 import { Box, Heading, Text } from 'rebass';
@@ -70,6 +71,8 @@ const components: MDXProviderComponents = {
       {children}
     </Text>
   ),
+  hr: () => <Box sx={{ borderBottom: '1px solid #b8bdc2' }} />,
+  Sparkles,
 };
 
 export default components;
