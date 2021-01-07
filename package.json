@@ -41,6 +41,7 @@
     "react-icons": "^4.1.0",
     "rehype-katex": "^3.0.1",
     "remark-math": "^3.0.1",
+    "remark-unwrap-images": "^2.0.0",
     "swr": "^0.3.11",
     "yaml": "^1.10.0"
   },

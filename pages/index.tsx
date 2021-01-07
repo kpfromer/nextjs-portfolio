@@ -16,7 +16,7 @@ import Preview from '@components/Blog/Preview';
 import Img from 'next/image';
 import NextLink from 'next/link';
 import type { GetStaticProps } from 'next';
-import { BlogPostData, getAllBlogPosts } from '@lib/blog';
+import { BlogPostData, BlogPostFrontmatter, getAllBlogPosts } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
 import { getYaml } from '@lib/yaml';
@@ -44,12 +44,12 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts,
       experience,
-    },
+    } as HomeProps,
   };
 };
 
 export interface HomeProps {
-  posts: BlogPostData[];
+  posts: BlogPostFrontmatter[];
   experience: ExperienceData;
 }
 
@@ -96,7 +96,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
             </Text>
           </Text>
 
-          <SocialLinks />
+          <SocialLinks color="white" />
         </VStack>
       </Flex>
 
@@ -121,7 +121,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
         <Heading variant="section-title">Blog Posts</Heading>
 
         <SimpleGrid columns={[1, 2, 3]} spacing={10}>
-          {posts.map(({ slug, frontmatter: { title, created, coverImage } }) => (
+          {posts.map(({ slug, title, created, coverImage }) => (
             <NextLink href={`/blog/${slug}`} passHref key={slug}>
               <Box as="a">
                 <Preview title={title} created={created} coverImage={coverImage} h="100%" />
