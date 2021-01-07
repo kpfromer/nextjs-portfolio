@@ -1,7 +1,6 @@
 import type { MDXProviderComponentsProp } from '@mdx-js/react';
 import NextImage from 'next/image';
-import { Box, Heading, Text, Link } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import { Box } from '@chakra-ui/react';
 import Sparkles from '@components/Sparkles';
 import CodeBlock from '@components/Code/Block';
 import CodeInline from '@components/Code/Inline';
@@ -41,7 +40,7 @@ const mdxComponents: MDXProviderComponentsProp = {
   ),
   img: (props) => <NextImage {...props} layout="responsive" />,
   Sparkles,
-  code: CodeBlock,
+  code: (props) => <CodeBlock {...props} my={2} />,
   inlineCode: CodeInline,
 };
 
