@@ -1,5 +1,1 @@
-node_modules/
-dist/
-src/serviceWorker.ts
-.cache/
-public/
+.next

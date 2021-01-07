@@ -1,40 +1,46 @@
-# Big Company
-- companyName: Facebook
-  title: Incoming 2021 Software Engineer Intern
-  location: Menlo Park, California
-  type: work
+titles:
+  work: Work
+  startup: Startup
+  club: Clubs
 
-- companyName: Google
-  title: Software Engineer Intern
-  location: Sunnyvale, California
-  type: work
-  content: !mdx |
-    - Worked on integrating Google Cloud AI's Platform Optimizer Product with JupyterLab.
-    - Enabled users to easily tune their machine learning model hyperparameters within the JupyterLab environment.
-    - Created a hierarchical data input system for conditional parameter trees.
-# Startup
-- companyName: Shivoo
-  title: Fullstack Engineer
-  location: Boulder, Colorado
-  type: startup
-  content: !mdx |
-    - Creating a website that coordinates event creation that's targeted at college campuses.
-    - Organized design and documentation for the website.
-# Clubs
-- companyName: HackCU
-  title: Tech Lead
-  location: Boulder, Colorado
-  type: club
-  content: !mdx |
-    - Lead website redesign and creation.
-    - Helped organize HackCU VI, a 400 person event hackathon
-    - Created live schedule website to help hackers get information and see event schedule.
-    - Presented Intro to Git/GitHub at HackCU VI.
-- companyName: Fairview H.S. Web Team
-  title: Webmaster
-  location: Boulder, Colorado
-  type: club
-  content: !mdx |
-    - Programmed and co-managed an organization of 8 members which maintained Fairview High School's student-run website, written with Ruby On Rails and has over 400,000 lines of code and nearly 5,000 commits; on average it served over 100,000 weekly page views from students, staff, and parents.
-    - Worked on a content creation system (akin to Weebly or Squarespace) that helps our counselors create helpful and engaging content for students and parents; collaborated with counselors.
-    - Created Silent Auction, a responsive web application written for the school's National Honor Society used by parents and students to bid on charity items.
+experience:
+  # Big Company
+  - companyName: Facebook
+    title: Incoming 2021 Software Engineer Intern
+    location: Menlo Park, California
+    type: work
+
+  - companyName: Google
+    title: Software Engineer Intern
+    location: Sunnyvale, California
+    type: work
+    content: |
+      - Worked on integrating Google Cloud AI's Platform Optimizer Product with JupyterLab.
+      - Enabled users to easily tune their machine learning model hyperparameters within the JupyterLab environment.
+      - Created a hierarchical data input system for conditional parameter trees.
+  # Startup
+  - companyName: Shivoo
+    title: Fullstack Engineer
+    location: Boulder, Colorado
+    type: startup
+    content: |
+      - Creating a website that coordinates event creation that's targeted at college campuses.
+      - Organized design and documentation for the website.
+  # Clubs
+  - companyName: HackCU
+    title: Tech Lead
+    location: Boulder, Colorado
+    type: club
+    content: |
+      - Lead website redesign and creation.
+      - Helped organize HackCU VI, a 400 person event hackathon
+      - Created live schedule website to help hackers get information and see event schedule.
+      - Presented Intro to Git/GitHub at HackCU VI.
+  - companyName: Fairview H.S. Web Team
+    title: Webmaster
+    location: Boulder, Colorado
+    type: club
+    content: |
+      - Programmed and co-managed an organization of 8 members which maintained Fairview High School's student-run website, written with Ruby On Rails and has over 400,000 lines of code and nearly 5,000 commits; on average it served over 100,000 weekly page views from students, staff, and parents.
+      - Worked on a content creation system (akin to Weebly or Squarespace) that helps our counselors create helpful and engaging content for students and parents; collaborated with counselors.
+      - Created Silent Auction, a responsive web application written for the school's National Honor Society used by parents and students to bid on charity items.
