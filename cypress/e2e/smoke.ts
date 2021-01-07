@@ -2,6 +2,6 @@ describe('app', () => {
   it('shows home page', () => {
     cy.visit('/');
 
-    cy.findByText(/home/i).should('exist');
+    cy.findByText(/^i\'m kyle pfromer$/i).should('exist');
   });
 });

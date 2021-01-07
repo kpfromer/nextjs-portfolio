@@ -3,7 +3,7 @@ import { useCopyToClipboard } from '@hooks/use-copy-to-clipboard';
 import { lighten } from 'polished';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import React from 'react';
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Box, Button, Flex, FlexProps } from '@chakra-ui/react';
 import okaidiaTheme from '../okaidia-prism-theme';
 
 export interface CodeBlockProps {
@@ -86,13 +86,14 @@ const LineContent = styled.span`
 //   return { plain, styles };
 // }
 
-export interface CodeBlockProps {}
+export interface CodeBlockProps extends FlexProps {}
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
   noLineNumbers = false,
   className = '',
   filename,
   children,
+  ...rest
 }) => {
   const { isCopied, onCopy } = useCopyToClipboard();
 
@@ -103,8 +104,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     : className.replace(/language-/, '')) as Language;
 
   return (
-    <Flex sx={{ flexDirection: 'column' }}>
-      <Flex sx={{ flexDirection: 'row' }}>
+    <Flex flexDirection="column" {...rest}>
+      <Flex flexDirection="row">
         {/* File Name Tag */}
         {filename && (
           <Box

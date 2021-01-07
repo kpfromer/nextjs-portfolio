@@ -8,6 +8,8 @@ import { promisify } from 'util';
 import { getMdxImage, MdxImage, sanitize } from './common';
 import relativeToFolder from '@plugins/relative-to-folder';
 import { DateTime } from 'luxon';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 export interface BlogPostFrontmatter {
   title: string;
@@ -62,8 +64,12 @@ export async function getBlogPost(slug: string): Promise<BlogPostData | undefine
       components: blogMdxComponents,
       scope: metadata,
       mdxOptions: {
-        rehypePlugins: [relativeToFolder({ pathToAdd: `/blog/${slug}` }), imageMetadata],
-        filepath,
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [
+          rehypeKatex,
+          relativeToFolder({ pathToAdd: `/blog/${slug}` }),
+          imageMetadata,
+        ],
       },
     }),
   };
