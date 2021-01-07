@@ -3,12 +3,12 @@ import Preview from '@components/Blog/Preview';
 import Container from '@components/Container';
 import Header from '@components/Header';
 import Page from '@components/Page';
-import { BlogPostData, BlogPostFrontmatter, getAllBlogPosts } from '@lib/blog';
+import { BlogPostData, BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import type { GetStaticProps } from 'next';
 import NextLink from 'next/link';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllBlogPosts('des');
+  const posts = await getAllBlogPostsFrontmatter('des');
 
   return { props: { posts } as BlogHomeProps };
 };

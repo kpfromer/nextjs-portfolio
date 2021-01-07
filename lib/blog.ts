@@ -33,6 +33,12 @@ export interface BlogPostData {
   frontmatter: BlogPostFrontmatter;
 }
 
+const root = process.cwd();
+
+export function getFiles() {
+  return fs.readdirSync(path.join(root, 'content', 'blog'));
+}
+
 async function parseFrontmatter(
   slug: string,
   metadata: Record<string, unknown>,
@@ -47,14 +53,15 @@ async function parseFrontmatter(
 }
 
 export async function getBlogPostFrontmatter(slug: string): Promise<BlogPostFrontmatter> {
-  const allFiles = fs.readdirSync(path.join(process.cwd(), 'content/blog'));
+  const allFiles = getFiles();
+
   const file = allFiles
     .filter((file) => /\.mdx$/.test(file))
     .find((fileName) => fileName.replace(/\.mdx$/, '') === slug);
 
   if (!file) return undefined;
 
-  const filepath = path.join(process.cwd(), 'content/blog', `${slug}.mdx`);
+  const filepath = path.join(root, 'content', 'blog', `${slug}.mdx`);
 
   const data = (await promisify(fs.readFile)(filepath)).toString();
 
@@ -65,14 +72,14 @@ export async function getBlogPostFrontmatter(slug: string): Promise<BlogPostFron
 }
 
 export async function getBlogPost(slug: string): Promise<BlogPostData | undefined> {
-  const allFiles = fs.readdirSync(path.join(process.cwd(), 'content/blog'));
+  const allFiles = getFiles();
   const file = allFiles
     .filter((file) => /\.mdx$/.test(file))
     .find((fileName) => fileName.replace(/\.mdx$/, '') === slug);
 
   if (!file) return undefined;
 
-  const filepath = path.join(process.cwd(), 'content/blog', `${slug}.mdx`);
+  const filepath = path.join(process.cwd(), 'content', 'blog', `${slug}.mdx`);
 
   const data = (await promisify(fs.readFile)(filepath)).toString();
 
@@ -98,7 +105,7 @@ export async function getBlogPost(slug: string): Promise<BlogPostData | undefine
 
 export async function getBlogPostSlugs(): Promise<string[]> {
   const allFiles = fs
-    .readdirSync(path.join(process.cwd(), 'content/blog'))
+    .readdirSync(path.join(process.cwd(), 'content', 'blog'))
     .filter((file) => {
       const isMdx = /\.mdx$/.test(file);
 
@@ -115,7 +122,9 @@ export async function getBlogPostSlugs(): Promise<string[]> {
   return allFiles;
 }
 
-export async function getAllBlogPosts(sortByDate?: 'asc' | 'des'): Promise<BlogPostFrontmatter[]> {
+export async function getAllBlogPostsFrontmatter(
+  sortByDate?: 'asc' | 'des',
+): Promise<BlogPostFrontmatter[]> {
   const slugs = await getBlogPostSlugs();
 
   const blogPosts: BlogPostFrontmatter[] = [];

@@ -9,6 +9,7 @@ import Header from '@components/Header';
 import SocialLinks from '@components/SocialLinks';
 import { Flex } from '@chakra-ui/react';
 import Head from 'next/head';
+import 'katex/dist/katex.min.css';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = await getBlogPostSlugs();
@@ -33,14 +34,14 @@ const BlogPost: React.FC<BlogPostProps> = ({
   const content = hydrate(body, { components: blogMdxComponents });
   return (
     <>
-      <Head>
+      {/* <Head>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
           integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
           crossOrigin="anonymous"
         />
-      </Head>
+      </Head> */}
 
       <Header />
       <Page title={title} openGraph={{ images: [{ ...coverImage, url: coverImage.src }] }}>

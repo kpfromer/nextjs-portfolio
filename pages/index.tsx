@@ -16,7 +16,7 @@ import Preview from '@components/Blog/Preview';
 import Img from 'next/image';
 import NextLink from 'next/link';
 import type { GetStaticProps } from 'next';
-import { BlogPostData, BlogPostFrontmatter, getAllBlogPosts } from '@lib/blog';
+import { BlogPostData, BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
 import { getYaml } from '@lib/yaml';
@@ -37,7 +37,7 @@ const Seperator = () => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllBlogPosts('des');
+  const posts = await getAllBlogPostsFrontmatter('des');
   const experience = await getExperience();
 
   return {
@@ -62,7 +62,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
             src="/assets/crested-butte-2016-07-14.jpg"
             // src="/assets/2019-07-27-Collegiate-West.jpeg"
             layout="fill"
-            quality={50}
+            quality={60}
             objectPosition="50% 50%"
             objectFit="cover"
             priority
