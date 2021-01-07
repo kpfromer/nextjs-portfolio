@@ -9,9 +9,12 @@ import { getMdxImage, MdxImage, sanitize } from './common';
 import relativeToFolder from '@plugins/relative-to-folder';
 import { DateTime } from 'luxon';
 import remarkMath from 'remark-math';
+import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeKatex from 'rehype-katex';
 
 export interface BlogPostFrontmatter {
+  slug: string;
+
   title: string;
 
   coverImage: MdxImage;
@@ -43,6 +46,24 @@ async function parseFrontmatter(
   return sanitize(frontmatter) as BlogPostFrontmatter;
 }
 
+export async function getBlogPostFrontmatter(slug: string): Promise<BlogPostFrontmatter> {
+  const allFiles = fs.readdirSync(path.join(process.cwd(), 'content/blog'));
+  const file = allFiles
+    .filter((file) => /\.mdx$/.test(file))
+    .find((fileName) => fileName.replace(/\.mdx$/, '') === slug);
+
+  if (!file) return undefined;
+
+  const filepath = path.join(process.cwd(), 'content/blog', `${slug}.mdx`);
+
+  const data = (await promisify(fs.readFile)(filepath)).toString();
+
+  return (await parseFrontmatter(slug, {
+    ...matter(data).data,
+    slug,
+  })) as BlogPostFrontmatter;
+}
+
 export async function getBlogPost(slug: string): Promise<BlogPostData | undefined> {
   const allFiles = fs.readdirSync(path.join(process.cwd(), 'content/blog'));
   const file = allFiles
@@ -59,12 +80,12 @@ export async function getBlogPost(slug: string): Promise<BlogPostData | undefine
 
   return {
     slug,
-    frontmatter: await parseFrontmatter(slug, metadata),
+    frontmatter: { ...(await parseFrontmatter(slug, metadata)), slug },
     body: await renderToString(content, {
       components: blogMdxComponents,
       scope: metadata,
       mdxOptions: {
-        remarkPlugins: [remarkMath],
+        remarkPlugins: [remarkMath, remarkUnwrapImages],
         rehypePlugins: [
           rehypeKatex,
           relativeToFolder({ pathToAdd: `/blog/${slug}` }),
@@ -94,13 +115,13 @@ export async function getBlogPostSlugs(): Promise<string[]> {
   return allFiles;
 }
 
-export async function getAllBlogPosts(sortByDate?: 'asc' | 'des'): Promise<BlogPostData[]> {
+export async function getAllBlogPosts(sortByDate?: 'asc' | 'des'): Promise<BlogPostFrontmatter[]> {
   const slugs = await getBlogPostSlugs();
 
-  const blogPosts: BlogPostData[] = [];
+  const blogPosts: BlogPostFrontmatter[] = [];
 
   for (const slug of slugs) {
-    blogPosts.push(await getBlogPost(slug));
+    blogPosts.push(await getBlogPostFrontmatter(slug));
   }
 
   if (!sortByDate) return blogPosts;
@@ -108,7 +129,6 @@ export async function getAllBlogPosts(sortByDate?: 'asc' | 'des'): Promise<BlogP
   return blogPosts.sort(
     (a, b) =>
       (sortByDate === 'asc' ? 1 : -1) *
-      DateTime.fromISO(a.frontmatter.created).diff(DateTime.fromISO(b.frontmatter.created))
-        .milliseconds,
+      DateTime.fromISO(a.created).diff(DateTime.fromISO(b.created)).milliseconds,
   );
 }

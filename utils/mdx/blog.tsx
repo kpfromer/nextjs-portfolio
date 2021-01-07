@@ -38,7 +38,11 @@ const mdxComponents: MDXProviderComponentsProp = {
       {children}
     </Box>
   ),
-  img: (props) => <NextImage {...props} layout="responsive" />,
+  img: (props) => (
+    <Box bg="white">
+      <NextImage {...props} layout="responsive" />
+    </Box>
+  ),
   Sparkles,
   code: (props) => <CodeBlock {...props} my={2} />,
   inlineCode: CodeInline,
