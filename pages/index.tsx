@@ -1,16 +1,3 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  VStack,
-  Text,
-  SimpleGrid,
-  Link,
-  Stack,
-  Divider,
-  useColorModeValue,
-  Button,
-} from '@chakra-ui/react';
 import Header from '@components/Header';
 import Page from '@components/Page';
 import Preview from '@components/Blog/Preview';
@@ -20,23 +7,22 @@ import type { GetStaticProps } from 'next';
 import { BlogPostData, BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
-import { getYaml } from '@lib/yaml';
-import renderToString from 'next-mdx-remote/render-to-string';
 import { baseMdxComponents } from '@utils/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 import { ExperienceData, getExperience } from '@lib/experience';
 import ContactForm from '@components/ContactForm';
 import info from '@configs/info';
+import { HTMLAttributes } from 'react';
 
-const Seperator = () => {
-  const bg = useColorModeValue('gray.700', 'gray.200');
+const Heading: React.FC<
+  HTMLAttributes<HTMLHeadingElement> & { as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' }
+> = ({ as: Type = 'h1', ...props }) => <Type {...props} className="text-5xl font-bold my-8" />;
 
-  return (
-    <Flex flexGrow={1} role="separator">
-      <Box my="auto" flexGrow={1} height="1px" bg={bg} />
-    </Flex>
-  );
-};
+const Seperator = () => (
+  <div className="flex flex-grow" role="separator">
+    <div className="my-auto flex-grow h-0.5 bg-gray-700 dark:gray-200" />
+  </div>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllBlogPostsFrontmatter('des');
@@ -58,26 +44,26 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ posts, experience }) => {
   return (
     <Page title="Home" description="Learn more about me.">
-      <Flex minH="100vh" position="relative">
-        <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1}>
+      <div className="relative" style={{ minHeight: '100vh' }}>
+        <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }}>
           <Img
             src="/assets/crested-butte-2016-07-14.jpg"
-            alt="Crested Butter Mountains"
-            // src="/assets/2019-07-27-Collegiate-West.jpeg"
+            alt="Crested Butte Mountains"
             layout="fill"
             quality={60}
             objectPosition="50% 50%"
             objectFit="cover"
             priority
-            // width={5716}
-            // height={3811}
           />
-        </Box>
+        </div>
 
-        <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1} bg="#000000aa" />
+        <div
+          className="absolute top-0 left-0 right-0 bottom-0"
+          style={{ zIndex: -1, backgroundColor: '#000000aa' }}
+        />
 
-        <VStack m="auto" pt={20} spacing="10px" textAlign="center">
-          <Box overflow="hidden" borderRadius="100%" h={200} w={200}>
+        <div className="pt-40 space-y-4 text-center flex flex-col justify-center items-center flex-grow">
+          <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
             <Img
               src="/assets/kyle-pfromer.jpg"
               alt="Kyle Pfromer"
@@ -85,105 +71,86 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
               width={200}
               height={200}
             />
-          </Box>
+          </div>
 
-          <Heading fontSize="6xl" color="primary.500">
-            Hi!
-          </Heading>
+          <h1 className="text-6xl text-primary-500 font-bold">Hi!</h1>
 
-          <Heading fontSize="5xl" color="white">
-            I'm Kyle Pfromer
-            {/* <Heading as="span" fontSize="5xl" color="primary.500">
-              Pfromer
-            </Heading> */}
-          </Heading>
+          <h2 className="text-5xl text-white font-bold">I'm Kyle Pfromer</h2>
 
-          <Text fontSize="2xl" color="white">
-            and I'm a{' '}
-            <Text as="span" fontWeight="bold" fontSize="2xl">
-              Software Engineer
-            </Text>
-          </Text>
+          <p className="text-2xl text-white">
+            and I'm a <span className="font-bold text-2xl">Software Engineer</span>
+          </p>
 
-          <SocialLinks color="white" />
-        </VStack>
-      </Flex>
+          <SocialLinks color="text-white" />
+        </div>
+      </div>
 
       <Header />
 
-      <Container mt={5}>
-        <Heading variant="section-title">About Me</Heading>
+      <Container className="mt-5">
+        <Heading>About Me</Heading>
 
-        <Text>
-          Hi! My name is{' '}
-          <Text as="span" fontWeight="bold">
-            Kyle Pfromer
-          </Text>
-          . I am a full stack developer that works a lot with TypeScript and JavaScript (though I
-          have experience in C++ and Java). I am currently a computer science student at{' '}
-          <Link href="https://www.colorado.edu/" isExternal>
-            CU Boulder
-          </Link>
-          . When not programming I am snowboarding, hiking and biking.
-        </Text>
+        <p>
+          Hi! My name is <span className="text-bold">Kyle Pfromer</span>. I am a full stack
+          developer that works a lot with TypeScript and JavaScript (though I have experience in C++
+          and Java). I am currently a computer science student at {/* TODO: rel */}
+          <a href="https://www.colorado.edu/">CU Boulder</a>. When not programming I am
+          snowboarding, hiking and biking.
+        </p>
 
-        <Heading variant="section-title">Blog Posts</Heading>
+        <Heading>Blog Posts</Heading>
 
-        <SimpleGrid columns={[1, 2, 3]} spacing={10}>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
           {posts.map(({ slug, title, created, coverImage }) => (
-            <NextLink href={`/blog/${slug}`} passHref key={slug}>
-              <Box as="a">
+            <NextLink href={`/blog/${slug}`} key={slug}>
+              <a>
                 <Preview title={title} created={created} coverImage={coverImage} h="100%" />
-              </Box>
+              </a>
             </NextLink>
           ))}
-        </SimpleGrid>
+        </div>
 
-        <Heading variant="section-title">Experience</Heading>
+        <Heading>Experience</Heading>
 
         {experience.map(({ name, items }) => (
-          <Box key={name}>
-            <Flex justifyContent="center" alignItems="center" my={5}>
-              <Heading mr={3} fontSize="4xl">
-                {name}
-              </Heading>
+          <div key={name}>
+            <div className="flex justify-center items-center my-5">
+              <h1 className="mr-3 text-4xl font-bold">{name}</h1>
 
               <Seperator />
-            </Flex>
+            </div>
 
-            <Stack spacing="15px">
+            <div className="flex flex-col space-y-8">
               {items.map(({ companyName, title, location, content }) => (
-                <Box key={companyName} flexGrow={1}>
-                  <Heading fontSize="3xl" color="primary.500">
-                    {companyName}
-                  </Heading>
-                  <Heading mt={2} fontSize="xl">
+                <div className="flex-grow" key={companyName}>
+                  <h2 className="text-3xl text-primary-500 font-bold">{companyName}</h2>
+                  <h3 className="mt-2 text-xl font-bold">
                     {title} · {location}
-                  </Heading>
+                  </h3>
 
                   {content && (
-                    <Box pt={3}>{hydrate(content, { components: baseMdxComponents })}</Box>
+                    <div className="pt-3">
+                      {hydrate(content, { components: baseMdxComponents })}
+                    </div>
                   )}
-                </Box>
+                </div>
               ))}
-            </Stack>
-          </Box>
+            </div>
+          </div>
         ))}
 
-        <Button
-          as="a"
+        <a
           rel="noopener"
           target="_blank"
           href={info.resume}
-          colorScheme="primary"
-          mt={5}
+          className="my-5 btn-primary"
+          // className="mt-5 p-3 rounded-md inline-block font-bold text-white dark:text-gray-800 bg-primary-500 hover:bg-primary-600 dark:hover:primary-300 transition-colors ease-in-out"
         >
           View Resume
-        </Button>
-
-        <Heading variant="section-title">Contact</Heading>
+        </a>
 
         {/* TODO: */}
+        {/* <Heading>Contact</Heading> */}
         {/* <ContactForm /> */}
       </Container>
     </Page>
