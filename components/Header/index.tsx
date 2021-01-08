@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = () => {
   const { mode, toggleMode } = useDarkMode();
 
   return (
-    <div className="py-4 sticky top-0 z-10 bg-white dark:bg-gray-800">
+    <div className="py-4 sticky top-0 left-0 right-0 z-10 bg-white dark:bg-gray-800">
       <Container className="flex justify-center items-center">
         <div className="flex flex-row space-x-3">
           <NavLink href="/">Home</NavLink>

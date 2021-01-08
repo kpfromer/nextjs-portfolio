@@ -46,12 +46,14 @@ const LineContent: React.FC<HTMLAttributes<HTMLSpanElement>> = (props) => (
 
 export interface CodeBlockProps extends HTMLAttributes<HTMLDivElement> {
   noLineNumbers?: boolean;
+  customClass?: string;
   filename?: string;
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
   noLineNumbers = false,
   className = '',
+  customClass,
   filename,
   children,
   ...rest
@@ -65,7 +67,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     : className.replace(/language-/, '')) as Language;
 
   return (
-    <div {...rest} className="flex flex-col">
+    <div {...rest} className={classnames('flex flex-col', customClass)}>
       <div className="flex flex-row">
         {/* File Name Tag */}
         {filename && (

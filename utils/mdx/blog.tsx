@@ -47,7 +47,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     </div>
   ),
   Sparkles,
-  code: (props) => <CodeBlock {...props} my={2} />,
+  code: (props) => <CodeBlock {...props} customClass="my-2" />,
   inlineCode: CodeInline,
 };
 
