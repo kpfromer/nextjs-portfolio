@@ -28,8 +28,8 @@ Done!
 - [cypress](https://www.cypress.io/) for end-to-end tests
 - [swr](https://github.com/vercel/swr) for remote data fetching
 - [storybooks](https://storybook.js.org/) for testing/viewing UI components in isolation
-- [chakra ui](https://chakra-ui.com/) for components, styling, and theming
-- TODO: mdx remote
+- [tailwind css](https://tailwindcss.com/) for components, styling, and theming
+- [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) for sourcing mdx
 
 ## Scripts
 
