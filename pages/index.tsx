@@ -32,7 +32,7 @@ const Seperator = () => {
   const bg = useColorModeValue('gray.700', 'gray.200');
 
   return (
-    <Flex flexGrow={1} role="seperator">
+    <Flex flexGrow={1} role="separator">
       <Box my="auto" flexGrow={1} height="1px" bg={bg} />
     </Flex>
   );
@@ -62,6 +62,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
         <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1}>
           <Img
             src="/assets/crested-butte-2016-07-14.jpg"
+            alt="Crested Butter Mountains"
             // src="/assets/2019-07-27-Collegiate-West.jpeg"
             layout="fill"
             quality={60}
@@ -75,9 +76,15 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
 
         <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1} bg="#000000aa" />
 
-        <VStack m="auto" pt={20} spacing="10px">
+        <VStack m="auto" pt={20} spacing="10px" textAlign="center">
           <Box overflow="hidden" borderRadius="100%" h={200} w={200}>
-            <Img src="/assets/kyle-pfromer.jpg" layout="fixed" width={200} height={200} />
+            <Img
+              src="/assets/kyle-pfromer.jpg"
+              alt="Kyle Pfromer"
+              layout="fixed"
+              width={200}
+              height={200}
+            />
           </Box>
 
           <Heading fontSize="6xl" color="primary.500">
