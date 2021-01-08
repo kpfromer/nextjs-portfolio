@@ -4,15 +4,17 @@ import Preview from '@components/Blog/Preview';
 import Img from 'next/image';
 import NextLink from 'next/link';
 import type { GetStaticProps } from 'next';
-import { BlogPostData, BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
+import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
 import { baseMdxComponents } from '@utils/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 import { ExperienceData, getExperience } from '@lib/experience';
-import ContactForm from '@components/ContactForm';
+// import ContactForm from '@components/ContactForm';
 import info from '@configs/info';
 import { HTMLAttributes } from 'react';
+import { getProjects, ProjectData } from '@lib/projects';
+import Project from '@components/Project';
 
 const Heading: React.FC<
   HTMLAttributes<HTMLHeadingElement> & { as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' }
@@ -27,11 +29,13 @@ const Seperator = () => (
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllBlogPostsFrontmatter('des');
   const experience = await getExperience();
+  const projects = await getProjects();
 
   return {
     props: {
       posts,
       experience,
+      projects,
     } as HomeProps,
   };
 };
@@ -39,9 +43,10 @@ export const getStaticProps: GetStaticProps = async () => {
 export interface HomeProps {
   posts: BlogPostFrontmatter[];
   experience: ExperienceData;
+  projects: ProjectData[];
 }
 
-const Home: React.FC<HomeProps> = ({ posts, experience }) => {
+const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
   return (
     <Page title="Home" description="Learn more about me.">
       <div className="relative flex" style={{ minHeight: '100vh', zIndex: 1 }}>
@@ -78,9 +83,9 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
 
             <h2 className="text-5xl text-white font-bold">I'm Kyle Pfromer</h2>
 
-            <p className="text-2xl text-white">
+            <h3 className="text-2xl text-white">
               and I'm a <span className="font-bold text-2xl">Software Engineer</span>
-            </p>
+            </h3>
 
             <SocialLinks color="text-white" />
           </div>
@@ -103,15 +108,10 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
         <Heading>Blog Posts</Heading>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
-          {posts.map(({ slug, title, created, coverImage }) => (
-            <NextLink href={`/blog/${slug}`} key={slug}>
+          {posts.map((post) => (
+            <NextLink href={`/blog/${post.slug}`} key={post.slug}>
               <a>
-                <Preview
-                  title={title}
-                  created={created}
-                  coverImage={coverImage}
-                  className="h-full"
-                />
+                <Preview {...post} className="h-full" />
               </a>
             </NextLink>
           ))}
@@ -155,6 +155,14 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
         >
           View Resume
         </a>
+
+        <Heading>Projects</Heading>
+
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
+          {projects.map((project) => (
+            <Project key={project.title} {...project} className="h-full" />
+          ))}
+        </div>
 
         {/* TODO: */}
         {/* <Heading>Contact</Heading> */}

@@ -52,7 +52,7 @@ export interface BlogPostProps extends BlogPostData {
 const BlogPost: React.FC<BlogPostProps> = ({
   body,
   slug,
-  frontmatter: { title, coverImage, created },
+  frontmatter: { title, coverImage, coverImageAlt, created },
   previous,
   next,
 }) => {
@@ -72,7 +72,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
             publishedTime: created,
             // tags:
           },
-          images: [{ ...coverImage, url: `${info.baseUrl}${coverImage.src}` }],
+          images: [{ ...coverImage, url: `${info.baseUrl}${coverImage.src}`, alt: coverImageAlt }],
         }}
       >
         <Container>
@@ -80,6 +80,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
             className="pt-4 katex-custom"
             title={title}
             coverImage={coverImage}
+            coverImageAlt={coverImageAlt}
             created={created}
           >
             {content}

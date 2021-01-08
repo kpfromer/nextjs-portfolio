@@ -1,26 +1,21 @@
 import NextImage from 'next/image';
 import { DateTime } from 'luxon';
-import { MdxImage } from '@lib/common';
-import { motion } from 'framer-motion';
-import { HTMLAttributes } from 'react';
+import { HTMLMotionProps, motion } from 'framer-motion';
 import classnames from 'classnames';
+import { BlogPostFrontmatter } from '@lib/blog';
 
-export interface PreviewProps extends HTMLAttributes<HTMLDivElement> {
-  title: string;
+export interface PreviewProps
+  extends Omit<HTMLMotionProps<'div'>, keyof BlogPostFrontmatter>,
+    BlogPostFrontmatter {}
 
-  coverImage: MdxImage;
-  // ogImage?: string;
-
-  created: string;
-  // updated?: string;
-
-  // category?: string;
-  // tags?: string[];
-}
-
-const Preview: React.FC<PreviewProps> = ({ title, coverImage, created, ...props }) => {
+const Preview: React.FC<PreviewProps> = ({
+  title,
+  coverImage,
+  coverImageAlt,
+  created,
+  ...props
+}) => {
   return (
-    //@ts-ignore
     <motion.div
       {...props}
       className={classnames(
@@ -35,13 +30,13 @@ const Preview: React.FC<PreviewProps> = ({ title, coverImage, created, ...props 
       }}
     >
       <div className="overflow-hidden rounded-lg bg-white">
-        <NextImage layout="responsive" {...coverImage} />
+        <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
       </div>
 
       <div className="flex-grow" />
 
       <div className="mt-3">
-        <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
+        <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
         <p className="text-md mt-2">{DateTime.fromISO(created).toFormat('DDD')}</p>
       </div>
     </motion.div>

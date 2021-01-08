@@ -6,10 +6,18 @@ import { HTMLAttributes } from 'react';
 export interface PostProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   coverImage: MdxImage;
+  coverImageAlt?: string;
   created: string;
 }
 
-const Post: React.FC<PostProps> = ({ title, coverImage, created, children, ...props }) => {
+const Post: React.FC<PostProps> = ({
+  title,
+  coverImage,
+  coverImageAlt,
+  created,
+  children,
+  ...props
+}) => {
   const info = [
     DateTime.fromISO(created).toFormat('DDD'),
     // category &&  `in ${category}`, ...tags
@@ -18,7 +26,7 @@ const Post: React.FC<PostProps> = ({ title, coverImage, created, children, ...pr
   return (
     <div {...props}>
       <div className="overflow-hidden rounded-lg bg-black">
-        <NextImage layout="responsive" {...coverImage} />
+        <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
       </div>
 
       <div className="mt-4">

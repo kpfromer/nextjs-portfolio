@@ -20,16 +20,16 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ spacing = 'space-x-4', color,
         color ? color : 'text-gray-700 dark:text-white',
       )}
     >
-      <a target="_blank" rel="noopener noreferrer" href={info.github}>
-        <Icon as={FiGithub} className="w-10 h-10" aria-label="Github" />
+      <a target="_blank" rel="noopener noreferrer" href={info.github} aria-label="Github">
+        <Icon as={FiGithub} aria-hidden className="w-10 h-10" />
       </a>
 
-      <a target="_blank" rel="noopener noreferrer" href={info.linkedin}>
-        <Icon as={FiLinkedin} className="w-10 h-10" aria-label="LinkedIn" />
+      <a target="_blank" rel="noopener noreferrer" href={info.linkedin} aria-label="LinkedIn">
+        <Icon as={FiLinkedin} aria-hidden className="w-10 h-10" />
       </a>
 
-      <a rel="noopener noreferrer" href={info.stackoverflow}>
-        <Icon as={FaStackOverflow} className="w-10 h-10" aria-label="Stack Overflow" />
+      <a rel="noopener noreferrer" href={info.stackoverflow} aria-label="Stack Overflow">
+        <Icon as={FaStackOverflow} aria-hidden className="w-10 h-10" />
       </a>
     </div>
   );

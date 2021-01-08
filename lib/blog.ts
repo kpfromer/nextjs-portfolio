@@ -18,6 +18,7 @@ export interface BlogPostFrontmatter {
   title: string;
 
   coverImage: MdxImage;
+  coverImageAlt?: string;
   ogImage?: MdxImage;
 
   created: string;

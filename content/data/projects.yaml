@@ -4,18 +4,21 @@
   description:
     An open-source library that connects nestjs (a backend TypeScript framework) with typegoose
     (TypeScript wrapper for mongoose).
-  image: '/projects/nestjs-typegoose.png'
+  image: '/nestjs-typegoose.png'
+  imageAlt: Nest.js Logo
   github: https://github.com/kpfromer/nestjs-typegoose
 
 - title: csvtasks
   dates: February 2020 - Present
-  image: '/projects/csv-tasks.png'
+  image: '/csv-tasks.png'
+  imageAlt: Spreadsheet with task items
   description: A tool that syncs spreedsheet data with google tasks.
   github: https://github.com/kpfromer/csvtasks
 
 - title: Silent Auction
   dates: February 2019
-  image: '/projects/silent-auction.png'
+  image: '/silent-auction.png'
+  imageAlt: Silent Auction Home Site
   description:
     Responsive web application written National Honor Society used by parents and students to bid on
     charity items.
@@ -23,7 +26,8 @@
 
 - title: Movie Chooser
   dates: September 2019 - November 2019
-  image: '/projects/movie-chooser.png'
+  image: '/movie-chooser.png'
+  imageAlt: Movie chooser website with Dark Knight movie poster
   description:
     A web app that allows for people to add movies that they want to watch on movie night.
   github: https://github.com/kpfromer/movie-chooser-backend

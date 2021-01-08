@@ -28,15 +28,10 @@ const BlogHome: React.FC<BlogHomeProps> = ({ posts }) => {
       >
         <Container>
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
-            {posts.map(({ slug, title, created, coverImage }) => (
-              <NextLink href={`/blog/${slug}`} key={slug}>
+            {posts.map((post) => (
+              <NextLink href={`/blog/${post.slug}`} key={post.slug}>
                 <a>
-                  <Preview
-                    title={title}
-                    created={created}
-                    coverImage={coverImage}
-                    className="h-full"
-                  />
+                  <Preview {...post} className="h-full" />
                 </a>
               </NextLink>
             ))}
