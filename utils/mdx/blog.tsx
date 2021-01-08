@@ -19,15 +19,14 @@ const mdxComponents: MDXProviderComponentsProp = {
   tr: (props) => (
     <tr
       // border="1px solid #c6cbd1"
-      className="border-solid border-black"
+      className="border-solid border-gray-700 dark:border-gray-400"
       {...props}
     />
   ),
   th: ({ align, children }) => (
     <th
       style={{ textAlign: align }}
-      // border="1px solid #c6cbd1"
-      className="font-bold p-2 border border-solid border-black"
+      className="font-bold p-2 border border-solid border-gray-700 dark:border-gray-400"
     >
       {children}
     </th>
@@ -35,8 +34,7 @@ const mdxComponents: MDXProviderComponentsProp = {
   td: ({ align, children }) => (
     <td
       style={{ textAlign: align }}
-      // border="1px solid #c6cbd1"
-      className="p-2 border border-solid border-black"
+      className="p-2 border border-solid border-gray-700 dark:border-gray-400"
     >
       {children}
     </td>
