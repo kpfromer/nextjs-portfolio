@@ -7,11 +7,10 @@ import { blogMdxComponents } from '@utils/mdx';
 import Post from '@components/Blog/Post';
 import Header from '@components/Header';
 import SocialLinks from '@components/SocialLinks';
-import { Flex, Link, Spacer, Stack, VStack } from '@chakra-ui/react';
-import 'katex/dist/katex.min.css';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import info from '@configs/info';
+import 'katex/dist/katex.min.css';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = await getBlogPostSlugs();
@@ -78,45 +77,39 @@ const BlogPost: React.FC<BlogPostProps> = ({
       >
         <Container>
           <Post
-            pt={4}
+            className="pt-4 katex-custom"
             title={title}
             coverImage={coverImage}
             created={created}
-            sx={{
-              // Fixes weird katex fraction line being gray
-              '.frac-line': {
-                borderColor: 'var(--text-color)',
-              },
-            }}
           >
             {content}
           </Post>
 
-          <VStack spacing="30px" my={6}>
+          <div className="flex flex-col justify-center items-center space-y-8 my-6">
             {(previous || next) && (
-              <Flex w="100%" justifyContent="center" alignItems="center">
+              <div className="w-full flex justify-center items-center">
                 {previous && (
-                  <NextLink href={`/blog/${previous.slug}`} passHref>
-                    <Link fontWeight="bold" color="primary.500" rel="noopener noreferrer">
+                  <NextLink href={`/blog/${previous.slug}`}>
+                    <a className="font-bold text-primary-500" rel="noopener noreferrer">
                       <ArrowBackIcon /> {previous.title}
-                    </Link>
+                    </a>
                   </NextLink>
                 )}
 
-                <Spacer />
+                <div className="flex-grow" />
 
                 {next && (
-                  <NextLink href={`/blog/${next.slug}`} passHref>
-                    <Link fontWeight="bold" color="primary.500" rel="noopener noreferrer">
+                  <NextLink href={`/blog/${next.slug}`}>
+                    <a className="font-bold text-primary-500" rel="noopener noreferrer">
                       {next.title} <ArrowForwardIcon />
-                    </Link>
+                    </a>
                   </NextLink>
                 )}
-              </Flex>
+              </div>
             )}
 
             <SocialLinks />
-          </VStack>
+          </div>
         </Container>
       </Page>
     </>
