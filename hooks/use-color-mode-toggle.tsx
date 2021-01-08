@@ -1,6 +1,7 @@
 import { useColorMode } from '@chakra-ui/react';
 import { theme } from '@utils/theme';
 import { getColor } from '@chakra-ui/theme-tools';
+import { useState } from 'react';
 
 function updateColor(root: HTMLElement, mode: 'light' | 'dark') {
   return (variable: string, light: string, dark: string) => {
@@ -15,36 +16,21 @@ function updateColor(root: HTMLElement, mode: 'light' | 'dark') {
  * - https://github.com/chakra-ui/chakra-ui/issues/1878
  */
 export function useColorModeToggle() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
 
+  // TODO: make better
   const toggle = () => {
-    const root = window.document.documentElement;
-    const update = updateColor(root, colorMode);
+    if (mode === 'light') window.document.querySelector('html').classList.add('dark');
+    else window.document.querySelector('html').classList.remove('dark');
 
-    toggleColorMode();
+    setMode(mode === 'light' ? 'dark' : 'light');
 
-    update('--bg-color', 'white', 'gray.800');
-    update('--text-color', 'gray.800', 'whiteAlpha.900');
-    update('--placeholder-text-color', 'gray.400', 'whiteAlpha.400');
-    update('--border-color', 'gray.200', 'whiteAlpha.300');
-    update('--button-text-color', 'white', 'gray.800');
-    update('--button-bg-color-gray', 'gray.100', 'whiteAlpha.200');
-    update('--button-bg-color-gray-hover', 'gray.200', 'whiteAlpha.300');
-    update('--button-bg-color-gray-active', 'gray.300', 'whiteAlpha.400');
-
-    Object.keys(theme.colors)
-      .filter((color) => color !== 'gray')
-      .map((color) => {
-        {
-          update(`--button-bg-color-${color}`, `${color}.500`, `${color}.200`);
-          update(`--button-bg-color-${color}-hover`, `${color}.600`, `${color}.300`);
-          update(`--button-bg-color-${color}-active`, `${color}.700`, `${color}.400`);
-        }
-      });
+    console.log('toggle', mode);
   };
 
   return {
-    colorMode,
+    colorMode: mode,
     toggleColorMode: toggle,
   };
 }

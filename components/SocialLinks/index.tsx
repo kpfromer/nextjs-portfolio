@@ -1,7 +1,8 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { FaStackOverflow } from 'react-icons/fa';
-import { Box, Icon, HStack, StackProps, useColorModeValue } from '@chakra-ui/react';
+import { Icon, StackProps } from '@chakra-ui/react';
 import info from '@configs/info';
+import classnames from 'classnames';
 
 export interface SocialLinksProps extends Omit<StackProps, 'spacing' | 'color'> {
   spacing?: string;
@@ -10,27 +11,32 @@ export interface SocialLinksProps extends Omit<StackProps, 'spacing' | 'color'> 
 }
 
 const SocialLinks: React.FC<SocialLinksProps> = ({
-  spacing = '15px',
+  spacing = 'space-x-4',
   iconSize = '35px',
   color,
   ...props
 }) => {
-  const defaultColor = useColorModeValue('gray.700', 'white');
-
   return (
-    <HStack color={color ? color : defaultColor} spacing={spacing} {...props}>
-      <Box as="a" target="_blank" rel="noopener noreferrer" href={info.github}>
+    <div
+      {...props}
+      className={classnames(
+        props.className,
+        spacing,
+        color ? color : 'text-gray-700 dark:text-white',
+      )}
+    >
+      <a target="_blank" rel="noopener noreferrer" href={info.github}>
         <Icon as={FiGithub} boxSize={iconSize} aria-label="Github" />
-      </Box>
+      </a>
 
-      <Box as="a" target="_blank" rel="noopener noreferrer" href={info.linkedin}>
+      <a target="_blank" rel="noopener noreferrer" href={info.linkedin}>
         <Icon as={FiLinkedin} boxSize={iconSize} aria-label="LinkedIn" />
-      </Box>
+      </a>
 
-      <Box as="a" rel="noopener noreferrer" href={info.stackoverflow}>
+      <a rel="noopener noreferrer" href={info.stackoverflow}>
         <Icon as={FaStackOverflow} boxSize={iconSize} aria-label="Stack Overflow" />
-      </Box>
-    </HStack>
+      </a>
+    </div>
   );
 };
 
