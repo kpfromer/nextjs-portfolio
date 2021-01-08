@@ -49,7 +49,15 @@ const Project: React.FC<ProjectProps> = ({
 
       <div className="flex mt-2">
         <NextLink href={github} passHref>
-          <IconButton as="a" className="m-auto" icon={<FiGithub />} aria-label="Github Project" />
+          <IconButton
+            as="a"
+            className="m-auto"
+            icon={<FiGithub />}
+            aria-label="Github Project"
+            // @ts-ignore
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         </NextLink>
       </div>
     </motion.div>
