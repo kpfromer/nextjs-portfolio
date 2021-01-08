@@ -12,7 +12,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     <Box
       {...props}
       as="blockquote"
-      borderLeftColor="primary"
+      borderLeftColor="primary.500"
       borderLeftWidth="3px"
       borderLeftStyle="solid"
       pl={[3, 3, 4]}

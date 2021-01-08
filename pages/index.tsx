@@ -9,6 +9,7 @@ import {
   Stack,
   Divider,
   useColorModeValue,
+  Button,
 } from '@chakra-ui/react';
 import Header from '@components/Header';
 import Page from '@components/Page';
@@ -16,7 +17,7 @@ import Preview from '@components/Blog/Preview';
 import Img from 'next/image';
 import NextLink from 'next/link';
 import type { GetStaticProps } from 'next';
-import { BlogPostData, BlogPostFrontmatter, getAllBlogPosts } from '@lib/blog';
+import { BlogPostData, BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
 import { getYaml } from '@lib/yaml';
@@ -25,19 +26,20 @@ import { baseMdxComponents } from '@utils/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 import { ExperienceData, getExperience } from '@lib/experience';
 import ContactForm from '@components/ContactForm';
+import info from '@configs/info';
 
 const Seperator = () => {
   const bg = useColorModeValue('gray.700', 'gray.200');
 
   return (
-    <Flex flexGrow={1} role="seperator">
+    <Flex flexGrow={1} role="separator">
       <Box my="auto" flexGrow={1} height="1px" bg={bg} />
     </Flex>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllBlogPosts('des');
+  const posts = await getAllBlogPostsFrontmatter('des');
   const experience = await getExperience();
 
   return {
@@ -60,9 +62,10 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
         <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1}>
           <Img
             src="/assets/crested-butte-2016-07-14.jpg"
+            alt="Crested Butter Mountains"
             // src="/assets/2019-07-27-Collegiate-West.jpeg"
             layout="fill"
-            quality={50}
+            quality={60}
             objectPosition="50% 50%"
             objectFit="cover"
             priority
@@ -71,20 +74,26 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
           />
         </Box>
 
-        <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1} bg="#041230aa" />
+        <Box position="absolute" top={0} bottom={0} left={0} right={0} zIndex={-1} bg="#000000aa" />
 
-        <VStack m="auto" pt={20} spacing="10px">
+        <VStack m="auto" pt={20} spacing="10px" textAlign="center">
           <Box overflow="hidden" borderRadius="100%" h={200} w={200}>
-            <Img src="/assets/kyle-pfromer.jpg" layout="fixed" width={200} height={200} />
+            <Img
+              src="/assets/kyle-pfromer.jpg"
+              alt="Kyle Pfromer"
+              layout="fixed"
+              width={200}
+              height={200}
+            />
           </Box>
 
-          <Heading fontSize="6xl" color="primary">
+          <Heading fontSize="6xl" color="primary.500">
             Hi!
           </Heading>
 
           <Heading fontSize="5xl" color="white">
             I'm Kyle Pfromer
-            {/* <Heading as="span" fontSize="5xl" color="primary">
+            {/* <Heading as="span" fontSize="5xl" color="primary.500">
               Pfromer
             </Heading> */}
           </Heading>
@@ -132,8 +141,6 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
 
         <Heading variant="section-title">Experience</Heading>
 
-        {/* TODO: */}
-
         {experience.map(({ name, items }) => (
           <Box key={name}>
             <Flex justifyContent="center" alignItems="center" my={5}>
@@ -147,7 +154,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
             <Stack spacing="15px">
               {items.map(({ companyName, title, location, content }) => (
                 <Box key={companyName} flexGrow={1}>
-                  <Heading fontSize="3xl" color="primary">
+                  <Heading fontSize="3xl" color="primary.500">
                     {companyName}
                   </Heading>
                   <Heading mt={2} fontSize="xl">
@@ -163,10 +170,21 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
           </Box>
         ))}
 
+        <Button
+          as="a"
+          rel="noopener"
+          target="_blank"
+          href={info.resume}
+          colorScheme="primary"
+          mt={5}
+        >
+          View Resume
+        </Button>
+
         <Heading variant="section-title">Contact</Heading>
 
         {/* TODO: */}
-        <ContactForm />
+        {/* <ContactForm /> */}
       </Container>
     </Page>
   );

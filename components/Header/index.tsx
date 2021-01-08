@@ -1,15 +1,8 @@
-import {
-  Box,
-  Heading,
-  HeadingProps,
-  HStack,
-  IconButton,
-  Spacer,
-  useColorMode,
-} from '@chakra-ui/react';
+import { Box, Heading, HeadingProps, HStack, IconButton, Spacer } from '@chakra-ui/react';
 import Container from '@components/Container';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
+import { useColorModeToggle } from '@hooks/use-color-mode-toggle';
 
 const NavLink: React.FC<HeadingProps & { href: string }> = ({ href, children, ...props }) => (
   <NextLink href={href} passHref>
@@ -22,8 +15,7 @@ const NavLink: React.FC<HeadingProps & { href: string }> = ({ href, children, ..
 export interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  // const bg = useColorModeValue('white', 'black');
+  const { colorMode, toggleColorMode } = useColorModeToggle();
 
   return (
     <Box

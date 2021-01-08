@@ -39,7 +39,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     const external = !href.startsWith('/');
     if (external) {
       return (
-        <Link isExternal href={href} color="primary">
+        <Link isExternal href={href} color="primary.500">
           {children}
         </Link>
       );
@@ -47,7 +47,7 @@ const mdxComponents: MDXProviderComponentsProp = {
 
     return (
       <NextLink href={href} passHref>
-        <Link color="primary">{children}</Link>
+        <Link color="primary.500">{children}</Link>
       </NextLink>
     );
   },

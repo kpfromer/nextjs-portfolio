@@ -1,14 +1,17 @@
 import Container from '@components/Container';
 import Page from '@components/Page';
 import type { GetStaticProps, GetStaticPaths } from 'next';
-import { BlogPostData, getBlogPost, getBlogPostSlugs } from '@lib/blog';
+import { BlogPostData, getAllBlogPostsFrontmatter, getBlogPost, getBlogPostSlugs } from '@lib/blog';
 import hydrate from 'next-mdx-remote/hydrate';
 import { blogMdxComponents } from '@utils/mdx';
 import Post from '@components/Blog/Post';
 import Header from '@components/Header';
 import SocialLinks from '@components/SocialLinks';
-import { Flex } from '@chakra-ui/react';
-import Head from 'next/head';
+import { Flex, Link, Spacer, Stack, VStack } from '@chakra-ui/react';
+import 'katex/dist/katex.min.css';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import NextLink from 'next/link';
+import info from '@configs/info';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = await getBlogPostSlugs();
@@ -20,38 +23,100 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getBlogPost(params.slug as string);
-  return { props: post };
+  const post = (await getBlogPost(params.slug as string)) as BlogPostProps;
+  const allPosts = await getAllBlogPostsFrontmatter('asc');
+
+  const index = allPosts.findIndex((post) => post.slug === (params.slug as string));
+
+  if (index !== 0) {
+    post.previous = allPosts[index - 1];
+  }
+  if (index !== allPosts.length - 1) {
+    post.next = allPosts[index + 1];
+  }
+
+  return {
+    props: post,
+  };
 };
 
-export interface BlogPostProps extends BlogPostData {}
+interface BlogContext {
+  slug: string;
+  title: string;
+}
+
+export interface BlogPostProps extends BlogPostData {
+  previous?: BlogContext;
+  next?: BlogContext;
+}
 
 const BlogPost: React.FC<BlogPostProps> = ({
   body,
+  slug,
   frontmatter: { title, coverImage, created },
+  previous,
+  next,
 }) => {
   const content = hydrate(body, { components: blogMdxComponents });
+
   return (
     <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-          integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-          crossOrigin="anonymous"
-        />
-      </Head>
-
       <Header />
-      <Page title={title} openGraph={{ images: [{ ...coverImage, url: coverImage.src }] }}>
+      <Page
+        title={title}
+        openGraph={{
+          title,
+          // description
+          url: `${info.baseUrl}/blog/${slug}`,
+          type: 'article',
+          article: {
+            publishedTime: created,
+            // tags:
+          },
+          images: [{ ...coverImage, url: `${info.baseUrl}${coverImage.src}` }],
+        }}
+      >
         <Container>
-          <Post pt={4} title={title} coverImage={coverImage} created={created}>
+          <Post
+            pt={4}
+            title={title}
+            coverImage={coverImage}
+            created={created}
+            sx={{
+              // Fixes weird katex fraction line being gray
+              '.frac-line': {
+                borderColor: 'var(--text-color)',
+              },
+            }}
+          >
             {content}
           </Post>
 
-          <Flex my={6}>
-            <SocialLinks mx="auto" />
-          </Flex>
+          <VStack spacing="30px" my={6}>
+            {(previous || next) && (
+              <Flex w="100%" justifyContent="center" alignItems="center">
+                {previous && (
+                  <NextLink href={`/blog/${previous.slug}`} passHref>
+                    <Link fontWeight="bold" color="primary.500" rel="noopener noreferrer">
+                      <ArrowBackIcon /> {previous.title}
+                    </Link>
+                  </NextLink>
+                )}
+
+                <Spacer />
+
+                {next && (
+                  <NextLink href={`/blog/${next.slug}`} passHref>
+                    <Link fontWeight="bold" color="primary.500" rel="noopener noreferrer">
+                      {next.title} <ArrowForwardIcon />
+                    </Link>
+                  </NextLink>
+                )}
+              </Flex>
+            )}
+
+            <SocialLinks />
+          </VStack>
         </Container>
       </Page>
     </>

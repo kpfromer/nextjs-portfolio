@@ -9,6 +9,6 @@ describe('App', () => {
 
     render(page);
 
-    expect(screen.getByText(/home/i)).toBeInTheDocument();
+    expect(screen.getByText(/i'm kyle pfromer/i)).toBeInTheDocument();
   });
 });
