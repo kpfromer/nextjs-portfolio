@@ -54,7 +54,7 @@ const Project: React.FC<ProjectProps> = ({
             className="m-auto"
             icon={<FiGithub />}
             aria-label="Github Project"
-            // @ts-ignore
+            //  @ts-ignore
             target="_blank"
             rel="noopener noreferrer"
           />
