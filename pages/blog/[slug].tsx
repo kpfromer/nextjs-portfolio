@@ -11,6 +11,7 @@ import { Flex, Link, Spacer, Stack, VStack } from '@chakra-ui/react';
 import 'katex/dist/katex.min.css';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
+import info from '@configs/info';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = await getBlogPostSlugs();
@@ -51,6 +52,7 @@ export interface BlogPostProps extends BlogPostData {
 
 const BlogPost: React.FC<BlogPostProps> = ({
   body,
+  slug,
   frontmatter: { title, coverImage, created },
   previous,
   next,
@@ -60,7 +62,20 @@ const BlogPost: React.FC<BlogPostProps> = ({
   return (
     <>
       <Header />
-      <Page title={title} openGraph={{ images: [{ ...coverImage, url: coverImage.src }] }}>
+      <Page
+        title={title}
+        openGraph={{
+          title,
+          // description
+          url: `${info.baseUrl}/blog/${slug}`,
+          type: 'article',
+          article: {
+            publishedTime: created,
+            // tags:
+          },
+          images: [{ ...coverImage, url: `${info.baseUrl}${coverImage.src}` }],
+        }}
+      >
         <Container>
           <Post
             pt={4}
