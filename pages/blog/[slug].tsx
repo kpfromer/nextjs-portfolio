@@ -7,7 +7,7 @@ import { blogMdxComponents } from '@utils/mdx';
 import Post from '@components/Blog/Post';
 import Header from '@components/Header';
 import SocialLinks from '@components/SocialLinks';
-import { Flex } from '@chakra-ui/react';
+import { Flex, useColorMode, useColorModeValue, useToken } from '@chakra-ui/react';
 import 'katex/dist/katex.min.css';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -31,12 +31,24 @@ const BlogPost: React.FC<BlogPostProps> = ({
   frontmatter: { title, coverImage, created },
 }) => {
   const content = hydrate(body, { components: blogMdxComponents });
+
   return (
     <>
       <Header />
       <Page title={title} openGraph={{ images: [{ ...coverImage, url: coverImage.src }] }}>
         <Container>
-          <Post pt={4} title={title} coverImage={coverImage} created={created}>
+          <Post
+            pt={4}
+            title={title}
+            coverImage={coverImage}
+            created={created}
+            sx={{
+              // Fixes weird katex fraction line being gray
+              '.frac-line': {
+                borderColor: 'var(--text-color)',
+              },
+            }}
+          >
             {content}
           </Post>
 
