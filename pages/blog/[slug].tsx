@@ -10,6 +10,7 @@ import SocialLinks from '@components/SocialLinks';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import NextLink from 'next/link';
 import info from '@configs/info';
+import Icon from '@components/Icon';
 import 'katex/dist/katex.min.css';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -92,7 +93,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 {previous && (
                   <NextLink href={`/blog/${previous.slug}`}>
                     <a className="font-bold text-primary-500" rel="noopener noreferrer">
-                      <FiArrowLeft /> {previous.title}
+                      <Icon as={FiArrowLeft} aria-hidden /> {previous.title}
                     </a>
                   </NextLink>
                 )}
@@ -102,7 +103,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 {next && (
                   <NextLink href={`/blog/${next.slug}`}>
                     <a className="font-bold text-primary-500" rel="noopener noreferrer">
-                      {next.title} <FiArrowRight />
+                      {next.title} <Icon as={FiArrowRight} aria-hidden />
                     </a>
                   </NextLink>
                 )}
