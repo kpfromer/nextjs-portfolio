@@ -25,7 +25,7 @@ const Post: React.FC<PostProps> = ({
 
   return (
     <div {...props}>
-      <div className="overflow-hidden rounded-lg bg-black">
+      <div className="overflow-hidden rounded-lg bg-white">
         <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
       </div>
 
