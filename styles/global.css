@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
 html,
 body {
-  @apply bg-gray-50 dark:bg-gray-900;
-} */
+  @apply bg-gray-50 text-black dark:bg-gray-900 dark:text-white;
+}
 
 @layer components {
   .nested-list > ul,
@@ -15,15 +14,15 @@ body {
   }
 
   .btn-gray {
-    @apply py-2 px-4 inline-block cursor-pointer bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75;
+    @apply py-2 px-4 inline-block cursor-pointer bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition-colors ease-in-out;
   }
 
   .btn-indigo {
-    @apply py-2 px-4 inline-block cursor-pointer bg-indigo-500 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75;
+    @apply py-2 px-4 inline-block cursor-pointer bg-indigo-500 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-colors ease-in-out;
   }
 
   .btn-primary {
-    @apply py-2 px-4 inline-block cursor-pointer bg-primary-500 text-white font-semibold rounded-lg shadow-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75;
+    @apply py-2 px-4 inline-block cursor-pointer bg-primary-500 text-white font-semibold rounded-lg shadow-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75 transition-colors ease-in-out;
   }
 
   .katex-custom .frac-line {

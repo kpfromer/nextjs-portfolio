@@ -44,7 +44,7 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ posts, experience }) => {
   return (
     <Page title="Home" description="Learn more about me.">
-      <div className="relative flex" style={{ minHeight: '100vh' }}>
+      <div className="relative flex" style={{ minHeight: '100vh', zIndex: 1 }}>
         <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }}>
           <Img
             src="/assets/crested-butte-2016-07-14.jpg"

@@ -1,4 +1,4 @@
-import { IconButton, Spacer } from '@chakra-ui/react';
+import IconButton from '@components/IconButton';
 import Container from '@components/Container';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = () => {
           <NavLink href="/blog">Blog</NavLink>
         </div>
 
-        <Spacer />
+        <div className="flex-grow" />
 
         <IconButton
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
