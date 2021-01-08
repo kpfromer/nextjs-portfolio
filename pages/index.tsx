@@ -44,7 +44,7 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ posts, experience }) => {
   return (
     <Page title="Home" description="Learn more about me.">
-      <div className="relative" style={{ minHeight: '100vh' }}>
+      <div className="relative flex" style={{ minHeight: '100vh' }}>
         <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }}>
           <Img
             src="/assets/crested-butte-2016-07-14.jpg"
@@ -62,26 +62,28 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
           style={{ zIndex: -1, backgroundColor: '#000000aa' }}
         />
 
-        <div className="pt-40 space-y-4 text-center flex flex-col justify-center items-center flex-grow">
-          <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
-            <Img
-              src="/assets/kyle-pfromer.jpg"
-              alt="Kyle Pfromer"
-              layout="fixed"
-              width={200}
-              height={200}
-            />
+        <div className="m-auto pt-12">
+          <div className="space-y-4 text-center flex flex-col justify-center items-center">
+            <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
+              <Img
+                src="/assets/kyle-pfromer.jpg"
+                alt="Kyle Pfromer"
+                layout="fixed"
+                width={200}
+                height={200}
+              />
+            </div>
+
+            <h1 className="text-6xl text-primary-500 font-bold">Hi!</h1>
+
+            <h2 className="text-5xl text-white font-bold">I'm Kyle Pfromer</h2>
+
+            <p className="text-2xl text-white">
+              and I'm a <span className="font-bold text-2xl">Software Engineer</span>
+            </p>
+
+            <SocialLinks color="text-white" />
           </div>
-
-          <h1 className="text-6xl text-primary-500 font-bold">Hi!</h1>
-
-          <h2 className="text-5xl text-white font-bold">I'm Kyle Pfromer</h2>
-
-          <p className="text-2xl text-white">
-            and I'm a <span className="font-bold text-2xl">Software Engineer</span>
-          </p>
-
-          <SocialLinks color="text-white" />
         </div>
       </div>
 
