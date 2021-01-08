@@ -1,10 +1,8 @@
-import styled from '@emotion/styled';
 import { useCopyToClipboard } from '@hooks/use-copy-to-clipboard';
-import { lighten } from 'polished';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import React from 'react';
-import { Box, Button, Flex, FlexProps } from '@chakra-ui/react';
+import React, { HTMLAttributes } from 'react';
 import okaidiaTheme from '../okaidia-prism-theme';
+import classnames from 'classnames';
 
 export interface CodeBlockProps {
   className?: string;
@@ -23,70 +21,33 @@ export interface CodeBlockProps {
   children: string;
 }
 
-const Pre = styled.pre`
-  color: #f8f8f2;
-  background: none;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  /* TODO: */
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
+const Pre: React.FC<HTMLAttributes<HTMLPreElement>> = ({ ...props }) => (
+  <pre
+    {...props}
+    style={{ ...props.style, color: '#f8f8f2' }}
+    className={classnames(
+      props.className,
+      'font-mono text-left whitespace-pre leading-6 p-4 rounded-md overflow-auto',
+    )}
+  />
+);
 
-  tab-size: 4;
+const Line: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => (
+  <div {...props} className="table-row" />
+);
 
-  hyphens: none;
+const LineNo: React.FC<HTMLAttributes<HTMLSpanElement>> = (props) => (
+  <div {...props} className="table-cell text-right pr-2 select-none opacity-50" />
+);
 
-  padding: 1em;
-  margin: 0;
-  overflow: auto;
-  border-radius: 0.3em;
-`;
+const LineContent: React.FC<HTMLAttributes<HTMLSpanElement>> = (props) => (
+  <span {...props} className="table-cell " />
+);
 
-const Line = styled.div`
-  display: table-row;
-`;
-
-const LineNo = styled.span`
-  display: table-cell;
-  text-align: right;
-  padding-right: 1em;
-  user-select: none;
-  opacity: 0.5;
-`;
-
-const LineContent = styled.span`
-  display: table-cell;
-`;
-
-// /**
-//  * Converts the code prism theme ui style to the one used by `prism-react-renderer`.
-//  * @param codeTheme The theme given by @chakra-ui/react.
-//  */
-// export function convertTheme(codeTheme: any): PrismTheme {
-//   const items = Object.entries(codeTheme);
-
-//   const plain = items
-//     .filter(([key]) => !key.includes('.'))
-//     .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
-
-//   // TODO: mergeing
-//   const styles = items
-//     .filter(([key]) => key.includes('.'))
-//     .map(([key, value]) => {
-//       const classNames = key.split(',').map((value) => value.replace(/\./g, ''));
-
-//       return { types: classNames, style: value };
-//     }) as PrismTheme['styles'];
-
-//   return { plain, styles };
-// }
-
-export interface CodeBlockProps extends FlexProps {}
+export interface CodeBlockProps extends HTMLAttributes<HTMLDivElement> {
+  noLineNumbers?: boolean;
+  filename?: string;
+}
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
   noLineNumbers = false,
@@ -104,54 +65,37 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     : className.replace(/language-/, '')) as Language;
 
   return (
-    <Flex flexDirection="column" {...rest}>
-      <Flex flexDirection="row">
+    <div {...rest} className="flex flex-col">
+      <div className="flex flex-row">
         {/* File Name Tag */}
         {filename && (
-          <Box
-            ml={4}
-            p={2}
-            bg={codeTheme.plain.backgroundColor}
-            color="white"
-            borderTopLeftRadius="5px"
-            borderTopRightRadius="5px"
-            fontSize="md"
+          <div
+            className="ml-4 p-2 text-white rounded-tl rounded-tr text-md"
+            style={{ backgroundColor: codeTheme.plain.backgroundColor }}
           >
             {filename}
-          </Box>
+          </div>
         )}
 
         {/* Code Language Tag */}
         {(language as string) !== 'none' && (
-          <Box
-            ml="auto"
-            mr={4}
-            p={2}
-            bg={codeTheme.plain.backgroundColor}
-            color="white"
-            borderTopLeftRadius="5px"
-            borderTopRightRadius="5px"
-            fontSize="md"
+          <div
+            className="ml-auto mr-4 p-2 text-white rounded-tl rounded-tr text-md"
+            style={{ backgroundColor: codeTheme.plain.backgroundColor }}
           >
             {language}
-          </Box>
+          </div>
         )}
-      </Flex>
+      </div>
 
       {/* Code */}
-      <Box position="relative">
-        <Button
-          position="absolute"
-          top="10px"
-          right="10px"
-          fontSize="md"
+      <div className="relative">
+        <div
+          className="btn-gray absolute top-2 right-2 text-md text-white"
           onClick={() => onCopy(children)}
-          color="white"
-          bg={lighten(0.1, codeTheme.plain.backgroundColor)}
-          _hover={{ bg: lighten(0.1, codeTheme.plain.backgroundColor) }}
         >
           {isCopied ? 'Copied' : 'Copy'}
-        </Button>
+        </div>
 
         {/* Code */}
         <Highlight {...defaultProps} theme={codeTheme} code={children.trim()} language={language}>
@@ -170,8 +114,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             </Pre>
           )}
         </Highlight>
-      </Box>
-    </Flex>
+      </div>
+    </div>
   );
 };
 
