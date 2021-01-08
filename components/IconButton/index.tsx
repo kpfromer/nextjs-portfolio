@@ -47,7 +47,6 @@ const IconButton = forwardRef<HTMLElement, IconButtonProps>(
         children={_children}
         // @ts-ignore
         ref={ref}
-        overrideClassname
         className={
           overrideClassName
             ? props.className
