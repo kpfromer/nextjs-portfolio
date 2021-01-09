@@ -1,8 +1,9 @@
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from '@utils/theme';
 import { DefaultSeo } from 'next-seo';
 import info from '@configs/info';
+import DarkModeProvider from '@utils/dark-mode-provider';
+
+import '../styles/global.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -29,9 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <ChakraProvider theme={theme}>
+      <DarkModeProvider>
         <Component {...pageProps} />
-      </ChakraProvider>
+      </DarkModeProvider>
     </>
   );
 }

@@ -1,30 +1,29 @@
 import type { MDXProviderComponentsProp } from '@mdx-js/react';
 import React from 'react';
-import { Box, Heading, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-const Header = ({ children, as: type, ...props }) => {
-  let fontSize = 'xl';
+const Header = ({ children, as: Type, ...props }) => {
+  let fontSize = 'text-xl';
 
-  switch (type) {
+  switch (Type) {
     case 'h1':
-      fontSize = '5xl';
+      fontSize = 'text-5xl';
       break;
     case 'h2':
-      fontSize = '4xl';
+      fontSize = 'text-4xl';
       break;
     case 'h3':
-      fontSize = '3xl';
+      fontSize = 'text-3xl';
       break;
     case 'h4':
-      fontSize = '2xl';
+      fontSize = 'text-2xl';
       break;
   }
 
   return (
-    <Heading {...props} as={type} my={5} sx={{ fontSize }}>
+    <Type {...props} className={`font-bold my-5 ${fontSize}`}>
       {children}
-    </Heading>
+    </Type>
   );
 };
 
@@ -39,32 +38,22 @@ const mdxComponents: MDXProviderComponentsProp = {
     const external = !href.startsWith('/');
     if (external) {
       return (
-        <Link isExternal href={href} color="primary.500">
+        <a href={href} className="text-primary-500">
           {children}
-        </Link>
+        </a>
       );
     }
 
     return (
-      <NextLink href={href} passHref>
-        <Link color="primary.500">{children}</Link>
+      <NextLink href={href}>
+        <a className="text-primary-500">{children}</a>
       </NextLink>
     );
   },
-  ul: (props) => (
-    <Box
-      as="ul"
-      sx={{
-        'li > ul': {
-          pl: 4,
-        },
-      }}
-      listStylePosition="inside"
-      {...props}
-    />
-  ),
-  li: (props) => <Box as="li" display="list-item" {...props} />,
-  p: (props) => <Text {...props} my={3} lineHeight="tall" />,
+  ul: (props) => <ul {...props} className="list-inside list-disc" />,
+  ol: (props) => <ol {...props} className="list-inside list-decimal" />,
+  li: (props) => <li {...props} className="nested-list" />,
+  p: (props) => <p {...props} className="my-3 leading-relaxed" />,
 };
 
 export default mdxComponents;

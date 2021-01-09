@@ -1,75 +1,45 @@
-import {
-  Box,
-  BoxProps,
-  chakra,
-  forwardRef,
-  Heading,
-  Image,
-  Spacer,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { DateTime } from 'luxon';
-import { MdxImage } from '@lib/common';
-import { motion, isValidMotionProp, ForwardRefComponent, HTMLMotionProps } from 'framer-motion';
+import { HTMLMotionProps, motion } from 'framer-motion';
+import classnames from 'classnames';
+import { BlogPostFrontmatter } from '@lib/blog';
 
-const MotionBox = motion.custom(
-  forwardRef((props, ref) => {
-    const chakraProps = Object.fromEntries(
-      // do not pass framer props to DOM element
-      Object.entries(props).filter(([key]) => !isValidMotionProp(key)),
-    );
-    return <chakra.div ref={ref} {...chakraProps} />;
-  }),
-) as React.FC<HTMLMotionProps<'div'> & Omit<BoxProps, keyof HTMLMotionProps<'div'>>>;
+export interface PreviewProps
+  extends Omit<HTMLMotionProps<'div'>, keyof BlogPostFrontmatter>,
+    BlogPostFrontmatter {}
 
-export interface PreviewProps extends BoxProps {
-  title: string;
-
-  coverImage: MdxImage;
-  // ogImage?: string;
-
-  created: string;
-  // updated?: string;
-
-  // category?: string;
-  // tags?: string[];
-}
-
-const Preview: React.FC<PreviewProps> = ({ title, coverImage, created, ...props }) => {
-  const bg = useColorModeValue('white', 'gray.700');
-
+const Preview: React.FC<PreviewProps> = ({
+  title,
+  coverImage,
+  coverImageAlt,
+  created,
+  ...props
+}) => {
   return (
-    //@ts-ignore
-    <MotionBox
-      boxShadow="base"
-      rounded="md"
-      p={4}
-      display="flex"
-      flexDir="column"
+    <motion.div
+      {...props}
+      className={classnames(
+        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full',
+        props.className,
+      )}
+      style={{
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
+      }}
       whileHover={{
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       }}
-      bg={bg}
-      {...props}
     >
-      {/* <Image as={NextImage} borderRadius="lg" {...coverImage} /> */}
-      {/* TODO: border radius */}
+      <div className="overflow-hidden rounded-lg bg-white">
+        <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
+      </div>
 
-      <Box overflow="hidden" borderRadius="lg" bg="white">
-        <NextImage layout="responsive" {...coverImage} />
-      </Box>
+      <div className="flex-grow" />
 
-      <Spacer />
-
-      <Box mt={3}>
-        <Heading fontSize={['xl', '2xl']}>{title}</Heading>
-        <Text fontSize="md" mt={2}>
-          {DateTime.fromISO(created).toFormat('DDD')}
-        </Text>
-      </Box>
-    </MotionBox>
+      <div className="mt-3">
+        <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
+        <p className="text-md mt-2">{DateTime.fromISO(created).toFormat('DDD')}</p>
+      </div>
+    </motion.div>
   );
 };
 

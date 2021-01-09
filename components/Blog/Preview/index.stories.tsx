@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
 import Preview, { PreviewProps } from '.';
@@ -8,9 +7,9 @@ export default {
   component: Preview,
   decorators: [
     (Story) => (
-      <Box w={400}>
+      <div style={{ width: 400 }}>
         <Story />
-      </Box>
+      </div>
     ),
   ],
 } as Meta;
