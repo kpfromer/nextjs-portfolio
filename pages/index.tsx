@@ -10,7 +10,7 @@ import SocialLinks from '@components/SocialLinks';
 import { baseMdxComponents } from '@utils/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 import { ExperienceData, getExperience } from '@lib/experience';
-// import ContactForm from '@components/ContactForm';
+import ContactForm from '@components/ContactForm';
 import info from '@configs/info';
 import { HTMLAttributes } from 'react';
 import { getProjects, ProjectData } from '@lib/projects';
@@ -165,8 +165,8 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
         </div>
 
         {/* TODO: */}
-        {/* <Heading>Contact</Heading> */}
-        {/* <ContactForm /> */}
+        <Heading>Contact</Heading>
+        <ContactForm />
       </Container>
     </Page>
   );
