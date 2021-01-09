@@ -50,7 +50,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
           required
           ref={register}
         />
-        <span className="block text-gray-600">
+        <span className="block text-gray-600 dark:text-gray-200">
           I will never share your email. It's just used for me to reply.
         </span>
       </div>

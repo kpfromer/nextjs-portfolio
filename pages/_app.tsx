@@ -4,6 +4,7 @@ import info from '@configs/info';
 import DarkModeProvider from '@utils/dark-mode-provider';
 
 import '../styles/global.css';
+import { SmoothScroll } from '@utils/smooth-scroll';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -31,7 +32,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <DarkModeProvider>
-        <Component {...pageProps} />
+        <SmoothScroll>
+          <Component {...pageProps} />
+        </SmoothScroll>
       </DarkModeProvider>
     </>
   );
