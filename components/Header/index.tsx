@@ -2,8 +2,8 @@ import IconButton from '@components/IconButton';
 import Container from '@components/Container';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import NextLink from 'next/link';
-import { useColorModeToggle } from '@hooks/use-color-mode-toggle';
 import { HTMLAttributes } from 'react';
+import { useDarkMode } from '@utils/dark-mode-provider';
 
 const NavLink: React.FC<Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> & { href: string }> = ({
   href,
@@ -20,7 +20,7 @@ const NavLink: React.FC<Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> & { href
 export interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
-  const { colorMode, toggleColorMode } = useColorModeToggle();
+  const { mode, toggleMode } = useDarkMode();
 
   return (
     <div className="py-4 sticky top-0 z-10 bg-white dark:bg-gray-800">
@@ -33,9 +33,9 @@ const Header: React.FC<HeaderProps> = () => {
         <div className="flex-grow" />
 
         <IconButton
-          icon={colorMode === 'dark' ? <FiSun /> : <FiMoon />}
+          icon={mode === 'dark' ? <FiSun /> : <FiMoon />}
           aria-label="Toggle dark mode."
-          onClick={toggleColorMode}
+          onClick={toggleMode}
         />
       </Container>
     </div>

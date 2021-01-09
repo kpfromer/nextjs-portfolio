@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import info from '@configs/info';
+import DarkModeProvider from '@utils/dark-mode-provider';
 
 import '../styles/global.css';
 
@@ -29,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <Component {...pageProps} />
+      <DarkModeProvider>
+        <Component {...pageProps} />
+      </DarkModeProvider>
     </>
   );
 }

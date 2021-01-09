@@ -1,3 +1,4 @@
+import darkModeScript from '@utils/dark-mode-script';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 class MyDocument extends Document {
@@ -40,6 +41,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
         </Head>
         <body>
+          <script key="cm" dangerouslySetInnerHTML={{ __html: darkModeScript }} />
           <Main />
           <NextScript />
         </body>
