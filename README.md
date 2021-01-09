@@ -16,6 +16,10 @@ This the code for my [portfolio website](https://kylepfromer.com).
 
 Done!
 
+## Need to know
+
+- uses [formspree](https://formspree.io/) for headless contact forms
+
 ## Includes
 
 - [eslint](https://github.com/eslint/eslint)
