@@ -45,7 +45,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
           id="email"
           type="email"
           name="email"
-          className="p-2 border border-gray-500 border-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow"
+          className="p-2 border dark:bg-gray-800 border-gray-500 border-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow"
           disabled={status === 'good'}
           required
           ref={register}
@@ -62,7 +62,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
         <textarea
           id="message"
           name="message"
-          className="p-2 border border-gray-500 border-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow"
+          className="p-2 border dark:bg-gray-800 border-gray-500 border-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow"
           disabled={status === 'good'}
           required
           ref={register}
