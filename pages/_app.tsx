@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {
               width: 3922,
               height: 2206,
-              url: `${info.baseUrl}/assets/2019-07-27-Collegiate-West.jpeg`,
+              url: `${info.baseUrl}/assets/crested-butte-2016-07-14.jpg`,
             },
           ],
         }}
