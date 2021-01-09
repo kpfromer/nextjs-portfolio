@@ -75,6 +75,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
           },
           images: [{ ...coverImage, url: `${info.baseUrl}${coverImage.src}`, alt: coverImageAlt }],
         }}
+        containerProps={{ style: { minHeight: '100vh' } }}
       >
         <Container>
           <Post
