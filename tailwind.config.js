@@ -17,10 +17,31 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
+
+      keyframes: {
+        'grow-and-shrink': {
+          '0%, 100%': { transform: 'scale(0)' },
+          '50%': { transform: 'scale(1)' },
+        },
+        'star-spin': {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(180deg)',
+          },
+        },
+      },
+      animation: {
+        'grow-and-shrink': 'grow-and-shrink 700ms forwards',
+        'star-spin': 'star-spin 1000ms linear',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ['motion-safe', 'motion-reduce'],
+    },
   },
   plugins: [],
 };

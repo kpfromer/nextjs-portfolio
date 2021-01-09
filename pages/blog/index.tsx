@@ -1,9 +1,8 @@
-import { Flex, SimpleGrid, Box } from '@chakra-ui/react';
 import Preview from '@components/Blog/Preview';
 import Container from '@components/Container';
 import Header from '@components/Header';
 import Page from '@components/Page';
-import { BlogPostData, BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
+import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import type { GetStaticProps } from 'next';
 import NextLink from 'next/link';
 
@@ -20,7 +19,7 @@ export interface BlogHomeProps {
 const BlogHome: React.FC<BlogHomeProps> = ({ posts }) => {
   // TODO: og image
   return (
-    <>
+    <div style={{ minHeight: '100vh' }}>
       <Header />
       <Page
         title="Blog"
@@ -28,18 +27,23 @@ const BlogHome: React.FC<BlogHomeProps> = ({ posts }) => {
         containerProps={{ className: 'mt-5' }}
       >
         <Container>
-          <SimpleGrid columns={[1, 2, 3]} spacing={10}>
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
             {posts.map(({ slug, title, created, coverImage }) => (
-              <NextLink href={`/blog/${slug}`} passHref key={slug}>
-                <Box as="a">
-                  <Preview title={title} created={created} coverImage={coverImage} h="100%" />
-                </Box>
+              <NextLink href={`/blog/${slug}`} key={slug}>
+                <a>
+                  <Preview
+                    title={title}
+                    created={created}
+                    coverImage={coverImage}
+                    className="h-full"
+                  />
+                </a>
               </NextLink>
             ))}
-          </SimpleGrid>
+          </div>
         </Container>
       </Page>
-    </>
+    </div>
   );
 };
 

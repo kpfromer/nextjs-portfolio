@@ -1,13 +1,4 @@
-import { useColorMode } from '@chakra-ui/react';
-import { theme } from '@utils/theme';
-import { getColor } from '@chakra-ui/theme-tools';
 import { useState } from 'react';
-
-function updateColor(root: HTMLElement, mode: 'light' | 'dark') {
-  return (variable: string, light: string, dark: string) => {
-    root.style.setProperty(variable, getColor(theme, mode === 'light' ? dark : light));
-  };
-}
 
 /**
  * Inspired by:

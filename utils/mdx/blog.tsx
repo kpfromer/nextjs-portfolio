@@ -42,7 +42,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     </td>
   ),
   img: (props) => (
-    <div className="bg-white">
+    <div className="bg-white rounded my-2">
       <NextImage {...props} layout="responsive" />
     </div>
   ),

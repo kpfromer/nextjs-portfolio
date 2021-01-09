@@ -106,7 +106,12 @@ const Home: React.FC<HomeProps> = ({ posts, experience }) => {
           {posts.map(({ slug, title, created, coverImage }) => (
             <NextLink href={`/blog/${slug}`} key={slug}>
               <a>
-                <Preview title={title} created={created} coverImage={coverImage} h="100%" />
+                <Preview
+                  title={title}
+                  created={created}
+                  coverImage={coverImage}
+                  className="h-full"
+                />
               </a>
             </NextLink>
           ))}

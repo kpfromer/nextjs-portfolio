@@ -1,10 +1,11 @@
-import { BoxProps } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { DateTime } from 'luxon';
 import { MdxImage } from '@lib/common';
 import { motion } from 'framer-motion';
+import { HTMLAttributes } from 'react';
+import classnames from 'classnames';
 
-export interface PreviewProps extends BoxProps {
+export interface PreviewProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
 
   coverImage: MdxImage;
@@ -22,7 +23,10 @@ const Preview: React.FC<PreviewProps> = ({ title, coverImage, created, ...props 
     //@ts-ignore
     <motion.div
       {...props}
-      className="flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full"
+      className={classnames(
+        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full',
+        props.className,
+      )}
       style={{
         boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
       }}

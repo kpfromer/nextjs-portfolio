@@ -1,6 +1,6 @@
 import IconButton from '@components/IconButton';
 import Container from '@components/Container';
-import { SunIcon, MoonIcon } from '@chakra-ui/icons';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import NextLink from 'next/link';
 import { useColorModeToggle } from '@hooks/use-color-mode-toggle';
 import { HTMLAttributes } from 'react';
@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = () => {
         <div className="flex-grow" />
 
         <IconButton
-          icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+          icon={colorMode === 'dark' ? <FiSun /> : <FiMoon />}
           aria-label="Toggle dark mode."
           onClick={toggleColorMode}
         />

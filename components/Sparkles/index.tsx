@@ -1,8 +1,7 @@
 import { usePrefersReducedMotion } from '@hooks/use-prefers-reduced-motion';
 import { useRandomInterval } from '@hooks/use-random-interval';
 import { range } from '@utils/range';
-import React, { useState } from 'react';
-import { Box, BoxProps } from '@chakra-ui/react';
+import React, { HTMLAttributes, useState } from 'react';
 import { SparkleInstance } from './SparkleInstance';
 
 function random(min: number, max: number): number {
@@ -28,7 +27,7 @@ const generateSparkle = (color = DEFAULT_COLOR, above = true) => {
   };
 };
 
-export interface SparklesProps extends BoxProps {
+export interface SparklesProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Are the sparkles below the children (text)?
    */
@@ -80,14 +79,11 @@ const Sparkles: React.FC<SparklesProps> = ({
   }, [wantsAnimation]);
 
   return (
-    <Box as="span" onClick={toggleAnimation} {...rest}>
-      <Box
-        as="strong"
-        sx={{
-          position: 'relative',
+    <span onClick={toggleAnimation} {...rest}>
+      <strong
+        className="relative font-bold cursor-pointer"
+        style={{
           zIndex: 1,
-          fontWeight: 'bold',
-          cursor: 'pointer',
         }}
       >
         {sparkles.map((sparkle) => (
@@ -99,8 +95,8 @@ const Sparkles: React.FC<SparklesProps> = ({
           />
         ))}
         {children}
-      </Box>
-    </Box>
+      </strong>
+    </span>
   );
 };
 

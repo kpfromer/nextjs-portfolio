@@ -7,7 +7,7 @@ import { blogMdxComponents } from '@utils/mdx';
 import Post from '@components/Blog/Post';
 import Header from '@components/Header';
 import SocialLinks from '@components/SocialLinks';
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import NextLink from 'next/link';
 import info from '@configs/info';
 import 'katex/dist/katex.min.css';
@@ -91,7 +91,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 {previous && (
                   <NextLink href={`/blog/${previous.slug}`}>
                     <a className="font-bold text-primary-500" rel="noopener noreferrer">
-                      <ArrowBackIcon /> {previous.title}
+                      <FiArrowLeft /> {previous.title}
                     </a>
                   </NextLink>
                 )}
@@ -101,7 +101,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 {next && (
                   <NextLink href={`/blog/${next.slug}`}>
                     <a className="font-bold text-primary-500" rel="noopener noreferrer">
-                      {next.title} <ArrowForwardIcon />
+                      {next.title} <FiArrowRight />
                     </a>
                   </NextLink>
                 )}
