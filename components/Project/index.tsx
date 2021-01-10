@@ -51,7 +51,8 @@ const Project: React.FC<ProjectProps> = ({
         <NextLink href={github} passHref>
           <IconButton
             as="a"
-            className="m-auto"
+            overrideClassName
+            className="m-auto rounded-lg inline-block p-3 bg-gray-200 text-black hover:bg-gray-300 dark:hover:bg-gray-500 dark:text-white dark:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition-colors ease-in-out"
             icon={<FiGithub />}
             aria-label="Github Project"
             //  @ts-ignore

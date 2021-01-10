@@ -10,7 +10,7 @@ import SocialLinks from '@components/SocialLinks';
 import { baseMdxComponents } from '@utils/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 import { ExperienceData, getExperience } from '@lib/experience';
-// import ContactForm from '@components/ContactForm';
+import ContactForm from '@components/ContactForm';
 import info from '@configs/info';
 import { HTMLAttributes } from 'react';
 import { getProjects, ProjectData } from '@lib/projects';
@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
   return (
     <Page title="Home" description="Learn more about me.">
       <div className="relative flex" style={{ minHeight: '100vh', zIndex: 1 }}>
-        <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }}>
+        <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }} id="top">
           <Img
             src="/assets/crested-butte-2016-07-14.jpg"
             alt="Crested Butte Mountains"
@@ -95,7 +95,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
       <Header />
 
       <Container className="mt-5">
-        <Heading>About Me</Heading>
+        <Heading id="about-me">About Me</Heading>
 
         <p>
           Hi! My name is <span className="text-bold">Kyle Pfromer</span>. I am a full stack
@@ -105,7 +105,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
           snowboarding, hiking and biking.
         </p>
 
-        <Heading>Blog Posts</Heading>
+        <Heading id="blog">Blog Posts</Heading>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
           {posts.map((post) => (
@@ -117,7 +117,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
           ))}
         </div>
 
-        <Heading>Experience</Heading>
+        <Heading id="experience">Experience</Heading>
 
         {experience.map(({ name, items }) => (
           <div key={name}>
@@ -156,7 +156,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
           View Resume
         </a>
 
-        <Heading>Projects</Heading>
+        <Heading id="projects">Projects</Heading>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
           {projects.map((project) => (
@@ -165,8 +165,8 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
         </div>
 
         {/* TODO: */}
-        {/* <Heading>Contact</Heading> */}
-        {/* <ContactForm /> */}
+        <Heading id="contact">Contact</Heading>
+        <ContactForm />
       </Container>
     </Page>
   );
