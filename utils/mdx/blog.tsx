@@ -1,6 +1,5 @@
 import type { MDXProviderComponentsProp } from '@mdx-js/react';
 import NextImage from 'next/image';
-import { Box } from '@chakra-ui/react';
 import Sparkles from '@components/Sparkles';
 import CodeBlock from '@components/Code/Block';
 import CodeInline from '@components/Code/Inline';
@@ -9,42 +8,44 @@ import baseMdxComponents from './base';
 const mdxComponents: MDXProviderComponentsProp = {
   ...baseMdxComponents,
   blockquote: ({ children, ...props }) => (
-    <Box
+    <blockquote
       {...props}
-      as="blockquote"
-      borderLeftColor="primary.500"
-      borderLeftWidth="3px"
-      borderLeftStyle="solid"
-      pl={[3, 3, 4]}
-      my={4}
-      fontStyle="italic"
+      className="border-primary-500 border-l-2 border-solid pl-3 lg:pl-4 my-4 italic"
     >
       {children}
-    </Box>
+    </blockquote>
   ),
-  table: ({ children }) => (
-    <Box as="table" sx={{ borderCollapse: 'collapse' }}>
-      {children}
-    </Box>
+  table: ({ children }) => <table className="border-collapse">{children}</table>,
+  tr: (props) => (
+    <tr
+      // border="1px solid #c6cbd1"
+      className="border-solid border-gray-700 dark:border-gray-400"
+      {...props}
+    />
   ),
-  tr: (props) => <Box as="tr" border="1px solid #c6cbd1" {...props} />,
   th: ({ align, children }) => (
-    <Box as="th" p={2} fontWeight="bold" textAlign={align} border="1px solid #c6cbd1">
+    <th
+      style={{ textAlign: align }}
+      className="font-bold p-2 border border-solid border-gray-700 dark:border-gray-400"
+    >
       {children}
-    </Box>
+    </th>
   ),
   td: ({ align, children }) => (
-    <Box as="td" p={2} textAlign={align} border="1px solid #c6cbd1">
+    <td
+      style={{ textAlign: align }}
+      className="p-2 border border-solid border-gray-700 dark:border-gray-400"
+    >
       {children}
-    </Box>
+    </td>
   ),
   img: (props) => (
-    <Box bg="white">
+    <div className="bg-white rounded my-2">
       <NextImage {...props} layout="responsive" />
-    </Box>
+    </div>
   ),
   Sparkles,
-  code: (props) => <CodeBlock {...props} my={2} />,
+  code: (props) => <CodeBlock {...props} customClass="my-2" />,
   inlineCode: CodeInline,
 };
 

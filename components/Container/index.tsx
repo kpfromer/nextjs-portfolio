@@ -1,14 +1,19 @@
-import { Box, BoxProps } from '@chakra-ui/react';
+import { HTMLAttributes } from 'react';
+import classnames from 'classnames';
 
-export interface ContainerProps extends BoxProps {}
+export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {}
 
 const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
   return (
-    <Box>
-      <Box maxW={900} px={[2, 2, 0]} mx="auto" {...props}>
+    <div>
+      <div
+        {...props}
+        style={{ ...props.style, maxWidth: 900 }}
+        className={classnames('px-2 lg:px-0 mx-auto', props.className)}
+      >
         {children}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

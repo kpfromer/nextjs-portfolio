@@ -1,35 +1,43 @@
-import { Box, BoxProps, Divider, Heading, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { DateTime } from 'luxon';
 import { MdxImage } from '@lib/common';
+import { HTMLAttributes } from 'react';
 
-export interface PostProps extends BoxProps {
+export interface PostProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   coverImage: MdxImage;
+  coverImageAlt?: string;
   created: string;
 }
 
-const Post: React.FC<PostProps> = ({ title, coverImage, created, children, ...props }) => {
+const Post: React.FC<PostProps> = ({
+  title,
+  coverImage,
+  coverImageAlt,
+  created,
+  children,
+  ...props
+}) => {
   const info = [
     DateTime.fromISO(created).toFormat('DDD'),
     // category &&  `in ${category}`, ...tags
   ].filter((value) => !!value);
 
   return (
-    <Box {...props}>
-      <Box overflow="hidden" borderRadius="lg" bg="white">
-        <NextImage layout="responsive" {...coverImage} />
-      </Box>
+    <div {...props}>
+      <div className="overflow-hidden rounded-lg bg-white">
+        <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
+      </div>
 
-      <Box mt={4}>
-        <Heading fontSize={['3xl', '5xl']}>{title}</Heading>
-        <Text mt={2}>{info.join(' | ')}</Text>
-      </Box>
+      <div className="mt-4">
+        <div className="text-3xl md:text-5xl font-bold">{title}</div>
+        <div className="mt-2">{info.join(' | ')}</div>
+      </div>
 
-      <Divider mt={2} mb={4} />
+      <hr className="my-2 mb-4 text-gray-500" />
 
       {children}
-    </Box>
+    </div>
   );
 };
 

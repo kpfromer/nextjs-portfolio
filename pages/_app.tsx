@@ -1,8 +1,10 @@
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from '@utils/theme';
 import { DefaultSeo } from 'next-seo';
 import info from '@configs/info';
+import DarkModeProvider from '@utils/dark-mode-provider';
+
+import '../styles/global.css';
+import { SmoothScroll } from '@utils/smooth-scroll';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -19,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {
               width: 3922,
               height: 2206,
-              url: `${info.baseUrl}/assets/2019-07-27-Collegiate-West.jpeg`,
+              url: `${info.baseUrl}/assets/crested-butte-2016-07-14.jpg`,
             },
           ],
         }}
@@ -29,9 +31,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
+      <DarkModeProvider>
+        <SmoothScroll>
+          <Component {...pageProps} />
+        </SmoothScroll>
+      </DarkModeProvider>
     </>
   );
 }

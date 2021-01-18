@@ -1,17 +1,18 @@
-import { Box, BoxProps } from '@chakra-ui/react';
 import { NextSeo, NextSeoProps } from 'next-seo';
+import classnames from 'classnames';
+import { HTMLAttributes } from 'react';
 
 export interface PageProps extends NextSeoProps {
-  containerProps?: BoxProps;
+  containerProps?: HTMLAttributes<HTMLDivElement>;
 }
 
 const Page: React.FC<PageProps> = ({ children, containerProps, ...seo }) => {
   return (
     <>
       <NextSeo {...seo} />
-      <Box {...containerProps} pb={3}>
+      <div {...containerProps} className={classnames(containerProps?.className, 'pb-3')}>
         {children}
-      </Box>
+      </div>
     </>
   );
 };

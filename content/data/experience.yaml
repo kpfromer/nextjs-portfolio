@@ -1,6 +1,6 @@
 titles:
   work: Work
-  startup: Startup
+  # startup: Startup
   club: Clubs
 
 experience:
@@ -19,13 +19,13 @@ experience:
       - Enabled users to easily tune their machine learning model hyperparameters within the JupyterLab environment.
       - Created a hierarchical data input system for conditional parameter trees.
   # Startup
-  - companyName: Shivoo
-    title: Fullstack Engineer
-    location: Boulder, Colorado
-    type: startup
-    content: |
-      - Creating a website that coordinates event creation that's targeted at college campuses.
-      - Organized design and documentation for the website.
+  # - companyName: Shivoo
+  #   title: Fullstack Engineer
+  #   location: Boulder, Colorado
+  #   type: startup
+  #   content: |
+  #     - Creating a website that coordinates event creation that's targeted at college campuses.
+  #     - Organized design and documentation for the website.
   # Clubs
   - companyName: HackCU
     title: Tech Lead
