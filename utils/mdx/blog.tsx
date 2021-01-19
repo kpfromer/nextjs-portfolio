@@ -40,7 +40,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     </td>
   ),
   img: (props) => (
-    <div className="bg-white rounded my-2">
+    <div className="bg-white rounded my-2 overflow-hidden">
       <NextImage {...props} layout="responsive" />
     </div>
   ),
