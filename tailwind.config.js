@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   purge: ['./pages/**/*.tsx', './components/**/*.tsx', './utils/**/*.tsx'],
   darkMode: 'class', // or 'media' or 'class'
@@ -15,7 +18,7 @@ module.exports = {
       },
 
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter', ...fontFamily.sans],
       },
 
       keyframes: {

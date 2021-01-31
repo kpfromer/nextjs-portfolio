@@ -12,11 +12,13 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* Inter and Roboto Mono Fonts */}
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          {/* Inter Font */}
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/inter-var.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
           {/* Favicon */}
           <link rel="apple-touch-icon" sizes="57x57" href="/icons/favicon-57x57.png" />
