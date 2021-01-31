@@ -19,10 +19,6 @@ export type ImgProps = (Omit<
   'src' | 'srcSet' | 'ref' | 'width' | 'height' | 'loading' | 'style'
 > & {
   src: string;
-
-  fadeIn?: boolean;
-  durationFadeIn?: number;
-
   placeholder: ImgPlaceholder;
 
   placeholderProps?: HTMLAttributes<HTMLImageElement>;
@@ -53,8 +49,6 @@ const Img: React.FC<ImgProps> = ({
   width,
   height,
   layout = 'intrinsic',
-  fadeIn = true,
-  durationFadeIn = 500,
   placeholder,
   containerProps,
   placeholderProps,
@@ -62,13 +56,9 @@ const Img: React.FC<ImgProps> = ({
 }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  const shouldReveal = !fadeIn || imgLoaded;
-
   const imagePlaceholderStyle = {
     filter: 'blur(12px)',
     transform: 'scale(1.2)',
-    // transition: `opacity ${durationFadeIn}ms ease 0s`,
-    // opacity: shouldReveal ? 0 : 1,
     ...placeholderProps?.style,
   };
 
