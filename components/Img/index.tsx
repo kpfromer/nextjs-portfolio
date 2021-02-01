@@ -77,7 +77,7 @@ const Img: React.FC<ImgProps> = ({
       className={clsx(
         containerProps?.className,
         'relative',
-        layout === 'intrinsic' ? 'inline-block' : 'block',
+        layout === 'intrinsic' ? 'flex' : 'block',
         'overflow-hidden',
       )}
     >
