@@ -2,6 +2,7 @@ import Image from 'next/image';
 import clsx from 'classnames';
 import { HTMLAttributes, useCallback, useState } from 'react';
 import React from 'react';
+import styles from './styles.module.css';
 
 export type ImgPlaceholder = string;
 
@@ -62,33 +63,17 @@ const Img: React.FC<ImgProps> = ({
   const [imgLoaded, setImgLoaded] = useState(false);
 
   const shouldReveal = !fadeIn || imgLoaded;
-  const shouldFadeIn = fadeIn; // && imgLoaded;
-
-  const imageStyle = {
-    opacity: shouldReveal ? 1 : 0,
-    transition: shouldFadeIn ? `opacity ${durationFadeIn}ms ease 0s` : `none`,
-    // transition: shouldFadeIn ? `opacity ${durationFadeIn}ms` : `none`,
-    // ...imgStyle
-  };
-
-  const delayHideStyle = { transitionDelay: `${durationFadeIn}ms` };
 
   const imagePlaceholderStyle = {
-    // opacity: imgLoaded ? 0 : 1,
-    // transition: `opacity ${durationFadeIn}ms`,
-    // transitionDelay: `${durationFadeIn}ms`,
-    // ...(shouldFadeIn && delayHideStyle),
-
     filter: 'blur(12px)',
     transform: 'scale(1.2)',
+    // transition: `opacity ${durationFadeIn}ms ease 0s`,
+    // opacity: shouldReveal ? 0 : 1,
     ...placeholderProps?.style,
   };
 
-  const imageContainer = layout === 'intrinsic' ? { className: 'flex' } : {};
-
   const onLoad = useCallback((event) => {
     // https://github.com/vercel/next.js/discussions/18386
-
     if (event.target.srcset) {
       // Image is ready
       setImgLoaded(true);
@@ -125,21 +110,30 @@ const Img: React.FC<ImgProps> = ({
         />
       )}
 
-      <div style={imageStyle} {...imageContainer}>
-        {layout !== 'fill' ? (
-          <Image
-            {...rest}
-            className={clsx(rest.className, 'block')}
-            src={src}
-            width={width}
-            height={height}
-            layout={layout}
-            onLoad={onLoad}
-          />
-        ) : (
-          <Image {...rest} src={src} layout={layout} onLoad={onLoad} />
-        )}
-      </div>
+      {layout !== 'fill' ? (
+        <Image
+          {...rest}
+          className={clsx(
+            rest.className,
+            'block',
+            styles.image,
+            imgLoaded ? styles.reveal : styles.hide,
+          )}
+          src={src}
+          width={width}
+          height={height}
+          layout={layout}
+          onLoad={onLoad}
+        />
+      ) : (
+        <Image
+          {...rest}
+          className={clsx(rest.className, styles.image, imgLoaded ? styles.reveal : styles.hide)}
+          src={src}
+          layout={layout}
+          onLoad={onLoad}
+        />
+      )}
     </div>
   );
 };
