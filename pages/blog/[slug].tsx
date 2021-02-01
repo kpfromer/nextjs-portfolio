@@ -12,6 +12,7 @@ import NextLink from 'next/link';
 import info from '@configs/info';
 import Icon from '@components/Icon';
 import 'katex/dist/katex.min.css';
+import { generatePlaceholder, ImgPlaceholder } from '@lib/placeholder';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = await getBlogPostSlugs();
@@ -36,7 +37,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   return {
-    props: post,
+    props: {
+      ...post,
+      coverImagePlaceholder: await generatePlaceholder(post.frontmatter.coverImage.src),
+    },
   };
 };
 
@@ -46,6 +50,8 @@ interface BlogContext {
 }
 
 export interface BlogPostProps extends BlogPostData {
+  coverImagePlaceholder: ImgPlaceholder;
+
   previous?: BlogContext;
   next?: BlogContext;
 }
@@ -54,6 +60,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   body,
   slug,
   frontmatter: { title, coverImage, coverImageAlt, created },
+  coverImagePlaceholder,
   previous,
   next,
 }) => {
@@ -82,6 +89,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
             className="pt-4 katex-custom"
             title={title}
             coverImage={coverImage}
+            coverImagePlaceholder={coverImagePlaceholder}
             coverImageAlt={coverImageAlt}
             created={created}
           >

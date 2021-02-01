@@ -23,6 +23,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@plaiceholder/base64": "^1.0.0",
     "autoprefixer": "^10.2.1",
     "classnames": "^2.2.6",
     "framer-motion": "^3.1.3",

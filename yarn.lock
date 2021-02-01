@@ -1928,6 +1928,18 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
+"@plaiceholder/base64@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@plaiceholder/base64/-/base64-1.0.0.tgz#1cb7c2b0e8c768f91a292f4474096060ce0c5fab"
+  integrity sha512-btH50CSDLX/846CzGdnqB1ULzW6byWvEn0keHlPE5hbngyosn+/G/kh6cwRrnKRHcZ8fBcmTF9b8wbiEh4Lndw==
+  dependencies:
+    "@plaiceholder/core" "^1.0.0"
+
+"@plaiceholder/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@plaiceholder/core/-/core-1.0.0.tgz#8ce30534a4b7f7ef467439139a116213a3814448"
+  integrity sha512-rlVzjBxtzbMIyfKRAElC3h+jcPpRviVSzd4faMG0sHdPErBR+Jc2vb3eWIZskNPly4BJn4KMoMr2kt/bEqLxaA==
+
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.2":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"

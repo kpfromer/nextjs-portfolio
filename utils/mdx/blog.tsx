@@ -1,9 +1,9 @@
 import type { MDXProviderComponentsProp } from '@mdx-js/react';
-import NextImage from 'next/image';
 import Sparkles from '@components/Sparkles';
 import CodeBlock from '@components/Code/Block';
 import CodeInline from '@components/Code/Inline';
 import baseMdxComponents from './base';
+import Img from '@components/Img';
 
 const mdxComponents: MDXProviderComponentsProp = {
   ...baseMdxComponents,
@@ -40,8 +40,13 @@ const mdxComponents: MDXProviderComponentsProp = {
     </td>
   ),
   img: (props) => (
-    <div className="bg-white rounded my-2 overflow-hidden">
-      <NextImage {...props} layout="responsive" />
+    <div className="rounded my-2 overflow-hidden flex">
+      <Img
+        {...props}
+        containerProps={{ className: 'mx-auto' }}
+        className="bg-white"
+        placeholderProps={{ className: 'bg-white' }}
+      />
     </div>
   ),
   Sparkles,

@@ -15,6 +15,8 @@ import info from '@configs/info';
 import { HTMLAttributes } from 'react';
 import { getProjects, ProjectData } from '@lib/projects';
 import Project from '@components/Project';
+import CustomImg from '@components/Img';
+import { generatePlaceholder, ImgPlaceholder } from '@lib/placeholder';
 
 const Heading: React.FC<
   HTMLAttributes<HTMLHeadingElement> & { as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' }
@@ -26,13 +28,28 @@ const Seperator = () => (
   </div>
 );
 
+const images = {
+  me: '/assets/kyle-pfromer.jpg',
+  background: '/assets/crested-butte-2016-07-14.jpg',
+};
+
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllBlogPostsFrontmatter('des');
+  const posts = await Promise.all(
+    (await getAllBlogPostsFrontmatter('des')).map(async (post) => ({
+      ...post,
+      coverImagePlaceholder: await generatePlaceholder(post.coverImage.src),
+    })),
+  );
   const experience = await getExperience();
   const projects = await getProjects();
 
   return {
     props: {
+      placeholders: {
+        me: await generatePlaceholder(images.me),
+        background: await generatePlaceholder(images.background),
+      },
+
       posts,
       experience,
       projects,
@@ -41,24 +58,36 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export interface HomeProps {
-  posts: BlogPostFrontmatter[];
+  placeholders: {
+    me: ImgPlaceholder;
+    background: ImgPlaceholder;
+  };
+
+  posts: (BlogPostFrontmatter & { coverImagePlaceholder: ImgPlaceholder })[];
   experience: ExperienceData;
   projects: ProjectData[];
 }
 
-const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
+const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }) => {
   return (
     <Page title="Home" description="Learn more about me.">
-      <div className="relative flex" style={{ minHeight: '100vh', zIndex: 1 }}>
+      <div className="relative flex h-screen" style={{ zIndex: 1 }}>
         <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }} id="top">
-          <Img
-            src="/assets/crested-butte-2016-07-14.jpg"
+          <CustomImg
+            src={images.background}
+            placeholder={placeholders.background}
             alt="Crested Butte Mountains"
             layout="fill"
             quality={60}
             objectPosition="50% 50%"
             objectFit="cover"
-            priority
+            // priority
+            containerProps={{
+              id: 'top',
+              className: 'w-full h-full',
+              // className: 'absolute top-0 left-0 right-0 bottom-0',
+              style: { zIndex: -1 },
+            }}
           />
         </div>
 
@@ -70,8 +99,16 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
         <div className="m-auto pt-12">
           <div className="space-y-4 text-center flex flex-col justify-center items-center">
             <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
-              <Img
+              {/* <Img
                 src="/assets/kyle-pfromer.jpg"
+                alt="Kyle Pfromer"
+                layout="fixed"
+                width={200}
+                height={200}
+              /> */}
+              <CustomImg
+                src={images.me}
+                placeholder={placeholders.me}
                 alt="Kyle Pfromer"
                 layout="fixed"
                 width={200}
@@ -146,13 +183,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
           </div>
         ))}
 
-        <a
-          rel="noopener"
-          target="_blank"
-          href={info.resume}
-          className="my-5 btn-primary"
-          // className="mt-5 p-3 rounded-md inline-block font-bold text-white dark:text-gray-800 bg-primary-500 hover:bg-primary-600 dark:hover:primary-300 transition-colors ease-in-out"
-        >
+        <a rel="noopener" target="_blank" href={info.resume} className="my-5 btn-primary">
           View Resume
         </a>
 
@@ -164,7 +195,6 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
           ))}
         </div>
 
-        {/* TODO: */}
         <Heading id="contact">Contact</Heading>
         <ContactForm />
       </Container>
