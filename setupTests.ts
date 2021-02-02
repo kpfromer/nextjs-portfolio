@@ -7,7 +7,12 @@ import 'whatwg-fetch';
 
 initTestHelpers();
 
-jest.mock('katex/dist/katex.min.css', () => ({}));
+window.matchMedia = jest.fn((media) => {
+  if (media === '(prefers-color-scheme: dark)') {
+    return { matches: false } as MediaQueryList;
+  }
+  throw new Error(`Invalid media "${media}"`);
+});
 
 afterEach(() => {
   // Makes sure that SWR data is cleared between tests so tests does not affect each other

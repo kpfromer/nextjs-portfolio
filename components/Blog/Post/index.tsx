@@ -1,11 +1,13 @@
-import NextImage from 'next/image';
 import { DateTime } from 'luxon';
 import { MdxImage } from '@lib/common';
 import { HTMLAttributes } from 'react';
+import { ImgPlaceholder } from '@lib/placeholder';
+import Img from '@components/Img';
 
 export interface PostProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   coverImage: MdxImage;
+  coverImagePlaceholder: ImgPlaceholder;
   coverImageAlt?: string;
   created: string;
 }
@@ -13,6 +15,7 @@ export interface PostProps extends HTMLAttributes<HTMLDivElement> {
 const Post: React.FC<PostProps> = ({
   title,
   coverImage,
+  coverImagePlaceholder,
   coverImageAlt,
   created,
   children,
@@ -26,7 +29,14 @@ const Post: React.FC<PostProps> = ({
   return (
     <div {...props}>
       <div className="overflow-hidden rounded-lg bg-white">
-        <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
+        <Img
+          layout="responsive"
+          {...coverImage}
+          className="bg-white"
+          placeholderProps={{ className: 'bg-white' }}
+          placeholder={coverImagePlaceholder}
+          alt={coverImageAlt}
+        />
       </div>
 
       <div className="mt-4">

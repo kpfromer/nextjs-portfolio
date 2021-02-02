@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // Similiar structure to:
 // https://github.com/JS-DevTools/rehype-inline-svg/blob/master/src/inline-svg.ts
+import { generatePlaceholder, ImgPlaceholder } from '@lib/placeholder';
 import imageSize from 'image-size';
 import path from 'path';
 import { Processor } from 'unified';
@@ -21,6 +22,7 @@ interface ImageNode extends Node {
     src: string;
     height?: number;
     width?: number;
+    placeholder?: ImgPlaceholder;
   };
 }
 
@@ -48,12 +50,16 @@ function filterImageNode(node: ImageNode): boolean {
  * Adds the image's `height` and `width` to it's properties.
  */
 async function addMetadata(node: ImageNode): Promise<void> {
-  const res = await sizeOf(path.join(process.cwd(), 'public', node.properties.src));
+  const src = path.join(process.cwd(), 'public', node.properties.src);
+
+  const res = await sizeOf(src);
+  const placeholder = await generatePlaceholder(node.properties.src);
 
   if (!res) throw Error(`Invalid image with src "${node.properties.src}"`);
 
   node.properties.width = res.width;
   node.properties.height = res.height;
+  node.properties.placeholder = placeholder;
 }
 
 /**
