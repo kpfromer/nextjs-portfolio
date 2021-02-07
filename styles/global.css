@@ -17,6 +17,28 @@ body {
   @apply bg-gray-50 text-black dark:bg-gray-900 dark:text-white;
 }
 
+/* Block Katex (ie not inline) */
+.math.math-display {
+  @apply overflow-x-scroll;
+}
+
+.katex-custom .frac-line {
+  @apply border-black dark:border-white;
+}
+
+/* .prose pre {
+  @apply bg-gray-50 border border-gray-200 dark:border-gray-700 dark:bg-gray-900;
+}
+
+.prose code {
+  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+} */
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
+
 @layer components {
   .nested-list > ul,
   ol {
@@ -42,13 +64,4 @@ body {
   .btn-disabled {
     @apply py-2 px-4 inline-block cursor-pointer bg-gray-500 text-white font-semibold rounded-lg shadow-md focus:outline-none transition-colors ease-in-out;
   }
-}
-
-/* Block Katex (ie not inline) */
-.math.math-display {
-  @apply overflow-x-scroll;
-}
-
-.katex-custom .frac-line {
-  @apply border-black dark:border-white;
 }

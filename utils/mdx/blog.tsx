@@ -50,8 +50,8 @@ const mdxComponents: MDXProviderComponentsProp = {
     </div>
   ),
   Sparkles,
-  code: (props) => <CodeBlock {...props} customClass="my-2" />,
-  inlineCode: CodeInline,
+  // code: CodeBlock,
+  // inlineCode: CodeInline,
 };
 
 export default mdxComponents;
