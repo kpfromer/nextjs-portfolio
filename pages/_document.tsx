@@ -1,5 +1,16 @@
 import darkModeScript from '@utils/dark-mode-script';
+import { GA_TRACKING_ID } from '@utils/gtag';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+
+const googleAnalyticsCode = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '${GA_TRACKING_ID}', {
+  page_path: window.location.pathname,
+});
+`;
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -41,6 +52,14 @@ class MyDocument extends Document {
           <meta name="msapplication-config" content="/icons/browserconfig.xml" />
           <link rel="manifest" href="/icons/manifest.json" />
           <meta name="theme-color" content="#ffffff" />
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+              <script dangerouslySetInnerHTML={{ __html: googleAnalyticsCode }} />
+            </>
+          )}
         </Head>
         <body>
           <script key="cm" dangerouslySetInnerHTML={{ __html: darkModeScript }} />
