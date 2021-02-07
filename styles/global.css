@@ -44,6 +44,11 @@ body {
   }
 }
 
+/* Block Katex (ie not inline) */
+.math.math-display {
+  @apply overflow-x-scroll;
+}
+
 .katex-custom .frac-line {
   @apply border-black dark:border-white;
 }
