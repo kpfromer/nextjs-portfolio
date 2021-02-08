@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="py-4 sticky top-0 left-0 right-0 z-10 bg-white dark:bg-gray-800">
+    <div className="py-4 sticky top-0 left-0 right-0 z-10 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
       <Container className="flex justify-center items-center">
         <IconButton
           className="sm:hidden"

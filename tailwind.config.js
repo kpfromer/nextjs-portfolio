@@ -41,7 +41,6 @@ module.exports = {
         'grow-and-shrink': 'grow-and-shrink 700ms forwards',
         'star-spin': 'star-spin 1000ms linear',
       },
-
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -59,6 +58,8 @@ module.exports = {
             code: { color: theme('colors.pink.500') },
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false,
+            // Disables pre styling in favor of my custom styling defined in the code block component
+            pre: false,
           },
         },
         dark: {
@@ -107,8 +108,8 @@ module.exports = {
   variants: {
     extend: {
       animation: ['motion-safe', 'motion-reduce'],
+      typography: ['dark'],
     },
   },
-
   plugins: [require('@tailwindcss/typography')],
 };
