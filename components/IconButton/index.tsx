@@ -1,5 +1,5 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import classnames from 'classnames';
+import classnames from 'clsx';
 
 interface ButtonProps extends HTMLAttributes<HTMLElement> {
   as?: string;

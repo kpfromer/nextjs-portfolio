@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import clsx from 'classnames';
+import clsx from 'clsx';
 import { HTMLAttributes, useCallback, useState } from 'react';
 import React from 'react';
 import styles from './styles.module.css';

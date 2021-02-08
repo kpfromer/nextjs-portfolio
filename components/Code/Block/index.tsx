@@ -1,7 +1,6 @@
-import { useCopyToClipboard } from '@hooks/use-copy-to-clipboard';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import React, { HTMLAttributes } from 'react';
-import classnames from 'classnames';
+import classnames from 'clsx';
 
 export interface CodeBlockProps {
   className?: string;
@@ -32,8 +31,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   children,
   ...rest
 }) => {
-  const { isCopied, onCopy } = useCopyToClipboard();
-
   const language = (className.replace(/language-/, '') === ''
     ? 'markup'
     : className.replace(/language-/, '')) as Language;
@@ -41,21 +38,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const showTopbar = !!filename;
 
   return (
-    <div {...rest}>
-      {/* File Name Tag */}
+    <div {...rest} className={classnames('transition-colors duration-500', showTopbar && 'my-3')}>
       {showTopbar && (
         <div className="text-gray-800 dark:text-gray-200 py-2 px-5 border-t border-l border-r border-gray-100 dark:border-gray-700 rounded-t bg-gray-200 dark:bg-gray-800 font-bold">
           {filename}
         </div>
       )}
-      <div
-        className="btn-gray absolute top-2 right-2 text-md text-white"
-        onClick={() => onCopy(children)}
-      >
-        {isCopied ? 'Copied' : 'Copy'}
-      </div>
 
-      {/* Code */}
       <Highlight
         {...defaultProps}
         // Disables using default theme so we can style using tailwind css

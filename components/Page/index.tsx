@@ -1,5 +1,5 @@
 import { NextSeo, NextSeoProps } from 'next-seo';
-import classnames from 'classnames';
+import classnames from 'clsx';
 import { HTMLAttributes } from 'react';
 
 export interface PageProps extends NextSeoProps {

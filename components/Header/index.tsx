@@ -4,7 +4,7 @@ import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
 import NextLink from 'next/link';
 import { HTMLAttributes, useState } from 'react';
 import { useDarkMode } from '@utils/dark-mode-provider';
-import classnames from 'classnames';
+import classnames from 'clsx';
 
 const NavLink: React.FC<
   Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> & { href: string; mobile?: boolean }

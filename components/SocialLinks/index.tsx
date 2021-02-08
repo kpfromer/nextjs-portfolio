@@ -1,7 +1,7 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { FaStackOverflow } from 'react-icons/fa';
 import info from '@configs/info';
-import classnames from 'classnames';
+import classnames from 'clsx';
 import Icon from '@components/Icon';
 import { HtmlHTMLAttributes } from 'react';
 
