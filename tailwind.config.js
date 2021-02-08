@@ -60,6 +60,16 @@ module.exports = {
             'blockquote p:last-of-type::after': false,
             // Disables pre styling in favor of my custom styling defined in the code block component
             pre: false,
+            table: {
+              'border-collapse': 'collapse',
+            },
+            tr: {
+              borderStyle: 'solid',
+              borderColor: theme('colors.gray.700'),
+              // TODO: dark mode
+            },
+            th: {},
+            td: {},
           },
         },
         dark: {
@@ -76,7 +86,7 @@ module.exports = {
               borderLeftColor: theme('colors.gray.700'),
               color: theme('colors.gray.300'),
             },
-            'h2,h3,h4': {
+            'h1,h2,h3,h4': {
               color: theme('colors.gray.100'),
               'scroll-margin-top': spacing[32],
             },
