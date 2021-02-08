@@ -1,6 +1,6 @@
 import { getYaml } from './yaml';
 import renderToString from 'next-mdx-remote/render-to-string';
-import { baseMdxComponents } from '@utils/mdx';
+import { otherMdxComponents } from '@utils/mdx';
 
 const types = ['work', 'startup', 'club'] as const;
 type ExperienceTypes = typeof types[number];
@@ -48,7 +48,7 @@ export async function getExperience(): Promise<ExperienceData> {
             return {
               ...experience,
               content: await renderToString(experience.content, {
-                components: baseMdxComponents,
+                components: otherMdxComponents,
               }),
             };
           }
