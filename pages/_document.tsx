@@ -61,7 +61,7 @@ class MyDocument extends Document {
             </>
           )}
         </Head>
-        <body>
+        <body className="transition-colors duration-500 bg-white text-black dark:bg-gray-900 dark:text-white">
           <script key="cm" dangerouslySetInnerHTML={{ __html: darkModeScript }} />
           <Main />
           <NextScript />

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 
 type Mode = 'light' | 'dark';
 
@@ -43,7 +43,7 @@ const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) => {
     const isDark = theme === 'dark';
 
     root.classList.remove(isDark ? 'light' : 'dark');
-    root.classList.add(theme);
+    if (isDark) root.classList.add('dark');
 
     localStorage.setItem('color-theme', theme);
   }, []);
