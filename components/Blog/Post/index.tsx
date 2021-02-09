@@ -27,7 +27,7 @@ const Post: React.FC<PostProps> = ({
   ].filter((value) => !!value);
 
   return (
-    <div {...props}>
+    <article {...props}>
       <div className="overflow-hidden rounded-lg bg-white">
         <Img
           layout="responsive"
@@ -39,15 +39,17 @@ const Post: React.FC<PostProps> = ({
         />
       </div>
 
-      <div className="mt-4">
-        <div className="text-3xl md:text-5xl font-bold">{title}</div>
-        <div className="mt-2">{info.join(' | ')}</div>
+      <div className="max-w-2xl mx-auto">
+        <div className="mt-4">
+          <div className="text-3xl md:text-5xl font-bold">{title}</div>
+          <div className="mt-2">{info.join(' | ')}</div>
+        </div>
+
+        <hr className="my-2 mb-4 text-gray-500" />
+
+        <div className="prose dark:prose-dark">{children}</div>
       </div>
-
-      <hr className="my-2 mb-4 text-gray-500" />
-
-      {children}
-    </div>
+    </article>
   );
 };
 

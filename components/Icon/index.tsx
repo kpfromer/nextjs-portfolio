@@ -1,5 +1,5 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import classnames from 'classnames';
+import classnames from 'clsx';
 
 export type As<Props = any> = React.ElementType<Props>;
 

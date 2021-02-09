@@ -1,13 +1,12 @@
 import Header from '@components/Header';
 import Page from '@components/Page';
 import Preview from '@components/Blog/Preview';
-import Img from 'next/image';
 import NextLink from 'next/link';
 import type { GetStaticProps } from 'next';
 import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
-import { baseMdxComponents } from '@utils/mdx';
+import { otherMdxComponents } from '@utils/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 import { ExperienceData, getExperience } from '@lib/experience';
 import ContactForm from '@components/ContactForm';
@@ -174,7 +173,7 @@ const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }
 
                   {content && (
                     <div className="pt-3">
-                      {hydrate(content, { components: baseMdxComponents })}
+                      {hydrate(content, { components: otherMdxComponents })}
                     </div>
                   )}
                 </div>

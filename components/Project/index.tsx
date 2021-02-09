@@ -1,4 +1,4 @@
-import classnames from 'classnames';
+import classnames from 'clsx';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import NextLink from 'next/link';
 import { FiGithub } from 'react-icons/fi';

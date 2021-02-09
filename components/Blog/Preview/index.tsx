@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import classnames from 'classnames';
+import classnames from 'clsx';
 import { BlogPostFrontmatter } from '@lib/blog';
 import { ImgPlaceholder } from '@lib/placeholder';
 import Img from '@components/Img';
