@@ -17,7 +17,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ spacing = 'space-x-4', color,
       className={classnames(
         props.className,
         spacing,
-        color ? color : 'text-gray-700 dark:text-white',
+        color ? color : 'text-gray-700 dark:text-white transition-colors duration-500',
       )}
     >
       <a target="_blank" rel="noopener noreferrer" href={info.github} aria-label="Github">
