@@ -64,12 +64,21 @@ module.exports = {
               'border-collapse': 'collapse',
             },
             tr: {
-              borderStyle: 'solid',
-              borderColor: theme('colors.gray.700'),
-              // TODO: dark mode
+              'border-width': '1px',
+              'border-style': 'solid',
+              'border-color': theme('colors.gray.700'),
+              // TODO: dark mode?
             },
-            th: {},
-            td: {},
+            th: {
+              'border-width': '1px',
+              'border-style': 'solid',
+              'border-color': theme('colors.gray.700'),
+            },
+            td: {
+              'border-width': '1px',
+              'border-style': 'solid',
+              'border-color': theme('colors.gray.700'),
+            },
           },
         },
         dark: {
