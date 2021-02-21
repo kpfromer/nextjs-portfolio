@@ -1,6 +1,5 @@
 titles:
   work: Work
-  startup: Startups
   club: Clubs
 
 experience:
@@ -18,15 +17,6 @@ experience:
       - Worked on integrating Google Cloud AI's Platform Optimizer Product with JupyterLab.
       - Enabled users to easily tune their machine learning model hyperparameters within the JupyterLab environment.
       - Created a hierarchical data input system for conditional parameter trees.
-  # Startup
-  - companyName: Shivoo
-    title: Frontend Engineer
-    location: Boulder, Colorado
-    type: startup
-    content: |
-      - Creating a website that coordinates event creation that's targeted at college campuses.
-      - Developed using Next.js.
-    # TODO: stuff about funding
   # Clubs
   - companyName: HackCU
     title: Tech Lead
