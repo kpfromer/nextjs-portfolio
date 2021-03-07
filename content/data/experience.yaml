@@ -7,11 +7,13 @@ experience:
   - companyName: Facebook
     title: Incoming 2021 Software Engineer Intern
     location: Menlo Park, California
+    logo: /assets/experience/facebook.svg
     type: work
 
   - companyName: Google
     title: Software Engineer Intern
     location: Sunnyvale, California
+    logo: /assets/experience/google.svg
     type: work
     content: |
       - Worked on integrating Google Cloud AI's Platform Optimizer Product with JupyterLab.
@@ -21,6 +23,7 @@ experience:
   - companyName: HackCU
     title: Tech Lead
     location: Boulder, Colorado
+    logo: /assets/experience/hackcu.svg
     type: club
     content: |
       - Lead website redesign and creation.

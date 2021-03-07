@@ -9,6 +9,7 @@ interface Experience {
   companyName: string;
   title: string;
   location: string;
+  logo?: string;
   type: ExperienceTypes;
   content?: string;
 }

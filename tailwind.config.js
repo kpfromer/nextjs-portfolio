@@ -41,6 +41,9 @@ module.exports = {
         'grow-and-shrink': 'grow-and-shrink 700ms forwards',
         'star-spin': 'star-spin 1000ms linear',
       },
+      gridTemplateColumns: {
+        experience: 'auto 64px',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
