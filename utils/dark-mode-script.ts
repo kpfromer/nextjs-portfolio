@@ -21,5 +21,8 @@ var mode = getInitialMode();
 
 var root = window.document.querySelector('html');
 
-root.classList.add(mode);
+if (mode === 'dark')
+  root.classList.add('dark');
+else
+  root.classList.remove('dark')
 `;

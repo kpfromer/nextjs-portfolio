@@ -2,11 +2,14 @@ import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import info from '@configs/info';
 import DarkModeProvider from '@utils/dark-mode-provider';
-
-import '../styles/global.css';
+import { useGoogleAnalytics } from '@hooks/gtag';
 import { SmoothScroll } from '@utils/smooth-scroll';
 
+import '../styles/global.css';
+
 function MyApp({ Component, pageProps }: AppProps) {
+  useGoogleAnalytics();
+
   return (
     <>
       <DefaultSeo

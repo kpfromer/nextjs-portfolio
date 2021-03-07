@@ -1,10 +1,9 @@
 titles:
   work: Work
-  # startup: Startup
   club: Clubs
 
 experience:
-  # Big Company
+  # Big Companies
   - companyName: Facebook
     title: Incoming 2021 Software Engineer Intern
     location: Menlo Park, California
@@ -20,14 +19,6 @@ experience:
       - Worked on integrating Google Cloud AI's Platform Optimizer Product with JupyterLab.
       - Enabled users to easily tune their machine learning model hyperparameters within the JupyterLab environment.
       - Created a hierarchical data input system for conditional parameter trees.
-  # Startup
-  # - companyName: Shivoo
-  #   title: Fullstack Engineer
-  #   location: Boulder, Colorado
-  #   type: startup
-  #   content: |
-  #     - Creating a website that coordinates event creation that's targeted at college campuses.
-  #     - Organized design and documentation for the website.
   # Clubs
   - companyName: HackCU
     title: Tech Lead

@@ -1,6 +1,7 @@
 import imageSize from 'image-size';
 import { promisify } from 'util';
 import path from 'path';
+import { generatePlaceholder } from './placeholder';
 
 const sizeOf = promisify(imageSize);
 
@@ -8,6 +9,7 @@ export interface MdxImage {
   width: number;
   height: number;
   src: string;
+  placeholder: string;
 }
 
 /**
@@ -18,7 +20,14 @@ export async function getMdxImage(src: string): Promise<MdxImage> {
   const res = await sizeOf(path.join(process.cwd(), 'public', src));
   if (!res) throw new Error(`Invalid image "${src}"`);
 
-  return { src, width: res.width, height: res.height };
+  const placeholder = await generatePlaceholder(src);
+
+  return {
+    src,
+    placeholder,
+    width: res.width,
+    height: res.height,
+  };
 }
 
 /**

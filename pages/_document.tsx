@@ -1,5 +1,16 @@
 import darkModeScript from '@utils/dark-mode-script';
+import { GA_TRACKING_ID } from '@utils/gtag';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+
+const googleAnalyticsCode = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '${GA_TRACKING_ID}', {
+  page_path: window.location.pathname,
+});
+`;
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -12,11 +23,13 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* Inter and Roboto Mono Fonts */}
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          {/* Inter Font */}
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/inter-var.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
           {/* Favicon */}
           <link rel="apple-touch-icon" sizes="57x57" href="/icons/favicon-57x57.png" />
@@ -39,8 +52,16 @@ class MyDocument extends Document {
           <meta name="msapplication-config" content="/icons/browserconfig.xml" />
           <link rel="manifest" href="/icons/manifest.json" />
           <meta name="theme-color" content="#ffffff" />
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+              <script dangerouslySetInnerHTML={{ __html: googleAnalyticsCode }} />
+            </>
+          )}
         </Head>
-        <body>
+        <body className="transition-colors duration-500 bg-white text-black dark:bg-gray-900 dark:text-white">
           <script key="cm" dangerouslySetInnerHTML={{ __html: darkModeScript }} />
           <Main />
           <NextScript />

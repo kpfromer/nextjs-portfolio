@@ -1,16 +1,20 @@
-import NextImage from 'next/image';
 import { DateTime } from 'luxon';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import classnames from 'classnames';
+import classnames from 'clsx';
 import { BlogPostFrontmatter } from '@lib/blog';
+import { ImgPlaceholder } from '@lib/placeholder';
+import Img from '@components/Img';
 
 export interface PreviewProps
   extends Omit<HTMLMotionProps<'div'>, keyof BlogPostFrontmatter>,
-    BlogPostFrontmatter {}
+    BlogPostFrontmatter {
+  coverImagePlaceholder: ImgPlaceholder;
+}
 
 const Preview: React.FC<PreviewProps> = ({
   title,
   coverImage,
+  coverImagePlaceholder,
   coverImageAlt,
   created,
   ...props
@@ -29,8 +33,15 @@ const Preview: React.FC<PreviewProps> = ({
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <div className="overflow-hidden rounded-lg bg-white">
-        <NextImage layout="responsive" {...coverImage} alt={coverImageAlt} />
+      <div className="overflow-hidden rounded-lg">
+        <Img
+          className="bg-white"
+          placeholderProps={{ className: 'bg-white' }}
+          layout="responsive"
+          placeholder={coverImagePlaceholder}
+          {...coverImage}
+          alt={coverImageAlt}
+        />
       </div>
 
       <div className="flex-grow" />

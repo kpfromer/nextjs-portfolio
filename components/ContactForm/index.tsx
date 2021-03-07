@@ -1,7 +1,7 @@
 import Icon from '@components/Icon';
 import { FiMail } from 'react-icons/fi';
 import { useState } from 'react';
-import classnames from 'classnames';
+import classnames from 'clsx';
 import { useForm } from 'react-hook-form';
 
 type FormData = {

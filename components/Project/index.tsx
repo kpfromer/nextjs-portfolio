@@ -1,10 +1,10 @@
-import classnames from 'classnames';
+import classnames from 'clsx';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { FiGithub } from 'react-icons/fi';
 import IconButton from '@components/IconButton';
 import { ProjectData } from '@lib/projects';
+import Img from '@components/Img';
 
 export interface ProjectProps
   extends Omit<HTMLMotionProps<'div'>, keyof ProjectData>,
@@ -33,8 +33,14 @@ const Project: React.FC<ProjectProps> = ({
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <div className="overflow-hidden rounded-lg bg-white">
-        <NextImage layout="responsive" {...image} alt={imageAlt} />
+      <div className="overflow-hidden rounded-lg">
+        <Img
+          layout="responsive"
+          {...image}
+          alt={imageAlt}
+          className="bg-white"
+          placeholderProps={{ className: 'bg-white' }}
+        />
       </div>
 
       <div className="mt-3">
