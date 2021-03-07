@@ -2,6 +2,7 @@ import Header from '@components/Header';
 import Page from '@components/Page';
 import Preview from '@components/Blog/Preview';
 import Img from 'next/image';
+import NextImage from 'next/image';
 import NextLink from 'next/link';
 import type { GetStaticProps } from 'next';
 import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
@@ -128,18 +129,28 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
             </div>
 
             <div className="flex flex-col space-y-8">
-              {items.map(({ companyName, title, location, content }) => (
-                <div className="flex-grow" key={companyName}>
-                  <h2 className="text-3xl text-primary-500 font-bold">{companyName}</h2>
-                  <h3 className="mt-2 text-xl font-bold">
-                    {title} · {location}
-                  </h3>
+              {items.map(({ companyName, title, location, logo, content }) => (
+                <div key={companyName} className="flex-grow grid grid-cols-experience">
+                  <div>
+                    <h2 className="text-3xl text-primary-500 font-bold">{companyName}</h2>
+                    <h3 className="mt-2 text-xl font-bold">
+                      {title} · {location}
+                    </h3>
 
-                  {content && (
-                    <div className="pt-3">
-                      {hydrate(content, { components: baseMdxComponents })}
-                    </div>
-                  )}
+                    {content && (
+                      <div className="pt-3">
+                        {hydrate(content, { components: baseMdxComponents })}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex">
+                    {logo && (
+                      <div className="m-auto">
+                        <NextImage src={logo} layout="fixed" width={64} height={64} />
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
