@@ -11,6 +11,7 @@ import { DateTime } from 'luxon';
 import remarkMath from 'remark-math';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeKatex from 'rehype-katex';
+import { MdxRemote } from 'next-mdx-remote/types';
 
 export interface BlogPostFrontmatter {
   slug: string;
@@ -30,7 +31,7 @@ export interface BlogPostFrontmatter {
 
 export interface BlogPostData {
   slug: string;
-  body: string;
+  body: MdxRemote.Source;
   frontmatter: BlogPostFrontmatter;
 }
 
