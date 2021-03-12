@@ -1,4 +1,17 @@
-# TODO
+- title: kdot
+  dates: February 2021 - Present
+  description: An open-source library that manages your linux dotfiles using Rust.
+  image: '/kdot.png'
+  imageAlt: terminal running exa
+  github: https://github.com/kpfromer/kdot
+
+- title: pforwords
+  dates: June 2020 - Present
+  description: A Gatsby website for my sister's sustainability blog.
+  image: '/pforwords.png'
+  imageAlt: The pforwords website with a list of blog posts.
+  github: https://github.com/kpfromer/pforwords
+
 - title: nestjs-typegoose
   dates: April 2018 - Present
   description:
