@@ -34,7 +34,7 @@
     "next-mdx-remote": "^2.0.1",
     "next-seo": "^4.17.0",
     "polished": "^4.0.5",
-    "postcss": "^8.2.3",
+    "postcss": "^8.2.10",
     "preact": "^10.5.9",
     "prism-react-renderer": "^1.1.1",
     "react": "17.0.1",
