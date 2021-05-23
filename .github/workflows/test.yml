@@ -19,18 +19,11 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: Yarn cache directory
-        id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Yarn cache
+      - name: Cache .pnpm-store
         uses: actions/cache@v1
-        id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Next.js cache
         uses: actions/cache@v2
@@ -38,20 +31,23 @@ jobs:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
 
+      - name: Install pnpm
+        run: curl -f https://get.pnpm.io/v6.js | node - add --global pnpm@6
+
       - name: Install dependencies
-        run: yarn install --pure-lockfile
+        run: pnpm install
 
       - name: Lint
         run: |
-          yarn lint
-          npx prettier --check .
+          pnpm lint
+          pnpx prettier --check .
 
       - name: Jest Tests
-        run: yarn test:unit
+        run: pnpm test:unit
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       # From: https://www.cypress.io/blog/2019/11/20/drastically-simplify-your-testing-with-cypress-github-action/
       - name: E2E Tests
-        run: yarn test:e2e
+        run: pnpm test:e2e
