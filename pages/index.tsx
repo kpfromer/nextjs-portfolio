@@ -35,7 +35,9 @@ const images = {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await Promise.all(
-    (await getAllBlogPostsFrontmatter('des')).map(async (post) => ({
+    (
+      await getAllBlogPostsFrontmatter('des')
+    ).map(async (post) => ({
       ...post,
       coverImagePlaceholder: await generatePlaceholder(post.coverImage.src),
     })),
