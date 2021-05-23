@@ -34,7 +34,8 @@ const IconButton = forwardRef<HTMLElement, IconButtonProps>(
      */
     const element = icon || children;
     const _children = React.isValidElement(element)
-      ? React.cloneElement(element as any, {
+      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        React.cloneElement(element as any, {
           'aria-hidden': true,
           focusable: false,
         })

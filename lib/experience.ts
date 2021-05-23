@@ -50,7 +50,8 @@ export async function getExperience(): Promise<ExperienceData> {
             return {
               ...experience,
               // content from yaml is a string
-              content: await renderToString((experience.content as any) as string, {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              content: await renderToString(experience.content as any as string, {
                 components: otherMdxComponents,
               }),
             };
@@ -67,5 +68,5 @@ export async function getExperience(): Promise<ExperienceData> {
     },
   );
 
-  return (experienceData as unknown) as ExperienceData;
+  return experienceData as unknown as ExperienceData;
 }
