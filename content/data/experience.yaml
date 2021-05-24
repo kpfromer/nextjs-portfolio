@@ -6,7 +6,7 @@ titles:
 experience:
   # Big Companies
   - companyName: Facebook
-    title: Incoming 2021 Software Engineer Intern
+    title: Software Engineer Intern
     location: Menlo Park, California
     logo: /assets/experience/facebook.svg
     type: work
@@ -23,7 +23,7 @@ experience:
 
   # Clubs
   - companyName: HackCU
-    title: Tech Lead
+    title: Co-Director
     location: Boulder, Colorado
     logo: /assets/experience/hackcu.svg
     type: club
@@ -32,6 +32,7 @@ experience:
       - Helped organize HackCU VI, a 400 person event hackathon
       - Created live schedule website to help hackers get information and see event schedule.
       - Presented Intro to Git/GitHub at HackCU VI.
+
   - companyName: Fairview H.S. Web Team
     title: Webmaster
     location: Boulder, Colorado
@@ -51,4 +52,3 @@ experience:
       - Creating a website that coordinates event creation that's targeted at college campuses.
       - Developed the website using Next.js.
         - Connected with headless CMS to enable marketing team to edit website content without programmer intervention.
-    # TODO: stuff about funding
