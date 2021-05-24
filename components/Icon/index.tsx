@@ -1,6 +1,7 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import classnames from 'clsx';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type As<Props = any> = React.ElementType<Props>;
 
 export interface IconProps extends HTMLAttributes<HTMLOrSVGElement> {

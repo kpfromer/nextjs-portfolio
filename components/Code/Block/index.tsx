@@ -31,9 +31,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   children,
   ...rest
 }) => {
-  const language = (className.replace(/language-/, '') === ''
-    ? 'markup'
-    : className.replace(/language-/, '')) as Language;
+  const language = (
+    className.replace(/language-/, '') === '' ? 'markup' : className.replace(/language-/, '')
+  ) as Language;
 
   const showTopbar = !!filename;
 

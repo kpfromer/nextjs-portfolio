@@ -6,6 +6,7 @@ export const DarkModeContext = React.createContext<{
   mode: Mode;
   setMode: (mode: Mode) => void;
   toggleMode: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }>({} as any);
 
 export function useDarkMode() {
