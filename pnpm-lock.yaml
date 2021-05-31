@@ -18,7 +18,7 @@ specifiers:
   '@types/react': ^17.0.0
   '@typescript-eslint/eslint-plugin': ^4.12.0
   '@typescript-eslint/parser': ^4.12.0
-  autoprefixer: ^10.2.1
+  autoprefixer: ^10.2.6
   babel-jest: ^26.6.3
   babel-loader: ^8.2.2
   babel-preset-react-app: ^10.0.0
@@ -44,8 +44,7 @@ specifiers:
   next-page-tester: ^0.14.0
   next-seo: ^4.17.0
   npm-run-all: ^4.1.5
-  polished: ^4.0.5
-  postcss: ^8.2.3
+  postcss: ^8.3.0
   preact: ^10.5.9
   prettier: ^2.2.1
   prism-react-renderer: ^1.1.1
@@ -59,7 +58,7 @@ specifiers:
   remark-unwrap-images: ^2.0.0
   start-server-and-test: ^1.11.7
   swr: ^0.3.11
-  tailwindcss: ^2.0.2
+  tailwindcss: ^2.1.2
   ts-jest: ^26.4.4
   tsconfig-paths-webpack-plugin: ^3.3.0
   typescript: ^4.1.3
@@ -73,7 +72,7 @@ dependencies:
   '@mdx-js/react': 1.6.22_react@17.0.1
   '@plaiceholder/base64': 1.0.0
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.1.2
-  autoprefixer: 10.2.5_postcss@8.3.0
+  autoprefixer: 10.2.6_postcss@8.3.0
   clsx: 1.1.1
   framer-motion: 3.10.6_react-dom@17.0.1+react@17.0.1
   gray-matter: 4.0.3
@@ -83,7 +82,6 @@ dependencies:
   next: 10.0.4_c1f8e59a5704576770adc410b507b238
   next-mdx-remote: 2.1.4_react-dom@17.0.1+react@17.0.1
   next-seo: 4.24.0_e074f36e947e7c0763c6bb9bfe01f6ba
-  polished: 4.1.2
   postcss: 8.3.0
   preact: 10.5.13
   prism-react-renderer: 1.2.1_react@17.0.1
@@ -95,7 +93,7 @@ dependencies:
   remark-math: 3.0.1
   remark-unwrap-images: 2.0.0
   swr: 0.3.11_react@17.0.1
-  tailwindcss: 2.1.2_bce0498cf0c3ab962ab667a3a4ae1b48
+  tailwindcss: 2.1.2_6daa0ece57b4377652e73c9c66c3b94c
   unified: 9.2.1
   unist-util-visit: 2.0.3
   vfile: 4.2.1
@@ -2262,6 +2260,7 @@ packages:
     resolution: {integrity: sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==}
     dependencies:
       regenerator-runtime: 0.13.7
+    dev: true
 
   /@babel/template/7.12.13:
     resolution: {integrity: sha512-/7xxiGA57xMo/P2GVvdEumr8ONhFOhfgq2ihK3h1e6THqzTAkHbkXgB0xI9yeTfIUoH3+oAeHhqm/I43OTbbjA==}
@@ -2928,7 +2927,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
-      tailwindcss: 2.1.2_bce0498cf0c3ab962ab667a3a4ae1b48
+      tailwindcss: 2.1.2_6daa0ece57b4377652e73c9c66c3b94c
     dev: false
 
   /@testing-library/cypress/7.0.6_cypress@6.9.1:
@@ -3783,15 +3782,15 @@ packages:
     engines: {node: '>= 4.5.0'}
     hasBin: true
 
-  /autoprefixer/10.2.5_postcss@8.3.0:
-    resolution: {integrity: sha512-7H4AJZXvSsn62SqZyJCP+1AWwOuoYpUfK6ot9vm0e87XD6mT8lDywc9D9OTJPMULyGcvmIxzTAMeG2Cc+YX+fA==}
+  /autoprefixer/10.2.6_postcss@8.3.0:
+    resolution: {integrity: sha512-8lChSmdU6dCNMCQopIf4Pe5kipkAGj/fvTMslCsih0uHpOrXOPUEVOmYMMqmw3cekQkSD7EhIeuYl5y0BLdKqg==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.16.6
-      caniuse-lite: 1.0.30001228
+      caniuse-lite: 1.0.30001230
       colorette: 1.2.2
       fraction.js: 4.1.1
       normalize-range: 0.1.2
@@ -4182,9 +4181,9 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001228
+      caniuse-lite: 1.0.30001230
       colorette: 1.2.2
-      electron-to-chromium: 1.3.735
+      electron-to-chromium: 1.3.742
       escalade: 3.1.1
       node-releases: 1.1.72
 
@@ -4310,6 +4309,10 @@ packages:
 
   /caniuse-lite/1.0.30001228:
     resolution: {integrity: sha512-QQmLOGJ3DEgokHbMSA8cj2a+geXqmnpyOFT0lhQV6P3/YOJvGDEwoedcwxEQ30gJIwIIunHIicunJ2rzK5gB2A==}
+    dev: false
+
+  /caniuse-lite/1.0.30001230:
+    resolution: {integrity: sha512-5yBd5nWCBS+jWKTcHOzXwo5xzcj4ePE/yjtkZyUV1BTUmrBaA9MRGC+e7mxnqXSA90CmCA8L3eKLaSUkt099IQ==}
 
   /capture-exit/2.0.0:
     resolution: {integrity: sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g==}
@@ -5340,6 +5343,10 @@ packages:
 
   /electron-to-chromium/1.3.735:
     resolution: {integrity: sha512-cp7MWzC3NseUJV2FJFgaiesdrS+A8ZUjX5fLAxdRlcaPDkaPGFplX930S5vf84yqDp4LjuLdKouWuVOTwUfqHQ==}
+    dev: false
+
+  /electron-to-chromium/1.3.742:
+    resolution: {integrity: sha512-ihL14knI9FikJmH2XUIDdZFWJxvr14rPSdOhJ7PpS27xbz8qmaRwCwyg/bmFwjWKmWK9QyamiCZVCvXm5CH//Q==}
 
   /elegant-spinner/1.0.1:
     resolution: {integrity: sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=}
@@ -8872,8 +8879,8 @@ packages:
       define-property: 0.2.5
       kind-of: 3.2.2
 
-  /object-hash/2.1.1:
-    resolution: {integrity: sha512-VOJmgmS+7wvXf8CjbQmimtCnEx3IAoLxI3fp2fbWehxrWBcAQFbk+vcwb6vzR0VZv/eNCJ/27j151ZTwqW/JeQ==}
+  /object-hash/2.2.0:
+    resolution: {integrity: sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw==}
     engines: {node: '>= 6'}
     dev: false
 
@@ -9145,8 +9152,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /path-parse/1.0.6:
-    resolution: {integrity: sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==}
+  /path-parse/1.0.7:
+    resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
   /path-type/3.0.0:
     resolution: {integrity: sha512-T2ZUsdZFHgA3u4e5PfPbjd7HDDpxPnQb5jN0SrDsjNSuVXHJqtwTnWqG0B1jZrgmJ/7lj1EmVIByWt1gxGkWvg==}
@@ -9254,13 +9261,6 @@ packages:
       ts-pnp: 1.2.0_typescript@4.2.4
     transitivePeerDependencies:
       - typescript
-    dev: false
-
-  /polished/4.1.2:
-    resolution: {integrity: sha512-jq4t3PJUpVRcveC53nnbEX35VyQI05x3tniwp26WFdm1dwaNUBHAi5awa/roBlwQxx1uRhwNSYeAi/aMbfiJCQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@babel/runtime': 7.14.0
     dev: false
 
   /popmotion/9.3.1:
@@ -10038,7 +10038,7 @@ packages:
     resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
     dependencies:
       is-core-module: 2.4.0
-      path-parse: 1.0.6
+      path-parse: 1.0.7
 
   /restore-cursor/1.0.1:
     resolution: {integrity: sha1-NGYfRohjJ/7SmRR5FSJS35LapUE=}
@@ -10927,7 +10927,7 @@ packages:
       strip-ansi: 6.0.0
     dev: true
 
-  /tailwindcss/2.1.2_bce0498cf0c3ab962ab667a3a4ae1b48:
+  /tailwindcss/2.1.2_6daa0ece57b4377652e73c9c66c3b94c:
     resolution: {integrity: sha512-T5t+wwd+/hsOyRw2HJuFuv0LTUm3MUdHm2DJ94GPVgzqwPPFa9XxX0KlwLWupUuiOUj6uiKURCzYPHFcuPch/w==}
     engines: {node: '>=12.13.0'}
     hasBin: true
@@ -10936,7 +10936,7 @@ packages:
       postcss: ^8.0.9
     dependencies:
       '@fullhuman/postcss-purgecss': 3.1.3
-      autoprefixer: 10.2.5_postcss@8.3.0
+      autoprefixer: 10.2.6_postcss@8.3.0
       bytes: 3.1.0
       chalk: 4.1.1
       chokidar: 3.5.1
@@ -10952,7 +10952,7 @@ packages:
       modern-normalize: 1.1.0
       node-emoji: 1.10.0
       normalize-path: 3.0.0
-      object-hash: 2.1.1
+      object-hash: 2.2.0
       parse-glob: 3.0.4
       postcss: 8.3.0
       postcss-functions: 3.0.0
