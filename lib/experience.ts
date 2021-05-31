@@ -1,7 +1,7 @@
 import { getYaml } from './yaml';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { serialize } from 'next-mdx-remote/serialize';
 import { otherMdxComponents } from '@utils/mdx';
-import { MdxRemote } from 'next-mdx-remote/types';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 const types = ['work', 'startup', 'club'] as const;
 type ExperienceTypes = typeof types[number];
@@ -12,7 +12,7 @@ interface Experience {
   location: string;
   logo?: string;
   type: ExperienceTypes;
-  content?: MdxRemote.Source;
+  content?: MDXRemoteSerializeResult<Record<string, unknown>>;
 }
 
 interface RawExperienceData {
@@ -51,9 +51,7 @@ export async function getExperience(): Promise<ExperienceData> {
               ...experience,
               // content from yaml is a string
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              content: await renderToString(experience.content as any as string, {
-                components: otherMdxComponents,
-              }),
+              content: await serialize(experience.content as any as string),
             };
           }
 

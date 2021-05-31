@@ -8,7 +8,7 @@ import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import Container from '@components/Container';
 import SocialLinks from '@components/SocialLinks';
 import { otherMdxComponents } from '@utils/mdx';
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import { ExperienceData, getExperience } from '@lib/experience';
 import ContactForm from '@components/ContactForm';
 import info from '@configs/info';
@@ -177,7 +177,7 @@ const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }
 
                     {content && (
                       <div className="pt-3">
-                        {hydrate(content, { components: otherMdxComponents })}
+                        <MDXRemote {...content} components={otherMdxComponents} />
                       </div>
                     )}
                   </div>
