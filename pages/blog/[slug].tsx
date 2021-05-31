@@ -2,7 +2,7 @@ import Container from '@components/Container';
 import Page from '@components/Page';
 import type { GetStaticProps, GetStaticPaths } from 'next';
 import { BlogPostData, getAllBlogPostsFrontmatter, getBlogPost, getBlogPostSlugs } from '@lib/blog';
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import { blogMdxComponents } from '@utils/mdx';
 import Post from '@components/Blog/Post';
 import Header from '@components/Header';
@@ -64,8 +64,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
   previous,
   next,
 }) => {
-  const content = hydrate(body, { components: blogMdxComponents });
-
   return (
     <>
       <Header />
@@ -93,7 +91,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
             coverImageAlt={coverImageAlt}
             created={created}
           >
-            {content}
+            <MDXRemote {...body} components={blogMdxComponents} />
           </Post>
 
           <div className="flex flex-col justify-center items-center space-y-8 my-6">

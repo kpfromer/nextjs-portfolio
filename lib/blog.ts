@@ -1,7 +1,7 @@
 import { blogMdxComponents } from '@utils/mdx';
 import fs from 'fs';
 import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import imageMetadata from '@plugins/image-metadata';
 import { promisify } from 'util';
@@ -11,7 +11,7 @@ import { DateTime } from 'luxon';
 import remarkMath from 'remark-math';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeKatex from 'rehype-katex';
-import { MdxRemote } from 'next-mdx-remote/types';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export interface BlogPostFrontmatter {
   slug: string;
@@ -31,7 +31,7 @@ export interface BlogPostFrontmatter {
 
 export interface BlogPostData {
   slug: string;
-  body: MdxRemote.Source;
+  body: MDXRemoteSerializeResult<Record<string, unknown>>;
   frontmatter: BlogPostFrontmatter;
 }
 
@@ -90,8 +90,7 @@ export async function getBlogPost(slug: string): Promise<BlogPostData | undefine
   return {
     slug,
     frontmatter: { ...(await parseFrontmatter(slug, metadata)), slug },
-    body: await renderToString(content, {
-      components: blogMdxComponents,
+    body: await serialize(content, {
       scope: metadata,
       mdxOptions: {
         remarkPlugins: [remarkMath, remarkUnwrapImages],
