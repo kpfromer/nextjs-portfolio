@@ -4,6 +4,7 @@ const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 // TODO: https://github.com/leerob/leerob.io/blob/main/tailwind.config.js
 
 module.exports = {
+  mode: 'jit',
   purge: ['./pages/**/*.tsx', './components/**/*.tsx', './utils/**/*.tsx'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -125,12 +126,6 @@ module.exports = {
           },
         },
       }),
-    },
-  },
-  variants: {
-    extend: {
-      animation: ['motion-safe', 'motion-reduce'],
-      typography: ['dark'],
     },
   },
   plugins: [require('@tailwindcss/typography')],
