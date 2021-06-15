@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 const QUERY = '(prefers-reduced-motion: no-preference)';
 
@@ -13,8 +13,8 @@ export const getInitialState = (): boolean => {
 };
 
 export function usePrefersReducedMotion(): boolean {
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(getInitialState);
-  React.useEffect(() => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState);
+  useEffect(() => {
     const mediaQueryList = window.matchMedia(QUERY);
     const listener = (event) => {
       setPrefersReducedMotion(!event.matches);

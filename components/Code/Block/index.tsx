@@ -1,5 +1,6 @@
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
+import * as React from 'react';
 import classnames from 'clsx';
 
 export interface CodeBlockProps {

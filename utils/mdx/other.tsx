@@ -1,5 +1,4 @@
 import type { MDXProviderComponentsProp } from '@mdx-js/react';
-import React from 'react';
 
 const Header = ({ children, as: Type, ...props }) => {
   let fontSize = 'text-xl';

@@ -1,4 +1,5 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
+import * as React from 'react';
 import classnames from 'clsx';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

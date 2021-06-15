@@ -1,7 +1,8 @@
 import { usePrefersReducedMotion } from '@hooks/use-prefers-reduced-motion';
 import { useRandomInterval } from '@hooks/use-random-interval';
 import { range } from '@utils/range';
-import React, { HTMLAttributes, useState } from 'react';
+import { HTMLAttributes, useState } from 'react';
+import * as React from 'react';
 import { SparkleInstance } from './SparkleInstance';
 
 function random(min: number, max: number): number {

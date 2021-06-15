@@ -1,5 +1,5 @@
 // From https://www.joshwcomeau.com/react/animated-sparkles-in-react/
-import React from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 
 // Utility helper for random number generation
 const random = (min: number, max: number): number => Math.floor(Math.random() * (max - min)) + min;
@@ -11,14 +11,14 @@ export const useRandomInterval = (
   minDelay: number | null,
   maxDelay: number | null,
 ): CancelFunction => {
-  const timeoutId = React.useRef(null);
-  const savedCallback = React.useRef(callback);
+  const timeoutId = useRef(null);
+  const savedCallback = useRef(callback);
 
-  React.useEffect(() => {
+  useEffect(() => {
     savedCallback.current = callback;
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const isEnabled = typeof minDelay === 'number' && typeof maxDelay === 'number';
     if (isEnabled) {
       const handleTick = () => {
@@ -33,7 +33,7 @@ export const useRandomInterval = (
     return () => window.clearTimeout(timeoutId.current);
   }, [minDelay, maxDelay]);
 
-  const cancel = React.useCallback(function () {
+  const cancel = useCallback(function () {
     window.clearTimeout(timeoutId.current);
   }, []);
 
