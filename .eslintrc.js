@@ -13,6 +13,7 @@ module.exports = {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
 
     // The following code ignores the need to import React in Next.js (since next auto includes it for us!)
+    'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
