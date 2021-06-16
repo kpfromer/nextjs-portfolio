@@ -1,15 +1,15 @@
-import imageSize from 'image-size';
-import { promisify } from 'util';
-import path from 'path';
 import { generatePlaceholder } from './placeholder';
+import imageSize from 'image-size';
+import path from 'path';
+import { promisify } from 'util';
 
 const sizeOf = promisify(imageSize);
-
 export interface MdxImage {
   width: number;
   height: number;
   src: string;
-  placeholder: string;
+  placeholder: 'blur';
+  blurDataURL: string;
 }
 
 /**
@@ -24,7 +24,7 @@ export async function getMdxImage(src: string): Promise<MdxImage> {
 
   return {
     src,
-    placeholder,
+    ...placeholder,
     width: res.width,
     height: res.height,
   };
