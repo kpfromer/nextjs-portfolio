@@ -1,6 +1,7 @@
 import darkModeScript from '@utils/dark-mode-script';
 import { GA_TRACKING_ID } from '@utils/gtag';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Script from 'next/script';
 
 const googleAnalyticsCode = `
 window.dataLayer = window.dataLayer || [];
@@ -56,13 +57,17 @@ class MyDocument extends Document {
           {/* Global site tag (gtag.js) - Google Analytics */}
           {process.env.NODE_ENV === 'production' && (
             <>
-              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-              <script dangerouslySetInnerHTML={{ __html: googleAnalyticsCode }} />
+              <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+              <Script dangerouslySetInnerHTML={{ __html: googleAnalyticsCode }} />
             </>
           )}
         </Head>
         <body className="transition-colors duration-500 bg-white text-black dark:bg-gray-900 dark:text-white">
-          <script key="cm" dangerouslySetInnerHTML={{ __html: darkModeScript }} />
+          <Script
+            key="cm"
+            dangerouslySetInnerHTML={{ __html: darkModeScript }}
+            strategy="beforeInteractive"
+          />
           <Main />
           <NextScript />
         </body>
