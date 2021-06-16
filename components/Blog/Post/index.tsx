@@ -32,9 +32,9 @@ const Post: React.FC<PostProps> = ({
         <Img
           layout="responsive"
           {...coverImage}
+          {...coverImagePlaceholder}
           className="bg-white"
           placeholderProps={{ className: 'bg-white' }}
-          placeholder={coverImagePlaceholder}
           alt={coverImageAlt}
         />
       </div>

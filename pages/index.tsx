@@ -15,8 +15,10 @@ import info from '@configs/info';
 import { HTMLAttributes } from 'react';
 import { getProjects, ProjectData } from '@lib/projects';
 import Project from '@components/Project';
-import CustomImg from '@components/Img';
+import Img from 'next/image';
 import { generatePlaceholder, ImgPlaceholder } from '@lib/placeholder';
+import meImage from '../public/assets/kyle-pfromer.jpg';
+import backgroundImage from '../public/assets/crested-butte-2016-07-14.jpg';
 
 const Heading: React.FC<
   HTMLAttributes<HTMLHeadingElement> & { as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' }
@@ -27,11 +29,6 @@ const Seperator = () => (
     <div className="my-auto flex-grow h-0.5 bg-gray-700 dark:gray-200" />
   </div>
 );
-
-const images = {
-  me: '/assets/kyle-pfromer.jpg',
-  background: '/assets/crested-butte-2016-07-14.jpg',
-};
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await Promise.all(
@@ -47,11 +44,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      placeholders: {
-        me: await generatePlaceholder(images.me),
-        background: await generatePlaceholder(images.background),
-      },
-
       posts,
       experience,
       projects,
@@ -70,26 +62,20 @@ export interface HomeProps {
   projects: ProjectData[];
 }
 
-const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }) => {
+const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
   return (
     <Page title="Home" description="Learn more about me.">
       <div className="relative flex h-screen" style={{ zIndex: 1 }}>
         <div className="absolute top-0 left-0 right-0 bottom-0" style={{ zIndex: -1 }} id="top">
-          <CustomImg
-            src={images.background}
-            placeholder={placeholders.background}
+          <Img
+            src={backgroundImage}
+            placeholder="blur"
             alt="Crested Butte Mountains"
             layout="fill"
             quality={60}
             objectPosition="50% 50%"
             objectFit="cover"
-            // priority
-            containerProps={{
-              id: 'top',
-              className: 'w-full h-full',
-              // className: 'absolute top-0 left-0 right-0 bottom-0',
-              style: { zIndex: -1 },
-            }}
+            className="w-full h-full"
           />
         </div>
 
@@ -101,16 +87,9 @@ const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }
         <div className="m-auto pt-12">
           <div className="space-y-4 text-center flex flex-col justify-center items-center">
             <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
-              {/* <Img
-                src="/assets/kyle-pfromer.jpg"
-                alt="Kyle Pfromer"
-                layout="fixed"
-                width={200}
-                height={200}
-              /> */}
-              <CustomImg
-                src={images.me}
-                placeholder={placeholders.me}
+              <Img
+                src={meImage}
+                placeholder="blur"
                 alt="Kyle Pfromer"
                 layout="fixed"
                 width={200}
@@ -185,6 +164,7 @@ const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }
                   <div className="flex">
                     {logo && (
                       <div className="m-auto">
+                        {/* TODO: placeholder */}
                         <NextImage src={logo} layout="fixed" width={64} height={64} />
                       </div>
                     )}
