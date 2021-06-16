@@ -1,9 +1,10 @@
-import { DateTime } from 'luxon';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import classnames from 'clsx';
+
 import { BlogPostFrontmatter } from '@lib/blog';
+import { DateTime } from 'luxon';
+import Img from 'next/image';
 import { ImgPlaceholder } from '@lib/placeholder';
-import Img from '@components/Img';
+import classnames from 'clsx';
 
 export interface PreviewProps
   extends Omit<HTMLMotionProps<'div'>, keyof BlogPostFrontmatter>,
@@ -36,9 +37,8 @@ const Preview: React.FC<PreviewProps> = ({
       <div className="overflow-hidden rounded-lg">
         <Img
           className="bg-white"
-          placeholderProps={{ className: 'bg-white' }}
           layout="responsive"
-          placeholder={coverImagePlaceholder}
+          {...coverImagePlaceholder}
           {...coverImage}
           alt={coverImageAlt}
         />
