@@ -46,7 +46,7 @@
     "remark-unwrap-images": "^2.0.0",
     "sharp": "^0.28.3",
     "swr": "^0.3.11",
-    "tailwindcss": "^2.1.2",
+    "tailwindcss": "^2.2.2",
     "unified": "^9.2.0",
     "unist-util-visit": "^2.0.2",
     "vfile": "^4.2.1",
