@@ -42,8 +42,5 @@ jobs:
           pnpm lint
           pnpx prettier --check .
 
-      - name: Jest Tests
-        run: pnpm test:unit
-
       - name: Build
         run: pnpm build
