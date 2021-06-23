@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
-import { MdxImage } from '@lib/common';
 import { HTMLAttributes } from 'react';
+import Img from 'next/image';
 import { ImgPlaceholder } from '@lib/placeholder';
-import Img from '@components/Img';
+import { MdxImage } from '@lib/common';
 
 export interface PostProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -32,9 +32,8 @@ const Post: React.FC<PostProps> = ({
         <Img
           layout="responsive"
           {...coverImage}
+          {...coverImagePlaceholder}
           className="bg-white"
-          placeholderProps={{ className: 'bg-white' }}
-          placeholder={coverImagePlaceholder}
           alt={coverImageAlt}
         />
       </div>
