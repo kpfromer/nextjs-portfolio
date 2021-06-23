@@ -29,7 +29,6 @@ Done!
   <!-- - A GitHub workflow file for continuous testing and building. -->
 - [prettier](https://github.com/prettier/prettier), [husky](https://github.com/typicode/husky),
   [lint-staged](https://github.com/okonet/lint-staged) for automatic formatting and linting
-- [cypress](https://www.cypress.io/) for end-to-end tests
 - [swr](https://github.com/vercel/swr) for remote data fetching
 - [storybooks](https://storybook.js.org/) for testing/viewing UI components in isolation
 - [tailwind css](https://tailwindcss.com/) for components, styling, and theming
@@ -38,7 +37,7 @@ Done!
 ## Scripts
 
 - `npm run dev` runs next.js in development mode
-- `npm run test` runs all tests (jest for unit/integration and cypress for e2e)
+- `npm run test` runs all tests (jest for unit/integration)
 - `npm run build` builds next.js application
 - `npm start` starts the built next.js application
 - `npm run lint` runs `eslint`
