@@ -160,13 +160,13 @@ const Home: React.FC<HomeProps> = ({ placeholders, posts, experience, projects }
 
         {experience.map(({ name, items }) => (
           <div key={name}>
-            <div className="flex justify-center items-center my-5">
+            <div className="flex justify-center items-center my-10">
               <h1 className="mr-3 text-4xl font-bold">{name}</h1>
 
               <Seperator />
             </div>
 
-            <div className="flex flex-col space-y-8">
+            <div className="flex flex-col space-y-12">
               {items.map(({ companyName, title, location, logo, content }) => (
                 <div className="flex-grow grid grid-cols-experience" key={companyName}>
                   <div>

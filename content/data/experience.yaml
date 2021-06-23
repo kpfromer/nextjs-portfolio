@@ -1,6 +1,6 @@
 titles:
   work: Work
-  startup: Startups
+  # startup: Startups
   club: Clubs
 
 experience:
@@ -10,6 +10,8 @@ experience:
     location: Menlo Park, California
     logo: /assets/experience/facebook.svg
     type: work
+    content: |
+      - Building out an internal UI for testing out optical switch connections.
 
   - companyName: Google
     title: Software Engineer Intern
