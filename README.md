@@ -1,54 +1,54 @@
-# portfolio
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby minimal starter
+</h1>
 
-## Description
+## 🚀 Quick start
 
-This the code for my [portfolio website](https://kylepfromer.com).
+1.  **Create a Gatsby site.**
 
-## Installation
+    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-`git clone https://github.com/kpfromer/portfolio.git`
+    ```shell
+    # create a new Gatsby site using the minimal starter
+    npm init gatsby
+    ```
 
-`cd portfolio`
+2.  **Start developing.**
 
-`pnpm install`
+    Navigate into your new site’s directory and start it up.
 
-`pnpm dev`
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
-Done!
+3.  **Open the code and start customizing!**
 
-## Need to know
+    Your site is now running at http://localhost:8000!
 
-- uses [formspree](https://formspree.io/) for headless contact forms
+    Edit `src/pages/index.js` to see your site update in real-time!
 
-## Includes
+4.  **Learn more**
 
-- [eslint](https://github.com/eslint/eslint)
-- [prettier](https://github.com/prettier/prettier), [husky](https://github.com/typicode/husky),
-  [lint-staged](https://github.com/okonet/lint-staged) for automatic formatting and linting
-- [tailwind css](https://tailwindcss.com/) for components, styling, and theming
-- [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) for sourcing mdx
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-## Scripts
+    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-- `npm run dev` runs next.js in development mode
-- `npm run build` builds next.js application
-- `npm start` starts the built next.js application
-- `npm run lint` runs `eslint`
-- `npm run format` runs `prettier`
+    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-## Structure
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-- `components` - components used for creating pages and stories for storybooks
-- `lib` - the files associated with sourcing and consuming data from locations (like MDX)
-- `hooks` - react hooks for SWR or other minor things next.js will try to create a page for them)
-- `content` - the data for creating pages, like a MDX blog posts
-- `utils` - misc one of files like theme or test helpers
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-## Other Cool Web Tools
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-- [favycon](https://favycon.app/) for generating favions
+## 🚀 Quick start (Gatsby Cloud)
 
-# Details
+Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with
-[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
