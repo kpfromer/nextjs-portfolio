@@ -6,12 +6,21 @@ titles:
 experience:
   # Big Companies
   - companyName: Facebook
+    title: Returning Software Engineer Intern
+    location: Menlo Park, California
+    logo: /assets/experience/facebook.svg
+    type: work
+
+  - companyName: Facebook
     title: Software Engineer Intern
     location: Menlo Park, California
     logo: /assets/experience/facebook.svg
     type: work
     content: |
-      - Building out an internal UI for testing out optical switch connections.
+      Apart of the internal Network UI team.
+
+      - Delivered an internal UI to enable network engineers to quickly view and test various network topologies.
+      - Worked with various technologies, such as React, Hack, Thrift, GraphQL.
 
   - companyName: Google
     title: Software Engineer Intern
