@@ -1,6 +1,5 @@
 import { getYaml } from './yaml';
 import { serialize } from 'next-mdx-remote/serialize';
-import { otherMdxComponents } from '@utils/mdx';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 const types = ['work', 'startup', 'club'] as const;
