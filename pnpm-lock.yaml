@@ -2,8 +2,8 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': ^7.15.0
-  '@commitlint/cli': ^11.0.0
-  '@commitlint/config-conventional': ^11.0.0
+  '@commitlint/cli': 11.0.0
+  '@commitlint/config-conventional': 11.0.0
   '@mdx-js/react': ^1.6.22
   '@plaiceholder/base64': ^1.0.0
   '@tailwindcss/typography': ^0.4.1
@@ -1474,7 +1474,7 @@ packages:
     engines: {node: '>=v10.22.0'}
     dependencies:
       '@commitlint/types': 11.0.0
-      chalk: 4.1.0
+      chalk: 4.1.2
     dev: true
 
   /@commitlint/is-ignored/11.0.0:
