@@ -47,7 +47,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/core": "7.15.0",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@types/gtag.js": "^0.0.4",
@@ -56,7 +56,7 @@
     "@types/react": "^17.0.16",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
