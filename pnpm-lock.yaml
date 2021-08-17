@@ -19,7 +19,7 @@ specifiers:
   clsx: ^1.1.1
   cross-env: ^7.0.3
   eslint: ^7.32.0
-  eslint-config-next: ^11.0.1
+  eslint-config-next: 11.1.0
   eslint-config-prettier: ^7.2.0
   eslint-plugin-node: ^11.1.0
   eslint-plugin-prettier: ^3.4.0
@@ -105,7 +105,7 @@ devDependencies:
   babel-preset-react-app: 10.0.0
   cross-env: 7.0.3
   eslint: 7.32.0
-  eslint-config-next: 11.0.1_6d45a603ea96cec02e146b42a2569fc5
+  eslint-config-next: 11.1.0_6d45a603ea96cec02e146b42a2569fc5
   eslint-config-prettier: 7.2.0_eslint@7.32.0
   eslint-plugin-node: 11.1.0_eslint@7.32.0
   eslint-plugin-prettier: 3.4.0_1896108410d6ca413b1fb82810caebba
@@ -1675,8 +1675,10 @@ packages:
     resolution: {integrity: sha512-VKpmDvTYeCpEQjREg3J4pCmVs/QjEzoLmkM8shGFK6e9AmFd0G9QXOL8HGA8qKhy/XmNb7dHeMqrcMiBua4OgA==}
     dev: false
 
-  /@next/eslint-plugin-next/11.0.1:
-    resolution: {integrity: sha512-UzdX3y6XSrj9YuASUb/p4sRvfjP2klj2YgIOfMwrWoLTTPJQMh00hREB9Ftr7m7RIxjVSAaaLXIRLdxvq948GA==}
+  /@next/eslint-plugin-next/11.1.0:
+    resolution: {integrity: sha512-HjLhyshV+ANzTDCFLN1UZMQIyYwZkCdhydfIcOQQVCrqLSd0hCi+AYIGqWfDPhXmP7aeOuKQsmhRmdennQV2qw==}
+    dependencies:
+      glob: 7.1.7
     dev: true
 
   /@next/polyfill-module/11.0.0:
@@ -3273,8 +3275,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-next/11.0.1_6d45a603ea96cec02e146b42a2569fc5:
-    resolution: {integrity: sha512-yy63K4Bmy8amE6VMb26CZK6G99cfVX3JaMTvuvmq/LL8/b8vKHcauUZREBTAQ+2DrIvlH4YrFXrkQ1vpYDL9Eg==}
+  /eslint-config-next/11.1.0_6d45a603ea96cec02e146b42a2569fc5:
+    resolution: {integrity: sha512-8KeBg3qUEhM06vhzvs9MwZl2lsSfu3bm0wa3QVTc9kBdFxSRY6Gu/1GM0FKzWG0sQmWqzjLbynazczu/037Ibw==}
     peerDependencies:
       eslint: ^7.23.0
       next: '>=10.2.0'
@@ -3283,7 +3285,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@next/eslint-plugin-next': 11.0.1
+      '@next/eslint-plugin-next': 11.1.0
       '@rushstack/eslint-patch': 1.0.6
       '@typescript-eslint/parser': 4.29.0_eslint@7.32.0+typescript@4.3.5
       eslint: 7.32.0
