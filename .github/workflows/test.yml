@@ -41,6 +41,3 @@ jobs:
         run: |
           pnpm lint
           pnpx prettier --check .
-
-      - name: Build
-        run: pnpm build
