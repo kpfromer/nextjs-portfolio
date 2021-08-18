@@ -49,7 +49,7 @@ specifiers:
   remark-unwrap-images: ^2.1.0
   sharp: 0.28.3
   start-server-and-test: 1.13.1
-  swr: 0.3.11
+  swr: 0.5.6
   tailwindcss: 2.2.7
   tsconfig-paths-webpack-plugin: 3.5.1
   typescript: 4.3.5
@@ -84,7 +84,7 @@ dependencies:
   remark-math: 3.0.1
   remark-unwrap-images: 2.1.0
   sharp: 0.28.3
-  swr: 0.3.11_react@17.0.2
+  swr: 0.5.6_react@17.0.2
   tailwindcss: 2.2.7_7b69a43ec4689fa7484dee35f79a7806
   unified: 9.2.2
   unist-util-visit: 2.0.3
@@ -6787,8 +6787,8 @@ packages:
       has-flag: 4.0.0
     dev: false
 
-  /swr/0.3.11_react@17.0.2:
-    resolution: {integrity: sha512-ya30LuRGK2R7eDlttnb7tU5EmJYJ+N6ytIOM2j0Hqs0qauJcDjVLDOGy7KmFeH5ivOwLHalFaIyYl2K+SGa7HQ==}
+  /swr/0.5.6_react@17.0.2:
+    resolution: {integrity: sha512-Bmx3L4geMZjYT5S2Z6EE6/5Cx6v1Ka0LhqZKq8d6WL2eu9y6gHWz3dUzfIK/ymZVHVfwT/EweFXiYGgfifei3w==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0
     dependencies:
