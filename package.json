@@ -41,7 +41,7 @@
     "sharp": "0.28.3",
     "swr": "0.3.11",
     "tailwindcss": "2.2.7",
-    "unified": "9.2.2",
+    "unified": "10.1.0",
     "unist-util-visit": "2.0.3",
     "vfile": "4.2.1",
     "yaml": "1.10.2"
