@@ -42,7 +42,7 @@
     "tailwindcss": "2.2.7",
     "unified": "10.1.0",
     "unist-util-visit": "2.0.3",
-    "vfile": "4.2.1",
+    "vfile": "5.0.2",
     "yaml": "1.10.2"
   },
   "devDependencies": {
