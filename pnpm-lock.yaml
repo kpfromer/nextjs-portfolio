@@ -4,7 +4,7 @@ specifiers:
   '@babel/core': 7.15.0
   '@commitlint/cli': 13.1.0
   '@commitlint/config-conventional': 13.1.0
-  '@mdx-js/react': ^1.6.22
+  '@mdx-js/react': 1.6.22
   '@plaiceholder/base64': 1.0.0
   '@tailwindcss/typography': 0.4.1
   '@types/gtag.js': 0.0.7
@@ -1578,6 +1578,7 @@ packages:
 
   /@emotion/is-prop-valid/0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+    requiresBuild: true
     dependencies:
       '@emotion/memoize': 0.7.4
     dev: false
@@ -3815,6 +3816,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: false
     optional: true
 
