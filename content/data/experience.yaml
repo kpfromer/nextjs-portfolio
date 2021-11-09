@@ -5,10 +5,10 @@ titles:
 
 experience:
   # Big Companies
-  - companyName: Facebook
+  - companyName: Meta
     title: Returning Software Engineer Intern
     location: Menlo Park, California
-    logo: /assets/experience/facebook.svg
+    logo: /assets/experience/meta.svg
     type: work
 
   - companyName: Facebook
