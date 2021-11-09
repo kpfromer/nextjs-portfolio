@@ -17,6 +17,7 @@ import Page from '@components/Page';
 import Preview from '@components/Blog/Preview';
 import Project from '@components/Project';
 import SocialLinks from '@components/SocialLinks';
+import SvgWave from '@components/SvgWave';
 import backgroundImage from '../public/assets/crested-butte-2016-07-14.jpg';
 import { fetchRepos } from '@lib/github';
 import info from '@configs/info';
@@ -91,12 +92,10 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects, ghProjects }) 
             className="w-full h-full"
           />
         </div>
-
         <div
           className="absolute top-0 left-0 right-0 bottom-0"
           style={{ zIndex: -1, backgroundColor: '#000000aa' }}
         />
-
         <div className="m-auto pt-12">
           <div className="space-y-4 text-center flex flex-col justify-center items-center">
             <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
@@ -121,6 +120,8 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects, ghProjects }) 
             <SocialLinks color="text-white" />
           </div>
         </div>
+
+        <SvgWave />
       </div>
 
       <Header />
