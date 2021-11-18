@@ -1,10 +1,11 @@
-import IconButton from '@components/IconButton';
-import Container from '@components/Container';
-import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
-import NextLink from 'next/link';
+import { FiMenu, FiMoon, FiSun } from 'react-icons/fi';
 import { HTMLAttributes, useState } from 'react';
-import { useDarkMode } from '@utils/dark-mode-provider';
+
+import Container from '@components/Container';
+import IconButton from '@components/IconButton';
+import NextLink from 'next/link';
 import classnames from 'clsx';
+import { useDarkMode } from '@utils/dark-mode-provider';
 
 const NavLink: React.FC<
   Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> & { href: string; mobile?: boolean }
@@ -33,11 +34,11 @@ const Header: React.FC<HeaderProps> = () => {
         />
 
         <div className="hidden sm:flex sm:flex-row sm:space-x-3">
-          <NavLink href="/#top">Home</NavLink>
-          <NavLink href="/#blog">Blog</NavLink>
-          <NavLink href="/#experience">Experience</NavLink>
-          <NavLink href="/#projects">Projects</NavLink>
-          <NavLink href="/#contact">Contact</NavLink>
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="/resume">Resume</NavLink>
+          <NavLink href="/projects">Projects</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </div>
 
         <div className="flex-grow" />
@@ -53,16 +54,16 @@ const Header: React.FC<HeaderProps> = () => {
           <NavLink href="/" mobile onClick={() => setVisible(false)}>
             Home
           </NavLink>
-          <NavLink href="/#blog" mobile onClick={() => setVisible(false)}>
+          <NavLink href="/blog" mobile onClick={() => setVisible(false)}>
             Blog
           </NavLink>
-          <NavLink href="/#experience" mobile onClick={() => setVisible(false)}>
+          <NavLink href="/resume" mobile onClick={() => setVisible(false)}>
             Experience
           </NavLink>
-          <NavLink href="/#projects" mobile onClick={() => setVisible(false)}>
+          <NavLink href="/projects" mobile onClick={() => setVisible(false)}>
             Projects
           </NavLink>
-          <NavLink href="/#contact" mobile onClick={() => setVisible(false)}>
+          <NavLink href="/contact" mobile onClick={() => setVisible(false)}>
             Contact
           </NavLink>
         </div>
