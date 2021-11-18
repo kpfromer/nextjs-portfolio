@@ -31,7 +31,7 @@ specifiers:
   lint-staged: 11.1.2
   luxon: 1.28.0
   next: 12.0.3
-  next-mdx-remote: 3.0.4
+  next-mdx-remote: 3.0.8
   next-seo: 4.26.0
   npm-run-all: 4.1.5
   postcss: 8.3.6
@@ -68,7 +68,7 @@ dependencies:
   katex: 0.13.13
   luxon: 1.28.0
   next: 12.0.3_5e2815e526de854f91ec2f52a356f2c5
-  next-mdx-remote: 3.0.4_react-dom@17.0.2+react@17.0.2
+  next-mdx-remote: 3.0.8_react-dom@17.0.2+react@17.0.2
   next-seo: 4.26.0_72b2f1fb664d51f286fb64a58e104b48
   postcss: 8.3.6
   preact: 10.5.14
@@ -1578,6 +1578,7 @@ packages:
 
   /@emotion/is-prop-valid/0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+    requiresBuild: true
     dependencies:
       '@emotion/memoize': 0.7.4
     dev: false
@@ -3815,6 +3816,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -5033,8 +5035,8 @@ packages:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
 
-  /next-mdx-remote/3.0.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-n/xN6GaeBgJiuTJDrG6iqJ2EY5rEZ99Vf2H1nc75MNn1a6XnZLgT6uQJxqbSN84svc9aU3CSxfRlOqgqVVPHIg==}
+  /next-mdx-remote/3.0.8_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-WFSxt0crxG5PN/0WvaunzxzqV3wh3dPBZyhkclxwyQfLSRKzsNSArzot/4gYTOOZ/GtyRfNjbI/HtDsW2S4fqQ==}
     peerDependencies:
       react: '>=16.x <=17.x'
       react-dom: '>=16.x <=17.x'
