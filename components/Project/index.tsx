@@ -1,15 +1,14 @@
 import { HTMLMotionProps, motion } from 'framer-motion';
 
 import { FiGithub } from 'react-icons/fi';
+import { HTMLProps } from 'react';
 import IconButton from '@components/IconButton';
 import Img from 'next/image';
 import NextLink from 'next/link';
 import { ProjectData } from '@lib/projects';
 import classnames from 'clsx';
 
-export interface ProjectProps
-  extends Omit<HTMLMotionProps<'div'>, keyof ProjectData>,
-    ProjectData {}
+export type ProjectProps = HTMLProps<HTMLDivElement> & ProjectData;
 
 const Project: React.FC<ProjectProps> = ({
   title,
@@ -21,18 +20,12 @@ const Project: React.FC<ProjectProps> = ({
   ...props
 }) => {
   return (
-    <motion.div
+    <div
       {...props}
       className={classnames(
-        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full',
+        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full border border-gray-300',
         props.className,
       )}
-      style={{
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
-      }}
-      whileHover={{
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-      }}
     >
       <div className="overflow-hidden rounded-lg">
         <Img layout="responsive" {...image} alt={imageAlt} className="bg-white" />
@@ -62,7 +55,7 @@ const Project: React.FC<ProjectProps> = ({
           />
         </NextLink>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

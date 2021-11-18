@@ -53,6 +53,11 @@ export const getStaticProps: GetStaticProps = async () => {
       projects,
       ghProjects,
     } as HomeProps,
+
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 600 seconds (10 minutes)
+    revalidate: 600, // In seconds
   };
 };
 
@@ -132,8 +137,7 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects, ghProjects }) 
         </p>
 
         <Heading id="blog">Blog Posts</Heading>
-
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           {posts.map((post) => (
             <NextLink href={`/blog/${post.slug}`} key={post.slug}>
               <a>
@@ -188,15 +192,13 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects, ghProjects }) 
         </a>
 
         <Heading id="projects">Projects</Heading>
-
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           {projects.map((project) => (
             <Project key={project.title} {...project} className="h-full" />
           ))}
         </div>
 
         <Heading id="projects">Popular Github Projects</Heading>
-
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 my-3 max-w-5xl">
           {ghProjects.map((project) => (
             <GithubProject project={project} />

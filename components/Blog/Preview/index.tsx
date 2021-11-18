@@ -1,16 +1,14 @@
-import { HTMLMotionProps, motion } from 'framer-motion';
-
 import { BlogPostFrontmatter } from '@lib/blog';
 import { DateTime } from 'luxon';
+import { HTMLProps } from 'react';
 import Img from 'next/image';
 import { ImgPlaceholder } from '@lib/placeholder';
 import classnames from 'clsx';
 
-export interface PreviewProps
-  extends Omit<HTMLMotionProps<'div'>, keyof BlogPostFrontmatter>,
-    BlogPostFrontmatter {
-  coverImagePlaceholder: ImgPlaceholder;
-}
+export type PreviewProps = HTMLProps<HTMLDivElement> &
+  BlogPostFrontmatter & {
+    coverImagePlaceholder: ImgPlaceholder;
+  };
 
 const Preview: React.FC<PreviewProps> = ({
   title,
@@ -21,18 +19,12 @@ const Preview: React.FC<PreviewProps> = ({
   ...props
 }) => {
   return (
-    <motion.div
+    <div
       {...props}
       className={classnames(
-        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full',
+        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full border border-gray-300',
         props.className,
       )}
-      style={{
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
-      }}
-      whileHover={{
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-      }}
     >
       <div className="overflow-hidden rounded-lg">
         <Img
@@ -50,7 +42,7 @@ const Preview: React.FC<PreviewProps> = ({
         <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
         <p className="text-md mt-2">{DateTime.fromISO(created).toFormat('DDD')}</p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

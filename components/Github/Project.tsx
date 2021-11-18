@@ -28,7 +28,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
   const updatedAt = DateTime.fromISO(project.updatedAt);
   return (
     <div
-      className="rounded-md border border-gray-200 dark:border-gray-700 p-3 text-gray-600 dark:text-gray-100 dark:bg-gray-900 flex flex-col transition-colors"
+      className="rounded-md border border-gray-300 dark:border-gray-700 p-3 text-gray-600 dark:text-gray-100 dark:bg-gray-900 flex flex-col transition-colors"
       style={{ fontSize: '.8em' }}
     >
       <a
@@ -47,7 +47,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
       <div className="flex space-x-3">
         <div className="flex align-middle items-center">
           <span
-            className="inline-block w-4 h-4 rounded-full"
+            className="inline-block w-3 h-3 rounded-full"
             style={{ backgroundColor: project.language.color }}
           />
           <span className="ml-2">{project.language.name}</span>
