@@ -1,24 +1,27 @@
+import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
+import { ExperienceData, getExperience } from '@lib/experience';
+import { ImgPlaceholder, generatePlaceholder } from '@lib/placeholder';
+import { ProjectData, getProjects } from '@lib/projects';
+
+import ContactForm from '@components/ContactForm';
+import Container from '@components/Container';
+import type { GetStaticProps } from 'next';
+import GithubProject from '../components/Github/Project';
+import { HTMLAttributes } from 'react';
 import Header from '@components/Header';
-import Page from '@components/Page';
-import Preview from '@components/Blog/Preview';
+import Img from 'next/image';
+import { MDXRemote } from 'next-mdx-remote';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
-import type { GetStaticProps } from 'next';
-import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
-import Container from '@components/Container';
-import SocialLinks from '@components/SocialLinks';
-import { otherMdxComponents } from '@utils/mdx';
-import { MDXRemote } from 'next-mdx-remote';
-import { ExperienceData, getExperience } from '@lib/experience';
-import ContactForm from '@components/ContactForm';
-import info from '@configs/info';
-import { HTMLAttributes } from 'react';
-import { getProjects, ProjectData } from '@lib/projects';
+import Page from '@components/Page';
+import Preview from '@components/Blog/Preview';
 import Project from '@components/Project';
-import Img from 'next/image';
-import { generatePlaceholder, ImgPlaceholder } from '@lib/placeholder';
-import meImage from '../public/assets/kyle-pfromer.jpg';
+import SocialLinks from '@components/SocialLinks';
 import backgroundImage from '../public/assets/crested-butte-2016-07-14.jpg';
+import { fetchRepos } from '@lib/github';
+import info from '@configs/info';
+import meImage from '../public/assets/kyle-pfromer.jpg';
+import { otherMdxComponents } from '@utils/mdx';
 
 const Heading: React.FC<
   HTMLAttributes<HTMLHeadingElement> & { as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' }
@@ -41,12 +44,14 @@ export const getStaticProps: GetStaticProps = async () => {
   );
   const experience = await getExperience();
   const projects = await getProjects();
+  const ghProjects = await fetchRepos('STARGAZERS', 12);
 
   return {
     props: {
       posts,
       experience,
       projects,
+      ghProjects,
     } as HomeProps,
   };
 };
@@ -60,9 +65,12 @@ export interface HomeProps {
   posts: (BlogPostFrontmatter & { coverImagePlaceholder: ImgPlaceholder })[];
   experience: ExperienceData;
   projects: ProjectData[];
+
+  ghProjects: any[];
 }
 
-const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
+const Home: React.FC<HomeProps> = ({ posts, experience, projects, ghProjects }) => {
+  console.log(ghProjects);
   return (
     <Page title="Home" description="Learn more about me.">
       <div className="relative flex h-screen" style={{ zIndex: 1 }}>
@@ -184,6 +192,14 @@ const Home: React.FC<HomeProps> = ({ posts, experience, projects }) => {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
           {projects.map((project) => (
             <Project key={project.title} {...project} className="h-full" />
+          ))}
+        </div>
+
+        <Heading id="projects">Popular Github Projects</Heading>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 my-3 max-w-5xl">
+          {ghProjects.map((project) => (
+            <GithubProject project={project} />
           ))}
         </div>
 
