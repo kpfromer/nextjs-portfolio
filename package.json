@@ -23,7 +23,7 @@
     "framer-motion": "3.10.6",
     "gray-matter": "4.0.3",
     "image-size": "1.0.0",
-    "katex": "0.13.13",
+    "katex": "0.15.1",
     "luxon": "1.28.0",
     "next": "12.0.3",
     "next-mdx-remote": "3.0.8",

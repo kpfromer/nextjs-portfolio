@@ -27,7 +27,7 @@ specifiers:
   gray-matter: 4.0.3
   husky: 4.3.8
   image-size: 1.0.0
-  katex: 0.13.13
+  katex: 0.15.1
   lint-staged: 11.1.2
   luxon: 1.28.0
   next: 12.0.3
@@ -65,7 +65,7 @@ dependencies:
   framer-motion: 3.10.6_react-dom@17.0.2+react@17.0.2
   gray-matter: 4.0.3
   image-size: 1.0.0
-  katex: 0.13.13
+  katex: 0.15.1
   luxon: 1.28.0
   next: 12.0.3_5e2815e526de854f91ec2f52a356f2c5
   next-mdx-remote: 3.0.8_react-dom@17.0.2+react@17.0.2
@@ -2800,6 +2800,11 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
+  /commander/8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: false
+
   /commondir/1.0.1:
     resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
 
@@ -4665,11 +4670,11 @@ packages:
       commander: 2.20.3
     dev: false
 
-  /katex/0.13.13:
-    resolution: {integrity: sha512-cCMcil4jwMm7behpXGiQfXJA29sko/Gd/26iCsr53Dv5Jn2iHbHyEb14dm9uVrIijUXx6Zz1WhlFhHE6DckvkQ==}
+  /katex/0.15.1:
+    resolution: {integrity: sha512-KIk+gizli0gl1XaJlCYS8/donGMbzXYTka6BbH3AgvDJTOwyDY4hJ+YmzJ1F0y/3XzX5B9ED8AqB2Hmn2AZ0uA==}
     hasBin: true
     dependencies:
-      commander: 6.2.1
+      commander: 8.3.0
     dev: false
 
   /kind-of/6.0.3:
