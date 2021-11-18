@@ -7,7 +7,7 @@ specifiers:
   '@mdx-js/react': ^1.6.22
   '@plaiceholder/base64': 1.0.0
   '@tailwindcss/typography': 0.4.1
-  '@types/gtag.js': 0.0.7
+  '@types/gtag.js': 0.0.8
   '@types/luxon': 1.27.1
   '@types/node': 14.17.10
   '@types/react': 17.0.18
@@ -91,7 +91,7 @@ devDependencies:
   '@babel/core': 7.15.0
   '@commitlint/cli': 13.1.0
   '@commitlint/config-conventional': 13.1.0
-  '@types/gtag.js': 0.0.7
+  '@types/gtag.js': 0.0.8
   '@types/luxon': 1.27.1
   '@types/node': 14.17.10
   '@types/react': 17.0.18
@@ -1896,8 +1896,8 @@ packages:
       tailwindcss: 2.2.7_7b69a43ec4689fa7484dee35f79a7806
     dev: false
 
-  /@types/gtag.js/0.0.7:
-    resolution: {integrity: sha512-Kl5beBoB0OXw7WeFgHHpLEchvC7HyIu3v1AksNNTemAF6jmEmQGqhZQSHcG6BOU/Lq0xsByQNqLzicLPjVkxYQ==}
+  /@types/gtag.js/0.0.8:
+    resolution: {integrity: sha512-xKDygydxruSUNkVbZWjiEbMijz9+xZCLb2yiTiQT88pm5EhIAUhaCo05IZF1HcQc90u4W7cp+7OZNpcJxpyL5g==}
     dev: true
 
   /@types/hast/2.3.4:
