@@ -16,6 +16,10 @@ module.exports = {
           600: '#cc7a29',
           700: '#9f5f1f',
         },
+        naturalGray: {
+          400: '#535353',
+          500: '#1e1e1e',
+        },
       },
 
       fontFamily: {
