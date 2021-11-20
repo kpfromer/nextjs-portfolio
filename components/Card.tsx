@@ -10,8 +10,6 @@ const Card = tw.div`
     text-gray-800
     dark:text-gray-200
 
-    dark:bg-gray-900
-
     rounded-md
     p-4
     h-full

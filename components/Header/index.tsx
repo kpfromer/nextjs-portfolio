@@ -26,7 +26,7 @@ const HeaderContainer = tw.div`
   right-0
   z-10
   bg-gray-50
-  dark:bg-gray-800
+  dark:bg-naturalGray-400
   transition-colors
   duration-500
 `;

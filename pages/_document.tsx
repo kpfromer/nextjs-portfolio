@@ -1,7 +1,9 @@
-import darkModeScript from '@utils/dark-mode-script';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+
 import { GA_TRACKING_ID } from '@utils/gtag';
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import Script from 'next/script';
+import darkModeScript from '@utils/dark-mode-script';
+import tw from 'tailwind-styled-components';
 
 const googleAnalyticsCode = `
 window.dataLayer = window.dataLayer || [];
@@ -11,6 +13,17 @@ gtag('js', new Date());
 gtag('config', '${GA_TRACKING_ID}', {
   page_path: window.location.pathname,
 });
+`;
+
+const Body = tw.body`
+  transition-colors
+  duration-500
+
+  bg-white
+  dark:bg-naturalGray-600
+
+  text-gray-900
+  dark:text-gray-100
 `;
 
 class MyDocument extends Document {
@@ -62,7 +75,7 @@ class MyDocument extends Document {
             </>
           )}
         </Head>
-        <body className="transition-colors duration-500 bg-white text-black dark:bg-gray-900 dark:text-white">
+        <Body>
           <Script
             key="cm"
             dangerouslySetInnerHTML={{ __html: darkModeScript }}
@@ -70,7 +83,7 @@ class MyDocument extends Document {
           />
           <Main />
           <NextScript />
-        </body>
+        </Body>
       </Html>
     );
   }
