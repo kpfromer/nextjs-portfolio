@@ -8,7 +8,7 @@ import { useState } from 'react';
 const Input = tw.input`
   p-2
   border
-  dark:bg-gray-800
+  dark:bg-naturalGray-400
   border-gray-500
   border-opacity-20
   rounded-md
@@ -22,7 +22,7 @@ const Input = tw.input`
 const TextArea = tw.textarea`
   p-2
   border
-  dark:bg-gray-800
+  dark:bg-naturalGray-400
   border-gray-500
   border-opacity-20
   rounded-md

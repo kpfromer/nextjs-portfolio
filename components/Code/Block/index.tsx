@@ -1,5 +1,6 @@
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import Highlight, { Language, defaultProps } from 'prism-react-renderer';
 import React, { HTMLAttributes } from 'react';
+
 import classnames from 'clsx';
 
 export interface CodeBlockProps {
@@ -40,7 +41,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   return (
     <div {...rest} className={classnames('transition-colors duration-500', showTopbar && 'my-3')}>
       {showTopbar && (
-        <div className="text-gray-800 dark:text-gray-200 py-2 px-5 border-t border-l border-r border-gray-100 dark:border-gray-700 rounded-t bg-gray-200 dark:bg-gray-800 font-bold">
+        <div className="text-gray-800 dark:text-gray-200 py-2 px-5 border-t border-l border-r border-gray-100 dark:border-gray-700 rounded-t bg-gray-200 dark:bg-naturalGray-400 font-bold">
           {filename}
         </div>
       )}
@@ -56,7 +57,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           <pre
             style={style}
             className={classnames(
-              'text-gray-200 overflow-x-auto text-sm leading-relaxed py-3 px-5 border bg-gray-50 border-gray-200 dark:border-gray-700 dark:bg-gray-900',
+              'text-gray-200 overflow-x-auto text-sm leading-relaxed py-3 px-5 border bg-gray-50 border-gray-200 dark:border-gray-700 dark:bg-naturalGray-600',
               showTopbar ? 'mt-0 rounded-b' : 'my-3 rounded',
             )}
           >
