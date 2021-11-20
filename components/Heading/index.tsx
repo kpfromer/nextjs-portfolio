@@ -1,5 +1,8 @@
-import { HTMLAttributes } from 'react';
+import tw from 'tailwind-styled-components';
 
-export const Heading: React.FC<
-  HTMLAttributes<HTMLHeadingElement> & { as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' }
-> = ({ as: Type = 'h1', ...props }) => <Type {...props} className="text-5xl font-bold my-8" />;
+export const Heading = tw.h1`
+  text-5xl
+  font-bold
+  my-8
+  text-center
+`;

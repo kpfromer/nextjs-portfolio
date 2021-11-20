@@ -45,7 +45,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ projects, ghProjects }) => {
           ))}
         </div>
 
-        <Heading id="projects">Popular Github Projects</Heading>
+        <Heading id="gh-projects">Popular Github Projects</Heading>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 my-3 max-w-5xl">
           {ghProjects.map((project) => (
             <GithubProject project={project} />
