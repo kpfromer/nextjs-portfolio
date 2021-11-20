@@ -1,6 +1,8 @@
+import Card from '@components/Card';
 import { DateTime } from 'luxon';
 
 export interface ProjectProps {
+  // TODO: typing
   project: any;
 }
 
@@ -27,10 +29,7 @@ const GithubFork = () => (
 const Project: React.FC<ProjectProps> = ({ project }) => {
   const updatedAt = DateTime.fromISO(project.updatedAt);
   return (
-    <div
-      className="rounded-md border border-gray-300 dark:border-gray-700 p-3 text-gray-600 dark:text-gray-100 dark:bg-gray-900 flex flex-col transition-colors"
-      style={{ fontSize: '.8em' }}
-    >
+    <Card>
       <a
         href={project.url}
         target="_blank"
@@ -65,7 +64,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
 
         <div>Updated {updatedAt.toRelative()}</div>
       </div>
-    </div>
+    </Card>
   );
 };
 

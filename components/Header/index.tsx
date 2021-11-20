@@ -5,6 +5,7 @@ import Container from '@components/Container';
 import IconButton from '@components/IconButton';
 import NextLink from 'next/link';
 import classnames from 'clsx';
+import tw from 'tailwind-styled-components';
 import { useDarkMode } from '@utils/dark-mode-provider';
 
 const NavLink: React.FC<
@@ -17,6 +18,19 @@ const NavLink: React.FC<
   </NextLink>
 );
 
+const HeaderContainer = tw.div`
+  py-4
+  sticky
+  top-0
+  left-0
+  right-0
+  z-10
+  bg-gray-50
+  dark:bg-gray-800
+  transition-colors
+  duration-500
+`;
+
 export interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
@@ -24,7 +38,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="py-4 sticky top-0 left-0 right-0 z-10 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+    <HeaderContainer>
       <Container className="flex justify-center items-center">
         <IconButton
           className="sm:hidden"
@@ -68,7 +82,7 @@ const Header: React.FC<HeaderProps> = () => {
           </NavLink>
         </div>
       </Container>
-    </div>
+    </HeaderContainer>
   );
 };
 
