@@ -10,7 +10,7 @@ const SvgWave: React.FC<SvgWaveProps> = () => {
     >
       <svg width="100%" height="100%" fill="none" className="absolute bottom-0 left-0 right-0">
         <path
-          className="fill-current text-gray-50"
+          className="fill-current text-gray-50 transition-colors duration-500 dark:text-gray-800"
           d="
     M0 67
     C 273,183
@@ -24,7 +24,7 @@ const SvgWave: React.FC<SvgWaveProps> = () => {
         >
           <animate
             repeatCount="indefinite"
-            fill="#454599"
+            className="fill-current text-gray-50 transition-colors duration-500 dark:text-gray-800"
             attributeName="d"
             // dur="15s"
             dur="30s"
