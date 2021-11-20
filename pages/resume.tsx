@@ -26,7 +26,7 @@ const SectionContainer = tw.div`
 `;
 
 const SectionTitle = tw.h1`
-  mr-3
+  mx-3
   text-4xl
   font-bold
 `;
@@ -74,6 +74,8 @@ const ResumePage: React.FC<ResumePageProps> = ({ experience }) => {
         {experience.map(({ name, items }) => (
           <div key={name}>
             <SectionContainer>
+              <Seperator />
+
               <SectionTitle>{name}</SectionTitle>
 
               <Seperator />
