@@ -1,14 +1,11 @@
-import { HTMLMotionProps, motion } from 'framer-motion';
-
+import Card from '@components/Card';
 import { FiGithub } from 'react-icons/fi';
-import { HTMLProps } from 'react';
 import IconButton from '@components/IconButton';
 import Img from 'next/image';
 import NextLink from 'next/link';
 import { ProjectData } from '@lib/projects';
-import classnames from 'clsx';
 
-export type ProjectProps = HTMLProps<HTMLDivElement> & ProjectData;
+export type ProjectProps = React.ComponentProps<typeof Card> & ProjectData;
 
 const Project: React.FC<ProjectProps> = ({
   title,
@@ -20,13 +17,7 @@ const Project: React.FC<ProjectProps> = ({
   ...props
 }) => {
   return (
-    <div
-      {...props}
-      className={classnames(
-        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full border border-gray-300',
-        props.className,
-      )}
-    >
+    <Card {...props}>
       <div className="overflow-hidden rounded-lg">
         <Img layout="responsive" {...image} alt={imageAlt} className="bg-white" />
       </div>
@@ -55,7 +46,7 @@ const Project: React.FC<ProjectProps> = ({
           />
         </NextLink>
       </div>
-    </div>
+    </Card>
   );
 };
 
