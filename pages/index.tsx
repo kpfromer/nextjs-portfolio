@@ -1,7 +1,4 @@
-import ContactForm from '@components/ContactForm';
-import Container from '@components/Container';
 import Header from '@components/Header';
-import { Heading } from '@components/Heading';
 import Img from 'next/image';
 import Page from '@components/Page';
 import React from 'react';

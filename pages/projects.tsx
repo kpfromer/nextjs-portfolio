@@ -1,6 +1,5 @@
 import { ProjectData, getProjects } from '@lib/projects';
 
-import Container from '@components/Container';
 import { GetStaticProps } from 'next';
 import GithubProject from '../components/Github/Project';
 import Header from '@components/Header';
@@ -34,24 +33,20 @@ export interface ProjectPageProps {
 
 const ProjectPage: React.FC<ProjectPageProps> = ({ projects, ghProjects }) => {
   return (
-    <Page title="Projects" description="My personal projects.">
-      <Header />
+    <Page title="Projects" description="My personal projects." header={<Header />}>
+      <Heading id="projects">Projects</Heading>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {projects.map((project) => (
+          <Project key={project.title} {...project} className="h-full" />
+        ))}
+      </div>
 
-      <Container className="mt-5">
-        <Heading id="projects">Projects</Heading>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {projects.map((project) => (
-            <Project key={project.title} {...project} className="h-full" />
-          ))}
-        </div>
-
-        <Heading id="gh-projects">Popular Github Projects</Heading>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 my-3 max-w-5xl">
-          {ghProjects.map((project) => (
-            <GithubProject project={project} />
-          ))}
-        </div>
-      </Container>
+      <Heading id="gh-projects">Popular Github Projects</Heading>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 my-3 max-w-5xl">
+        {ghProjects.map((project) => (
+          <GithubProject project={project} />
+        ))}
+      </div>
     </Page>
   );
 };
