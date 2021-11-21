@@ -14,7 +14,7 @@ import tw from 'tailwind-styled-components';
 
 const Seperator = () => (
   <div className="flex flex-grow" role="separator">
-    <div className="my-auto flex-grow h-0.5 bg-gray-700 dark:gray-200" />
+    <div className="my-auto flex-grow h-0.5 bg-gray-500 dark:gray-200" />
   </div>
 );
 
