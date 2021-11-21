@@ -31,14 +31,40 @@ const HeaderContainer = tw.div`
   duration-500
 `;
 
-export interface HeaderProps {}
+export interface HeaderProps {
+  bottomNav?: boolean;
+}
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ bottomNav = false }) => {
   const { mode, toggleMode } = useDarkMode();
   const [visible, setVisible] = useState(false);
 
+  const mobileNav = (
+    <Container className={visible ? 'visible' : 'hidden'}>
+      <div className={classnames('py-2 flex flex-col space-y-2', visible ? 'visible' : 'hidden')}>
+        <NavLink href="/" mobile onClick={() => setVisible(false)}>
+          Home
+        </NavLink>
+        <NavLink href="/blog" mobile onClick={() => setVisible(false)}>
+          Blog
+        </NavLink>
+        <NavLink href="/resume" mobile onClick={() => setVisible(false)}>
+          Experience
+        </NavLink>
+        <NavLink href="/projects" mobile onClick={() => setVisible(false)}>
+          Projects
+        </NavLink>
+        <NavLink href="/contact" mobile onClick={() => setVisible(false)}>
+          Contact
+        </NavLink>
+      </div>
+    </Container>
+  );
+
   return (
     <HeaderContainer>
+      {bottomNav && mobileNav}
+
       <Container className="flex justify-center items-center">
         <IconButton
           className="sm:hidden"
@@ -63,25 +89,8 @@ const Header: React.FC<HeaderProps> = () => {
           onClick={toggleMode}
         />
       </Container>
-      <Container className={visible ? 'visible' : 'hidden'}>
-        <div className={classnames('py-2 flex flex-col space-y-2', visible ? 'visible' : 'hidden')}>
-          <NavLink href="/" mobile onClick={() => setVisible(false)}>
-            Home
-          </NavLink>
-          <NavLink href="/blog" mobile onClick={() => setVisible(false)}>
-            Blog
-          </NavLink>
-          <NavLink href="/resume" mobile onClick={() => setVisible(false)}>
-            Experience
-          </NavLink>
-          <NavLink href="/projects" mobile onClick={() => setVisible(false)}>
-            Projects
-          </NavLink>
-          <NavLink href="/contact" mobile onClick={() => setVisible(false)}>
-            Contact
-          </NavLink>
-        </div>
-      </Container>
+
+      {!bottomNav && mobileNav}
     </HeaderContainer>
   );
 };
