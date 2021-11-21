@@ -34,21 +34,17 @@ export interface BlogPage {
 
 const BlogPage: React.FC<BlogPage> = ({ posts }) => {
   return (
-    <Page title="Projects" description="My personal projects.">
-      <Header />
-
-      <Container className="mt-5">
-        <Heading id="blog">Blog Posts</Heading>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {posts.map((post) => (
-            <NextLink href={`/blog/${post.slug}`} key={post.slug}>
-              <a>
-                <Preview {...post} className="h-full" />
-              </a>
-            </NextLink>
-          ))}
-        </div>
-      </Container>
+    <Page title="Projects" description="My personal projects." header={<Header />}>
+      <Heading id="blog">Blog Posts</Heading>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {posts.map((post) => (
+          <NextLink href={`/blog/${post.slug}`} key={post.slug}>
+            <a>
+              <Preview {...post} className="h-full" />
+            </a>
+          </NextLink>
+        ))}
+      </div>
     </Page>
   );
 };
