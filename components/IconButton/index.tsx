@@ -12,6 +12,7 @@ interface ButtonProps {
   $isFullWidth?: boolean;
 }
 
+// @ts-ignore
 const Button = tw.button<ButtonProps>`
   ${(p) => (p.$isFullWidth ? 'w-full' : 'w-auto')}
   inline-flex
