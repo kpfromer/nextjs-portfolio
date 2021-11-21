@@ -33,7 +33,7 @@ const Home: React.FC<HomeProps> = () => {
           style={{ zIndex: -1, backgroundColor: '#000000aa' }}
         />
         <div className="m-auto">
-          <div className="space-y-4 text-center flex flex-col justify-center items-center -mt-20">
+          <div className="space-y-4 text-center flex flex-col justify-center items-center">
             <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
               <Img
                 src={meImage}

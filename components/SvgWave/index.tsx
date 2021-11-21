@@ -4,10 +4,7 @@ export interface SvgWaveProps {}
 // https://dev.to/theliquidcharcoal/pure-html-animation-animate-svg-with-animate-2a5m
 const SvgWave: React.FC<SvgWaveProps> = () => {
   return (
-    <div
-      // className="absolute bottom-0 left-0 right-0 text-white z-10 overflow-hidden"
-      style={{ height: 140 }}
-    >
+    <div className="invisible md:visible" style={{ height: 140 }}>
       <svg width="100%" height="100%" fill="none" className="absolute bottom-0 left-0 right-0">
         <path
           className="fill-current text-gray-50 transition-colors duration-500 dark:text-naturalGray-400"
