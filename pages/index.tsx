@@ -56,7 +56,7 @@ const Home: React.FC<HomeProps> = () => {
 
         <div className="absolute bottom-0 left-0 right-0">
           <SvgWave />
-          <Header />
+          <Header bottomNav />
         </div>
       </div>
     </Page>
