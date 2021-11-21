@@ -5,9 +5,6 @@ import tw from 'tailwind-styled-components';
 
 const PageContainer = tw.div`
   pb-3
-  px-2
-  sm:px-3
-  md:px-0
 `;
 
 export interface PageProps extends NextSeoProps {
