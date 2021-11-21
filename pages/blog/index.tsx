@@ -1,7 +1,6 @@
 import { BlogPostFrontmatter, getAllBlogPostsFrontmatter } from '@lib/blog';
 import { ImgPlaceholder, generatePlaceholder } from '@lib/placeholder';
 
-import Container from '@components/Container';
 import { GetStaticProps } from 'next';
 import Header from '@components/Header';
 import { Heading } from '@components/Heading';
