@@ -1,6 +1,5 @@
 import { ExperienceData, getExperience } from '@lib/experience';
 
-import Container from '@components/Container';
 import { GetStaticProps } from 'next';
 import Header from '@components/Header';
 import { Heading } from '@components/Heading';
@@ -65,56 +64,52 @@ export interface ResumePageProps {
 
 const ResumePage: React.FC<ResumePageProps> = ({ experience }) => {
   return (
-    <Page title="Resume" description="My online resume.">
-      <Header />
+    <Page title="Resume" description="My online resume." header={<Header />}>
+      <Heading id="experience">Experience</Heading>
 
-      <Container className="mt-5">
-        <Heading id="experience">Experience</Heading>
+      {experience.map(({ name, items }) => (
+        <div key={name}>
+          <SectionContainer>
+            <Seperator />
 
-        {experience.map(({ name, items }) => (
-          <div key={name}>
-            <SectionContainer>
-              <Seperator />
+            <SectionTitle>{name}</SectionTitle>
 
-              <SectionTitle>{name}</SectionTitle>
+            <Seperator />
+          </SectionContainer>
 
-              <Seperator />
-            </SectionContainer>
+          <ExperienceGrid>
+            {items.map(({ companyName, title, location, logo, content }) => (
+              <ExperienceItem key={companyName}>
+                <div>
+                  <ExperienceItemTitle>{companyName}</ExperienceItemTitle>
+                  <h3 className="mt-2 text-xl font-bold">
+                    {title} · {location}
+                  </h3>
 
-            <ExperienceGrid>
-              {items.map(({ companyName, title, location, logo, content }) => (
-                <ExperienceItem key={companyName}>
-                  <div>
-                    <ExperienceItemTitle>{companyName}</ExperienceItemTitle>
-                    <h3 className="mt-2 text-xl font-bold">
-                      {title} · {location}
-                    </h3>
+                  {content && (
+                    <div className="pt-3">
+                      <MDXRemote {...content} components={otherMdxComponents} />
+                    </div>
+                  )}
+                </div>
 
-                    {content && (
-                      <div className="pt-3">
-                        <MDXRemote {...content} components={otherMdxComponents} />
-                      </div>
-                    )}
-                  </div>
+                <div className="flex">
+                  {logo && (
+                    <div className="m-auto">
+                      {/* TODO: placeholder */}
+                      <NextImage src={logo} layout="fixed" width={64} height={64} />
+                    </div>
+                  )}
+                </div>
+              </ExperienceItem>
+            ))}
+          </ExperienceGrid>
+        </div>
+      ))}
 
-                  <div className="flex">
-                    {logo && (
-                      <div className="m-auto">
-                        {/* TODO: placeholder */}
-                        <NextImage src={logo} layout="fixed" width={64} height={64} />
-                      </div>
-                    )}
-                  </div>
-                </ExperienceItem>
-              ))}
-            </ExperienceGrid>
-          </div>
-        ))}
-
-        <a rel="noopener" target="_blank" href={info.resume} className="my-5 btn-primary">
-          View Resume
-        </a>
-      </Container>
+      <a rel="noopener" target="_blank" href={info.resume} className="my-5 btn-primary">
+        View Resume
+      </a>
     </Page>
   );
 };
