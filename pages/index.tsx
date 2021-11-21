@@ -32,7 +32,7 @@ const Home: React.FC<HomeProps> = () => {
           className="absolute top-0 left-0 right-0 bottom-0"
           style={{ zIndex: -1, backgroundColor: '#000000aa' }}
         />
-        <div className="m-auto">
+        <div className="m-auto z-10">
           <div className="space-y-4 text-center flex flex-col justify-center items-center">
             <div className="overflow-hidden rounded-full" style={{ height: 200, width: 200 }}>
               <Img
