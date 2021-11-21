@@ -1,18 +1,36 @@
 import { NextSeo, NextSeoProps } from 'next-seo';
-import classnames from 'clsx';
-import { HTMLAttributes } from 'react';
+
+import Container from '@components/Container';
+import tw from 'tailwind-styled-components';
+
+const PageContainer = tw.div`
+  pb-3
+`;
 
 export interface PageProps extends NextSeoProps {
-  containerProps?: HTMLAttributes<HTMLDivElement>;
+  noContainer?: boolean;
+  containerProps?: React.ComponentProps<typeof PageContainer>;
+  header?: React.ReactChild;
 }
 
-const Page: React.FC<PageProps> = ({ children, containerProps, ...seo }) => {
+const Page: React.FC<PageProps> = ({
+  children,
+  noContainer = false,
+  containerProps,
+  header,
+  ...seo
+}) => {
   return (
     <>
       <NextSeo {...seo} />
-      <div {...containerProps} className={classnames(containerProps?.className, 'pb-3')}>
-        {children}
-      </div>
+      {header}
+      {noContainer ? (
+        children
+      ) : (
+        <PageContainer {...containerProps}>
+          <Container>{children}</Container>
+        </PageContainer>
+      )}
     </>
   );
 };

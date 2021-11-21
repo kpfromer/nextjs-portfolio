@@ -1,10 +1,12 @@
-import IconButton from '@components/IconButton';
-import Container from '@components/Container';
-import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
-import NextLink from 'next/link';
+import { FiMenu, FiMoon, FiSun } from 'react-icons/fi';
 import { HTMLAttributes, useState } from 'react';
-import { useDarkMode } from '@utils/dark-mode-provider';
+
+import Container from '@components/Container';
+import IconButton from '@components/IconButton';
+import NextLink from 'next/link';
 import classnames from 'clsx';
+import tw from 'tailwind-styled-components';
+import { useDarkMode } from '@utils/dark-mode-provider';
 
 const NavLink: React.FC<
   Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> & { href: string; mobile?: boolean }
@@ -16,14 +18,53 @@ const NavLink: React.FC<
   </NextLink>
 );
 
-export interface HeaderProps {}
+const HeaderContainer = tw.div`
+  py-4
+  sticky
+  top-0
+  left-0
+  right-0
+  z-10
+  bg-gray-50
+  dark:bg-naturalGray-400
+  transition-colors
+  duration-500
+`;
 
-const Header: React.FC<HeaderProps> = () => {
+export interface HeaderProps {
+  bottomNav?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ bottomNav = false }) => {
   const { mode, toggleMode } = useDarkMode();
   const [visible, setVisible] = useState(false);
 
+  const mobileNav = (
+    <Container className={visible ? 'visible' : 'hidden'}>
+      <div className={classnames('py-2 flex flex-col space-y-2', visible ? 'visible' : 'hidden')}>
+        <NavLink href="/" mobile onClick={() => setVisible(false)}>
+          Home
+        </NavLink>
+        <NavLink href="/blog" mobile onClick={() => setVisible(false)}>
+          Blog
+        </NavLink>
+        <NavLink href="/resume" mobile onClick={() => setVisible(false)}>
+          Experience
+        </NavLink>
+        <NavLink href="/projects" mobile onClick={() => setVisible(false)}>
+          Projects
+        </NavLink>
+        <NavLink href="/contact" mobile onClick={() => setVisible(false)}>
+          Contact
+        </NavLink>
+      </div>
+    </Container>
+  );
+
   return (
-    <div className="py-4 sticky top-0 left-0 right-0 z-10 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+    <HeaderContainer>
+      {bottomNav && mobileNav}
+
       <Container className="flex justify-center items-center">
         <IconButton
           className="sm:hidden"
@@ -33,11 +74,11 @@ const Header: React.FC<HeaderProps> = () => {
         />
 
         <div className="hidden sm:flex sm:flex-row sm:space-x-3">
-          <NavLink href="/#top">Home</NavLink>
-          <NavLink href="/#blog">Blog</NavLink>
-          <NavLink href="/#experience">Experience</NavLink>
-          <NavLink href="/#projects">Projects</NavLink>
-          <NavLink href="/#contact">Contact</NavLink>
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="/resume">Resume</NavLink>
+          <NavLink href="/projects">Projects</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </div>
 
         <div className="flex-grow" />
@@ -48,26 +89,9 @@ const Header: React.FC<HeaderProps> = () => {
           onClick={toggleMode}
         />
       </Container>
-      <Container className={visible ? 'visible' : 'hidden'}>
-        <div className={classnames('py-2 flex flex-col space-y-2', visible ? 'visible' : 'hidden')}>
-          <NavLink href="/" mobile onClick={() => setVisible(false)}>
-            Home
-          </NavLink>
-          <NavLink href="/#blog" mobile onClick={() => setVisible(false)}>
-            Blog
-          </NavLink>
-          <NavLink href="/#experience" mobile onClick={() => setVisible(false)}>
-            Experience
-          </NavLink>
-          <NavLink href="/#projects" mobile onClick={() => setVisible(false)}>
-            Projects
-          </NavLink>
-          <NavLink href="/#contact" mobile onClick={() => setVisible(false)}>
-            Contact
-          </NavLink>
-        </div>
-      </Container>
-    </div>
+
+      {!bottomNav && mobileNav}
+    </HeaderContainer>
   );
 };
 

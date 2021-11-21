@@ -1,11 +1,10 @@
 import { BlogPostFrontmatter } from '@lib/blog';
+import Card from '@components/Card';
 import { DateTime } from 'luxon';
-import { HTMLProps } from 'react';
 import Img from 'next/image';
 import { ImgPlaceholder } from '@lib/placeholder';
-import classnames from 'clsx';
 
-export type PreviewProps = HTMLProps<HTMLDivElement> &
+export type PreviewProps = React.ComponentProps<typeof Card> &
   BlogPostFrontmatter & {
     coverImagePlaceholder: ImgPlaceholder;
   };
@@ -19,13 +18,7 @@ const Preview: React.FC<PreviewProps> = ({
   ...props
 }) => {
   return (
-    <div
-      {...props}
-      className={classnames(
-        'flex flex-col bg-white dark:bg-gray-700 rounded-md p-4 h-full border border-gray-300',
-        props.className,
-      )}
-    >
+    <Card {...props}>
       <div className="overflow-hidden rounded-lg">
         <Img
           className="bg-white"
@@ -42,7 +35,7 @@ const Preview: React.FC<PreviewProps> = ({
         <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
         <p className="text-md mt-2">{DateTime.fromISO(created).toFormat('DDD')}</p>
       </div>
-    </div>
+    </Card>
   );
 };
 

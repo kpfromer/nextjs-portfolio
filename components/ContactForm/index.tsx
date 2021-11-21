@@ -1,8 +1,43 @@
-import Icon from '@components/Icon';
+import Button from '@components/Button';
 import { FiMail } from 'react-icons/fi';
-import { useState } from 'react';
-import classnames from 'clsx';
+import Icon from '@components/Icon';
+import tw from 'tailwind-styled-components';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+
+const Input = tw.input`
+  p-2
+  border
+  dark:bg-naturalGray-400
+  border-gray-500
+  border-opacity-20
+  rounded-md
+  focus:outline-none
+  focus:ring-2
+  focus:ring-primary-500
+  focus:border-transparent
+  shadow
+`;
+
+const TextArea = tw.textarea`
+  p-2
+  border
+  dark:bg-naturalGray-400
+  border-gray-500
+  border-opacity-20
+  rounded-md
+  focus:outline-none
+  focus:ring-2
+  focus:ring-primary-500
+  focus:border-transparent
+  shadow
+`;
+
+const InputContainer = tw.div`
+  flex
+  flex-col
+  space-y-3
+`;
 
 type FormData = {
   email: string;
@@ -37,15 +72,14 @@ const ContactForm: React.FC<ContactFormProps> = () => {
         </div>
       )}
 
-      <div className="flex flex-col space-y-3">
+      <InputContainer>
         <label htmlFor="email" className="font-bold">
           Email address*
         </label>
-        <input
+        <Input
           id="email"
           type="email"
           name="email"
-          className="p-2 border dark:bg-gray-800 border-gray-500 border-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow"
           disabled={status === 'good'}
           required
           ref={register}
@@ -53,31 +87,25 @@ const ContactForm: React.FC<ContactFormProps> = () => {
         <span className="block text-gray-600 dark:text-gray-200">
           I will never share your email. It's just used for me to reply.
         </span>
-      </div>
+      </InputContainer>
 
-      <div className="flex flex-col space-y-3">
+      <InputContainer>
         <label htmlFor="message" className="font-bold">
           Message*
         </label>
-        <textarea
+        <TextArea
           id="message"
           name="message"
-          className="p-2 border dark:bg-gray-800 border-gray-500 border-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow"
           disabled={status === 'good'}
           required
           ref={register}
         />
-      </div>
+      </InputContainer>
 
       <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
-      <button
-        className={classnames(
-          status === 'pending' || status === 'error'
-            ? 'btn-primary'
-            : 'btn-disabled cursor-default',
-          'transition-colors flex-grow md:flex-grow-0 ml-0 md:ml-auto',
-        )}
+      <Button
+        $disabled={!(status === 'pending' || status === 'error')}
         disabled={status === 'good'}
         type="submit"
       >
@@ -88,7 +116,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
         ) : (
           'Sent!'
         )}
-      </button>
+      </Button>
     </form>
   );
 };
