@@ -1,6 +1,6 @@
 titles:
   work: Work
-  # startup: Startups
+  startup: Startups
   club: Clubs
 
 experience:
@@ -47,6 +47,7 @@ experience:
   - companyName: Fairview H.S. Web Team
     title: Webmaster
     location: Boulder, Colorado
+    logo: /assets/experience/webteam-full.jpg
     type: club
     content: |
       - Programmed and co-managed an organization of 8 members which maintained Fairview High School's student-run website, written with Ruby On Rails and has over 400,000 lines of code and nearly 5,000 commits; on average it served over 100,000 weekly page views from students, staff, and parents.
@@ -54,12 +55,13 @@ experience:
       - Created Silent Auction, a responsive web application written for the school's National Honor Society used by parents and students to bid on charity items.
 
   # Startups
-  - companyName: Shivoo
+  - companyName: Spore
     title: Fullstack Engineer
-    location: Boulder, Colorado
-    logo: /assets/experience/shivoo.png
+    location: Golden, Colorado
+    logo: /assets/experience/spore.svg
     type: startup
     content: |
-      - Creating a website that coordinates event creation that's targeted at college campuses.
-      - Developed the website using Next.js.
-        - Connected with headless CMS to enable marketing team to edit website content without programmer intervention.
+      - Worked on Kubernetes backend infrastructure.
+      - Integrated Kubernetes with FluxCD to move to a GitOps workflow.
+      - Enabled seamless deployment of applications via GitHub Actions CI.
+    # - Implemented backups for ScyllaDB.
