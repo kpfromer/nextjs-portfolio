@@ -27,7 +27,8 @@ const Button = tw.button<ButtonProps>`
   outline-none
 `;
 
-export interface IconButtonProps extends React.ComponentProps<typeof Button> {
+export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  as?: string;
   icon?: React.ReactElement;
   overrideClassName?: boolean;
 }
