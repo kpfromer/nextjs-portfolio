@@ -55,13 +55,13 @@ experience:
       - Created Silent Auction, a responsive web application written for the school's National Honor Society used by parents and students to bid on charity items.
 
   # Startups
-  - companyName: Spore
-    title: Fullstack Engineer
+  - companyName: Truffle
+    title: DevOps Engineer
     location: Golden, Colorado
-    logo: /assets/experience/spore.svg
+    logo: /assets/experience/truffle.svg
     type: startup
     content: |
+      - Worked at Truffle (originally called Spore), a creator space startup, as a DevOps Engineer.
       - Worked on Kubernetes backend infrastructure.
       - Integrated Kubernetes with FluxCD to move to a GitOps workflow.
-      - Enabled seamless deployment of applications via GitHub Actions CI.
-    # - Implemented backups for ScyllaDB.
+      - Made application deployment completely automated with manual promotion from staging to production.
