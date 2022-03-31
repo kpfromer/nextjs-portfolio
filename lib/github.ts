@@ -6,7 +6,7 @@ export const fetchRepos = async (sort: SortType, limit: number) => {
   // https://docs.github.com/en/graphql/reference/objects#repository
   const { user } = await graphql(
     `
-      query ($username: String!, $sort: String, $limit: Int) {
+      query ($username: String!, $sort: RepositoryOrderField!, $limit: Int) {
         user(login: $username) {
           repositories(
             first: $limit
