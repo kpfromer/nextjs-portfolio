@@ -55,7 +55,7 @@ specifiers:
   tailwindcss: 3.0.23
   tsconfig-paths-webpack-plugin: 3.5.2
   typescript: 4.5.2
-  unified: 10.1.0
+  unified: 10.1.2
   unist-util-visit: 2.0.3
   vfile: 5.2.0
   whatwg-fetch: 3.6.2
@@ -91,7 +91,7 @@ dependencies:
   sharp: 0.29.0
   tailwind-styled-components: 2.1.6_react-dom@17.0.2+react@17.0.2
   tailwindcss: 3.0.23_autoprefixer@10.3.1
-  unified: 10.1.0
+  unified: 10.1.2
   unist-util-visit: 2.0.3
   vfile: 5.2.0
   yaml: 1.10.2
@@ -5485,7 +5485,7 @@ packages:
       hast-util-to-text: 3.1.1
       katex: 0.15.1
       rehype-parse: 8.0.4
-      unified: 10.1.0
+      unified: 10.1.2
       unist-util-remove-position: 4.0.1
       unist-util-visit: 4.1.0
     dev: false
@@ -5496,14 +5496,14 @@ packages:
       '@types/hast': 2.3.4
       hast-util-from-parse5: 7.1.0
       parse5: 6.0.1
-      unified: 10.1.0
+      unified: 10.1.2
 
   /rehype-stringify/9.0.3:
     resolution: {integrity: sha512-kWiZ1bgyWlgOxpqD5HnxShKAdXtb2IUljn3hQAhySeak6IOQPPt6DeGnsIh4ixm7yKJWzm8TXFuC/lPfcWHJqw==}
     dependencies:
       '@types/hast': 2.3.4
       hast-util-to-html: 8.0.3
-      unified: 10.1.0
+      unified: 10.1.2
     dev: true
 
   /rehype/12.0.0:
@@ -5512,7 +5512,7 @@ packages:
       '@types/hast': 2.3.4
       rehype-parse: 8.0.4
       rehype-stringify: 9.0.3
-      unified: 10.1.0
+      unified: 10.1.2
     dev: true
 
   /remark-footnotes/2.0.0:
@@ -5525,7 +5525,7 @@ packages:
       '@types/mdast': 3.0.10
       mdast-util-math: 2.0.1
       micromark-extension-math: 2.0.2
-      unified: 10.1.0
+      unified: 10.1.2
     dev: false
 
   /remark-mdx/1.6.22:
@@ -5575,7 +5575,7 @@ packages:
     dependencies:
       '@types/mdast': 3.0.10
       hast-util-whitespace: 2.0.0
-      unified: 10.1.0
+      unified: 10.1.2
       unist-util-visit: 4.1.0
     dev: false
 
@@ -6347,8 +6347,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /unified/10.1.0:
-    resolution: {integrity: sha512-4U3ru/BRXYYhKbwXV6lU6bufLikoAavTwev89H5UxY8enDFaAT2VXmIXYNm6hb5oHPng/EXr77PVyDFcptbk5g==}
+  /unified/10.1.2:
+    resolution: {integrity: sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==}
     dependencies:
       '@types/unist': 2.0.6
       bail: 2.0.2
