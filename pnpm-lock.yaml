@@ -35,7 +35,7 @@ specifiers:
   luxon: 2.1.1
   next: 12.1.0
   next-mdx-remote: 3.0.8
-  next-seo: 4.26.0
+  next-seo: 4.29.0
   npm-run-all: 4.1.5
   postcss: 8.4.3
   preact: 10.5.14
@@ -77,7 +77,7 @@ dependencies:
   luxon: 2.1.1
   next: 12.1.0_5e2815e526de854f91ec2f52a356f2c5
   next-mdx-remote: 3.0.8_react-dom@17.0.2+react@17.0.2
-  next-seo: 4.26.0_caa633a00319350dbda42996613fe26c
+  next-seo: 4.29.0_caa633a00319350dbda42996613fe26c
   postcss: 8.4.3
   preact: 10.5.14
   prism-react-renderer: 1.2.1_react@17.0.2
@@ -4694,8 +4694,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-seo/4.26.0_caa633a00319350dbda42996613fe26c:
-    resolution: {integrity: sha512-5TqywQ3XAwqdmEU1AyNZjR7WdDKFTkDD8aBtgQelPvzBUEy8i0mTjtiw+09jhiHFNik6FqS8uPKCaYcY6jRgSQ==}
+  /next-seo/4.29.0_caa633a00319350dbda42996613fe26c:
+    resolution: {integrity: sha512-xmwzcz4uHaYJ8glbuhs6FSBQ7z3irmdPYdJJ5saWm72Uy3o+mPKGaPCXQetTCE6/xxVnpoDV4yFtFlEjUcljSg==}
     peerDependencies:
       next: ^8.1.1-canary.54 || >=9.0.0
       react: '>=16.0.0'
