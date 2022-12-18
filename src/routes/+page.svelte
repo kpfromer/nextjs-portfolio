@@ -4,12 +4,15 @@
   import meImage from '$lib/assets/kyle-pfromer.jpg';
   import Page from '$lib/components/Page.svelte';
   import SocialLinks from '$lib/components/SocialLinks.svelte';
+  import Header from '$lib/components/Header.svelte';
+
+  export const prerender = true;
 </script>
 
 <SvelteSeo title="Home" description="Learn more about me." />
 
 <Page noContainer>
-  <div class="relative flex h-screen container">
+  <div class="relative flex h-screen page-container">
     <div class="absolute top-0 left-0 right-0 bottom-0 back" id="top">
       <img
         src={backgroundImage}
@@ -38,15 +41,15 @@
     </div>
 
     <div class="absolute bottom-0 left-0 right-0">
+      <Header bottomNav />
       <!-- <SvgWave />
 		<Header bottomNav /> -->
     </div>
   </div>
 </Page>
 
-<!-- </Page> -->
 <style>
-  .container {
+  .page-container {
     z-index: 1;
   }
   #top {
