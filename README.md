@@ -1,54 +1,38 @@
-# portfolio
+# create-svelte
 
-## Description
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-This the code for my [portfolio website](https://kylepfromer.com).
+## Creating a project
 
-## Installation
+If you're seeing this, you've probably already done this step. Congrats!
 
-`git clone https://github.com/kpfromer/portfolio.git`
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-`cd portfolio`
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-`pnpm install`
+## Developing
 
-`pnpm dev`
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Done!
+```bash
+npm run dev
 
-## Need to know
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-- uses [formspree](https://formspree.io/) for headless contact forms
+## Building
 
-## Includes
+To create a production version of your app:
 
-- [eslint](https://github.com/eslint/eslint)
-- [prettier](https://github.com/prettier/prettier), [husky](https://github.com/typicode/husky),
-  [lint-staged](https://github.com/okonet/lint-staged) for automatic formatting and linting
-- [tailwind css](https://tailwindcss.com/) for components, styling, and theming
-- [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) for sourcing mdx
+```bash
+npm run build
+```
 
-## Scripts
+You can preview the production build with `npm run preview`.
 
-- `npm run dev` runs next.js in development mode
-- `npm run build` builds next.js application
-- `npm start` starts the built next.js application
-- `npm run lint` runs `eslint`
-- `npm run format` runs `prettier`
-
-## Structure
-
-- `components` - components used for creating pages and stories for storybooks
-- `lib` - the files associated with sourcing and consuming data from locations (like MDX)
-- `hooks` - react hooks for SWR or other minor things next.js will try to create a page for them)
-- `content` - the data for creating pages, like a MDX blog posts
-- `utils` - misc one of files like theme or test helpers
-
-## Other Cool Web Tools
-
-- [favycon](https://favycon.app/) for generating favions
-
-# Details
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with
-[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
