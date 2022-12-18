@@ -40,7 +40,7 @@
     <div class="flex-grow" />
 
     <IconButton class="sm:hidden" aria-label="Toggle dark mode." on:click={() => darkMode.toggle()}>
-      {#if !$darkMode}
+      {#if $darkMode === 'dark'}
         <FaSun />
       {:else}
         <FaMoon />
