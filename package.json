@@ -31,7 +31,7 @@
     "next": "12.1.0",
     "next-mdx-remote": "3.0.8",
     "next-seo": "4.26.0",
-    "postcss": "8.4.3",
+    "postcss": "8.4.31",
     "preact": "10.5.14",
     "prism-react-renderer": "1.2.1",
     "react": "17.0.2",
