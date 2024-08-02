@@ -19,7 +19,7 @@
     "@octokit/graphql": "4.8.0",
     "@plaiceholder/base64": "1.0.0",
     "@tailwindcss/typography": "0.5.2",
-    "autoprefixer": "10.3.1",
+    "autoprefixer": "10.4.20",
     "clsx": "1.1.1",
     "docx": "7.3.0",
     "docx-react": "1.0.5",
