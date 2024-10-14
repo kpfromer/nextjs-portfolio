@@ -32,7 +32,7 @@
     "next-mdx-remote": "3.0.8",
     "next-seo": "4.26.0",
     "postcss": "8.4.3",
-    "preact": "10.5.14",
+    "preact": "10.24.3",
     "prism-react-renderer": "1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
